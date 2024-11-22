@@ -4,6 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<NpmDependencies>
+			<NpmPackage Name="@capgo/capacitor-social-login" Version="gt= 0.0.5 lt 0.1.0" ResolutionStrategy="Max" />
+		</NpmDependencies>
+	</PropertyGroup>
+
   <ItemGroup>
     <Compile Include="Main.fs" />
     <None Include="wsconfig.json" />
