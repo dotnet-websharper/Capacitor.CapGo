@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Product>WebSharper.Capacitor.Commnuity</Product>
-    <Title>https://github.com/dotnet-websharper/capacitor.community/</Title>
+    <Product>WebSharper.Capacitor.CapGo</Product>
+    <Title>https://github.com/dotnet-websharper/capacitor.capGo/</Title>
     <Company>IntelliFactory</Company>
     <Copyright>(c) 2023 IntelliFactory</Copyright>
   </PropertyGroup>
@@ -12,6 +12,22 @@
 	<PropertyGroup>
 		<NpmDependencies>
 			<NpmPackage Name="@capgo/capacitor-social-login" Version="gt= 0.0.5 lt 0.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-uploader" Version="gt= 0.0.5 lt 0.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-navigation-bar" Version="gt= 6.1.0 lt 6.2.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-data-storage-sqlite" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-screen-recorder" Version="gt= 8.1.0 lt 8.2.5" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/native-purchases" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-flash" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-updater" Version="gt= 6.7.0 lt 6.9.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/home-indicator" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/nativegeocoder" Version="gt= 6.1.0 lt 6.2.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-crisp" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-mute" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/native-audio" Version="gt= 6.4.0 lt 6.5.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-downloader" Version="gt= 0.0.0 lt 0.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-shake" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/ivs-player" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/native-market" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />			
 		</NpmDependencies>
 	</PropertyGroup>
 
