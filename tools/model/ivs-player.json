@@ -1,0 +1,802 @@
+{
+  "namespace": "IvsPlayer",
+  "family": "Core",
+  "package": "@capgo/capacitor-ivs-player",
+  "version": "8.0.47",
+  "export": "CapacitorIvsPlayer",
+  "types": [
+    {
+      "name": "CapacitorFrame",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "pip",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cover",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoPlay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "toBack",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetAutoQualityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "autoQuality",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetCastStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isActive",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetMuteResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mute",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPipResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pip",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetQualitiesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "qualities",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "GetStateResultState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStateResultState",
+      "kind": "enumStrings",
+      "cases": [
+        "IDLE",
+        "BUFFERING",
+        "READY",
+        "PLAYING",
+        "ENDED",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "name": "GetUrlResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnCuesEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cues",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnDurationEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnSeekCompletedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "position",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnVideoSizeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetAutoQualityOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "autoQuality",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetBackgroundStateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "backgroundState",
+          "type": {
+            "k": "ref",
+            "name": "SetBackgroundStateOptionsBackgroundState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetBackgroundStateOptionsBackgroundState",
+      "kind": "enumStrings",
+      "cases": [
+        "PLAYING",
+        "PAUSED"
+      ]
+    },
+    {
+      "name": "SetFrameOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetMuteOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "muted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetPipOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "pip",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetPlayerPositionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "toBack",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetQualityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "quality",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "create",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "start",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "cast",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getCastStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetCastStatusResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "pause",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "delete",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getUrl",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetUrlResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "getState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetStateResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "setPlayerPosition",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlayerPositionOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getPlayerPosition",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetPlayerPositionOptions"
+      },
+      "promise": true
+    },
+    {
+      "name": "setAutoQuality",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetAutoQualityOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getAutoQuality",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAutoQualityResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "setPip",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPipOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getPip",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPipResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "setFrame",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetFrameOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the frame of the player view, all number have to be positive and integers"
+    },
+    {
+      "name": "getFrame",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CapacitorFrame"
+      },
+      "promise": true
+    },
+    {
+      "name": "setBackgroundState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetBackgroundStateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getBackgroundState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetBackgroundStateOptions"
+      },
+      "promise": true
+    },
+    {
+      "name": "setMute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetMuteOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getMute",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetMuteResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "setQuality",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetQualityOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getQuality",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetQualityOptions"
+      },
+      "promise": true
+    },
+    {
+      "name": "getQualities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetQualitiesResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "startPip",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "stopPip",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "expandPip",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "closePip",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "onState",
+      "listener": {
+        "k": "ref",
+        "name": "GetStateResult"
+      }
+    },
+    {
+      "name": "onCues",
+      "listener": {
+        "k": "ref",
+        "name": "OnCuesEvent"
+      }
+    },
+    {
+      "name": "onDuration",
+      "listener": {
+        "k": "ref",
+        "name": "OnDurationEvent"
+      }
+    },
+    {
+      "name": "onError",
+      "listener": {
+        "k": "ref",
+        "name": "OnErrorEvent"
+      }
+    },
+    {
+      "name": "onRebuffering",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "onSeekCompleted",
+      "listener": {
+        "k": "ref",
+        "name": "OnSeekCompletedEvent"
+      }
+    },
+    {
+      "name": "onVideoSize",
+      "listener": {
+        "k": "ref",
+        "name": "OnVideoSizeEvent"
+      }
+    },
+    {
+      "name": "onQuality",
+      "listener": {
+        "k": "ref",
+        "name": "SetQualityOptions"
+      }
+    },
+    {
+      "name": "onCastStatus",
+      "listener": {
+        "k": "ref",
+        "name": "GetCastStatusResult"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": []
+}

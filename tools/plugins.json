@@ -1,0 +1,24 @@
+{
+  "families": {
+    "Core": "WebSharper.Capacitor.CapGo"
+  },
+  "plugins": [
+    { "namespace": "SocialLogin", "family": "Core", "package": "@capgo/capacitor-social-login", "overrides": "social-login" },
+    { "namespace": "Uploader", "family": "Core", "package": "@capgo/capacitor-uploader", "overrides": "uploader" },
+    { "namespace": "NavigationBar", "family": "Core", "package": "@capgo/capacitor-navigation-bar" },
+    { "namespace": "CapacitorDataStorageSqlite", "family": "Core", "package": "@capgo/capacitor-data-storage-sqlite" },
+    { "namespace": "ScreenRecorder", "family": "Core", "package": "@capgo/capacitor-screen-recorder" },
+    { "namespace": "NativePurchases", "family": "Core", "package": "@capgo/native-purchases" },
+    { "namespace": "CapacitorFlash", "family": "Core", "package": "@capgo/capacitor-flash" },
+    { "namespace": "CapacitorUpdater", "family": "Core", "package": "@capgo/capacitor-updater", "overrides": "capacitor-updater" },
+    { "namespace": "HomeIndicator", "family": "Core", "package": "@capgo/capacitor-home-indicator" },
+    { "namespace": "NativeGeocoder", "family": "Core", "package": "@capgo/capacitor-nativegeocoder" },
+    { "namespace": "CapacitorCrisp", "family": "Core", "package": "@capgo/capacitor-crisp" },
+    { "namespace": "CapacitorMute", "family": "Core", "package": "@capgo/capacitor-mute" },
+    { "namespace": "NativeAudio", "family": "Core", "package": "@capgo/capacitor-native-audio" },
+    { "namespace": "CapacitorDownloader", "family": "Core", "package": "@capgo/capacitor-downloader" },
+    { "namespace": "CapacitorShake", "family": "Core", "package": "@capgo/capacitor-shake" },
+    { "namespace": "IvsPlayer", "family": "Core", "package": "@capgo/capacitor-ivs-player" },
+    { "namespace": "NativeMarket", "family": "Core", "package": "@capgo/capacitor-native-market" }
+  ]
+}

@@ -1,0 +1,1521 @@
+{
+  "namespace": "NativePurchases",
+  "family": "Core",
+  "package": "@capgo/native-purchases",
+  "version": "8.9.16",
+  "export": "NativePurchases",
+  "types": [
+    {
+      "name": "AcknowledgePurchaseOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "purchaseToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppTransaction",
+      "kind": "config",
+      "required": [
+        {
+          "name": "originalAppVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "originalPurchaseDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bundleId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "environment",
+          "type": {
+            "k": "ref",
+            "name": "AppTransactionEnvironment"
+          }
+        },
+        {
+          "name": "jwsRepresentation",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AppTransactionEnvironment",
+      "kind": "enumStrings",
+      "cases": [
+        "Sandbox",
+        "Production",
+        "Xcode"
+      ]
+    },
+    {
+      "name": "ConfigureOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "autoFinishTransactions",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FinishTransactionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "transactionId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "allowUnverified",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetAppTransactionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appTransaction",
+          "type": {
+            "k": "ref",
+            "name": "AppTransaction"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetProductOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "productIdentifier",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "productType",
+          "type": {
+            "k": "ref",
+            "name": "PURCHASE_TYPE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetProductResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "product",
+          "type": {
+            "k": "ref",
+            "name": "Product"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetProductsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "productIdentifiers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "productType",
+          "type": {
+            "k": "ref",
+            "name": "PURCHASE_TYPE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetProductsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "products",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Product"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPurchasesOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "productType",
+          "type": {
+            "k": "ref",
+            "name": "PURCHASE_TYPE"
+          }
+        },
+        {
+          "name": "appAccountToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "onlyCurrentEntitlements",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPurchasesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "purchases",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Transaction"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStorefrontResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "countryCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "storefrontId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetUnfinishedTransactionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "includeUnverified",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetUnfinishedTransactionsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "transactions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Transaction"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "INTRO_ELIGIBILITY_STATUS",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "INTRO_ELIGIBILITY_STATUS_UNKNOWN",
+          "value": 0
+        },
+        {
+          "name": "INTRO_ELIGIBILITY_STATUS_INELIGIBLE",
+          "value": 1
+        },
+        {
+          "name": "INTRO_ELIGIBILITY_STATUS_ELIGIBLE",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "IsBillingSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isBillingSupported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsEntitledToOldBusinessModelOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "targetVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "targetBuildNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsEntitledToOldBusinessModelResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isOlderVersion",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "originalAppVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OneTimePurchaseOfferDiscount",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "percentageDiscount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "discountAmountMicros",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "kind": "config",
+      "required": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "price",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "priceString",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currencyCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currencySymbol",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isFamilyShareable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "subscriptionGroupIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "introductoryPrice",
+          "type": {
+            "k": "ref",
+            "name": "SKProductDiscount"
+          }
+        },
+        {
+          "name": "discounts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SKProductDiscount"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "planIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "offerToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "offerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "purchaseOptionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullPrice",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "discountDisplayInfo",
+          "type": {
+            "k": "ref",
+            "name": "OneTimePurchaseOfferDiscount"
+          }
+        },
+        {
+          "name": "pricingTerms",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SubscriptionPricingTerms"
+            }
+          }
+        },
+        {
+          "name": "subscriptionPeriod",
+          "type": {
+            "k": "ref",
+            "name": "SubscriptionPeriod"
+          }
+        },
+        {
+          "name": "subscriptionBillingCycles",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "introEligibility",
+          "type": {
+            "k": "ref",
+            "name": "INTRO_ELIGIBILITY_STATUS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProductCommitmentInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "price",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "priceString",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "period",
+          "type": {
+            "k": "ref",
+            "name": "SubscriptionPeriod"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PURCHASE_TYPE",
+      "kind": "enumStrings",
+      "cases": [
+        "inapp",
+        "subs"
+      ]
+    },
+    {
+      "name": "PurchaseProductOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "productIdentifier",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "planIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "offerToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "productType",
+          "type": {
+            "k": "ref",
+            "name": "PURCHASE_TYPE"
+          }
+        },
+        {
+          "name": "quantity",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "billingPlanType",
+          "type": {
+            "k": "ref",
+            "name": "PurchaseProductOptionsBillingPlanType"
+          }
+        },
+        {
+          "name": "appAccountToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isConsumable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoAcknowledgePurchases",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PurchaseProductOptionsBillingPlanType",
+      "kind": "enumStrings",
+      "cases": [
+        "monthly",
+        "upFront"
+      ]
+    },
+    {
+      "name": "RenewalCommitmentInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "autoRenewProductId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "willAutoRenew",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "renewalBillingPlanType",
+          "type": {
+            "k": "ref",
+            "name": "TransactionBillingPlanType"
+          }
+        },
+        {
+          "name": "renewalDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "renewalPrice",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SKProductDiscount",
+      "kind": "config",
+      "required": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "price",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "priceString",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currencySymbol",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currencyCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "paymentMode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "numberOfPeriods",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "subscriptionPeriod",
+          "type": {
+            "k": "ref",
+            "name": "SubscriptionPeriod"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StoreKitSubscriptionOffer",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "price",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "priceString",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "period",
+          "type": {
+            "k": "ref",
+            "name": "SubscriptionPeriod"
+          }
+        },
+        {
+          "name": "periodCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "paymentMode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SubscriptionPeriod",
+      "kind": "config",
+      "required": [
+        {
+          "name": "numberOfUnits",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "unit",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "unitString",
+          "type": {
+            "k": "ref",
+            "name": "SubscriptionPeriodUnitString"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SubscriptionPeriodUnitString",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "day",
+        "week",
+        "month",
+        "year"
+      ]
+    },
+    {
+      "name": "SubscriptionPricingTerms",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "billingPlanType",
+          "type": {
+            "k": "ref",
+            "name": "TransactionBillingPlanType"
+          }
+        },
+        {
+          "name": "commitmentInfo",
+          "type": {
+            "k": "ref",
+            "name": "ProductCommitmentInfo"
+          }
+        },
+        {
+          "name": "billingDisplayPrice",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "billingPrice",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "billingPeriod",
+          "type": {
+            "k": "ref",
+            "name": "SubscriptionPeriod"
+          }
+        },
+        {
+          "name": "subscriptionOffers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "StoreKitSubscriptionOffer"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SubscriptionRenewalInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "willAutoRenew",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoRenewProductId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "renewalBillingPlanType",
+          "type": {
+            "k": "ref",
+            "name": "TransactionBillingPlanType"
+          }
+        },
+        {
+          "name": "renewalDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "renewalPrice",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currencyCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "commitmentInfo",
+          "type": {
+            "k": "ref",
+            "name": "RenewalCommitmentInfo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transaction",
+      "kind": "config",
+      "required": [
+        {
+          "name": "transactionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "productIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "purchaseDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "willCancel",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "receipt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "jwsRepresentation",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appAccountToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isUpgraded",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "originalPurchaseDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "expirationDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isActive",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "revocationDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "revocationReason",
+          "type": {
+            "k": "ref",
+            "name": "TransactionRevocationReason"
+          }
+        },
+        {
+          "name": "subscriptionState",
+          "type": {
+            "k": "ref",
+            "name": "TransactionSubscriptionState"
+          }
+        },
+        {
+          "name": "billingPlanType",
+          "type": {
+            "k": "ref",
+            "name": "TransactionBillingPlanType"
+          }
+        },
+        {
+          "name": "commitmentInfo",
+          "type": {
+            "k": "ref",
+            "name": "TransactionCommitmentInfo"
+          }
+        },
+        {
+          "name": "renewalInfo",
+          "type": {
+            "k": "ref",
+            "name": "SubscriptionRenewalInfo"
+          }
+        },
+        {
+          "name": "currencyCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "purchaseState",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "orderId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "purchaseToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isAcknowledged",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "quantity",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "productType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ownershipType",
+          "type": {
+            "k": "ref",
+            "name": "TransactionOwnershipType"
+          }
+        },
+        {
+          "name": "environment",
+          "type": {
+            "k": "ref",
+            "name": "AppTransactionEnvironment"
+          }
+        },
+        {
+          "name": "transactionReason",
+          "type": {
+            "k": "ref",
+            "name": "TransactionTransactionReason"
+          }
+        },
+        {
+          "name": "isTrialPeriod",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isInIntroPricePeriod",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isInGracePeriod",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "needsFinish",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "verificationError",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TransactionBillingPlanType",
+      "kind": "enumStrings",
+      "cases": [
+        "monthly",
+        "upFront",
+        "unknown"
+      ]
+    },
+    {
+      "name": "TransactionCommitmentInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "billingPeriodNumber",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalBillingPeriods",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "expirationDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "price",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TransactionOwnershipType",
+      "kind": "enumStrings",
+      "cases": [
+        "purchased",
+        "familyShared"
+      ]
+    },
+    {
+      "name": "TransactionRevocationReason",
+      "kind": "enumStrings",
+      "cases": [
+        "developerIssue",
+        "other",
+        "unknown"
+      ]
+    },
+    {
+      "name": "TransactionSubscriptionState",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "subscribed",
+        "expired",
+        "revoked",
+        "inGracePeriod",
+        "inBillingRetryPeriod"
+      ]
+    },
+    {
+      "name": "TransactionTransactionReason",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "purchase",
+        "renewal"
+      ]
+    },
+    {
+      "name": "TransactionVerificationFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "transactionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConfigureOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure plugin-wide purchase finishing behavior.\n\nCall this as early as possible (ideally before other NativePurchases APIs). You can also set\n`autoFinishTransactions` in `capacitor.config` under `plugins.NativePurchases` so iOS applies\nthe value before the native `transactionUpdated` listener starts.\n\n**`autoFinishTransactions` (default `true`)**\n\n- **iOS (StoreKit 2)**: When `true`, the plugin finishes transactions automatically for\n  `transactionUpdated`, `restorePurchases`, and `purchaseProduct` (when\n  `autoAcknowledgePurchases` is also true). When `false`, transactions stay unfinished until you call\n  `finishTransaction()` (or `acknowledgePurchase()` with the transaction ID).\n- **Android**: When `true`, `restorePurchases()` may auto-acknowledge unacknowledged purchases\n  (recovery flow). When `false`, recovery does not acknowledge; use `acknowledgePurchase()`.\n  `purchaseProduct()` auto-acknowledges only when both `autoFinishTransactions` and\n  `autoAcknowledgePurchases` are true.\n\n**`autoAcknowledgePurchases`** applies only to the `purchaseProduct()` call and does not change\nhow the iOS `transactionUpdated` listener finishes transactions. Use this method (or config) for that."
+    },
+    {
+      "name": "restorePurchases",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Restores a user's previous  and links their appUserIDs to any user's also using those ."
+    },
+    {
+      "name": "getAppTransaction",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAppTransactionResult"
+      },
+      "promise": true,
+      "comment": "Gets the App Transaction information, which provides details about when the user\noriginally downloaded or purchased the app.\n\nThis is useful for implementing business model changes where you want to\ngrandfather users who originally downloaded an earlier version of the app.\n\n**Use Case Example:**\nIf your app was originally free but you're adding a subscription, you can use\n`originalAppVersion` to check if users downloaded before the subscription was added\nand give them free access.\n\n**Platform Notes:**\n- **iOS**: Requires iOS 16.0+. Uses StoreKit 2's `AppTransaction.shared`.\n- **Android**: Uses Google Play's install referrer data when available."
+    },
+    {
+      "name": "isEntitledToOldBusinessModel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsEntitledToOldBusinessModelOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsEntitledToOldBusinessModelResult"
+      },
+      "promise": true,
+      "comment": "Compares the original app version from the App Transaction against a target version\nto determine if the user is entitled to features from an earlier business model.\n\nThis is a utility method that performs the version comparison natively, which can be\nmore reliable than JavaScript-based comparison for semantic versioning.\n\n**Use Case:**\nCheck if the user's original download version is older than a specific version\nto determine if they should be grandfathered into free features.\n\n**Platform Differences:**\n- iOS: Uses build number (CFBundleVersion) from AppTransaction. Requires iOS 16+.\n- Android: Uses version name from PackageInfo (current installed version, not original)."
+    },
+    {
+      "name": "purchaseProduct",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PurchaseProductOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "Transaction"
+      },
+      "promise": true,
+      "comment": "Started purchase process for the given product.\n\nOn Android, `offerToken` selects which offer is charged. If the token is\nmissing from the product details returned by the plugin's query, the plugin\nrejects the purchase instead of selecting another offer. Other failures can\nalso reject the purchase. Google Play may still show a different checkout,\nfor example if the offer stops being eligible after the query, so the final\nprice is not guaranteed.\nOffer tokens come from a specific product query and go stale, so read\none from the same `getProducts()` / `getProduct()` call you purchase\nfrom.\n\nFor a **subscription** (`productType: 'subs'`) the order is: an explicit\n`offerToken`, then the first offer whose base plan matches\n`planIdentifier`, then the first offer the store returned.\n`planIdentifier` is the **base plan id**, which `getProducts()` reports\nas `Product.identifier`, not `Product.planIdentifier`, which holds the\nPlay product id. It is required unless an `offerToken` is given, since\na token already identifies one offer on its own.\n\nFor a **one-time product** (`productType: 'inapp'`) there is no base\nplan, so `planIdentifier` plays no part, and an `offerToken` selects one\nof the product's purchase offers. Without a token no offer token is set\nat all whenever the product still has a backward-compatible purchase\noption, which leaves the choice to Play: it charges whichever buy\npurchase option is marked backward-compatible, which is the first\n*created* one by default and another only if one was marked\n`legacyCompatible`. Either way it need not be the first offer\n`getProducts()` returned. Only for a product with no backward-compatible\noption does the first offer in the list get used. So pass the token\nwhenever a specific one-time offer matters."
+    },
+    {
+      "name": "getProducts",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetProductsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetProductsResult"
+      },
+      "promise": true,
+      "comment": "Gets the product info associated with a list of product identifiers."
+    },
+    {
+      "name": "getProduct",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetProductOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetProductResult"
+      },
+      "promise": true,
+      "comment": "Gets the product info for a single product identifier.\n\n**⚠️ Warning:** Do not call `getProduct` concurrently using `Promise.all`.\nThe underlying native billing client does not support concurrent product\nqueries, and doing so causes a race condition that may result in errors\nor missing data. To fetch multiple products at once, use `getProducts`\ninstead — it accepts an array of identifiers and is race-condition-free."
+    },
+    {
+      "name": "isBillingSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsBillingSupportedResult"
+      },
+      "promise": true,
+      "comment": "Check if billing is supported for the current device."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    },
+    {
+      "name": "getPurchases",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetPurchasesOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetPurchasesResult"
+      },
+      "promise": true,
+      "comment": "Gets all the user's purchases (both in-app purchases and subscriptions).\nThis method queries the platform's purchase history for the current user."
+    },
+    {
+      "name": "manageSubscriptions",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens the platform's native subscription management page.\nThis allows users to view, modify, or cancel their subscriptions.\n\n- iOS: Opens the App Store subscription management page for the current app\n- Android: Opens the Google Play subscription management page"
+    },
+    {
+      "name": "presentOfferCodeRedeemSheet",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Presents the App Store offer code redemption sheet so users can redeem a subscription offer code in your app.\n\niOS: Uses StoreKit's `AppStore.presentOfferCodeRedeemSheet(in:)` to display the system redemption UI (iOS 16.0+)."
+    },
+    {
+      "name": "acknowledgePurchase",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcknowledgePurchaseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Manually acknowledge/finish a purchase transaction.\n\nCall this when automatic finishing or acknowledgment is disabled, for example\n`purchaseProduct({ autoAcknowledgePurchases: false })`, `configure({ autoFinishTransactions: false })`\n(Android recovery or iOS updates), or when a returned transaction has `needsFinish: true`.\n\n**Platform Behavior:**\n- **Android**: Acknowledges the purchase with Google Play. Must be called within 3 days or the purchase will be refunded.\n- **iOS**: Finishes the transaction with StoreKit 2. Unfinished transactions remain in the queue and may block future purchases.\n\n**Acknowledgment Options:**\n\n**1. Client-side (this method)**: Call from your app after validation\n```typescript\nawait NativePurchases.acknowledgePurchase({\n  purchaseToken: transaction.purchaseToken  // Android: purchaseToken, iOS: transactionId\n});\n```\n\n**2. Server-side (Android only, recommended for security)**: Use Google Play Developer API v3\n- Endpoint: `POST https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/products/{productId}/tokens/{token}:acknowledge`\n- Requires OAuth 2.0 authentication with appropriate scopes\n- See: https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge\n- For subscriptions: Use `/purchases/subscriptions/{subscriptionId}/tokens/{token}:acknowledge` instead\n- Note: iOS has no server-side finish API\n\n**When to use manual acknowledgment:**\n- Server-side validation: Verify the purchase with your backend before acknowledging\n- Entitlement delivery: Ensure user receives content/features before acknowledging\n- Multi-step workflows: Complete all steps before final acknowledgment\n- Security: Prevent client-side manipulation by handling acknowledgment server-side (Android only)"
+    },
+    {
+      "name": "finishTransaction",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "FinishTransactionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Finish a StoreKit 2 transaction on iOS after you validate delivery on your backend.\n\nEquivalent to `acknowledgePurchase({ purchaseToken: transactionId })` on iOS. Safe to call more\nthan once; finishing an already finished transaction resolves successfully.\n\nA transaction StoreKit could not verify is rejected unless `allowUnverified` is `true`. Finishing\none only removes it from the queue so StoreKit stops re-delivering it; never grant entitlements from it.\n\n**Android**: Acknowledges the purchase, using `transactionId` as the purchase token. Use\n`consumePurchase({ purchaseToken })` instead for consumables that must be purchasable again.\n`allowUnverified` has no effect because Play Billing has no client-side unverified state."
+    },
+    {
+      "name": "getUnfinishedTransactions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetUnfinishedTransactionsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetUnfinishedTransactionsResult"
+      },
+      "promise": true,
+      "comment": "Returns transactions that still need finishing on iOS, or unacknowledged purchases on Android.\n\nUse on app launch when `autoFinishTransactions` is `false` to recover work after a restart.\n\n**Android recovery:** After validation, call `consumePurchase({ purchaseToken })` for consumable\nin-app products (acknowledges and consumes). Call `acknowledgePurchase({ purchaseToken })` for\nnon-consumables and subscriptions. Includes only purchases in the `PURCHASED` state that are not\nyet acknowledged. Pending purchases are excluded until Google Play marks them purchased.\n\n**Unverified transactions:** With `includeUnverified: true`, iOS also returns transactions StoreKit\ncould not verify, each with `verificationError` set. Do not grant entitlements from those; pass them\nto `finishTransaction({ transactionId, allowUnverified: true })` to clear them. Android has no\nclient-side unverified state, so the option does not change its results."
+    },
+    {
+      "name": "consumePurchase",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcknowledgePurchaseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Consume an in-app purchase on Android.\n\nConsuming a purchase does two things:\n1. Acknowledges the purchase (so you don't need to call acknowledgePurchase separately)\n2. Removes ownership, allowing the user to buy the same product again\n\nUse this for consumable products like virtual currency, extra lives, or credits.\n\n**Important:** In Google Play Billing Library 8.x, consumed purchases can no longer\nbe queried via getPurchases(). Once consumed, the purchase is gone.\n\nAndroid only — iOS does not have a separate consume concept.\nOn iOS and web, this method rejects with an error."
+    },
+    {
+      "name": "getStorefront",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetStorefrontResult"
+      },
+      "promise": true,
+      "comment": "Get the user's current App Store / Google Play storefront — the country\ntheir store account is registered to.\n\niOS: reads StoreKit 2 `Storefront.current`. `countryCode` is ISO 3166-1\n**alpha-3** (e.g. `\"USA\"`) and `storefrontId` is the Apple-defined\nstorefront identifier.\nAndroid: reads Google Play Billing `getBillingConfigAsync()`. `countryCode`\nis ISO 3166-1 **alpha-2** (e.g. `\"US\"`); `storefrontId` is omitted (Google\nPlay has no storefront-id concept).\n\nContract note (future-major default candidate): `countryCode` is returned in\neach store's native format and is intentionally NOT normalized across\nplatforms today (iOS alpha-3 vs Android alpha-2), to stay faithful to the\nplatform APIs. Normalizing both to a single scheme (e.g. ISO 3166-1 alpha-2)\nis a candidate default change for the next Capacitor major, deferred so it\ncan be adopted deliberately rather than as a mid-major breaking change.\n\nResolves a `countryCode` of `\"\"` (it does not reject) when the storefront\ncan't be determined on either platform — e.g. apps distributed via iOS\nalternative distribution, or Google Play billing being unavailable.\n\nUseful for region-dependent logic such as localized offers/pricing and\ngating external-purchase entitlements, whose eligibility the platforms key\nto the storefront country. Read it live rather than caching, since the user\ncan change their store region."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners"
+    }
+  ],
+  "events": [
+    {
+      "name": "transactionUpdated",
+      "listener": {
+        "k": "ref",
+        "name": "Transaction"
+      }
+    },
+    {
+      "name": "transactionVerificationFailed",
+      "listener": {
+        "k": "ref",
+        "name": "TransactionVerificationFailedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": []
+}

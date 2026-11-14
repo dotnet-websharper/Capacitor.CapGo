@@ -1,0 +1,3065 @@
+{
+  "namespace": "SocialLogin",
+  "family": "Core",
+  "package": "@capgo/capacitor-social-login",
+  "version": "8.7.11",
+  "export": "SocialLogin",
+  "types": [
+    {
+      "name": "AccessToken",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "applicationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "declinedPermissions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "expires",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isExpired",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "lastRefresh",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "permissions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "tokenType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AppleLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AppleProviderOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppleProviderOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "nonce",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "useBroadcastChannel",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AppleProviderResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "ref",
+            "name": "AccessToken"
+          }
+        },
+        {
+          "name": "idToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "profile",
+          "type": {
+            "k": "ref",
+            "name": "AppleProviderResponseProfile"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "authorizationCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AppleProviderResponseProfile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "user",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "givenName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "familyName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AuthorizationCode",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "jwt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AuthorizationCodeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationCodeOptionsProvider"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AuthorizationCodeOptionsProvider",
+      "kind": "enumStrings",
+      "cases": [
+        "apple",
+        "google",
+        "facebook",
+        "twitter",
+        "linkedin",
+        "tiktok",
+        "oauth2"
+      ]
+    },
+    {
+      "name": "DecodeIdTokenOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "idToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DecodeIdTokenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "claims",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FacebookLoginOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "permissions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "limitedLogin",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "nonce",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FacebookLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FacebookLoginResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "ref",
+            "name": "AccessToken"
+          }
+        },
+        {
+          "name": "idToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "profile",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginResponseProfile"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isLimitedLogin",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FacebookLoginResponseProfile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userID",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "friendIDs",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "birthday",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ageRange",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginResponseProfileAgeRange"
+          }
+        },
+        {
+          "name": "gender",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginResponseProfileLocation"
+          }
+        },
+        {
+          "name": "hometown",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginResponseProfileLocation"
+          }
+        },
+        {
+          "name": "profileURL",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "imageURL",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FacebookLoginResponseProfileAgeRange",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "min",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "max",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FacebookLoginResponseProfileLocation",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAccessTokenExpirationDateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessTokenExpirationDate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAccessTokenExpirationDateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "date",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GoogleLoginOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "nonce",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "forceRefreshToken",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "forcePrompt",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "GoogleLoginOptionsStyle"
+          }
+        },
+        {
+          "name": "filterByAuthorizedAccounts",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoSelectEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "k": "ref",
+            "name": "GoogleLoginOptionsPrompt"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GoogleLoginOptionsPrompt",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "consent",
+        "select_account",
+        "consent select_account",
+        "select_account consent"
+      ]
+    },
+    {
+      "name": "GoogleLoginOptionsStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "bottom",
+        "standard"
+      ]
+    },
+    {
+      "name": "GoogleLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoogleLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GoogleLoginResponseOffline",
+      "kind": "config",
+      "required": [
+        {
+          "name": "serverAuthCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "responseType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GoogleLoginResponseOnline",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "ref",
+            "name": "AccessToken"
+          }
+        },
+        {
+          "name": "idToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "profile",
+          "type": {
+            "k": "ref",
+            "name": "GoogleLoginResponseOnlineProfile"
+          }
+        },
+        {
+          "name": "responseType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GoogleLoginResponseOnlineProfile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "familyName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "givenName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "imageUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandleRedirectCallbackResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginResponse"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandleRedirectCallbackResult2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "result",
+          "type": {
+            "k": "union",
+            "of": [
+              "GoogleLoginResponseOnline",
+              "GoogleLoginResponseOffline"
+            ]
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandleRedirectCallbackResult3",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "AppleProviderResponse"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandleRedirectCallbackResult4",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "TwitterLoginResponse"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandleRedirectCallbackResult5",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "TelegramLoginResponse"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandleRedirectCallbackResult6",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "OAuth2LoginResponse"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitializeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "oauth2",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "ref",
+              "name": "OAuth2ProviderConfig"
+            }
+          }
+        },
+        {
+          "name": "telegram",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsTelegram"
+          }
+        },
+        {
+          "name": "linkedin",
+          "type": {
+            "k": "ref",
+            "name": "LinkedInProviderConfig"
+          }
+        },
+        {
+          "name": "tiktok",
+          "type": {
+            "k": "ref",
+            "name": "TikTokProviderConfig"
+          }
+        },
+        {
+          "name": "twitter",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsTwitter"
+          }
+        },
+        {
+          "name": "facebook",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsFacebook"
+          }
+        },
+        {
+          "name": "google",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsGoogle"
+          }
+        },
+        {
+          "name": "apple",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsApple"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitializeOptionsApple",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "clientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "useProperTokenExchange",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "useBroadcastChannel",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitializeOptionsFacebook",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "clientToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "locale",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitializeOptionsGoogle",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "iOSClientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iOSServerClientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "webClientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsGoogleMode"
+          }
+        },
+        {
+          "name": "hostedDomain",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "skipAuthOnlyAuthorizationAfterSignIn",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitializeOptionsGoogleMode",
+      "kind": "enumStrings",
+      "cases": [
+        "online",
+        "offline"
+      ]
+    },
+    {
+      "name": "InitializeOptionsTelegram",
+      "kind": "config",
+      "required": [
+        {
+          "name": "botId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "origin",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "requestAccess",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsTelegramRequestAccess"
+          }
+        },
+        {
+          "name": "languageCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitializeOptionsTelegramRequestAccess",
+      "kind": "enumStrings",
+      "cases": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "name": "InitializeOptionsTwitter",
+      "kind": "config",
+      "required": [
+        {
+          "name": "clientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "defaultScopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "forceLogin",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "audience",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsAccessTokenAvailableOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAccessTokenAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAccessTokenExpiredResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isExpired",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "isLoggedInOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "ref",
+            "name": "LogoutOptionsProvider"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsLoggedInResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isLoggedIn",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsRefreshTokenAvailableOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LinkedinLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LinkedInProviderConfig"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LinkedInProviderConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "clientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "clientSecret",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "issuerUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authorizationBaseUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authorizationEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientIdParamName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientSecretParamName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessTokenEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tokenEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "resourceUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "responseType",
+          "type": {
+            "k": "ref",
+            "name": "OAuth2ProviderConfigResponseType"
+          }
+        },
+        {
+          "name": "pkceEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "scope",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "string"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "loginHint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalTokenParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "additionalResourceHeaders",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "logoutUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endSessionEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postLogoutRedirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalLogoutParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "iosPrefersEphemeralWebBrowserSession",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "iosPrefersEphemeralSession",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "androidUseCustomTabs",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "logsEnabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LogoutOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "ref",
+            "name": "LogoutOptionsProvider"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clearCachedUserInfo",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LogoutOptionsProvider",
+      "kind": "enumStrings",
+      "cases": [
+        "apple",
+        "google",
+        "facebook",
+        "twitter",
+        "telegram",
+        "linkedin",
+        "tiktok",
+        "oauth2"
+      ]
+    },
+    {
+      "name": "OAuth2LoginOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "scope",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "string"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "codeVerifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "loginHint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "flow",
+          "type": {
+            "k": "ref",
+            "name": "RefreshOptionsOptionsFlow"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Oauth2LoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OAuth2LoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OAuth2LoginResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "ref",
+            "name": "AccessToken"
+          }
+        },
+        {
+          "name": "idToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "resourceData",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "scope",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "tokenType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "expiresIn",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OAuth2ProviderConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "issuerUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authorizationBaseUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authorizationEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientSecret",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientIdParamName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientSecretParamName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessTokenEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tokenEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "resourceUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "responseType",
+          "type": {
+            "k": "ref",
+            "name": "OAuth2ProviderConfigResponseType"
+          }
+        },
+        {
+          "name": "pkceEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "scope",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "string"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "loginHint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalTokenParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "additionalResourceHeaders",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "logoutUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endSessionEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postLogoutRedirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalLogoutParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "iosPrefersEphemeralWebBrowserSession",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "iosPrefersEphemeralSession",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "androidUseCustomTabs",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "logsEnabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OAuth2ProviderConfigResponseType",
+      "kind": "enumStrings",
+      "cases": [
+        "code",
+        "token"
+      ]
+    },
+    {
+      "name": "OpenAuthSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "callbackURLScheme",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "prefersEphemeralSession",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "broadcastChannelName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenAuthSessionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callbackURL",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenSecureWindowOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "authEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "broadcastChannelName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenSecureWindowResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "redirectedUri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoogleLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions3",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AppleProviderOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions4",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TwitterLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions5",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TelegramLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions6",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RefreshOptionsOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions7",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TikTokLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptions8",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OAuth2LoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshOptionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scope",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "string"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "codeVerifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "loginHint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "flow",
+          "type": {
+            "k": "ref",
+            "name": "RefreshOptionsOptionsFlow"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RefreshOptionsOptionsFlow",
+      "kind": "enumStrings",
+      "cases": [
+        "popup",
+        "redirect"
+      ]
+    },
+    {
+      "name": "RefreshTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "RefreshTokenOptions2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "TelegramLoginOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "requestAccess",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsTelegramRequestAccess"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TelegramLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TelegramLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TelegramLoginResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profile",
+          "type": {
+            "k": "ref",
+            "name": "TelegramProfile"
+          }
+        },
+        {
+          "name": "authDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "hash",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "requestAccess",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsTelegramRequestAccess"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TelegramProfile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "firstName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "lastName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "photoUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TikTokLoginOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "scope",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "string"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "codeVerifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TiktokLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TikTokProviderConfig"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TikTokProviderConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "clientKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "clientSecret",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "scope",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "string"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "pkceEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "logsEnabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TwitterLoginOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "codeVerifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "forceLogin",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TwitterLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TwitterLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TwitterLoginResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "ref",
+            "name": "AccessToken"
+          }
+        },
+        {
+          "name": "scope",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "tokenType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "profile",
+          "type": {
+            "k": "ref",
+            "name": "TwitterProfile"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "expiresIn",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TwitterProfile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "profileImageUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "verified",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "logout",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LogoutOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "isLoggedIn",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "isLoggedInOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsLoggedInResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "getAuthorizationCode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationCodeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AuthorizationCode"
+      },
+      "promise": true
+    },
+    {
+      "name": "refresh",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "RefreshOptions"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshOptions2"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshOptions3"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshOptions4"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshOptions5"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshOptions6"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshOptions7"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshOptions8"
+              }
+            ]
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "refreshToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "RefreshTokenOptions"
+              },
+              {
+                "k": "ref",
+                "name": "RefreshTokenOptions2"
+              }
+            ]
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OAuth2LoginResponse"
+      },
+      "promise": true
+    },
+    {
+      "name": "handleRedirectCallback",
+      "params": [],
+      "returns": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "HandleRedirectCallbackResult"
+          },
+          {
+            "k": "ref",
+            "name": "HandleRedirectCallbackResult2"
+          },
+          {
+            "k": "ref",
+            "name": "HandleRedirectCallbackResult3"
+          },
+          {
+            "k": "ref",
+            "name": "HandleRedirectCallbackResult4"
+          },
+          {
+            "k": "ref",
+            "name": "HandleRedirectCallbackResult5"
+          },
+          {
+            "k": "ref",
+            "name": "HandleRedirectCallbackResult6"
+          }
+        ]
+      },
+      "promise": true
+    },
+    {
+      "name": "decodeIdToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DecodeIdTokenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DecodeIdTokenResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "getAccessTokenExpirationDate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAccessTokenExpirationDateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetAccessTokenExpirationDateResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "isAccessTokenAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsAccessTokenAvailableOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsAccessTokenAvailableResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "isAccessTokenExpired",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAccessTokenExpirationDateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsAccessTokenExpiredResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "isRefreshTokenAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsRefreshTokenAvailableOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsAccessTokenAvailableResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "openSecureWindow",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenSecureWindowOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OpenSecureWindowResponse"
+      },
+      "promise": true
+    },
+    {
+      "name": "openAuthSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenAuthSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OpenAuthSessionResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "login",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "FacebookLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "GoogleLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "AppleLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "TwitterLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "TelegramLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "LinkedinLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "TiktokLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "Oauth2LoginRequest"
+              }
+            ]
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "FacebookLoginResponse"
+          },
+          {
+            "k": "ref",
+            "name": "GoogleLoginResponseOnline"
+          },
+          {
+            "k": "ref",
+            "name": "AppleProviderResponse"
+          },
+          {
+            "k": "ref",
+            "name": "TwitterLoginResponse"
+          },
+          {
+            "k": "ref",
+            "name": "TelegramLoginResponse"
+          },
+          {
+            "k": "ref",
+            "name": "OAuth2LoginResponse"
+          }
+        ]
+      },
+      "promise": true,
+      "comment": "Login with the selected provider. Each provider has its own options and response type."
+    }
+  ],
+  "events": [],
+  "unsupported": [
+    {
+      "method": "providerSpecificCall",
+      "reason": "generic method cannot be flattened"
+    }
+  ],
+  "coreRefs": []
+}

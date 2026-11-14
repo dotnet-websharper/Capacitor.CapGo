@@ -1,0 +1,2812 @@
+{
+  "namespace": "CapacitorUpdater",
+  "family": "Core",
+  "package": "@capgo/capacitor-updater",
+  "version": "8.54.2",
+  "export": "CapacitorUpdater",
+  "types": [
+    {
+      "name": "AppReadyEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppReadyResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppUpdateAvailability",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "UNKNOWN",
+          "value": 0
+        },
+        {
+          "name": "UPDATE_NOT_AVAILABLE",
+          "value": 1
+        },
+        {
+          "name": "UPDATE_AVAILABLE",
+          "value": 2
+        },
+        {
+          "name": "UPDATE_IN_PROGRESS",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "AppUpdateInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "currentVersionName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currentVersionCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updateAvailability",
+          "type": {
+            "k": "ref",
+            "name": "AppUpdateAvailability"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "availableVersionName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "availableVersionCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "availableVersionReleaseDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updatePriority",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "immediateUpdateAllowed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "flexibleUpdateAllowed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "clientVersionStalenessDays",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "installStatus",
+          "type": {
+            "k": "ref",
+            "name": "FlexibleUpdateInstallStatus"
+          }
+        },
+        {
+          "name": "minimumOsVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AppUpdateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "code",
+          "type": {
+            "k": "ref",
+            "name": "AppUpdateResultCode"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppUpdateResultCode",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "OK",
+          "value": 0
+        },
+        {
+          "name": "CANCELED",
+          "value": 1
+        },
+        {
+          "name": "FAILED",
+          "value": 2
+        },
+        {
+          "name": "NOT_AVAILABLE",
+          "value": 3
+        },
+        {
+          "name": "NOT_ALLOWED",
+          "value": 4
+        },
+        {
+          "name": "INFO_MISSING",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "AutoUpdateAvailable",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AutoUpdateEnabled",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BuiltinVersion",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BundleFileSize",
+      "kind": "config",
+      "required": [
+        {
+          "name": "file_name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "file_hash",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "download_url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BundleId",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BundleInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "downloaded",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "checksum",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfoStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BundleInfoStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "success",
+        "error",
+        "pending",
+        "downloading",
+        "deleted",
+        "deleting"
+      ]
+    },
+    {
+      "name": "BundleListResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundles",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BundleInfo"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ChannelInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "public",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "allow_self_set",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ChannelPrivateEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "channel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ChannelRes",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ChannelUrl",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CurrentBundleResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        },
+        {
+          "name": "native",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DelayCondition",
+      "kind": "config",
+      "required": [
+        {
+          "name": "kind",
+          "type": {
+            "k": "ref",
+            "name": "DelayConditionKind"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DelayConditionKind",
+      "kind": "enumStrings",
+      "cases": [
+        "background",
+        "kill",
+        "nativeVersion",
+        "date"
+      ]
+    },
+    {
+      "name": "DeletePreviewResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "removed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "deleted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeviceId",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DownloadCompleteEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DownloadEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "percent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DownloadFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DownloadOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "sessionKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "checksum",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "manifest",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ManifestEntry"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FlexibleUpdateInstallStatus",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "UNKNOWN",
+          "value": 0
+        },
+        {
+          "name": "PENDING",
+          "value": 1
+        },
+        {
+          "name": "DOWNLOADING",
+          "value": 2
+        },
+        {
+          "name": "INSTALLING",
+          "value": 3
+        },
+        {
+          "name": "INSTALLED",
+          "value": 4
+        },
+        {
+          "name": "FAILED",
+          "value": 5
+        },
+        {
+          "name": "CANCELED",
+          "value": 6
+        },
+        {
+          "name": "DOWNLOADED",
+          "value": 11
+        }
+      ]
+    },
+    {
+      "name": "FlexibleUpdateState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "installStatus",
+          "type": {
+            "k": "ref",
+            "name": "FlexibleUpdateInstallStatus"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bytesDownloaded",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalBytesToDownload",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetAppIdRes",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAppUpdateInfoOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "country",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetBundleDownloadSizeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "manifest",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ManifestEntry"
+            }
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetBundleDownloadSizeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "totalSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "knownFiles",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "unknownFiles",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "files",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BundleFileSize"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetChannelRes",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "channel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "allowSet",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetLatestOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "channel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "includeBundleSize",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetMissingBundleFilesOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "manifest",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ManifestEntry"
+            }
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sessionKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetMissingBundleFilesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "missing",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ManifestEntry"
+            }
+          }
+        },
+        {
+          "name": "total",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "missingCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "reusableCount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LatestVersion",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "checksum",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "breaking",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "major",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sessionKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "kind",
+          "type": {
+            "k": "ref",
+            "name": "LatestVersionKind"
+          }
+        },
+        {
+          "name": "statusCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "old",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "manifest",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ManifestEntry"
+            }
+          }
+        },
+        {
+          "name": "missing",
+          "type": {
+            "k": "ref",
+            "name": "GetMissingBundleFilesResult"
+          }
+        },
+        {
+          "name": "downloadSize",
+          "type": {
+            "k": "ref",
+            "name": "GetBundleDownloadSizeResult"
+          }
+        },
+        {
+          "name": "link",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "comment",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LatestVersionKind",
+      "kind": "enumStrings",
+      "cases": [
+        "up_to_date",
+        "blocked",
+        "failed"
+      ]
+    },
+    {
+      "name": "ListChannelsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "channels",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ChannelInfo"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "raw",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MajorAvailableEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ManifestEntry",
+      "kind": "config",
+      "required": [
+        {
+          "name": "file_name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "file_hash",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "download_url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MultiDelayConditions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "delayConditions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DelayCondition"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "conditionMode",
+          "type": {
+            "k": "ref",
+            "name": "MultiDelayConditionsConditionMode"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MultiDelayConditionsConditionMode",
+      "kind": "enumStrings",
+      "cases": [
+        "and",
+        "or"
+      ]
+    },
+    {
+      "name": "NoNeedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenAppStoreOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersion",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PreviewInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "lastUsedAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isActive",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payloadUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PreviewListResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "previews",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PreviewInfo"
+            }
+          }
+        },
+        {
+          "name": "currentBundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "current",
+          "type": {
+            "k": "ref",
+            "name": "PreviewInfo"
+          }
+        },
+        {
+          "name": "liveBundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PreviewUpdateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "preview",
+          "type": {
+            "k": "ref",
+            "name": "PreviewInfo"
+          }
+        },
+        {
+          "name": "upToDate",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "updated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "latestVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ResetOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "toLastSuccessful",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "usePendingBundle",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetAppIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetChannelOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "channel",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "triggerAutoUpdate",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetCustomIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "customId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetNextEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetShakeChannelSelectorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetShakeMenuOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ShakeChannelSelectorEnabled",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ShakeMenuEnabled",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "gesture",
+          "type": {
+            "k": "ref",
+            "name": "ShakeMenuEnabledGesture"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShakeMenuEnabledGesture",
+      "kind": "enumStrings",
+      "cases": [
+        "shake",
+        "threeFingerPinch"
+      ]
+    },
+    {
+      "name": "StartPreviewSessionOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payloadUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StatsUrl",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TriggerUpdateCheckResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "TriggerUpdateCheckResultStatus"
+          }
+        },
+        {
+          "name": "queued",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TriggerUpdateCheckResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "queued",
+        "already_running",
+        "unavailable"
+      ]
+    },
+    {
+      "name": "UnsetChannelOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "triggerAutoUpdate",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UpdateAvailableEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateCheckResultEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "kind",
+          "type": {
+            "k": "ref",
+            "name": "LatestVersionKind"
+          }
+        },
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "statusCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UpdateFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundle",
+          "type": {
+            "k": "ref",
+            "name": "BundleInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "DownloadEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent10",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetNextEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent11",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent12",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AppReadyEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent13",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "ChannelPrivateEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent14",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "FlexibleUpdateState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "NoNeedEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent3",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "UpdateCheckResultEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent4",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "UpdateAvailableEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent5",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "DownloadCompleteEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent6",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "DownloadFailedEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent7",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "MajorAvailableEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent8",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "UpdateFailedEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdaterEventEvent9",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateUrl",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "notifyAppReady",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AppReadyResult"
+      },
+      "promise": true,
+      "comment": "Notify the native layer that JavaScript initialized successfully.\n\n**CRITICAL: You must call this method on every app launch to prevent automatic rollback.**\n\nThis is a simple notification to confirm that your bundle's JavaScript loaded and executed.\nThe native web server successfully served the bundle files and your JS runtime started.\nThat's all it checks - nothing more complex.\n\n**What triggers rollback:**\n- NOT calling this method within the timeout (default: 10 seconds)\n- Complete JavaScript failure (bundle won't load at all)\n\n**What does NOT trigger rollback:**\n- Runtime errors after initialization (API failures, crashes, etc.)\n- Network request failures\n- Application logic errors\n\n**IMPORTANT: Call this BEFORE any network requests.**\nDon't wait for APIs, data loading, or async operations. Call it as soon as your\nJavaScript bundle starts executing to confirm the bundle itself is valid.\n\nBest practices:\n- Call immediately in your app entry point (main.js, app component mount, etc.)\n- Don't put it after network calls or heavy initialization\n- Don't wrap it in try/catch with conditions\n- Adjust {@link PluginsConfig.CapacitorUpdater.appReadyTimeout} if you need more time"
+    },
+    {
+      "name": "setUpdateUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateUrl"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the update URL for the app dynamically at runtime.\n\nThis overrides the {@link PluginsConfig.CapacitorUpdater.updateUrl} config value.\nRequires {@link PluginsConfig.CapacitorUpdater.allowModifyUrl} to be set to `true`.\n\nUse {@link PluginsConfig.CapacitorUpdater.persistModifyUrl} to persist this value across app restarts.\nOtherwise, the URL will reset to the config value on next app launch."
+    },
+    {
+      "name": "setStatsUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StatsUrl"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the statistics URL for the app dynamically at runtime.\n\nThis overrides the {@link PluginsConfig.CapacitorUpdater.statsUrl} config value.\nRequires {@link PluginsConfig.CapacitorUpdater.allowModifyUrl} to be set to `true`.\n\nPass an empty string to disable statistics gathering entirely.\nUse {@link PluginsConfig.CapacitorUpdater.persistModifyUrl} to persist this value across app restarts."
+    },
+    {
+      "name": "setChannelUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ChannelUrl"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the channel URL for the app dynamically at runtime.\n\nThis overrides the {@link PluginsConfig.CapacitorUpdater.channelUrl} config value.\nRequires {@link PluginsConfig.CapacitorUpdater.allowModifyUrl} to be set to `true`.\n\nUse {@link PluginsConfig.CapacitorUpdater.persistModifyUrl} to persist this value across app restarts.\nOtherwise, the URL will reset to the config value on next app launch."
+    },
+    {
+      "name": "download",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DownloadOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "BundleInfo"
+      },
+      "promise": true,
+      "comment": "Download a new bundle from the provided URL for later installation.\n\nThe downloaded bundle is stored locally but not activated. To use it:\n- Call {@link next} to set it for installation on next app backgrounding/restart\n- Call {@link set} to activate it immediately (destroys current JavaScript context)\n\nThe URL should point to a zip file containing either:\n- Your app files directly in the zip root, or\n- A single folder containing all your app files\n\nThe bundle must include an `index.html` file at the root level.\n\nFor encrypted bundles, provide the `sessionKey` and `checksum` parameters.\nFor multi-file delta updates, provide the `manifest` array.\n\n**Android Background Runner note:** `@capacitor/background-runner` loads its\nconfigured runner script from native APK assets. Live updates cannot replace\nthat runner script. Keep it stable across OTA updates and ship a native app\nupdate when the runner code changes. When a bundle switch happens, Capacitor\nUpdater cancels and reschedules configured Background Runner WorkManager jobs\nand syncs the bundled runner script into native `public/` storage when present."
+    },
+    {
+      "name": "next",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "BundleInfo"
+      },
+      "promise": true,
+      "comment": "Set the next bundle to be activated when the app backgrounds or restarts.\n\nThis is the recommended way to apply updates as it doesn't interrupt the user's current session.\nThe bundle will be activated when:\n- The app is backgrounded (user switches away), or\n- The app is killed and relaunched, or\n- {@link reload} is called manually\n\nUnlike {@link set}, this method does NOT destroy the current JavaScript context immediately.\nYour app continues running normally until one of the above events occurs.\n\nUse {@link setMultiDelay} to add additional conditions before the update is applied."
+    },
+    {
+      "name": "set",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the current bundle and immediately reloads the app.\n\n**IMPORTANT: This is a terminal operation that destroys the current JavaScript context.**\n\nWhen you call this method:\n- The entire JavaScript context is immediately destroyed\n- The app reloads from a different folder with different files\n- NO code after this call will execute\n- NO promises will resolve\n- NO callbacks will fire\n- Event listeners registered after this call are unreliable and may never fire\n\nThe reload happens automatically - you don't need to do anything else.\nIf you need to preserve state like the current URL path, use the {@link PluginsConfig.CapacitorUpdater.keepUrlPathAfterReload} config option.\nFor other state preservation needs, save your data before calling this method (e.g., to localStorage).\n\n**Do not** try to execute additional logic after calling `set()` - it won't work as expected."
+    },
+    {
+      "name": "startPreviewSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartPreviewSessionOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start a temporary preview/testing session.\n\nThis stores the currently active bundle as the pending fallback, enables the\nnative shake menu, and makes the next applied bundle show a native notice\nexplaining that shaking the device can reload or leave the preview.\nRequires {@link PluginsConfig.CapacitorUpdater.allowPreview} to be `true`.\nWhen `appId` is provided, the preview session temporarily uses that app id\nfor update checks until the user leaves the preview. Native updater stats are\nskipped while the preview session is active.\n\nUse this before calling {@link set} for Expo Go-style preview flows.\nUse {@link listPreviews}, {@link setPreview}, {@link resetPreview},\n{@link deletePreview}, {@link checkPreviewUpdate}, and\n{@link updatePreview} to manage saved local previews."
+    },
+    {
+      "name": "listPreviews",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PreviewListResult"
+      },
+      "promise": true,
+      "comment": "Get every locally available preview bundle that was registered by\n{@link startPreviewSession} and later applied with {@link set}.\n\nThis only returns previews whose bundles are still available locally. It is\nsafe to show this in a preview switcher or native debug menu."
+    },
+    {
+      "name": "setPreview",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Switch to a locally available preview bundle and reload the WebView.\n\nIf the app is not already in a preview session, the current live bundle is\nsaved as the fallback so {@link resetPreview} or the native shake menu can\nreturn to it later."
+    },
+    {
+      "name": "resetPreview",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Leave the active preview session and reload the saved live bundle.\n\nThis does not delete any saved previews. Use {@link deletePreview} to remove\na preview from local storage."
+    },
+    {
+      "name": "deletePreview",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DeletePreviewResult"
+      },
+      "promise": true,
+      "comment": "Delete a locally saved preview and its bundle when possible.\n\nActive previews cannot be deleted until you switch away from them or call\n{@link resetPreview}. If only the preview metadata can be removed, the\nmethod still resolves with `deleted: false`."
+    },
+    {
+      "name": "checkPreviewUpdate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PreviewUpdateResult"
+      },
+      "promise": true,
+      "comment": "Check whether a saved preview's payload URL points to a newer preview bundle.\n\nOnly previews started with a `payloadUrl` can be checked natively. Direct URL\npreviews can still be switched or deleted locally, but the updater does not\nknow where to check for newer versions."
+    },
+    {
+      "name": "updatePreview",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PreviewUpdateResult"
+      },
+      "promise": true,
+      "comment": "Download the newest bundle for a saved preview payload URL.\n\nIf the preview being updated is active, the new bundle is applied and the\nWebView reloads. Otherwise, the saved preview entry is moved to the newly\ndownloaded bundle and can be selected later with {@link setPreview}."
+    },
+    {
+      "name": "delete",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a bundle from local storage to free up disk space.\n\nYou cannot delete:\n- The currently active bundle\n- The `builtin` bundle (the version shipped with your app)\n- The bundle set as `next` (call {@link next} with a different bundle first)\n\nUse {@link list} to get all available bundle IDs.\n\n**Note:** The bundle ID is NOT the same as the version name.\nUse the `id` field from {@link BundleInfo}, not the `version` field."
+    },
+    {
+      "name": "setBundleError",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BundleId"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "BundleInfo"
+      },
+      "promise": true,
+      "comment": "Manually mark a bundle as failed/errored in manual update mode.\n\nThis is useful when you detect that a bundle has critical issues and want to prevent\nit from being used again. The bundle status will be changed to `error` and the plugin\nwill avoid using this bundle in the future.\n\n**Requirements:**\n- {@link PluginsConfig.CapacitorUpdater.allowManualBundleError} must be set to `true`\n- Only works in manual update mode (when autoUpdate is disabled)\n\nCommon use case: After downloading and testing a bundle, you discover it has critical\nbugs and want to mark it as failed so it won't be retried."
+    },
+    {
+      "name": "list",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ListOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "BundleListResult"
+      },
+      "promise": true,
+      "comment": "Get all locally downloaded bundles stored in your app.\n\nThis returns all bundles that have been downloaded and are available locally, including:\n- The currently active bundle\n- The `builtin` bundle (shipped with your app)\n- Any downloaded bundles waiting to be activated\n- Failed bundles (with `error` status)\n\nUse this to:\n- Check available disk space by counting bundles\n- Delete old bundles with {@link delete}\n- Monitor bundle download status"
+    },
+    {
+      "name": "reset",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ResetOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reset the app to a known good bundle.\n\nThis method helps recover from problematic updates by reverting to either:\n- The `builtin` bundle (the original version shipped with your app to App Store/Play Store)\n- The last successfully loaded bundle (most recent bundle that worked correctly)\n\n**IMPORTANT: This triggers an immediate app reload, destroying the current JavaScript context.**\nSee {@link set} for details on the implications of this operation.\n\nUse cases:\n- Emergency recovery when an update causes critical issues\n- Testing rollback functionality\n- Providing users a \"reset to factory\" option"
+    },
+    {
+      "name": "current",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CurrentBundleResult"
+      },
+      "promise": true,
+      "comment": "Get information about the currently active bundle.\n\nReturns:\n- `bundle`: The currently active bundle information\n- `native`: The version of the builtin bundle (the original app version from App/Play Store)\n\nIf no updates have been applied, `bundle.id` will be `\"builtin\"`, indicating the app\nis running the original version shipped with the native app.\n\nUse this to:\n- Display the current version to users\n- Check if an update is currently active\n- Compare against available updates\n- Log the active bundle for debugging"
+    },
+    {
+      "name": "reload",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Manually reload the app to apply a pending update.\n\nThis triggers the same reload behavior that happens automatically when the app backgrounds.\nIf you've called {@link next} to queue an update, calling `reload()` will apply it immediately.\n\n**IMPORTANT: This destroys the current JavaScript context immediately.**\nSee {@link set} for details on the implications of this operation.\n\nCommon use cases:\n- Applying an update immediately after download instead of waiting for backgrounding\n- Providing a \"Restart now\" button to users after an update is ready\n- Testing update flows during development\n\nIf no update is pending (no call to {@link next}), this simply reloads the current bundle."
+    },
+    {
+      "name": "setMultiDelay",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MultiDelayConditions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure conditions that must be met before a pending update is applied.\n\nAfter calling {@link next} to queue an update, use this method to control when it gets applied.\nBy default, the update is installed only after **all** specified conditions are satisfied (`conditionMode: 'and'`).\nSet `conditionMode` to `'or'` to apply the update as soon as **any** condition is met.\n\nAvailable condition types:\n- `background`: Wait until the app has spent more than the configured time in the background (see value formats below).\n- `kill`: The condition clears on the next launch and can also clear during Android activity destruction; activity destruction does not prove that the app process ended. Automatic installation waits for the next background, because it runs from appMovedToBackground. Calling {@link reload} can apply the pending bundle immediately.\n- `date`: Wait until a specific date/time (ISO 8601 format)\n- `nativeVersion`: Wait until the native app is updated to a specific version\n\nCondition value formats:\n- `background`: Time in milliseconds in background must exceed this value before the condition can clear on return to foreground (e.g., `\"300000\"` for more than 5 minutes; exactly `300000` ms does not clear). Omit `value` or use `\"0\"` to clear after one background-and-return cycle; the update installs on the following background.\n- `kill`: No value needed\n- `date`: ISO 8601 date string (e.g., `\"2025-12-31T23:59:59Z\"`)\n- `nativeVersion`: Version string (e.g., `\"2.0.0\"`)"
+    },
+    {
+      "name": "cancelDelay",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Cancel all delay conditions and apply the pending update immediately.\n\nIf you've set delay conditions with {@link setMultiDelay}, this method clears them\nand triggers the pending update to be applied on the next app background or restart.\n\nThis is useful when:\n- User manually requests to update now (e.g., clicks \"Update now\" button)\n- Your app detects it's a good time to update (e.g., user finished critical task)\n- You want to override a time-based delay early"
+    },
+    {
+      "name": "triggerUpdateCheck",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "TriggerUpdateCheckResult"
+      },
+      "promise": true,
+      "comment": "Trigger the native auto-update check/download pipeline immediately.\n\nThis starts the same background update flow used when the app moves to the\nforeground with auto-update enabled. It is useful for native integrations\nsuch as a silent push notification asking the app to check for a Capgo\nbundle without reimplementing the update protocol in JavaScript.\n\nThe promise resolves after the native background work has been queued, not\nafter the update has been downloaded or installed. Listen to updater events\nsuch as `updateAvailable`, `downloadComplete`, `downloadFailed`, and\n`noNeedUpdate` for the final result.\n\nNative support is available on iOS and Android. On Web, this method returns\na result with `status: 'unavailable'`. Native platforms also return\n`unavailable` when the native auto-update system is disabled."
+    },
+    {
+      "name": "getLatest",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetLatestOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LatestVersion"
+      },
+      "promise": true,
+      "comment": "Check the update server for the latest available bundle version.\n\nThis queries your configured update URL (or Capgo backend) to see if a newer bundle\nis available for download. It does NOT download the bundle automatically.\n\nThe response includes:\n- `version`: The latest available version identifier\n- `url`: Download URL for the bundle (if available)\n- `breaking`: Whether this update is marked as incompatible (requires native app update)\n- `message`: Optional message from the server\n- `manifest`: File list for delta updates (if using multi-file downloads)\n\nAfter receiving the latest version info, you can:\n1. Compare it with your current version\n2. Download it using {@link download}\n3. Apply it using {@link next} or {@link set}\n\n**Important: Handling \"no new version available\"**\n\nWhen the device's current version matches the latest version on the server (i.e., the device is already\nup-to-date), the server returns a 200 response with `error: \"no_new_version_available\"` and\n`message: \"No new version available\"`. This is a normal, expected condition and resolves with\n`kind: \"up_to_date\"` when the backend provides that classification.\n\nYou should check `kind` and `error` before attempting to download:\n\n```typescript\nconst latest = await CapacitorUpdater.getLatest();\nif (latest.kind === 'up_to_date') {\n  console.log('Already up to date');\n} else if (latest.kind === 'blocked') {\n  console.log('Update is blocked:', latest.error);\n} else if (latest.url) {\n  // New version is available, proceed with download\n}\n```\n\nIn this scenario, the server:\n- Logs the request with a \"No new version available\" message\n- Sends a \"noNew\" stat action to track that the device checked for updates but was already current (done on the backend)"
+    },
+    {
+      "name": "getMissingBundleFiles",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetMissingBundleFilesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetMissingBundleFilesResult"
+      },
+      "promise": true,
+      "comment": "Return the manifest entries that still need to be downloaded for a partial update.\n\nPass the result from {@link getLatest} directly when it includes a `manifest`.\nThe native plugin compares each manifest entry with the files already available\nin the builtin bundle and the local delta cache. Entries that can be reused are\nomitted from the returned `missing` list.\n\nFor encrypted manifests, pass the `sessionKey` returned by {@link getLatest} so\nencrypted file hashes can be checked against local files.\n\n```typescript\nconst latest = await CapacitorUpdater.getLatest();\nconst missing = await CapacitorUpdater.getMissingBundleFiles(latest);\n```"
+    },
+    {
+      "name": "getBundleDownloadSize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetBundleDownloadSizeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetBundleDownloadSizeResult"
+      },
+      "promise": true,
+      "comment": "Estimate the download size for manifest entries before downloading them.\n\nThis method sends the provided manifest entries to the Capgo update endpoint\nonce and reads the stored manifest `file_size` metadata. It does not perform\nper-file `HEAD` requests from the app.\n\nUse this after {@link getMissingBundleFiles} to estimate only the files this\ndevice still needs:\n\n```typescript\nconst latest = await CapacitorUpdater.getLatest();\nconst missing = await CapacitorUpdater.getMissingBundleFiles(latest);\nconst size = await CapacitorUpdater.getBundleDownloadSize({\n  version: latest.version,\n  manifest: missing.missing,\n});\n```"
+    },
+    {
+      "name": "setChannel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetChannelOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ChannelRes"
+      },
+      "promise": true,
+      "comment": "Assign this device to a specific update channel at runtime.\n\nChannels allow you to distribute different bundle versions to different groups of users\n(e.g., \"production\", \"beta\", \"staging\"). This method switches the device to a new channel.\n\n**Device Override UI:** `setChannel()` validates the channel with the backend, then stores the\nselected channel locally on the device for future app restarts. It does not create or update\na backend Device Override, so the device will not appear as overridden in the Capgo dashboard.\nOnly assignments created from the dashboard or the Public API are shown in the Device Override UI.\n\n**Requirements:**\n- The target channel must allow self-assignment (configured in your Capgo dashboard or backend)\n- The backend may accept or reject the request based on channel settings\n\n**When to use:**\n- After the app is ready and the user has interacted (e.g., opted into beta program)\n- To implement in-app channel switching (beta toggle, tester access, etc.)\n- For user-driven channel changes\n\n**When NOT to use:**\n- At app boot/initialization - use {@link PluginsConfig.CapacitorUpdater.defaultChannel} config instead\n- Before user interaction\n\n**Important: Listen for the `channelPrivate` event**\n\nWhen a user attempts to set a channel that doesn't allow device self-assignment, the method will\nthrow an error AND fire a {@link addListener}('channelPrivate') event. You should listen to this event\nto provide appropriate feedback to users:\n\n```typescript\nCapacitorUpdater.addListener('channelPrivate', (data) => {\n  console.warn(`Cannot access channel \"${data.channel}\": ${data.message}`);\n  // Show user-friendly message\n});\n```\n\nThis sends a request to the Capgo backend to validate the specified channel, then stores the\nchannel locally on the device for future app restarts."
+    },
+    {
+      "name": "unsetChannel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UnsetChannelOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove the plugin-managed local channel assignment and return to the default channel.\n\nThis clears only the channel stored locally by {@link setChannel}; it does not delete Dashboard or Public API Device Override records. After the local assignment is cleared, normal channel precedence applies:\n- An existing Dashboard or Public API Device Override, if one exists\n- The {@link PluginsConfig.CapacitorUpdater.defaultChannel} if configured, or\n- Your backend default channel for this app\n\nUse this when:\n- Users opt out of beta/testing programs\n- You want to reset a device to standard update distribution\n- Testing channel switching behavior"
+    },
+    {
+      "name": "getChannel",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetChannelRes"
+      },
+      "promise": true,
+      "comment": "Get the current channel assigned to this device.\n\nReturns information about:\n- `channel`: The currently assigned channel name (if any)\n- `allowSet`: Whether the channel allows self-assignment\n- `status`: Operation status\n- `error`/`message`: Additional information (if applicable)\n\nUse this to:\n- Display current channel to users (e.g., \"You're on the Beta channel\")\n- Check if a device is on a specific channel before showing features\n- Verify channel assignment after calling {@link setChannel}\n\nOn native platforms, a successful response also refreshes the default channel used by update checks.\nThis refresh is persisted across app restarts."
+    },
+    {
+      "name": "listChannels",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ListChannelsResult"
+      },
+      "promise": true,
+      "comment": "Get a list of all channels available for this device to self-assign to.\n\nOnly returns channels where `allow_self_set` is `true`. These are channels that\nusers can switch to using {@link setChannel} without backend administrator intervention.\n\nEach channel includes:\n- `id`: Unique channel identifier\n- `name`: Human-readable channel name\n- `public`: Whether the channel is publicly visible\n- `allow_self_set`: Always `true` in results (filtered to only self-assignable channels)\n\nUse this to:\n- Build a channel selector UI for users (e.g., \"Join Beta\" button)\n- Show available testing/preview channels\n- Implement channel discovery features"
+    },
+    {
+      "name": "setCustomId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetCustomIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set a custom identifier for this device.\n\nThis allows you to identify devices by your own custom ID (user ID, account ID, etc.)\ninstead of or in addition to the device's unique hardware ID. The custom ID is sent\nto your update server and can be used for:\n- Targeting specific users for updates\n- Analytics and user tracking\n- Debugging and support (correlating devices with users)\n- A/B testing or feature flagging\n\n**Persistence:**\n- When {@link PluginsConfig.CapacitorUpdater.persistCustomId} is `true`, the ID persists across app restarts\n- When `false`, the ID is only kept for the current session\n\n**Clearing the custom ID:**\n- Pass an empty string `\"\"` to remove any stored custom ID"
+    },
+    {
+      "name": "getBuiltinVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "BuiltinVersion"
+      },
+      "promise": true,
+      "comment": "Get the builtin bundle version (the original version shipped with your native app).\n\nThis returns the version of the bundle that was included when the app was installed\nfrom the App Store or Play Store. This is NOT the currently active bundle version -\nuse {@link current} for that.\n\nReturns:\n- The {@link PluginsConfig.CapacitorUpdater.version} config value if set, or\n- The native app version from platform configs (package.json, Info.plist, build.gradle)\n\nUse this to:\n- Display the \"factory\" version to users\n- Compare against downloaded bundle versions\n- Determine if any updates have been applied\n- Debugging version mismatches"
+    },
+    {
+      "name": "getDeviceId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DeviceId"
+      },
+      "promise": true,
+      "comment": "Get the unique, privacy-friendly identifier for this device.\n\nThis ID is used to identify the device when communicating with update servers.\nIt's automatically generated and stored securely by the plugin.\n\n**Privacy & Security characteristics:**\n- Generated as a UUID (not based on hardware identifiers)\n- Stored securely in platform-specific secure storage\n- Android: mirrored into backup-restorable app preferences for reinstall restore\n- iOS: Keychain with `kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`\n- Not synced to cloud (iOS)\n- Follows Apple and Google privacy best practices\n- Users can clear it via system settings (Android) or keychain access (iOS)\n\n**Persistence:**\nThe device ID persists across app reinstalls to maintain consistent device identity\nfor update tracking and analytics when platform storage is preserved. On Android,\napps with custom backup rules must keep the plugin app preferences eligible for\nbackup/restore; disabling Android backup or clearing app data creates a new ID.\n\nUse this to:\n- Debug update delivery issues (check what ID the server sees)\n- Implement device-specific features\n- Correlate server logs with specific devices"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersion"
+      },
+      "promise": true,
+      "comment": "Get the version of the Capacitor Updater plugin installed in your app.\n\nThis returns the version of the native plugin code (Android/iOS), which is sent\nto the update server with each request. This is NOT your app version or bundle version.\n\nUse this to:\n- Debug plugin-specific issues (when reporting bugs)\n- Verify plugin installation and version\n- Check compatibility with backend features\n- Display in debug/about screens"
+    },
+    {
+      "name": "isAutoUpdateEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AutoUpdateEnabled"
+      },
+      "promise": true,
+      "comment": "Check if automatic updates are currently enabled.\n\nReturns `true` if {@link PluginsConfig.CapacitorUpdater.autoUpdate} is enabled,\nmeaning the plugin will automatically check for, download, and apply updates.\n\nReturns `false` if in manual mode, where you control the update flow using\n{@link getLatest}, {@link download}, {@link next}, and {@link set}.\n\nUse this to:\n- Determine which update flow your app is using\n- Show/hide manual update UI based on mode\n- Debug update behavior"
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all event listeners registered for this plugin.\n\nThis unregisters all listeners added via {@link addListener} for all event types:\n- `updaterEvent`\n- `download`\n- `noNeedUpdate`\n- `updateCheckResult`\n- `updateAvailable`\n- `downloadComplete`\n- `downloadFailed`\n- `breakingAvailable` / `majorAvailable`\n- `updateFailed`\n- `appReloaded`\n- `appReady`\n\nUse this during cleanup (e.g., when unmounting components or closing screens)\nto prevent memory leaks from lingering event listeners."
+    },
+    {
+      "name": "isAutoUpdateAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AutoUpdateAvailable"
+      },
+      "promise": true,
+      "comment": "Check if the auto-update feature is available (not disabled by custom server configuration).\n\nReturns `false` when a custom `updateUrl` is configured, as this typically indicates\nyou're using a self-hosted update server that may not support all auto-update features.\n\nReturns `true` when using the default Capgo backend or when the feature is available.\n\nThis is different from {@link isAutoUpdateEnabled}:\n- `isAutoUpdateEnabled()`: Checks if auto-update MODE is turned on/off\n- `isAutoUpdateAvailable()`: Checks if auto-update is SUPPORTED with your current configuration"
+    },
+    {
+      "name": "getNextBundle",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "BundleInfo"
+      },
+      "promise": true,
+      "comment": "Get information about the bundle queued to be activated on next reload.\n\nReturns:\n- {@link BundleInfo} object if a bundle has been queued via {@link next}\n- `null` if no update is pending\n\nThis is useful to:\n- Check if an update is waiting to be applied\n- Display \"Update pending\" status to users\n- Show version info of the queued update\n- Decide whether to show a \"Restart to update\" prompt\n\nThe queued bundle will be activated when:\n- The app is backgrounded (default behavior)\n- The app is killed and restarted\n- {@link reload} is called manually\n- Delay conditions set by {@link setMultiDelay} are met"
+    },
+    {
+      "name": "getFailedUpdate",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "UpdateFailedEvent"
+      },
+      "promise": true,
+      "comment": "Retrieve information about the most recent bundle that failed to load.\n\nWhen a bundle fails to load (e.g., JavaScript errors prevent initialization, missing files),\nthe plugin automatically rolls back and stores information about the failure. This method\nretrieves that failure information.\n\n**IMPORTANT: The stored value is cleared after being retrieved once.**\nCalling this method multiple times will only return the failure info on the first call,\nthen `null` on subsequent calls until another failure occurs.\n\nReturns:\n- {@link UpdateFailedEvent} with bundle info if a failure was recorded\n- `null` if no failure has occurred or if it was already retrieved\n\nUse this to:\n- Show users why an update failed\n- Log failure information for debugging\n- Implement custom error handling/reporting\n- Display rollback notifications"
+    },
+    {
+      "name": "setShakeMenu",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetShakeMenuOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable or disable the native preview menu gesture.\n\nDuring preview sessions, users can use the configured native gesture to:\n- Reload the current preview\n- Leave the test app and return to the fallback bundle\n- Switch update channel, when {@link PluginsConfig.CapacitorUpdater.allowShakeChannelSelector} is also enabled\n\nOutside preview sessions, this preview menu is ignored. The channel selector can still be\nshown outside preview sessions when {@link PluginsConfig.CapacitorUpdater.allowShakeChannelSelector} is enabled.\n\n**Important:** Disable this in production builds or only enable for internal testers.\n\nThis can also be configured via {@link PluginsConfig.CapacitorUpdater.shakeMenu}.\nThe native gesture is configured via {@link PluginsConfig.CapacitorUpdater.shakeMenuGesture}."
+    },
+    {
+      "name": "isShakeMenuEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ShakeMenuEnabled"
+      },
+      "promise": true,
+      "comment": "Check if the native preview menu gesture is currently enabled.\n\nReturns the current state of the shake menu feature that can be toggled via\n{@link setShakeMenu} or configured via {@link PluginsConfig.CapacitorUpdater.shakeMenu}.\n\nUse this to:\n- Check if debug features are enabled\n- Show/hide debug settings UI\n- Verify configuration during testing"
+    },
+    {
+      "name": "setShakeChannelSelector",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetShakeChannelSelectorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable or disable the channel selector menu gesture at runtime.\n\nWhen enabled, the configured native gesture can show a channel selector, including outside preview sessions.\nIf {@link setShakeMenu} is also enabled while a preview session is active, the shake menu includes\nboth preview actions and channel switching.\n\nThis can also be configured via {@link PluginsConfig.CapacitorUpdater.allowShakeChannelSelector}.\nThe native gesture is configured via {@link PluginsConfig.CapacitorUpdater.shakeMenuGesture}."
+    },
+    {
+      "name": "isShakeChannelSelectorEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ShakeChannelSelectorEnabled"
+      },
+      "promise": true,
+      "comment": "Check if the shake channel selector is currently enabled.\n\nReturns the current state of the shake channel selector feature that can be toggled via\n{@link setShakeChannelSelector} or configured via {@link PluginsConfig.CapacitorUpdater.allowShakeChannelSelector}."
+    },
+    {
+      "name": "getAppId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAppIdRes"
+      },
+      "promise": true,
+      "comment": "Get the currently configured App ID used for update server communication.\n\nReturns the App ID that identifies this app to the update server. This can be:\n- The value set via {@link setAppId}, or\n- The {@link PluginsConfig.CapacitorUpdater.appId} config value, or\n- The default app identifier from your native app configuration\n\nUse this to:\n- Verify which App ID is being used for updates\n- Debug update delivery issues\n- Display app configuration in debug screens\n- Confirm App ID after calling {@link setAppId}"
+    },
+    {
+      "name": "setAppId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetAppIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Dynamically change the App ID used for update server communication.\n\nThis overrides the App ID used to identify your app to the update server, allowing you\nto switch between different app configurations at runtime (e.g., production vs staging\napp IDs, or multi-tenant configurations).\n\n**Requirements:**\n- {@link PluginsConfig.CapacitorUpdater.allowModifyAppId} must be set to `true`\n\n**Important considerations:**\n- Changing the App ID will affect which updates this device receives\n- The new App ID must exist on your update server\n- This is primarily for advanced use cases (multi-tenancy, environment switching)\n- Most apps should use the config-based {@link PluginsConfig.CapacitorUpdater.appId} instead"
+    },
+    {
+      "name": "getAppUpdateInfo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAppUpdateInfoOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AppUpdateInfo"
+      },
+      "promise": true,
+      "comment": "Get information about the app's availability in the App Store or Play Store.\n\nThis method checks the native app stores to see if a newer version of the app\nis available for download. This is different from Capgo's OTA updates - this\nchecks for native app updates that require going through the app stores.\n\n**Platform differences:**\n- **Android**: Uses Play Store's In-App Updates API for accurate update information\n- **iOS**: Queries the App Store lookup API (requires country code for accurate results)\n\n**Returns information about:**\n- Current installed version\n- Available version in the store (if any)\n- Whether an update is available\n- Update priority (Android only)\n- Whether immediate/flexible updates are allowed (Android only)\n\nUse this to:\n- Check if users need to update from the app store\n- Show \"Update Available\" prompts for native updates\n- Implement version gating (require minimum native version)\n- Combine with Capgo OTA updates for a complete update strategy"
+    },
+    {
+      "name": "openAppStore",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenAppStoreOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the app's page in the App Store or Play Store.\n\nThis navigates the user to your app's store listing where they can manually\nupdate the app. Use this as a fallback when in-app updates are not available\nor when the user needs to update on iOS.\n\n**Platform behavior:**\n- **Android**: Opens Play Store to the app's page\n- **iOS**: Opens App Store to the app's page\n\n**Customization options:**\n- `appId`: Specify a custom App Store ID (iOS) - useful for opening a different app's page\n- `packageName`: Specify a custom package name (Android) - useful for opening a different app's page"
+    },
+    {
+      "name": "performImmediateUpdate",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AppUpdateResult"
+      },
+      "promise": true,
+      "comment": "Perform an immediate in-app update on Android.\n\nThis triggers Google Play's immediate update flow, which:\n1. Shows a full-screen update UI\n2. Downloads and installs the update\n3. Restarts the app automatically\n\nThe user cannot continue using the app until the update is complete.\nThis is ideal for critical updates that must be installed immediately.\n\n**Requirements:**\n- Android only (throws error on iOS)\n- An update must be available (check with {@link getAppUpdateInfo} first)\n- The update must allow immediate updates (`immediateUpdateAllowed: true`)\n\n**User experience:**\n- Full-screen blocking UI\n- Progress shown during download\n- App automatically restarts after installation"
+    },
+    {
+      "name": "startFlexibleUpdate",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AppUpdateResult"
+      },
+      "promise": true,
+      "comment": "Start a flexible in-app update on Android.\n\nThis triggers Google Play's flexible update flow, which:\n1. Downloads the update in the background\n2. Allows the user to continue using the app\n3. Notifies when download is complete\n4. Requires calling {@link completeFlexibleUpdate} to install\n\nMonitor the download progress using the `onFlexibleUpdateStateChange` listener.\n\n**Requirements:**\n- Android only (throws error on iOS)\n- An update must be available (check with {@link getAppUpdateInfo} first)\n- The update must allow flexible updates (`flexibleUpdateAllowed: true`)\n\n**Typical flow:**\n1. Call `startFlexibleUpdate()` to begin download\n2. Listen to `onFlexibleUpdateStateChange` for progress\n3. When status is `DOWNLOADED`, prompt user to restart\n4. Call `completeFlexibleUpdate()` to install and restart"
+    },
+    {
+      "name": "completeFlexibleUpdate",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Complete a flexible in-app update on Android.\n\nAfter a flexible update has been downloaded (status `DOWNLOADED` in\n`onFlexibleUpdateStateChange`), call this method to install the update\nand restart the app.\n\n**Important:** This will immediately restart the app. Make sure to:\n- Save any user data before calling\n- Prompt the user before restarting\n- Only call when the download status is `DOWNLOADED`"
+    }
+  ],
+  "events": [
+    {
+      "name": "updaterEvent",
+      "listener": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent2"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent3"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent4"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent5"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent6"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent7"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent8"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent9"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent10"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent11"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent12"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent13"
+          },
+          {
+            "k": "ref",
+            "name": "UpdaterEventEvent14"
+          }
+        ]
+      }
+    },
+    {
+      "name": "download",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadEvent"
+      }
+    },
+    {
+      "name": "noNeedUpdate",
+      "listener": {
+        "k": "ref",
+        "name": "NoNeedEvent"
+      }
+    },
+    {
+      "name": "updateCheckResult",
+      "listener": {
+        "k": "ref",
+        "name": "UpdateCheckResultEvent"
+      }
+    },
+    {
+      "name": "updateAvailable",
+      "listener": {
+        "k": "ref",
+        "name": "UpdateAvailableEvent"
+      }
+    },
+    {
+      "name": "downloadComplete",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadCompleteEvent"
+      }
+    },
+    {
+      "name": "breakingAvailable",
+      "listener": {
+        "k": "ref",
+        "name": "MajorAvailableEvent"
+      }
+    },
+    {
+      "name": "majorAvailable",
+      "listener": {
+        "k": "ref",
+        "name": "MajorAvailableEvent"
+      }
+    },
+    {
+      "name": "updateFailed",
+      "listener": {
+        "k": "ref",
+        "name": "UpdateFailedEvent"
+      }
+    },
+    {
+      "name": "set",
+      "listener": {
+        "k": "ref",
+        "name": "SetEvent"
+      }
+    },
+    {
+      "name": "setNext",
+      "listener": {
+        "k": "ref",
+        "name": "SetNextEvent"
+      }
+    },
+    {
+      "name": "downloadFailed",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadFailedEvent"
+      }
+    },
+    {
+      "name": "appReloaded",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "appReady",
+      "listener": {
+        "k": "ref",
+        "name": "AppReadyEvent"
+      }
+    },
+    {
+      "name": "channelPrivate",
+      "listener": {
+        "k": "ref",
+        "name": "ChannelPrivateEvent"
+      }
+    },
+    {
+      "name": "onFlexibleUpdateStateChange",
+      "listener": {
+        "k": "ref",
+        "name": "FlexibleUpdateState"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": []
+}

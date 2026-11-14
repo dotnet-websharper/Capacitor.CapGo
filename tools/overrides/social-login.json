@@ -1,0 +1,247 @@
+{
+  "seedTypes": [],
+  "types": [
+    {
+      "name": "FacebookLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "FacebookLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GoogleLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoogleLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppleLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AppleProviderOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TwitterLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TwitterLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TelegramLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TelegramLoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LinkedinLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LinkedInProviderConfig"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TiktokLoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TikTokProviderConfig"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Oauth2LoginRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OAuth2LoginOptions"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "login",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "FacebookLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "GoogleLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "AppleLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "TwitterLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "TelegramLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "LinkedinLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "TiktokLoginRequest"
+              },
+              {
+                "k": "ref",
+                "name": "Oauth2LoginRequest"
+              }
+            ]
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "FacebookLoginResponse"
+          },
+          {
+            "k": "ref",
+            "name": "GoogleLoginResponseOnline"
+          },
+          {
+            "k": "ref",
+            "name": "AppleProviderResponse"
+          },
+          {
+            "k": "ref",
+            "name": "TwitterLoginResponse"
+          },
+          {
+            "k": "ref",
+            "name": "TelegramLoginResponse"
+          },
+          {
+            "k": "ref",
+            "name": "OAuth2LoginResponse"
+          }
+        ]
+      },
+      "promise": true,
+      "comment": "Login with the selected provider. Each provider has its own options and response type."
+    }
+  ],
+  "unsupportedResolved": [
+    "login"
+  ]
+}

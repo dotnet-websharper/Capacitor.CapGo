@@ -1,0 +1,385 @@
+{
+  "namespace": "Uploader",
+  "family": "Core",
+  "package": "@capgo/capacitor-uploader",
+  "version": "8.3.31",
+  "export": "Uploader",
+  "types": [
+    {
+      "name": "AcknowledgeEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "eventId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartUploadResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UploadEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "ref",
+            "name": "UploadEventName"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "UploadEventPayload"
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "eventId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UploadEventName",
+      "kind": "enumStrings",
+      "cases": [
+        "uploading",
+        "completed",
+        "failed"
+      ]
+    },
+    {
+      "name": "UploadEventPayload",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "percent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "statusCode",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UploadFileOption",
+      "kind": "config",
+      "required": [
+        {
+          "name": "filePath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fieldName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UploadMultipartOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "filePath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fieldName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fields",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "uploadOption",
+      "kind": "config",
+      "required": [
+        {
+          "name": "serverUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "filePath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "files",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UploadFileOption"
+            }
+          }
+        },
+        {
+          "name": "notificationTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "method",
+          "type": {
+            "k": "ref",
+            "name": "UploadOptionMethod"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "parameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "maxRetries",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "uploadType",
+          "type": {
+            "k": "ref",
+            "name": "UploadOptionUploadType"
+          }
+        },
+        {
+          "name": "fileField",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UploadOptionMethod",
+      "kind": "enumStrings",
+      "cases": [
+        "PUT",
+        "POST"
+      ]
+    },
+    {
+      "name": "UploadOptionUploadType",
+      "kind": "enumStrings",
+      "cases": [
+        "binary",
+        "multipart"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "startUpload",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "uploadOption"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartUploadResult"
+      },
+      "promise": true,
+      "comment": "Start uploading a file to a server.\n\nThe upload will continue in the background even if the app is closed or backgrounded.\nListen to upload events to track progress, completion, or failure."
+    },
+    {
+      "name": "uploadMultipart",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UploadMultipartOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartUploadResult"
+      },
+      "promise": true,
+      "comment": "Start uploading a single file as multipart/form-data.\n\nThis is a convenience API for backends that expect a named file field and\nadditional form fields. Existing `startUpload` binary uploads are unchanged."
+    },
+    {
+      "name": "removeUpload",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartUploadResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Cancel and remove an ongoing upload.\n\nThis will stop the upload if it's in progress and clean up resources."
+    },
+    {
+      "name": "acknowledgeEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcknowledgeEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Acknowledge receipt of an upload event and remove it from the plugin cache.\n\nCompleted and failed events are stored in the plugin's persistent cache so they can be\nre-delivered if the app is closed or backgrounded before the event is processed.\nCall this method after successfully handling a 'completed' or 'failed' event to prevent\nit from being re-broadcast the next time the plugin initialises.\n\nProgress ('uploading') events do not have an eventId and do not need to be acknowledged."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "events",
+      "listener": {
+        "k": "ref",
+        "name": "UploadEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": []
+}

@@ -1,0 +1,428 @@
+{
+  "namespace": "CapacitorDownloader",
+  "family": "Core",
+  "package": "@capgo/capacitor-downloader",
+  "version": "8.6.0",
+  "export": "CapacitorDownloader",
+  "types": [
+    {
+      "name": "DownloadFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DownloadOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "destination",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "network",
+          "type": {
+            "k": "ref",
+            "name": "DownloadOptionsNetwork"
+          }
+        },
+        {
+          "name": "priority",
+          "type": {
+            "k": "ref",
+            "name": "DownloadOptionsPriority"
+          }
+        },
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "DownloadOptionsNotification"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "androidHttpEngine",
+          "type": {
+            "k": "ref",
+            "name": "DownloadOptionsAndroidHttpEngine"
+          }
+        },
+        {
+          "name": "downloadCompletedNotificationText",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadOptionsAndroidHttpEngine",
+      "kind": "enumStrings",
+      "cases": [
+        "auto",
+        "okhttp",
+        "downloadManager"
+      ]
+    },
+    {
+      "name": "DownloadOptionsNetwork",
+      "kind": "enumStrings",
+      "cases": [
+        "cellular",
+        "wifi-only"
+      ]
+    },
+    {
+      "name": "DownloadOptionsNotification",
+      "kind": "enumStrings",
+      "cases": [
+        "completed",
+        "progress",
+        "hidden"
+      ]
+    },
+    {
+      "name": "DownloadOptionsPriority",
+      "kind": "enumStrings",
+      "cases": [
+        "high",
+        "normal",
+        "low"
+      ]
+    },
+    {
+      "name": "DownloadProgressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bytesWritten",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bytesTotal",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadTask",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "DownloadTaskState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DownloadTaskState",
+      "kind": "enumStrings",
+      "cases": [
+        "PENDING",
+        "RUNNING",
+        "PAUSED",
+        "DONE",
+        "ERROR"
+      ]
+    },
+    {
+      "name": "GetFileInfoOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetFileInfoResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PauseOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "download",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DownloadOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DownloadTask"
+      },
+      "promise": true,
+      "comment": "Start a new download task."
+    },
+    {
+      "name": "pause",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Pause an active download.\nDownload can be resumed later from the same position."
+    },
+    {
+      "name": "resume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resume a paused download.\nContinues from where it was paused."
+    },
+    {
+      "name": "stop",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop and cancel a download permanently.\nDownloaded data will be deleted."
+    },
+    {
+      "name": "checkStatus",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DownloadTask"
+      },
+      "promise": true,
+      "comment": "Check the current status of a download."
+    },
+    {
+      "name": "getFileInfo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetFileInfoOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetFileInfoResult"
+      },
+      "promise": true,
+      "comment": "Get information about a downloaded file."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all event listeners.\nCleanup method to prevent memory leaks."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the plugin version number."
+    }
+  ],
+  "events": [
+    {
+      "name": "downloadProgress",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadProgressEvent"
+      }
+    },
+    {
+      "name": "downloadCompleted",
+      "listener": {
+        "k": "ref",
+        "name": "PauseOptions"
+      }
+    },
+    {
+      "name": "downloadFailed",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadFailedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": []
+}
