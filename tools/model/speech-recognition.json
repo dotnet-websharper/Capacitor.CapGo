@@ -1,0 +1,677 @@
+{
+  "namespace": "SpeechRecognition",
+  "family": "AI",
+  "package": "@capgo/capacitor-speech-recognition",
+  "version": "8.5.0",
+  "export": "SpeechRecognition",
+  "types": [
+    {
+      "name": "ForceStopOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsOnDeviceRecognitionAvailableOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "preferLegacyRecognizer",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LastPartialResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "text",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "matches",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PTTStateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "held",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "mute",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SpeechRecognitionAudioLevelEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "level",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionAvailability",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "code",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionLanguages",
+      "kind": "config",
+      "required": [
+        {
+          "name": "languages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionListening",
+      "kind": "config",
+      "required": [
+        {
+          "name": "listening",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionListeningEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "SpeechRecognitionListeningEventState"
+          }
+        },
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "SpeechRecognitionListeningEventReason"
+          }
+        },
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "SpeechRecognitionListeningEventStatus"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SpeechRecognitionListeningEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "userStart",
+        "userStop",
+        "forceStop",
+        "results",
+        "silence",
+        "error",
+        "unknown"
+      ]
+    },
+    {
+      "name": "SpeechRecognitionListeningEventState",
+      "kind": "enumStrings",
+      "cases": [
+        "startingListening",
+        "started",
+        "stoppingListening",
+        "stopped"
+      ]
+    },
+    {
+      "name": "SpeechRecognitionListeningEventStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "started",
+        "stopped"
+      ]
+    },
+    {
+      "name": "SpeechRecognitionMatches",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "matches",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SpeechRecognitionPartialResultEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "matches",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "accumulated",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accumulatedText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isRestarting",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "forced",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SpeechRecognitionPermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "speechRecognition",
+          "type": {
+            "k": "ref",
+            "name": "SpeechRecognitionPermissionStatusSpeechRecognition"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionPermissionStatusSpeechRecognition",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "SpeechRecognitionReadyEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionSegmentResultEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "matches",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeechRecognitionStartOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxResults",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "prompt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "popup",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "partialResults",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "addPunctuation",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "contextualStrings",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "useOnDeviceRecognition",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "iosTranscriber",
+          "type": {
+            "k": "ref",
+            "name": "SpeechRecognitionStartOptionsIosTranscriber"
+          }
+        },
+        {
+          "name": "preferLegacyRecognizer",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "allowForSilence",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "continuousPTT",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "muteRecognizerBeep",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SpeechRecognitionStartOptionsIosTranscriber",
+      "kind": "enumStrings",
+      "cases": [
+        "speech",
+        "dictation"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "available",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SpeechRecognitionAvailability"
+      },
+      "promise": true,
+      "comment": "Checks whether the native speech recognition service is usable on the current device."
+    },
+    {
+      "name": "isOnDeviceRecognitionAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsOnDeviceRecognitionAvailableOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SpeechRecognitionAvailability"
+      },
+      "promise": true,
+      "comment": "Checks whether on-device speech recognition is available for the selected locale.\n\nThis is the capability check you should use before enabling `useOnDeviceRecognition`.\nOn iOS, the result depends on which recognizer path `start()` will use:\n\n- When `preferLegacyRecognizer` is `false` (default) on iOS 26+, this checks the modern\n  `SpeechAnalyzer` path.\n- On older iOS versions, or when `preferLegacyRecognizer` is `true`, this checks\n  `SFSpeechRecognizer.supportsOnDeviceRecognition` for the legacy path.\n\nPass the same `preferLegacyRecognizer` value here and in `start()` so the availability\ncheck matches the route that recognition will take.\n\nPlatform SDK docs:\niOS: [Speech](https://developer.apple.com/documentation/speech)\nAndroid: [SpeechRecognizer](https://developer.android.com/reference/android/speech/SpeechRecognizer)"
+    },
+    {
+      "name": "start",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SpeechRecognitionStartOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SpeechRecognitionMatches"
+      },
+      "promise": true,
+      "comment": "Begins capturing audio and transcribing speech.\n\nWhen `partialResults` is `true`, the returned promise resolves immediately and updates are\nstreamed through the `partialResults` listener until the session ends.\n\nThe default path keeps the legacy recognizer behavior for backward compatibility.\nPass `useOnDeviceRecognition: true` only after checking\n{@link SpeechRecognitionPlugin.isOnDeviceRecognitionAvailable}."
+    },
+    {
+      "name": "stop",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops listening and tears down native resources."
+    },
+    {
+      "name": "forceStop",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ForceStopOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Force stops the current session.\n\nOn Android, this first tries a normal stop and then falls back to destroy/recreate after `timeout`.\nOn iOS, the current session is stopped immediately.\n\nIf a partial transcript is cached, it is emitted through the `partialResults` listener with `forced: true`."
+    },
+    {
+      "name": "getLastPartialResult",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "LastPartialResult"
+      },
+      "promise": true,
+      "comment": "Gets the last cached partial transcription result."
+    },
+    {
+      "name": "setPTTState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PTTStateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Updates the current push-to-talk button state.\n\nUse this together with `continuousPTT` or with a custom hold-to-talk flow."
+    },
+    {
+      "name": "getSupportedLanguages",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SpeechRecognitionLanguages"
+      },
+      "promise": true,
+      "comment": "Gets the locales supported by the underlying recognizer.\n\nAndroid 13+ devices no longer expose this list; in that case `languages` is empty."
+    },
+    {
+      "name": "isListening",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SpeechRecognitionListening"
+      },
+      "promise": true,
+      "comment": "Returns whether the plugin is actively listening for speech."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SpeechRecognitionPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Gets the current permission state."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SpeechRecognitionPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Requests the microphone + speech recognition permissions."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the native plugin version bundled with this package.\n\nUseful when reporting issues to confirm that native and JS versions match."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes every registered listener."
+    }
+  ],
+  "events": [
+    {
+      "name": "endOfSegmentedSession",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "segmentResults",
+      "listener": {
+        "k": "ref",
+        "name": "SpeechRecognitionSegmentResultEvent"
+      }
+    },
+    {
+      "name": "partialResults",
+      "listener": {
+        "k": "ref",
+        "name": "SpeechRecognitionPartialResultEvent"
+      }
+    },
+    {
+      "name": "listeningState",
+      "listener": {
+        "k": "ref",
+        "name": "SpeechRecognitionListeningEvent"
+      }
+    },
+    {
+      "name": "error",
+      "listener": {
+        "k": "ref",
+        "name": "SpeechRecognitionErrorEvent"
+      }
+    },
+    {
+      "name": "audioLevel",
+      "listener": {
+        "k": "ref",
+        "name": "SpeechRecognitionAudioLevelEvent"
+      }
+    },
+    {
+      "name": "readyForNextSession",
+      "listener": {
+        "k": "ref",
+        "name": "SpeechRecognitionReadyEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

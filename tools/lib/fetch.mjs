@@ -1,4 +1,4 @@
-// Downloads a CapGo plugin package and extracts its TypeScript declarations.
+// Downloads a CapGo plugin package and locates its TypeScript declarations.
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync } from "node:fs";
 import { join } from "node:path";
@@ -8,18 +8,18 @@ const cacheRoot = new URL("../.cache/", import.meta.url).pathname;
 export const slug = p => p.replace(/^@/, "").replace(/\//g, "-");
 
 export function npmLatest(pkg) {
-  const meta = JSON.parse(
-    execFileSync("npm", ["view", pkg, "version", "--json"], { encoding: "utf8" }),
-  );
-  return meta;
+  return JSON.parse(execFileSync("npm", ["view", pkg, "version", "--json"], { encoding: "utf8" }));
 }
 
-/** Returns the package directory with dist/esm/*.d.ts extracted. */
+// Framework wrappers under dist/{react,vue,...} redeclare the plugin types and
+// only add noise; skip them.
+const SKIP = /\/dist\/(react|vue|angular|svelte|solid)\//;
+
 export function fetchPackage(pkg, version) {
   const dir = join(cacheRoot, `${slug(pkg)}@${version}`);
-  if (existsSync(join(dir, "package", "dist", "esm"))) return join(dir, "package");
+  if (existsSync(join(dir, "package.json"))) return dir;
 
-  mkdirSync(join(cacheRoot), { recursive: true });
+  mkdirSync(cacheRoot, { recursive: true });
   const tarball = execFileSync(
     "npm",
     ["pack", `${pkg}@${version}`, "--pack-destination", cacheRoot, "--silent"],
@@ -39,10 +39,28 @@ export function listDts(dir) {
   const walk = d => {
     for (const entry of readdirSync(d, { withFileTypes: true })) {
       const p = join(d, entry.name);
-      if (entry.isDirectory()) walk(p);
-      else if (entry.name.endsWith(".d.ts")) out.push(p);
+      if (entry.isDirectory()) {
+        if (entry.name === "node_modules") continue;
+        walk(p);
+      } else if (entry.name.endsWith(".d.ts") && !SKIP.test(p)) out.push(p);
     }
   };
-  walk(join(dir, "dist", "esm"));
+  walk(dir);
   return out;
+}
+
+/// The module entry that exports the plugin instance, for the layouts CapGo
+/// packages use today (ESM bundle, flat dist, or dist/typings).
+export function indexDts(dir) {
+  const candidates = [
+    "dist/esm/index.d.ts",
+    "dist/index.d.ts",
+    "dist/typings/index.d.ts",
+    "index.d.ts",
+  ];
+  for (const c of candidates) {
+    const p = join(dir, c);
+    if (existsSync(p)) return p;
+  }
+  return null;
 }

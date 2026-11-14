@@ -1,0 +1,485 @@
+{
+  "namespace": "JwPlayer",
+  "family": "Media",
+  "package": "@capgo/capacitor-jw-player",
+  "version": "8.0.65",
+  "export": "JwPlayer",
+  "types": [
+    {
+      "name": "GetAudioTracksResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "tracks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetCaptionsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "captions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPositionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "position",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "state",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitializeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "licenseKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "playerUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LoadPlaylistOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playlistUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoadPlaylistWithItemsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playlist",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PlayOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mediaUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mediaType",
+          "type": {
+            "k": "ref",
+            "name": "PlayOptionsMediaType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "autostart",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PlayOptionsMediaType",
+      "kind": "enumStrings",
+      "cases": [
+        "video",
+        "playlist"
+      ]
+    },
+    {
+      "name": "SeekToOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPlaylistIndexOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSpeedOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetVolumeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize the JW Player"
+    },
+    {
+      "name": "play",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Play a video"
+    },
+    {
+      "name": "pause",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Pause the currently playing media"
+    },
+    {
+      "name": "resume",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resume the currently paused media"
+    },
+    {
+      "name": "stop",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop the currently playing media"
+    },
+    {
+      "name": "seekTo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SeekToOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Seek to a specific position in the currently playing media"
+    },
+    {
+      "name": "setVolume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetVolumeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the volume level"
+    },
+    {
+      "name": "getPosition",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPositionResult"
+      },
+      "promise": true,
+      "comment": "Get the current position in the media"
+    },
+    {
+      "name": "getState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetStateResult"
+      },
+      "promise": true,
+      "comment": "Get the current player state"
+    },
+    {
+      "name": "setSpeed",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSpeedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the playback speed"
+    },
+    {
+      "name": "setPlaylistIndex",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlaylistIndexOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the current item in the playlist by index"
+    },
+    {
+      "name": "loadPlaylist",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LoadPlaylistOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Load a playlist"
+    },
+    {
+      "name": "loadPlaylistWithItems",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LoadPlaylistWithItemsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Load a playlist with items"
+    },
+    {
+      "name": "getAudioTracks",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAudioTracksResult"
+      },
+      "promise": true,
+      "comment": "Get available audio tracks"
+    },
+    {
+      "name": "getCurrentAudioTrack",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetPlaylistIndexOptions"
+      },
+      "promise": true,
+      "comment": "Get the current audio track"
+    },
+    {
+      "name": "setCurrentAudioTrack",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlaylistIndexOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the current audio track"
+    },
+    {
+      "name": "getCaptions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetCaptionsResult"
+      },
+      "promise": true,
+      "comment": "Get the available captions/subtitles"
+    },
+    {
+      "name": "getCurrentCaptions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetPlaylistIndexOptions"
+      },
+      "promise": true,
+      "comment": "Get the current captions/subtitles track"
+    },
+    {
+      "name": "setCurrentCaptions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlaylistIndexOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the current captions/subtitles track"
+    },
+    {
+      "name": "currentPlaylist",
+      "params": [],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Get the current playlist"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

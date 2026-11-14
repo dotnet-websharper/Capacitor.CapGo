@@ -1,0 +1,489 @@
+{
+  "namespace": "AndroidUsageStatsManager",
+  "family": "Device",
+  "package": "@capgo/capacitor-android-usagestatsmanager",
+  "version": "8.2.18",
+  "export": "CapacitorUsageStatsManager",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PackageInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "versionName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "versionCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "firstInstallTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lastUpdateTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "category",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "QueryAllPackagesOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "includeIcon",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "QueryAllPackagesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "packages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PackageInfo"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryEventsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "beginTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "endTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "QueryEventsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "events",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UsageEvent"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryUsageStatsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "intervalType",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "beginTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "endTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "QueryUsageStatsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "stats",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UsageStats"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UsageEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "timeStamp",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "eventType",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "className",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "configuration",
+          "type": {
+            "k": "obj"
+          }
+        },
+        {
+          "name": "shortcutId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "standbyBucket",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "notificationChannelId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "instanceId",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "taskRootPackageName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "taskRootClassName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UsageStats",
+      "kind": "config",
+      "required": [
+        {
+          "name": "firstTimeStamp",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lastTimeStamp",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lastTimeUsed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "totalTimeInForeground",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "lastTimeForegroundServiceUsed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lastTimeVisible",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalForegroundServiceUsed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalTimeVisible",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UsageStatsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "beginTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "endTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UsageStatsPermissionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "granted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "queryAndAggregateUsageStats",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UsageStatsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "map",
+        "of": {
+          "k": "ref",
+          "name": "UsageStats"
+        }
+      },
+      "promise": true,
+      "comment": "Queries and aggregates usage stats for the given time range.\n\nAndroid reads pre-aggregated daily/weekly/monthly/yearly buckets and sums\nevery bucket that intersects `[beginTime, endTime)`, without clipping to it.\n`totalTimeInForeground` can therefore include usage from outside the window.\nUse `queryUsageStats` for the unmerged per-interval buckets, or `queryEvents`\nfor timestamped lifecycle events in the requested range."
+    },
+    {
+      "name": "queryUsageStats",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "QueryUsageStatsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "QueryUsageStatsResult"
+      },
+      "promise": true,
+      "comment": "Queries usage stats for the given interval type and time range.\n\nWraps Android `UsageStatsManager.queryUsageStats`. Unlike\n`queryAndAggregateUsageStats`, this does not merge buckets: the result is\none `UsageStats` object per package per overlapping interval. Android may\nexpand `[beginTime, endTime)` to the nearest whole interval period, so\n`totalTimeInForeground` can include usage from outside the window.\n\nOn Android R (API 30) and above, the OS returns no data while the user is\nlocked; this plugin then resolves `{ stats: [] }`, which must not be treated\nas zero foreground usage.\n\nThis uses the same `PACKAGE_USAGE_STATS` permission as\n`queryAndAggregateUsageStats`."
+    },
+    {
+      "name": "queryEvents",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "QueryEventsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "QueryEventsResult"
+      },
+      "promise": true,
+      "comment": "Queries the raw usage event log for the given time range.\n\nReturns lifecycle events whose timestamps fall in `[beginTime, endTime)`.\nAndroid does not emit a synthetic event for \"already in foreground at\nbeginTime\" or \"still in foreground at endTime\". To measure duration across\nthose boundaries, pass an earlier `beginTime` as lookback and clip locally:\ntreat an unmatched pause as starting at the window start, and an unmatched\nresume as ending at the window end.\n\nAndroid retains events for only a few days. Older ranges may return an\nincomplete or empty list; that is not the same as zero foreground usage.\nOn Android R (API 30) and above, the OS also returns no events while the\nuser is locked; this plugin then resolves `{ events: [] }`, which likewise\nmust not be treated as zero foreground usage.\n\nCallers can sum resumed-to-paused intervals from the returned events.\nDo not treat `DEVICE_SHUTDOWN` as a pause: it is a reset marker, not an\ninterval close. This uses the same `PACKAGE_USAGE_STATS` permission as\n`queryAndAggregateUsageStats`.\n\nOnly lifecycle events are returned, to keep the bridge payload small:\n- `1` — ACTIVITY_RESUMED / MOVE_TO_FOREGROUND\n- `2` — ACTIVITY_PAUSED / MOVE_TO_BACKGROUND\n- `23` — ACTIVITY_STOPPED\n- `26` — DEVICE_SHUTDOWN (device-wide reset marker; still returned when\n  `packageName` is set. Android typically reports package `\"android\"`.\n  `packageName` is omitted if the OS does not attach one. The timestamp\n  is the last UsageStats persist before shutdown, not the actual\n  power-off. Open resume events without a matching pause between this\n  marker and the next boot have unknown duration and must be ignored.)"
+    },
+    {
+      "name": "isUsageStatsPermissionGranted",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "UsageStatsPermissionResult"
+      },
+      "promise": true,
+      "comment": "Checks if the usage stats permission is granted."
+    },
+    {
+      "name": "openUsageStatsSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the usage stats settings screen.\nThis will open the usage stats settings screen, which allows the user to grant the usage stats permission.\nThis will always open the settings screen, even if the permission is already granted."
+    },
+    {
+      "name": "queryAllPackages",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "QueryAllPackagesOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "QueryAllPackagesResult"
+      },
+      "promise": true,
+      "comment": "Queries all installed packages on the device.\nRequires the QUERY_ALL_PACKAGES permission."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

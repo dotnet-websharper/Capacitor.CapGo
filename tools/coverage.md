@@ -5,7 +5,7 @@ Methods and events are counted separately; `unsupported` needs a hand-written ov
 
 | Namespace | npm package | Version | Methods + events | Unsupported | Status |
 |---|---|---:|---:|---:|---|
-| SocialLogin | `@capgo/capacitor-social-login` | 8.7.11 | 16 | 1 ⚠ | updated |
+| SocialLogin | `@capgo/capacitor-social-login` | 8.7.11 | 15 | 2 ⚠ | same |
 | Uploader | `@capgo/capacitor-uploader` | 8.3.31 | 6 | — | same |
 | NavigationBar | `@capgo/capacitor-navigation-bar` | 8.2.23 | 5 | — | same |
 | CapacitorDataStorageSqlite | `@capgo/capacitor-data-storage-sqlite` | 8.0.64 | 23 | — | same |
@@ -22,3 +22,134 @@ Methods and events are counted separately; `unsupported` needs a hand-written ov
 | CapacitorShake | `@capgo/capacitor-shake` | 8.0.58 | 2 | — | same |
 | IvsPlayer | `@capgo/capacitor-ivs-player` | 8.0.47 | 38 | — | same |
 | NativeMarket | `@capgo/capacitor-native-market` | 8.0.60 | 6 | — | same |
+| Passkey | `@capgo/capacitor-passkey` | 8.5.10 | 7 | — | same |
+| NativeBiometric | `@capgo/capacitor-native-biometric` | 8.9.3 | 14 | — | same |
+| AppAttest | `@capgo/capacitor-app-attest` | 8.2.21 | 13 | — | same |
+| DeviceIntegrity | `@capgo/capacitor-device-integrity` | 8.0.17 | 6 | — | same |
+| SslPinning | `@capgo/capacitor-ssl-pinning` | 8.1.17 | 2 | — | same |
+| AutofillSavePassword | `@capgo/capacitor-autofill-save-password` | 8.2.6 | 3 | — | same |
+| Permissions | `@capgo/capacitor-permissions` | 8.2.10 | 8 | — | same |
+| PrivacyScreen | `@capgo/capacitor-privacy-screen` | 8.3.16 | 4 | — | same |
+| IsRoot | `@capgo/capacitor-is-root` | 8.2.8 | 32 | — | same |
+| MockLocationDetector | `@capgo/capacitor-mock-location-detector` | 8.0.12 | 8 | — | same |
+| AppTrackingTransparency | `@capgo/capacitor-app-tracking-transparency` | 8.1.23 | 3 | — | same |
+| Recaptcha | `@capgo/capacitor-recaptcha` | 8.1.20 | 3 | — | same |
+| Persona | `@capgo/capacitor-persona` | 8.2.5 | 5 | — | same |
+| Verisoul | `@capgo/capacitor-verisoul` | 8.0.19 | 4 | — | same |
+| Intune | `@capgo/capacitor-intune` | 8.1.11 | 15 | — | same |
+| Nfc | `@capgo/capacitor-nfc` | 8.3.11 | 19 | — | same |
+| Wechat | `@capgo/capacitor-wechat` | 8.0.59 | 8 | — | same |
+| AndroidAgeSignals | `@capgo/capacitor-android-age-signals` | 8.1.33 | 2 | — | same |
+| AgeRange | `@capgo/capacitor-age-range` | 8.2.7 | 2 | — | same |
+| PersistentAccount | `@capgo/capacitor-persistent-account` | 8.0.54 | 3 | — | same |
+| AndroidSmsRetriever | `@capgo/capacitor-android-sms-retriever` | 8.1.4 | 9 | — | same |
+| AudioRecorder | `@capgo/capacitor-audio-recorder` | 8.4.1 | 17 | — | same |
+| AudioSession | `@capgo/capacitor-audio-session` | 8.1.11 | 5 | — | same |
+| MediaSession | `@capgo/capacitor-media-session` | 8.1.11 | 5 | — | same |
+| VideoPlayer | `@capgo/capacitor-video-player` | 8.3.3 | 20 | — | same |
+| YoutubePlayer | `@capgo/capacitor-youtube-player` | 8.3.19 | 44 | 3 ⚠ | same |
+| MuxPlayer | `@capgo/capacitor-mux-player` | 8.1.4 | 4 | 1 ⚠ | same |
+| JwPlayer | `@capgo/capacitor-jw-player` | 8.0.65 | 20 | — | same |
+| CameraPreview | `@capgo/camera-preview` | 8.15.4 | 65 | — | same |
+| DocumentScanner | `@capgo/capacitor-document-scanner` | 8.4.20 | 1 | — | same |
+| PhotoLibrary | `@capgo/capacitor-photo-library` | 8.0.34 | 8 | — | same |
+| VideoThumbnails | `@capgo/capacitor-video-thumbnails` | 8.1.27 | 2 | — | same |
+| FileCompressor | `@capgo/capacitor-file-compressor` | 8.1.22 | 2 | — | same |
+| PdfGenerator | `@capgo/capacitor-pdf-generator` | 8.0.53 | 3 | — | same |
+| PdfViewer | `@capgo/capacitor-pdf-viewer` | 8.3.2 | 18 | — | same |
+| Ffmpeg | `@capgo/capacitor-ffmpeg` | 0.0.8 | 2 | — | same |
+| Ricoh360 | `@capgo/capacitor-ricoh360` | 8.1.5 | 11 | — | same |
+| File | `@capgo/capacitor-file` | 8.0.26 | 28 | — | same |
+| FilePicker | `@capgo/capacitor-file-picker` | 8.2.9 | 12 | — | same |
+| FileSharer | `@capgo/capacitor-file-sharer` | 8.1.18 | 3 | — | same |
+| Zip | `@capgo/capacitor-zip` | 8.2.5 | 4 | — | same |
+| AssetCache | `@capgo/capacitor-asset-cache` | 8.1.10 | 10 | — | same |
+| FastSql | `@capgo/capacitor-fast-sql` | 8.3.4 | 9 | — | same |
+| IcloudKv | `@capgo/capacitor-icloud-kv` | 8.1.5 | 9 | — | same |
+| PersistentUuid | `@capgo/capacitor-persistent-uuid` | 8.1.12 | 3 | — | same |
+| Accelerometer | `@capgo/capacitor-accelerometer` | 8.0.58 | 9 | — | same |
+| Pedometer | `@capgo/capacitor-pedometer` | 8.0.57 | 9 | — | same |
+| Barometer | `@capgo/capacitor-barometer` | 8.0.25 | 9 | — | same |
+| Compass | `@capgo/capacitor-compass` | 8.1.26 | 12 | — | same |
+| LightSensor | `@capgo/capacitor-light-sensor` | 8.1.26 | 8 | — | same |
+| Proximity | `@capgo/capacitor-proximity` | 8.1.18 | 4 | — | same |
+| Brightness | `@capgo/capacitor-brightness` | 8.0.26 | 12 | — | same |
+| VolumeButtons | `@capgo/capacitor-volume-buttons` | 8.1.8 | 3 | — | same |
+| Health | `@capgo/capacitor-health` | 8.13.0 | 10 | — | same |
+| Watch | `@capgo/capacitor-watch` | 8.2.1 | 14 | — | same |
+| ScreenOrientation | `@capgo/capacitor-screen-orientation` | 8.4.5 | 19 | — | same |
+| DeviceInfo | `@capgo/capacitor-device-info` | 8.0.18 | 7 | — | same |
+| NetworkDiagnostics | `@capgo/capacitor-network-diagnostics` | 8.0.17 | 8 | — | same |
+| Wifi | `@capgo/capacitor-wifi` | 8.5.12 | 17 | — | same |
+| BluetoothLowEnergy | `@capgo/capacitor-bluetooth-low-energy` | 8.2.9 | 46 | — | same |
+| Ibeacon | `@capgo/capacitor-ibeacon` | 8.1.51 | 21 | — | same |
+| Uwb | `@capgo/capacitor-uwb` | 8.0.11 | 10 | — | same |
+| KeepAwake | `@capgo/capacitor-keep-awake` | 8.1.22 | 5 | — | same |
+| BackgroundTask | `@capgo/capacitor-background-task` | 8.1.14 | 14 | — | same |
+| BackgroundGeolocation | `@capgo/background-geolocation` | 8.6.4 | 18 | — | same |
+| Alarm | `@capgo/capacitor-alarm` | 8.1.16 | 8 | — | same |
+| Calendar | `@capgo/capacitor-calendar` | 8.0.17 | 36 | — | same |
+| Contacts | `@capgo/capacitor-contacts` | 8.1.12 | 22 | — | same |
+| IntentLauncher | `@capgo/capacitor-intent-launcher` | 8.3.44 | 5 | — | same |
+| AppIntents | `@capgo/capacitor-app-intents` | 8.1.3 | 10 | — | same |
+| AndroidUsageStatsManager | `@capgo/capacitor-android-usagestatsmanager` | 8.2.18 | 7 | — | same |
+| ZebraDatawedge | `@capgo/capacitor-zebra-datawedge` | 8.2.9 | 50 | — | same |
+| NativeNavigation | `@capgo/capacitor-native-navigation` | 8.16.3 | 20 | — | same |
+| InAppBrowser | `@capgo/capacitor-inappbrowser` | 8.27.9 | 45 | — | same |
+| PrettyToast | `@capgo/capacitor-pretty-toast` | 8.1.31 | 9 | 1 ⚠ | same |
+| NativeLoader | `@capgo/capacitor-native-loader` | 8.1.14 | 10 | — | same |
+| DatePicker | `@capgo/capacitor-date-picker` | 8.1.16 | 4 | — | same |
+| LaunchNavigator | `@capgo/capacitor-launch-navigator` | 8.1.9 | 9 | — | same |
+| TextInteraction | `@capgo/capacitor-textinteraction` | 8.1.11 | 3 | — | same |
+| WebviewCrash | `@capgo/capacitor-webview-crash` | 8.1.15 | 7 | — | same |
+| WebviewGuardian | `@capgo/capacitor-webview-guardian` | 8.1.7 | 8 | — | same |
+| WebviewVersionChecker | `@capgo/capacitor-webview-version-checker` | 8.2.21 | 9 | — | same |
+| AndroidKiosk | `@capgo/capacitor-android-kiosk` | 8.3.5 | 7 | — | same |
+| AndroidInlineInstall | `@capgo/capacitor-android-inline-install` | 8.0.21 | 2 | — | same |
+| Printer | `@capgo/capacitor-printer` | 8.1.11 | 7 | — | same |
+| ShareTarget | `@capgo/capacitor-share-target` | 8.0.68 | 3 | — | same |
+| LiveActivities | `@capgo/capacitor-live-activities` | 1.3.3 | 18 | — | same |
+| WidgetKit | `@capgo/capacitor-widget-kit` | 8.2.2 | 21 | — | same |
+| Pay | `@capgo/capacitor-pay` | 8.2.5 | 7 | — | same |
+| Stripe | `@capgo/capacitor-stripe` | 8.0.1 | 38 | — | same |
+| StripePay | `@capgo/capacitor-stripe-pay` | 8.0.13 | 38 | — | same |
+| StripeTerminal | `@capgo/capacitor-stripe-terminal` | 8.0.10 | 41 | — | same |
+| StripeIdentity | `@capgo/capacitor-stripe-identity` | 8.0.11 | 6 | — | same |
+| AdMob | `@capgo/capacitor-admob` | 8.2.12 | 19 | 2 ⚠ | same |
+| InAppReview | `@capgo/capacitor-in-app-review` | 8.2.11 | 2 | — | same |
+| Appsflyer | `@capgo/capacitor-appsflyer` | 8.1.21 | 47 | — | same |
+| Rudderstack | `@capgo/capacitor-rudderstack` | 8.1.19 | 15 | — | same |
+| Gtm | `@capgo/capacitor-gtm` | 8.0.48 | 6 | — | same |
+| Appinsights | `@capgo/capacitor-appinsights` | 8.0.65 | 4 | — | same |
+| Contentsquare | `@capgo/capacitor-contentsquare` | 8.1.19 | 11 | — | same |
+| FacebookAnalytics | `@capgo/capacitor-facebook-analytics` | 8.1.22 | 7 | — | same |
+| Disqo | `@capgo/capacitor-disqo` | 8.1.3 | 19 | — | same |
+| FirebaseAnalytics | `@capgo/capacitor-firebase-analytics` | 8.0.2 | 15 | — | same |
+| FirebaseCrashlytics | `@capgo/capacitor-firebase-crashlytics` | 8.3.1 | 11 | — | same |
+| FirebasePerformance | `@capgo/capacitor-firebase-performance` | 7.4.2 | 12 | — | same |
+| FirebaseRemoteConfig | `@capgo/capacitor-firebase-remote-config` | 8.3.1 | 15 | — | same |
+| FirebaseFirestore | `@capgo/capacitor-firebase-firestore` | 8.3.1 | 14 | 6 ⚠ | same |
+| FirebaseStorage | `@capgo/capacitor-firebase-storage` | 8.3.1 | 9 | — | same |
+| FirebaseAuthentication | `@capgo/capacitor-firebase-authentication` | 8.0.2 | 65 | — | same |
+| FirebaseFunctions | `@capgo/capacitor-firebase-functions` | 7.4.2 | 1 | 2 ⚠ | same |
+| FirebaseApp | `@capgo/capacitor-firebase-app` | 7.4.2 | 2 | — | same |
+| FirebaseAppCheck | `@capgo/capacitor-firebase-app-check` | 7.4.2 | 5 | — | same |
+| Supabase | `@capgo/capacitor-supabase` | 8.2.10 | 15 | 4 ⚠ | same |
+| Neon | `@capgo/capacitor-neon` | 8.1.2 | 15 | 4 ⚠ | same |
+| InstallReferrer | `@capgo/capacitor-install-referrer` | 8.1.17 | 3 | — | same |
+| Notifications | `@capgo/capacitor-notifications` | 8.1.1 | 17 | — | same |
+| RichNotifications | `@capgo/capacitor-rich-notifications` | 8.2.9 | 17 | — | same |
+| FirebaseMessaging | `@capgo/capacitor-firebase-messaging` | 7.4.2 | 17 | — | same |
+| TwilioVoice | `@capgo/capacitor-twilio-voice` | 8.2.33 | 26 | — | same |
+| StreamCall | `@capgo/capacitor-stream-call` | 8.0.84 | 24 | — | same |
+| Realtimekit | `@capgo/capacitor-realtimekit` | 8.0.48 | 3 | — | same |
+| Intercom | `@capgo/capacitor-intercom` | 8.2.5 | 27 | — | same |
+| IncomingCallKit | `@capgo/capacitor-incoming-call-kit` | 8.2.16 | 14 | — | same |
+| Mqtt | `@capgo/capacitor-mqtt` | 8.1.18 | 7 | — | same |
+| Llm | `@capgo/capacitor-llm` | 8.2.3 | 11 | — | same |
+| SpeechRecognition | `@capgo/capacitor-speech-recognition` | 8.5.0 | 20 | — | same |
+| SpeechSynthesis | `@capgo/capacitor-speech-synthesis` | 8.0.29 | 20 | — | same |
+| Env | `@capgo/capacitor-env` | 8.1.55 | 2 | — | same |
+| Sim | `@capgo/capacitor-sim` | 8.0.55 | 4 | — | same |
+| LiveReload | `@capgo/capacitor-live-reload` | 8.0.14 | 10 | — | same |
+| Auto | `@capgo/capacitor-auto` | 8.1.16 | 14 | — | same |

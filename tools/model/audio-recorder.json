@@ -1,0 +1,405 @@
+{
+  "namespace": "AudioRecorder",
+  "family": "Media",
+  "package": "@capgo/capacitor-audio-recorder",
+  "version": "8.4.1",
+  "export": "CapacitorAudioRecorder",
+  "types": [
+    {
+      "name": "AudioSessionCategoryOption",
+      "kind": "enumStrings",
+      "cases": [
+        "ALLOW_AIR_PLAY",
+        "ALLOW_BLUETOOTH",
+        "ALLOW_BLUETOOTH_A2DP",
+        "DEFAULT_TO_SPEAKER",
+        "DUCK_OTHERS",
+        "INTERRUPT_SPOKEN_AUDIO_AND_MIX_WITH_OTHERS",
+        "MIX_WITH_OTHERS",
+        "OVERRIDE_MUTED_MICROPHONE_INTERRUPTION"
+      ]
+    },
+    {
+      "name": "AudioSessionMode",
+      "kind": "enumStrings",
+      "cases": [
+        "DEFAULT",
+        "GAME_CHAT",
+        "MEASUREMENT",
+        "SPOKEN_AUDIO",
+        "VIDEO_CHAT",
+        "VIDEO_RECORDING",
+        "VOICE_CHAT"
+      ]
+    },
+    {
+      "name": "GetCurrentAmplitudeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetRecordingStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "RecordingStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "recordAudio",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusRecordAudio"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusRecordAudio",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "RecordingErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RecordingInterruptionEndedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "shouldResume",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RecordingStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "INACTIVE",
+        "RECORDING",
+        "PAUSED"
+      ]
+    },
+    {
+      "name": "StartRecordingOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "audioSessionCategoryOptions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AudioSessionCategoryOption"
+            }
+          }
+        },
+        {
+          "name": "audioSessionMode",
+          "type": {
+            "k": "ref",
+            "name": "AudioSessionMode"
+          }
+        },
+        {
+          "name": "bitRate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "sampleRate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "resetToPlaybackOnStop",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "StartRecordingOptionsFormat"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartRecordingOptionsFormat",
+      "kind": "enumStrings",
+      "cases": [
+        "m4a",
+        "aac"
+      ]
+    },
+    {
+      "name": "StopRecordingResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "blob",
+          "type": {
+            "k": "ext",
+            "name": "Blob"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mergeFailed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "segments",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "startRecording",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartRecordingOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start recording audio using the device microphone."
+    },
+    {
+      "name": "pauseRecording",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Pause the ongoing recording. Only available on Android (API 24+), iOS, and Web."
+    },
+    {
+      "name": "resumeRecording",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resume a previously paused recording."
+    },
+    {
+      "name": "stopRecording",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "StopRecordingResult"
+      },
+      "promise": true,
+      "comment": "Stop the current recording and persist the recorded audio.\n\nOn Android, when the recorder cannot stop cleanly, the call is rejected and the recording file\nis kept on disk; the rejection's `data.uri` points to it and `data.duration` reports elapsed\ntime. On iOS, when the segments of an interrupted recording cannot be joined but a fallback\nsegment exists, the call resolves with `mergeFailed` and `segments`. When finalization fails\nwith no fallback segment, the call is rejected; segment files remain on disk."
+    },
+    {
+      "name": "cancelRecording",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Cancel the current recording and discard any captured audio."
+    },
+    {
+      "name": "resetAudioSessionForPlayback",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reset the iOS audio session to `.playback` for normal-volume playback of\nrecorded audio in the same app process (for example via an HTML audio\nelement). No-op on Android and Web."
+    },
+    {
+      "name": "getRecordingStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetRecordingStatusResult"
+      },
+      "promise": true,
+      "comment": "Retrieve the current recording status."
+    },
+    {
+      "name": "getCurrentAmplitude",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetCurrentAmplitudeResult"
+      },
+      "promise": true,
+      "comment": "Retrieve the current input amplitude (microphone level) as a normalized\nnumber in the `[0, 1]` range.\n\nIntended for driving live visualizations such as VU meters or waveforms\nwhile recording. Returns `0` when no recording is active. Designed for\nUI-rate polling — a 60–100 ms interval is a good starting point for a\nwaveform. Avoid calling it in a tight loop; each call crosses the\nJS/native bridge."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Return the current permission state for accessing the microphone."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission to access the microphone."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "recordingError",
+      "listener": {
+        "k": "ref",
+        "name": "RecordingErrorEvent"
+      }
+    },
+    {
+      "name": "recordingPaused",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "recordingStopped",
+      "listener": {
+        "k": "ref",
+        "name": "StopRecordingResult"
+      }
+    },
+    {
+      "name": "recordingInterruptionBegan",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "recordingInterruptionEnded",
+      "listener": {
+        "k": "ref",
+        "name": "RecordingInterruptionEndedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": [
+    "Blob"
+  ]
+}

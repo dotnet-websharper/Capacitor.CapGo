@@ -1,0 +1,363 @@
+{
+  "namespace": "IsRoot",
+  "family": "Auth",
+  "package": "@capgo/capacitor-is-root",
+  "version": "8.2.8",
+  "export": "IsRoot",
+  "types": [
+    {
+      "name": "DetectionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "isRooted",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Performs the default root/jailbreak detection checks.\n\nThis is the recommended method for basic root/jailbreak detection.\nIt runs a combination of the most reliable detection heuristics for the platform.\nWorks on both Android and iOS."
+    },
+    {
+      "name": "isRootedWithBusyBox",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Extends the default detection with BusyBox specific checks (Android only)."
+    },
+    {
+      "name": "detectRootManagementApps",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects if known root management applications are present (Android only)."
+    },
+    {
+      "name": "detectPotentiallyDangerousApps",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects potentially dangerous applications commonly found on rooted devices (Android only)."
+    },
+    {
+      "name": "detectTestKeys",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects debug/test build tags (Android only)."
+    },
+    {
+      "name": "checkForBusyBoxBinary",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Checks whether a BusyBox binary exists on the device (Android only)."
+    },
+    {
+      "name": "checkForSuBinary",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Checks whether a `su` binary is present (Android only)."
+    },
+    {
+      "name": "checkSuExists",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects if the `su` binary can be executed (Android only)."
+    },
+    {
+      "name": "checkForRWPaths",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects world writable system paths (Android only)."
+    },
+    {
+      "name": "checkForDangerousProps",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects dangerous system properties (Android only)."
+    },
+    {
+      "name": "checkForRootNative",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Executes RootBeer native checks (Android only)."
+    },
+    {
+      "name": "detectRootCloakingApps",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects applications that can hide root (Android only)."
+    },
+    {
+      "name": "isSelinuxFlagInEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Checks the SELinux enforcement state (Android only)."
+    },
+    {
+      "name": "isExistBuildTags",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects test build tags on the OS image (Android only)."
+    },
+    {
+      "name": "doesSuperuserApkExist",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects if superuser APKs are installed (Android only)."
+    },
+    {
+      "name": "isExistSUPath",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Checks for known `su` binary locations (Android only)."
+    },
+    {
+      "name": "checkDirPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects writable directories that should be protected (Android only)."
+    },
+    {
+      "name": "checkExecutingCommands",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Executes `which su` style commands to detect root (Android only)."
+    },
+    {
+      "name": "checkInstalledPackages",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects suspicious installed packages (Android only)."
+    },
+    {
+      "name": "checkforOverTheAirCertificates",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects tampered OTA certificates (Android only)."
+    },
+    {
+      "name": "isRunningOnEmulator",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects common emulator fingerprints (Android only)."
+    },
+    {
+      "name": "simpleCheckEmulator",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Performs a lightweight emulator check (Android only)."
+    },
+    {
+      "name": "simpleCheckSDKBF86",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects x86 emulator fingerprints (Android only)."
+    },
+    {
+      "name": "simpleCheckQRREFPH",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects QC reference phone builds (Android only)."
+    },
+    {
+      "name": "simpleCheckBuild",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects build host anomalies (Android only)."
+    },
+    {
+      "name": "checkGenymotion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects Genymotion emulator fingerprints (Android only)."
+    },
+    {
+      "name": "checkGeneric",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects generic emulator fingerprints (Android only)."
+    },
+    {
+      "name": "checkGoogleSDK",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Detects Google SDK emulator fingerprints (Android only)."
+    },
+    {
+      "name": "togetDeviceInfo",
+      "params": [],
+      "returns": {
+        "k": "map",
+        "of": {
+          "k": "obj"
+        }
+      },
+      "promise": true,
+      "comment": "Returns device information collected during detection.\n\nProvides additional context and metadata about the device that was\ngathered during the root detection process. Useful for debugging\nand logging purposes."
+    },
+    {
+      "name": "isRootedWithEmulator",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Extends the default detection with emulator heuristics (Android only)."
+    },
+    {
+      "name": "isRootedWithBusyBoxWithEmulator",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DetectionResult"
+      },
+      "promise": true,
+      "comment": "Extends the BusyBox detection with emulator heuristics (Android only)."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

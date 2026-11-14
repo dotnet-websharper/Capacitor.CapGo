@@ -1,0 +1,496 @@
+{
+  "namespace": "Uwb",
+  "family": "Device",
+  "package": "@capgo/capacitor-uwb",
+  "version": "8.0.11",
+  "export": "CapacitorUwb",
+  "types": [
+    {
+      "name": "AndroidControllerSessionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "rangingParameters",
+          "type": {
+            "k": "ref",
+            "name": "AndroidRangingParameters"
+          }
+        },
+        {
+          "name": "localAddress",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AndroidRangingParameters",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "complexChannel",
+          "type": {
+            "k": "ref",
+            "name": "UwbComplexChannel"
+          }
+        },
+        {
+          "name": "peerAddress",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "sessionKeyInfo",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subSessionId",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "subSessionKeyInfo",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "uwbConfigType",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "slotDurationMillis",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "updateRateType",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DiscoveryTokenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "discoveryToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RangingUpdateEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "distanceMeters",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "UwbDirection"
+          }
+        },
+        {
+          "name": "azimuthRadians",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "elevationRadians",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "horizontalAngleRadians",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SessionStateChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "SessionStateChangedEventState"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SessionStateChangedEventState",
+      "kind": "enumStrings",
+      "cases": [
+        "initialized",
+        "running",
+        "suspended",
+        "resumed",
+        "invalidated",
+        "stopped",
+        "peerDisconnected"
+      ]
+    },
+    {
+      "name": "StartControleeSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "rangingParameters",
+          "type": {
+            "k": "ref",
+            "name": "AndroidRangingParameters"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartControllerSessionOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "sessionKeyInfo",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subSessionId",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "subSessionKeyInfo",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "complexChannel",
+          "type": {
+            "k": "ref",
+            "name": "UwbComplexChannel"
+          }
+        },
+        {
+          "name": "uwbConfigType",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "slotDurationMillis",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "updateRateType",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "peerAddress",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartPeerSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "peerDiscoveryToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isCameraAssistanceEnabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UwbAvailabilityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supported",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "UwbAvailabilityResultPlatform"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UwbAvailabilityResultPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "UwbComplexChannel",
+      "kind": "config",
+      "required": [
+        {
+          "name": "channel",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "preambleIndex",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UwbDirection",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "z",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "UwbAvailabilityResult"
+      },
+      "promise": true,
+      "comment": "Check whether UWB is supported and currently available on the device."
+    },
+    {
+      "name": "getDiscoveryToken",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DiscoveryTokenResult"
+      },
+      "promise": true,
+      "comment": "Get the local Nearby Interaction discovery token on iOS.\n\nShare the returned token with a peer out-of-band, then call\n`startPeerSession()` with the peer token."
+    },
+    {
+      "name": "startPeerSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartPeerSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start a Nearby Interaction peer session on iOS."
+    },
+    {
+      "name": "startControllerSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartControllerSessionOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AndroidControllerSessionResult"
+      },
+      "promise": true,
+      "comment": "Start an Android UWB controller session and return shareable parameters."
+    },
+    {
+      "name": "startControleeSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartControleeSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start an Android UWB controlee session with parameters from the controller."
+    },
+    {
+      "name": "stopSession",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop the active UWB ranging session."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the current native plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "rangingUpdate",
+      "listener": {
+        "k": "ref",
+        "name": "RangingUpdateEvent"
+      }
+    },
+    {
+      "name": "sessionStateChanged",
+      "listener": {
+        "k": "ref",
+        "name": "SessionStateChangedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

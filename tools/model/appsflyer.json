@@ -1,0 +1,1755 @@
+{
+  "namespace": "Appsflyer",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-appsflyer",
+  "version": "8.1.21",
+  "export": "AppsFlyer",
+  "types": [
+    {
+      "name": "AFAdRevenueData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "monetizationNetwork",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mediationNetwork",
+          "type": {
+            "k": "ref",
+            "name": "MediationNetwork"
+          }
+        },
+        {
+          "name": "currencyIso4217Code",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "revenue",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFAndroidInAppPurchase",
+      "kind": "config",
+      "required": [
+        {
+          "name": "publicKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "signature",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "purchaseData",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "price",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currency",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFAnonymizeUser",
+      "kind": "config",
+      "required": [
+        {
+          "name": "anonymizeUser",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFAppendToDeepLink",
+      "kind": "config",
+      "required": [
+        {
+          "name": "contains",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "parameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFConsentData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "IAppsFlyerConsent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFConsentOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "isUserSubjectToGDPR",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hasConsentForDataUsage",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hasConsentForAdsPersonalization",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hasConsentForAdStorage",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFCuid",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cuid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFCurrency",
+      "kind": "config",
+      "required": [
+        {
+          "name": "currencyCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "additionalData",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFDisable",
+      "kind": "config",
+      "required": [
+        {
+          "name": "shouldDisable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFEmails",
+      "kind": "config",
+      "required": [
+        {
+          "name": "emails",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "encode",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFEnableTCFDataCollection",
+      "kind": "config",
+      "required": [
+        {
+          "name": "shouldEnableTCFDataCollection",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "eventName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "eventValue",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFFbDAL",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enableFacebookDAL",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFFilters",
+      "kind": "config",
+      "required": [
+        {
+          "name": "filters",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFHost",
+      "kind": "config",
+      "required": [
+        {
+          "name": "hostPrefixName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hostName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFInit",
+      "kind": "config",
+      "required": [
+        {
+          "name": "devKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appID",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isDebug",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "waitForATTUserAuthorization",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "registerConversionListener",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "registerOnAppOpenAttribution",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "registerOnDeepLink",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "useUninstallSandbox",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "useReceiptValidationSandbox",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "minTimeBetweenSessions",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "deepLinkTimeout",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "manualStart",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFIosInAppPurchase",
+      "kind": "config",
+      "required": [
+        {
+          "name": "inAppPurchase",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "price",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "transactionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currency",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFIsStarted",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isStarted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFIsStopped",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isStopped",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFLanguage",
+      "kind": "config",
+      "required": [
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFLatLng",
+      "kind": "config",
+      "required": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFLink",
+      "kind": "config",
+      "required": [
+        {
+          "name": "link",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFLinkGenerator",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "brandDomain",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "campaign",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "channel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "referrerName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "referrerImageURL",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "referrerCustomerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "baseDeeplink",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "addParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFLogInvite",
+      "kind": "config",
+      "required": [
+        {
+          "name": "eventParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "channel",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFOnelinkDomain",
+      "kind": "config",
+      "required": [
+        {
+          "name": "domains",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFOnelinkID",
+      "kind": "config",
+      "required": [
+        {
+          "name": "onelinkID",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFPartnerData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "obj"
+          }
+        },
+        {
+          "name": "partnerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFPath",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFPhone",
+      "kind": "config",
+      "required": [
+        {
+          "name": "phone",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFPromotion",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appID",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "campaign",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "parameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFPurchaseDetails",
+      "kind": "config",
+      "required": [
+        {
+          "name": "purchaseType",
+          "type": {
+            "k": "ref",
+            "name": "AFPurchaseType"
+          }
+        },
+        {
+          "name": "purchaseToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "productId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFPurchaseDetailsV2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "purchaseDetails",
+          "type": {
+            "k": "ref",
+            "name": "AFPurchaseDetails"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "additionalParameters",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFPurchaseType",
+      "kind": "enumStrings",
+      "cases": [
+        "one_time_purchase",
+        "subscription"
+      ]
+    },
+    {
+      "name": "AFPushPayload",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pushPayload",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFRes",
+      "kind": "config",
+      "required": [
+        {
+          "name": "res",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFStop",
+      "kind": "config",
+      "required": [
+        {
+          "name": "stop",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFUid",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFUninstall",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AFUrls",
+      "kind": "config",
+      "required": [
+        {
+          "name": "urls",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IAppsFlyerConsent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isUserSubjectToGDPR",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "hasConsentForDataUsage",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hasConsentForAdsPersonalization",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MediationNetwork",
+      "kind": "enumStrings",
+      "cases": [
+        "ironsource",
+        "applovin_max",
+        "google_admob",
+        "fyber",
+        "appodeal",
+        "admost",
+        "topon",
+        "tradplus",
+        "yandex",
+        "chartboost",
+        "unity",
+        "topon_pte",
+        "custom_mediation",
+        "direct_monetization_network"
+      ]
+    },
+    {
+      "name": "OnAppOpenAttribution",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callbackName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "errorMessage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OnConversionDataResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callbackName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "errorMessage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OnDeepLink",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "deepLink",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initSDK",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AFInit"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Use this method to initialize and start AppsFlyer SDK. This API should be called as soon as the app launched."
+    },
+    {
+      "name": "startSDK",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Use this method to start AppsFlyer SDK, only on manual start mode."
+    },
+    {
+      "name": "logEvent",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFEvent"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Log an in-app event."
+    },
+    {
+      "name": "setCustomerUserId",
+      "params": [
+        {
+          "name": "cuid",
+          "type": {
+            "k": "ref",
+            "name": "AFCuid"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Setting your own customer ID enables you to cross-reference your own unique ID with AppsFlyer's unique ID and other devices' IDs.\nThis ID is available in raw-data reports and in the Postback APIs for cross-referencing with your internal IDs."
+    },
+    {
+      "name": "setCurrencyCode",
+      "params": [
+        {
+          "name": "currencyCode",
+          "type": {
+            "k": "ref",
+            "name": "AFCurrency"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the currency for in-app purchases. The currency code should be a 3 character ISO 4217 code"
+    },
+    {
+      "name": "updateServerUninstallToken",
+      "params": [
+        {
+          "name": "token",
+          "type": {
+            "k": "ref",
+            "name": "AFUninstall"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "(Android) Allows to pass GCM/FCM Tokens that where collected by third party plugins to the AppsFlyer server. Can be used for Uninstall log.\n(iOS) Allows to pass APN Tokens that where collected by third party plugins to the AppsFlyer server. Can be used for log Uninstall."
+    },
+    {
+      "name": "setAppInviteOneLink",
+      "params": [
+        {
+          "name": "id",
+          "type": {
+            "k": "ref",
+            "name": "AFOnelinkID"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the OneLink ID that should be used for attributing user-Invite. The link that is generated for the user invite will use this OneLink as the base link."
+    },
+    {
+      "name": "setOneLinkCustomDomain",
+      "params": [
+        {
+          "name": "domains",
+          "type": {
+            "k": "ref",
+            "name": "AFOnelinkDomain"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "In order for AppsFlyer SDK to successfully resolve hidden (decoded in shortlink ID) attribution parameters, any domain that is configured as a branded domain in the AppsFlyer Dashboard should be provided to this method."
+    },
+    {
+      "name": "appendParametersToDeepLinkingURL",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFAppendToDeepLink"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enables app owners using App Links for deep linking (without OneLink) to attribute sessions initiated via a domain associated with their app. Call this method before calling start.\nYou must provide the following parameters in the parameters Map:\npid\nis_retargeting must be set to true"
+    },
+    {
+      "name": "setResolveDeepLinkURLs",
+      "params": [
+        {
+          "name": "urls",
+          "type": {
+            "k": "ref",
+            "name": "AFUrls"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Advertisers can wrap an AppsFlyer OneLink within another Universal Link. This Universal Link will invoke the app but any deep linking data will not propagate to AppsFlyer.\nsetResolveDeepLinkURLs enables you to configure the SDK to resolve the wrapped OneLink URLs, so that deep linking can occur correctly."
+    },
+    {
+      "name": "addPushNotificationDeepLinkPath",
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "k": "ref",
+            "name": "AFPath"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configures how the SDK extracts deep link values from push notification payloads."
+    },
+    {
+      "name": "setSharingFilter",
+      "params": [
+        {
+          "name": "filters",
+          "type": {
+            "k": "ref",
+            "name": "AFFilters"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops events from propagating to the specified AppsFlyer partners."
+    },
+    {
+      "name": "setSharingFilterForAllPartners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops events from propagating to all AppsFlyer partners. Overwrites setSharingFilter."
+    },
+    {
+      "name": "setSharingFilterForPartners",
+      "params": [
+        {
+          "name": "filters",
+          "type": {
+            "k": "ref",
+            "name": "AFFilters"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops events from propagating to the specified AppsFlyer partners."
+    },
+    {
+      "name": "setAdditionalData",
+      "params": [
+        {
+          "name": "additionalData",
+          "type": {
+            "k": "ref",
+            "name": "AFData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set additional data to be sent to AppsFlyer. See"
+    },
+    {
+      "name": "getAppsFlyerUID",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AFUid"
+      },
+      "promise": true,
+      "comment": "Get AppsFlyer's unique device ID (created for every new install of an app)."
+    },
+    {
+      "name": "anonymizeUser",
+      "params": [
+        {
+          "name": "anonymize",
+          "type": {
+            "k": "ref",
+            "name": "AFAnonymizeUser"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "End User Opt-Out from AppsFlyer analytics (Anonymize user data)."
+    },
+    {
+      "name": "stop",
+      "params": [
+        {
+          "name": "stop",
+          "type": {
+            "k": "ref",
+            "name": "AFStop"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFIsStopped"
+      },
+      "promise": true,
+      "comment": "Once this API is invoked, our SDK no longer communicates with our servers and stops functioning.\nUseful when implementing user opt-in/opt-out."
+    },
+    {
+      "name": "disableSKAdNetwork",
+      "params": [
+        {
+          "name": "stop",
+          "type": {
+            "k": "ref",
+            "name": "AFDisable"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opt-out of SKAdNetwork"
+    },
+    {
+      "name": "disableAdvertisingIdentifier",
+      "params": [
+        {
+          "name": "stop",
+          "type": {
+            "k": "ref",
+            "name": "AFDisable"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disables collection of various Advertising IDs by the SDK. This includes Apple Identity for Advertisers (IDFA), Google Advertising ID (GAID), OAID and Amazon Advertising ID (AAID)."
+    },
+    {
+      "name": "disableCollectASA",
+      "params": [
+        {
+          "name": "stop",
+          "type": {
+            "k": "ref",
+            "name": "AFDisable"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opt-out of Apple Search Ads attributions."
+    },
+    {
+      "name": "setHost",
+      "params": [
+        {
+          "name": "hostName",
+          "type": {
+            "k": "ref",
+            "name": "AFHost"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set a custom host."
+    },
+    {
+      "name": "generateInviteLink",
+      "params": [
+        {
+          "name": "params",
+          "type": {
+            "k": "ref",
+            "name": "AFLinkGenerator"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFLink"
+      },
+      "promise": true,
+      "comment": "Allowing your existing users to invite their friends and contacts as new users to your app"
+    },
+    {
+      "name": "validateAndLogInAppPurchaseAndroid",
+      "params": [
+        {
+          "name": "purchaseData",
+          "type": {
+            "k": "ref",
+            "name": "AFAndroidInAppPurchase"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "API for server verification of in-app purchases. An af_purchase event with the relevant values will be automatically logged if the validation is successful."
+    },
+    {
+      "name": "validateAndLogInAppPurchaseIos",
+      "params": [
+        {
+          "name": "purchaseData",
+          "type": {
+            "k": "ref",
+            "name": "AFIosInAppPurchase"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "getSdkVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Get the AppsFlyer SDK version used in app."
+    },
+    {
+      "name": "enableFacebookDeferredApplinks",
+      "params": [
+        {
+          "name": "enable",
+          "type": {
+            "k": "ref",
+            "name": "AFFbDAL"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Enable the collection of Facebook Deferred AppLinks. Requires Facebook SDK and Facebook app on target/client device.\nThis API must be invoked before initializing the AppsFlyer SDK in order to function properly."
+    },
+    {
+      "name": "sendPushNotificationData",
+      "params": [
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "AFPushPayload"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Measure and get data from push-notification campaigns."
+    },
+    {
+      "name": "setCurrentDeviceLanguage",
+      "params": [
+        {
+          "name": "language",
+          "type": {
+            "k": "ref",
+            "name": "AFLanguage"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Set the language of the device. The data will be displayed in Raw Data Reports"
+    },
+    {
+      "name": "logCrossPromoteImpression",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFPromotion"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "logs an impression as part of a cross-promotion campaign. Make sure to use the promoted App ID as it appears within the AppsFlyer dashboard."
+    },
+    {
+      "name": "setUserEmails",
+      "params": [
+        {
+          "name": "emails",
+          "type": {
+            "k": "ref",
+            "name": "AFEmails"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Set the user emails and encrypt them."
+    },
+    {
+      "name": "logLocation",
+      "params": [
+        {
+          "name": "latLng",
+          "type": {
+            "k": "ref",
+            "name": "AFLatLng"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Manually log the location of the user"
+    },
+    {
+      "name": "setPhoneNumber",
+      "params": [
+        {
+          "name": "phone",
+          "type": {
+            "k": "ref",
+            "name": "AFPhone"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Will be sent as an SHA-256 encrypted string."
+    },
+    {
+      "name": "setPartnerData",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFPartnerData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Allows sending custom data for partner integration purposes."
+    },
+    {
+      "name": "logInvite",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFLogInvite"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AFRes"
+      },
+      "promise": true,
+      "comment": "Use to log a user-invite in-app event (af_invite)."
+    },
+    {
+      "name": "setDisableNetworkData",
+      "params": [
+        {
+          "name": "disable",
+          "type": {
+            "k": "ref",
+            "name": "AFDisable"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Use to opt-out of collecting the network operator name (carrier) and sim operator name from the device."
+    },
+    {
+      "name": "enableTCFDataCollection",
+      "params": [
+        {
+          "name": "shouldEnableTCFDataCollection",
+          "type": {
+            "k": "ref",
+            "name": "AFEnableTCFDataCollection"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Use to opt-in/out the automatic collection of consent data, for users who use a CMP.\nFlag value will be persisted between app sessions."
+    },
+    {
+      "name": "setConsentData",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFConsentData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Use to set user consent data manualy.\nif your app doesn't use a CMP compatible with TCF v2.2, use the following method to manualy provide the consent data directly to the SDK."
+    },
+    {
+      "name": "logAdRevenue",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFAdRevenueData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "By attributing ad revenue, app owners gain the complete view of user LTV and campaign ROI.\nAd revenue is generated by displaying ads on rewarded videos, offer walls, interstitials, and banners in an app.\nYou can use this method to log your ad revenue."
+    },
+    {
+      "name": "setConsentDataV2",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AFConsentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Use this to set user consent data manualy.\nif your app doesn't use a CMP compatible with TCF v2.2, use the following method to manualy provide the consent data directly to the SDK."
+    },
+    {
+      "name": "isSDKStarted",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AFIsStarted"
+      },
+      "promise": true,
+      "comment": "Use this method to check whether the AppsFlyer SDK has already been started in the current session."
+    },
+    {
+      "name": "isSDKStopped",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AFIsStopped"
+      },
+      "promise": true,
+      "comment": "Use this method to check whether the AppsFlyer SDK is currently stopped."
+    },
+    {
+      "name": "disableAppSetId",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disables AppSet ID collection. If called before SDK init, App Set ID will not be collected.\nIf called after init, App Set ID will be collected but not sent in request payloads.\nAndroid only."
+    },
+    {
+      "name": "validateAndLogInAppPurchaseV2",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AFPurchaseDetailsV2"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "map",
+        "of": {
+          "k": "obj"
+        }
+      },
+      "promise": true,
+      "comment": "API for server verification of in-app purchases V2.\nAn af_purchase event with the relevant values will be automatically logged if the validation is successful."
+    }
+  ],
+  "events": [
+    {
+      "name": "conversion_callback",
+      "listener": {
+        "k": "ref",
+        "name": "OnConversionDataResult"
+      }
+    },
+    {
+      "name": "oaoa_callback",
+      "listener": {
+        "k": "ref",
+        "name": "OnAppOpenAttribution"
+      }
+    },
+    {
+      "name": "udl_callback",
+      "listener": {
+        "k": "ref",
+        "name": "OnDeepLink"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

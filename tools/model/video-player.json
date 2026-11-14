@@ -1,0 +1,807 @@
+{
+  "namespace": "VideoPlayer",
+  "family": "Media",
+  "package": "@capgo/capacitor-video-player",
+  "version": "8.3.3",
+  "export": "VideoPlayer",
+  "types": [
+    {
+      "name": "capVideoMutedOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "muted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capVideoPlayerIdOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capVideoPlayerOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "chromecastUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitles",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "VideoSubtitle"
+            }
+          }
+        },
+        {
+          "name": "chapters",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "VideoChapter"
+            }
+          }
+        },
+        {
+          "name": "subtitleOptions",
+          "type": {
+            "k": "ref",
+            "name": "SubTitleOptions"
+          }
+        },
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "exitOnEnd",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "loopOnEnd",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "pipEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "bkmodeEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "audioCategory",
+          "type": {
+            "k": "ref",
+            "name": "CapVideoPlayerOptionsAudioCategory"
+          }
+        },
+        {
+          "name": "showControls",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "displayMode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "componentTag",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "smallTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accentColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "chromecast",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "artwork",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "drm",
+          "type": {
+            "k": "ref",
+            "name": "DrmOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapVideoPlayerOptionsAudioCategory",
+      "kind": "enumStrings",
+      "cases": [
+        "ambient",
+        "playback",
+        "moviePlayback"
+      ]
+    },
+    {
+      "name": "capVideoPlayerResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "result",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "obj"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capVideoRateOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capVideoTimeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "seektime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capVideoVolumeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DrmOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "fairplay",
+          "type": {
+            "k": "ref",
+            "name": "FairPlayDrmOptions"
+          }
+        },
+        {
+          "name": "playready",
+          "type": {
+            "k": "ref",
+            "name": "PlayreadyDrmOptions"
+          }
+        },
+        {
+          "name": "widevine",
+          "type": {
+            "k": "ref",
+            "name": "WidevineDrmOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FairPlayDrmOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "certificateUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentKeySpcUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PlayreadyDrmOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "certificateUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SubTitleOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "foregroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fontSize",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VideoChapter",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "endTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VideoSubtitle",
+      "kind": "config",
+      "required": [
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WidevineDrmOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "certificateUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initPlayer",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Initialize a video player"
+    },
+    {
+      "name": "isPlaying",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Return if a given playerId is playing"
+    },
+    {
+      "name": "play",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Play the current video from a given playerId"
+    },
+    {
+      "name": "pause",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Pause the current video from a given playerId"
+    },
+    {
+      "name": "getDuration",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Get the duration of the current video from a given playerId"
+    },
+    {
+      "name": "getCurrentTime",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Get the current time of the current video from a given playerId"
+    },
+    {
+      "name": "setCurrentTime",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoTimeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Set the current time to seek the current video to from a given playerId"
+    },
+    {
+      "name": "getVolume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Get the volume of the current video from a given playerId"
+    },
+    {
+      "name": "setVolume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoVolumeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Set the volume of the current video to from a given playerId"
+    },
+    {
+      "name": "getMuted",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Get the muted of the current video from a given playerId"
+    },
+    {
+      "name": "setMuted",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoMutedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Set the muted of the current video to from a given playerId"
+    },
+    {
+      "name": "setRate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoRateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Set the rate of the current video from a given playerId"
+    },
+    {
+      "name": "getRate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capVideoPlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Get the rate of the current video from a given playerId"
+    },
+    {
+      "name": "stopAllPlayers",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Stop all players playing"
+    },
+    {
+      "name": "showController",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Show controller"
+    },
+    {
+      "name": "isControllerIsFullyVisible",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "isControllerIsFullyVisible"
+    },
+    {
+      "name": "exitPlayer",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Exit player"
+    },
+    {
+      "name": "hidePlayer",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Hide the currently presented player UI without stopping playback (native fullscreen).\n\nCall `showPlayer()` to show it again."
+    },
+    {
+      "name": "showPlayer",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capVideoPlayerResult"
+      },
+      "promise": true,
+      "comment": "Show again a previously hidden player UI (native fullscreen)."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version.\nOn web, the implementation returns `\"web\"`."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

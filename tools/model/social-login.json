@@ -80,26 +80,6 @@
       ]
     },
     {
-      "name": "AppleLoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "AppleProviderOptions"
-          }
-        }
-      ],
-      "optional": []
-    },
-    {
       "name": "AppleProviderOptions",
       "kind": "config",
       "required": [],
@@ -314,26 +294,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "FacebookLoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "FacebookLoginOptions"
-          }
-        }
-      ],
-      "optional": []
     },
     {
       "name": "FacebookLoginResponse",
@@ -603,26 +563,6 @@
         "bottom",
         "standard"
       ]
-    },
-    {
-      "name": "GoogleLoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "GoogleLoginOptions"
-          }
-        }
-      ],
-      "optional": []
     },
     {
       "name": "GoogleLoginResponseOffline",
@@ -1204,26 +1144,6 @@
       "optional": []
     },
     {
-      "name": "LinkedinLoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "LinkedInProviderConfig"
-          }
-        }
-      ],
-      "optional": []
-    },
-    {
       "name": "LinkedInProviderConfig",
       "kind": "config",
       "required": [
@@ -1558,26 +1478,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "Oauth2LoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "OAuth2LoginOptions"
-          }
-        }
-      ],
-      "optional": []
     },
     {
       "name": "OAuth2LoginResponse",
@@ -2286,26 +2186,6 @@
       ]
     },
     {
-      "name": "TelegramLoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "TelegramLoginOptions"
-          }
-        }
-      ],
-      "optional": []
-    },
-    {
       "name": "TelegramLoginResponse",
       "kind": "config",
       "required": [
@@ -2428,26 +2308,6 @@
       ]
     },
     {
-      "name": "TiktokLoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "TikTokProviderConfig"
-          }
-        }
-      ],
-      "optional": []
-    },
-    {
       "name": "TikTokProviderConfig",
       "kind": "config",
       "required": [
@@ -2550,26 +2410,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "TwitterLoginRequest",
-      "kind": "config",
-      "required": [
-        {
-          "name": "provider",
-          "type": {
-            "k": "string"
-          }
-        },
-        {
-          "name": "options",
-          "type": {
-            "k": "ref",
-            "name": "TwitterLoginOptions"
-          }
-        }
-      ],
-      "optional": []
     },
     {
       "name": "TwitterLoginResponse",
@@ -2981,91 +2821,19 @@
         "name": "OpenAuthSessionResult"
       },
       "promise": true
-    },
-    {
-      "name": "login",
-      "params": [
-        {
-          "name": "options",
-          "type": {
-            "k": "union",
-            "of": [
-              {
-                "k": "ref",
-                "name": "FacebookLoginRequest"
-              },
-              {
-                "k": "ref",
-                "name": "GoogleLoginRequest"
-              },
-              {
-                "k": "ref",
-                "name": "AppleLoginRequest"
-              },
-              {
-                "k": "ref",
-                "name": "TwitterLoginRequest"
-              },
-              {
-                "k": "ref",
-                "name": "TelegramLoginRequest"
-              },
-              {
-                "k": "ref",
-                "name": "LinkedinLoginRequest"
-              },
-              {
-                "k": "ref",
-                "name": "TiktokLoginRequest"
-              },
-              {
-                "k": "ref",
-                "name": "Oauth2LoginRequest"
-              }
-            ]
-          },
-          "optional": false
-        }
-      ],
-      "returns": {
-        "k": "union",
-        "of": [
-          {
-            "k": "ref",
-            "name": "FacebookLoginResponse"
-          },
-          {
-            "k": "ref",
-            "name": "GoogleLoginResponseOnline"
-          },
-          {
-            "k": "ref",
-            "name": "AppleProviderResponse"
-          },
-          {
-            "k": "ref",
-            "name": "TwitterLoginResponse"
-          },
-          {
-            "k": "ref",
-            "name": "TelegramLoginResponse"
-          },
-          {
-            "k": "ref",
-            "name": "OAuth2LoginResponse"
-          }
-        ]
-      },
-      "promise": true,
-      "comment": "Login with the selected provider. Each provider has its own options and response type."
     }
   ],
   "events": [],
   "unsupported": [
     {
+      "method": "login",
+      "reason": "generic method cannot be flattened"
+    },
+    {
       "method": "providerSpecificCall",
       "reason": "generic method cannot be flattened"
     }
   ],
-  "coreRefs": []
+  "coreRefs": [],
+  "externalTypes": []
 }

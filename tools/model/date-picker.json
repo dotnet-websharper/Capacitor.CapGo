@@ -1,0 +1,578 @@
+{
+  "namespace": "DatePicker",
+  "family": "UI",
+  "package": "@capgo/capacitor-date-picker",
+  "version": "8.1.16",
+  "export": "DatePicker",
+  "types": [
+    {
+      "name": "DatePickerAndroidOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "theme",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "locale",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerIosOptionsMode"
+          }
+        },
+        {
+          "name": "timezone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "doneText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "is24h",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "minuteStep",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "steps",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DatePickerIosOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerIosOptionsStyle"
+          }
+        },
+        {
+          "name": "titleFontColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "titleBgColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bgColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fontColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "buttonBgColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "buttonFontColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mergedDateAndTime",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "locale",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerIosOptionsMode"
+          }
+        },
+        {
+          "name": "theme",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timezone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "doneText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "is24h",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "minuteStep",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "steps",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DatePickerIosOptionsMode",
+      "kind": "enumStrings",
+      "cases": [
+        "time",
+        "date",
+        "dateAndTime",
+        "countDownTimer",
+        "yearAndMonth",
+        "range"
+      ]
+    },
+    {
+      "name": "DatePickerIosOptionsStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "wheels",
+        "inline",
+        "compact",
+        "automatic"
+      ]
+    },
+    {
+      "name": "DatePickerOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "min",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "max",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "date",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ios",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerIosOptions"
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerAndroidOptions"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "locale",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerIosOptionsMode"
+          }
+        },
+        {
+          "name": "theme",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timezone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "doneText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "is24h",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "minuteStep",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "steps",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DatePickerRangeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "start",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "end",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "min",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "max",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "date",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ios",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerIosOptions"
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerAndroidOptions"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "locale",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerIosOptionsMode"
+          }
+        },
+        {
+          "name": "theme",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timezone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "doneText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "is24h",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "minuteStep",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "steps",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DatePickerRangeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "start",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "end",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DatePickerResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "present",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DatePickerResult"
+      },
+      "promise": true,
+      "comment": "Present the date picker."
+    },
+    {
+      "name": "presentRange",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DatePickerRangeOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DatePickerRangeResult"
+      },
+      "promise": true,
+      "comment": "Present a range picker. Native platforms use two native date selections;\nweb shows start and end controls in one dialog."
+    },
+    {
+      "name": "hide",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Close the currently visible picker, if any."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,560 @@
+{
+  "namespace": "PhotoLibrary",
+  "family": "Media",
+  "package": "@capgo/capacitor-photo-library",
+  "version": "8.0.34",
+  "export": "PhotoLibrary",
+  "types": [
+    {
+      "name": "CheckAuthorizationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "CheckAuthorizationResultState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckAuthorizationResultState",
+      "kind": "enumStrings",
+      "cases": [
+        "authorized",
+        "limited",
+        "denied",
+        "notDetermined"
+      ]
+    },
+    {
+      "name": "GetAlbumsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "albums",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PhotoLibraryAlbum"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetLibraryOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "offset",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "includeImages",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "includeVideos",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "includeAlbumData",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "includeCloudData",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "useOriginalFileNames",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "thumbnailWidth",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "thumbnailHeight",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "thumbnailQuality",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "includeFullResolutionData",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetLibraryResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assets",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PhotoLibraryAsset"
+            }
+          }
+        },
+        {
+          "name": "totalCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "hasMore",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPhotoUrlOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetThumbnailUrlOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "quality",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PhotoLibraryAlbum",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "assetCount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PhotoLibraryAsset",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "PhotoLibraryAssetType"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "creationDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "modificationDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "albumIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "thumbnail",
+          "type": {
+            "k": "ref",
+            "name": "PhotoLibraryFile"
+          }
+        },
+        {
+          "name": "file",
+          "type": {
+            "k": "ref",
+            "name": "PhotoLibraryFile"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PhotoLibraryAssetType",
+      "kind": "enumStrings",
+      "cases": [
+        "image",
+        "video"
+      ]
+    },
+    {
+      "name": "PhotoLibraryFile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "webPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PickMediaOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "selectionLimit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "includeImages",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "includeVideos",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "thumbnailWidth",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "thumbnailHeight",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "thumbnailQuality",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PickMediaResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assets",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PhotoLibraryAsset"
+            }
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "checkAuthorization",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckAuthorizationResult"
+      },
+      "promise": true,
+      "comment": "Returns the current authorization status without prompting the user."
+    },
+    {
+      "name": "requestAuthorization",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckAuthorizationResult"
+      },
+      "promise": true,
+      "comment": "Requests access to the photo library if needed."
+    },
+    {
+      "name": "getAlbums",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAlbumsResult"
+      },
+      "promise": true,
+      "comment": "Retrieves the available albums."
+    },
+    {
+      "name": "getLibrary",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetLibraryOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetLibraryResult"
+      },
+      "promise": true,
+      "comment": "Retrieves library assets along with URLs that can be displayed in the web view."
+    },
+    {
+      "name": "getPhotoUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetPhotoUrlOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PhotoLibraryFile"
+      },
+      "promise": true,
+      "comment": "Retrieves a displayable URL for the full resolution version of the asset.\nIf you already called `getLibrary` with `includeFullResolutionData`, you normally\ndo not need this method."
+    },
+    {
+      "name": "getThumbnailUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetThumbnailUrlOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PhotoLibraryFile"
+      },
+      "promise": true,
+      "comment": "Retrieves a displayable URL for a resized thumbnail of the asset."
+    },
+    {
+      "name": "pickMedia",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PickMediaOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PickMediaResult"
+      },
+      "promise": true,
+      "comment": "Opens the native system picker so the user can select media without granting full photo library access.\nThe selected files are copied into the application cache and returned with portable URLs."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

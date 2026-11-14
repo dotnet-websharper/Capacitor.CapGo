@@ -1,0 +1,176 @@
+{
+  "namespace": "Accelerometer",
+  "family": "Device",
+  "package": "@capgo/capacitor-accelerometer",
+  "version": "8.0.58",
+  "export": "CapacitorAccelerometer",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Measurement",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "z",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accelerometer",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusAccelerometer"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusAccelerometer",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied",
+        "limited"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getMeasurement",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "Measurement"
+      },
+      "promise": true,
+      "comment": "Get the most recent accelerometer sample that was recorded by the native layer."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if the current device includes an accelerometer sensor."
+    },
+    {
+      "name": "startMeasurementUpdates",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Begin streaming accelerometer updates to the JavaScript layer.\n\nCall {@link addListener} with the `measurement` event to receive the updates."
+    },
+    {
+      "name": "stopMeasurementUpdates",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop streaming accelerometer updates started via {@link startMeasurementUpdates}."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Return the current permission state for accessing motion data.\n\nOn platforms without explicit permissions this resolves to `granted`."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission to access motion data if supported by the platform."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners that have been registered on the plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "measurement",
+      "listener": {
+        "k": "ref",
+        "name": "Measurement"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

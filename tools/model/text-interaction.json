@@ -1,0 +1,106 @@
+{
+  "namespace": "TextInteraction",
+  "family": "UI",
+  "package": "@capgo/capacitor-textinteraction",
+  "version": "8.1.11",
+  "export": "TextInteraction",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TextInteractionEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TextInteractionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TextInteractionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "toggle",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TextInteractionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "TextInteractionResult"
+      },
+      "promise": true,
+      "comment": "Toggle text interaction (selection) on the Capacitor WebView.\n\n⚠️ Disabling text interaction prevents all text input controls from working while disabled.\nUse it sparingly and re-enable when text entry is required.\n\niOS only."
+    },
+    {
+      "name": "isEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "TextInteractionEnabledResult"
+      },
+      "promise": true,
+      "comment": "Returns whether text interaction is currently enabled.\n\nOn iOS this reflects the WebView preference. On Android and web, toggling text\ninteraction is not supported; the value reflects the plugin configuration state\n(`plugins.TextInteraction.enabled` at startup) rather than a platform change."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

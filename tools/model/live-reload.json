@@ -1,0 +1,258 @@
+{
+  "namespace": "LiveReload",
+  "family": "Tooling",
+  "package": "@capgo/capacitor-live-reload",
+  "version": "8.0.14",
+  "export": "LiveReload",
+  "types": [
+    {
+      "name": "ConfigureServerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "websocketPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "autoReconnect",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "reconnectInterval",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FileUpdatePayload",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "hash",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LiveReloadEventPayload",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "LiveReloadEventPayloadType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "file",
+          "type": {
+            "k": "ref",
+            "name": "FileUpdatePayload"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LiveReloadEventPayloadType",
+      "kind": "enumStrings",
+      "cases": [
+        "full-reload",
+        "file-update",
+        "error",
+        "connected",
+        "disconnected"
+      ]
+    },
+    {
+      "name": "LiveReloadStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "connected",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "configureServer",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConfigureServerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LiveReloadStatus"
+      },
+      "promise": true,
+      "comment": "Store remote dev server settings used for subsequent connections."
+    },
+    {
+      "name": "connect",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "LiveReloadStatus"
+      },
+      "promise": true,
+      "comment": "Establish a WebSocket connection if one is not already active."
+    },
+    {
+      "name": "disconnect",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "LiveReloadStatus"
+      },
+      "promise": true,
+      "comment": "Close the current WebSocket connection and disable auto reconnect."
+    },
+    {
+      "name": "getStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "LiveReloadStatus"
+      },
+      "promise": true,
+      "comment": "Returns the current connection status."
+    },
+    {
+      "name": "reload",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Trigger a full reload of the Capacitor WebView."
+    },
+    {
+      "name": "reloadFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "FileUpdatePayload"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reload a single file/module if the runtime supports it (falls back to full reload)."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [
+    {
+      "name": "reloadEvent",
+      "listener": {
+        "k": "ref",
+        "name": "LiveReloadEventPayload"
+      }
+    },
+    {
+      "name": "statusChange",
+      "listener": {
+        "k": "ref",
+        "name": "LiveReloadStatus"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

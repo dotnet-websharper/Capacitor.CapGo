@@ -1,0 +1,500 @@
+{
+  "namespace": "FastSql",
+  "family": "Files",
+  "package": "@capgo/capacitor-fast-sql",
+  "version": "8.3.4",
+  "export": "CapgoCapacitorFastSql",
+  "types": [
+    {
+      "name": "BeginTransactionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isolationLevel",
+          "type": {
+            "k": "ref",
+            "name": "IsolationLevel"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ConnectResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "persistent",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "binaryProtocolVersion",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DisconnectOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ExecuteOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "statement",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "params",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "ext",
+                  "name": "Uint8Array"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "binaryProtocolVersion",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetServerInfoResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "persistent",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "binaryProtocolVersion",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsolationLevel",
+      "kind": "enumStrings",
+      "cases": [
+        "READ UNCOMMITTED",
+        "READ COMMITTED",
+        "REPEATABLE READ",
+        "SERIALIZABLE"
+      ]
+    },
+    {
+      "name": "SQLConnectionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "transport",
+          "type": {
+            "k": "ref",
+            "name": "SQLConnectionOptionsTransport"
+          }
+        },
+        {
+          "name": "encrypted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "encryptionKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "readOnly",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "walMode",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "performancePresets",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SQLConnectionOptionsTransport",
+      "kind": "enumStrings",
+      "cases": [
+        "http-json",
+        "http-binary"
+      ]
+    },
+    {
+      "name": "SQLResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "rows",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "map",
+              "of": {
+                "k": "union",
+                "of": [
+                  {
+                    "k": "string"
+                  },
+                  {
+                    "k": "float"
+                  },
+                  {
+                    "k": "obj"
+                  },
+                  {
+                    "k": "ext",
+                    "name": "Uint8Array"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "rowsAffected",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "insertId",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebConfig",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "useOpfs",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "requirePersistence",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "worker",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ext",
+                "name": "Worker"
+              },
+              {
+                "k": "ref",
+                "name": "WebConfigWorker"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebConfigWorker",
+      "kind": "config",
+      "required": [],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "connect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SQLConnectionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ConnectResult"
+      },
+      "promise": true,
+      "comment": "Initialize the database connection and start the HTTP server."
+    },
+    {
+      "name": "disconnect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisconnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Close database connection and stop the HTTP server."
+    },
+    {
+      "name": "getServerInfo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisconnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetServerInfoResult"
+      },
+      "promise": true,
+      "comment": "Get the HTTP server port and token for direct communication."
+    },
+    {
+      "name": "execute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ExecuteOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SQLResult"
+      },
+      "promise": true,
+      "comment": "Execute a SQL query via Capacitor bridge (for simple queries).\nFor better performance with large datasets, use the HTTP protocol directly via SQLConnection class."
+    },
+    {
+      "name": "beginTransaction",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BeginTransactionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Begin a database transaction."
+    },
+    {
+      "name": "commitTransaction",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisconnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Commit the current transaction."
+    },
+    {
+      "name": "rollbackTransaction",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisconnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Rollback the current transaction."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "configureWeb",
+      "params": [
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "WebConfig"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure web-specific options for the official SQLite Wasm module.\n\nCall this **before** the first `connect()` call if you need to disable OPFS\nor supply a custom Worker. This method is a no-op on iOS and Android."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": [
+    "Uint8Array",
+    "Worker"
+  ]
+}

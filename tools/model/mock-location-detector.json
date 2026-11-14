@@ -1,0 +1,646 @@
+{
+  "namespace": "MockLocationDetector",
+  "family": "Auth",
+  "package": "@capgo/capacitor-mock-location-detector",
+  "version": "8.0.12",
+  "export": "MockLocationDetector",
+  "types": [
+    {
+      "name": "AnalyzeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "checks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "MockLocationDetectorCapabilitiesAvailableChecks"
+            }
+          }
+        },
+        {
+          "name": "requestLocationSample",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "locationTimeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minDetectedChecks",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "additionalMockAppPackages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "additionalMockAppUrlSchemes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeveloperModeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "detected",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "canDetectDeveloperMode",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "checks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "LocationCheckResult"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LocationCheckResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "ref",
+            "name": "MockLocationDetectorCapabilitiesAvailableChecks"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "MockLocationDetectorCapabilitiesPlatform"
+          }
+        },
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "detected",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "LocationIntegrityChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "LocationIntegrityChangedEventReason"
+          }
+        },
+        {
+          "name": "isSimulated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "confidence",
+          "type": {
+            "k": "ref",
+            "name": "LocationIntegrityResultConfidence"
+          }
+        },
+        {
+          "name": "riskScore",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "MockLocationDetectorCapabilitiesPlatform"
+          }
+        },
+        {
+          "name": "checks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "LocationCheckResult"
+            }
+          }
+        },
+        {
+          "name": "developerMode",
+          "type": {
+            "k": "ref",
+            "name": "DeveloperModeResult"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "locationSample",
+          "type": {
+            "k": "ref",
+            "name": "LocationSample"
+          }
+        },
+        {
+          "name": "recommendation",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LocationIntegrityChangedEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "interval",
+        "location_update",
+        "manual"
+      ]
+    },
+    {
+      "name": "LocationIntegrityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSimulated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "confidence",
+          "type": {
+            "k": "ref",
+            "name": "LocationIntegrityResultConfidence"
+          }
+        },
+        {
+          "name": "riskScore",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "MockLocationDetectorCapabilitiesPlatform"
+          }
+        },
+        {
+          "name": "checks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "LocationCheckResult"
+            }
+          }
+        },
+        {
+          "name": "developerMode",
+          "type": {
+            "k": "ref",
+            "name": "DeveloperModeResult"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "locationSample",
+          "type": {
+            "k": "ref",
+            "name": "LocationSample"
+          }
+        },
+        {
+          "name": "recommendation",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LocationIntegrityResultConfidence",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    {
+      "name": "LocationSample",
+      "kind": "config",
+      "required": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accuracy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "altitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MockLocationDetectorCapabilities",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "MockLocationDetectorCapabilitiesPlatform"
+          }
+        },
+        {
+          "name": "availableChecks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "MockLocationDetectorCapabilitiesAvailableChecks"
+            }
+          }
+        },
+        {
+          "name": "supportsMonitoring",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "canOpenDeveloperSettings",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MockLocationDetectorCapabilitiesAvailableChecks",
+      "kind": "enumStrings",
+      "cases": [
+        "system_mock_flag",
+        "developer_options",
+        "developer_mode_indicators",
+        "mock_location_app",
+        "adb_enabled",
+        "mock_provider_settings",
+        "location_anomaly",
+        "motion_correlation",
+        "simulator"
+      ]
+    },
+    {
+      "name": "MockLocationDetectorCapabilitiesPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "MonitoringOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "intervalMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "emitOnlyOnChange",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "checks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "MockLocationDetectorCapabilitiesAvailableChecks"
+            }
+          }
+        },
+        {
+          "name": "requestLocationSample",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "locationTimeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minDetectedChecks",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "additionalMockAppPackages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "additionalMockAppUrlSchemes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RunCheckOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "check",
+          "type": {
+            "k": "ref",
+            "name": "MockLocationDetectorCapabilitiesAvailableChecks"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "checks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "MockLocationDetectorCapabilitiesAvailableChecks"
+            }
+          }
+        },
+        {
+          "name": "requestLocationSample",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "locationTimeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minDetectedChecks",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "additionalMockAppPackages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "additionalMockAppUrlSchemes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getCapabilities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "MockLocationDetectorCapabilities"
+      },
+      "promise": true
+    },
+    {
+      "name": "analyze",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AnalyzeOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LocationIntegrityResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "runCheck",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RunCheckOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LocationCheckResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "openDeveloperSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "startMonitoring",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MonitoringOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start background integrity monitoring on native platforms.\n\nPair with {@link MockLocationDetectorPlugin.addListener} to receive\n`locationIntegrityChanged` events while the app is in the foreground."
+    },
+    {
+      "name": "stopMonitoring",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop monitoring and release native location listeners."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true
+    }
+  ],
+  "events": [
+    {
+      "name": "locationIntegrityChanged",
+      "listener": {
+        "k": "ref",
+        "name": "LocationIntegrityChangedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

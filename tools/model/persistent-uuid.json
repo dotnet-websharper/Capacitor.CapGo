@@ -1,0 +1,114 @@
+{
+  "namespace": "PersistentUuid",
+  "family": "Files",
+  "package": "@capgo/capacitor-persistent-uuid",
+  "version": "8.1.12",
+  "export": "PersistentUuid",
+  "types": [
+    {
+      "name": "PersistentUuidOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scope",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PersistentUuidResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scope",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "created",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PersistentUuidOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PersistentUuidResult"
+      },
+      "promise": true,
+      "comment": "Read the persistent UUID, creating one when none exists for the selected scope."
+    },
+    {
+      "name": "resetId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PersistentUuidOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PersistentUuidResult"
+      },
+      "promise": true,
+      "comment": "Replace the stored UUID for the selected scope and return the new value."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

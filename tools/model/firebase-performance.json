@@ -1,0 +1,505 @@
+{
+  "namespace": "FirebasePerformance",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-performance",
+  "version": "7.4.2",
+  "export": "FirebasePerformance",
+  "types": [
+    {
+      "name": "GetAttributeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "attribute",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAttributeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAttributesOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAttributesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "attributes",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetMetricOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metricName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetMetricResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IncrementMetricOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metricName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "incrementBy",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PutAttributeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "attribute",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PutMetricOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metricName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "num",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RecordOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RecordOptionsOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RecordOptionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "metrics",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "attributes",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetEnabledOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartTraceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StopTraceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "traceName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "startTrace",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartTraceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Starts a trace."
+    },
+    {
+      "name": "stopTrace",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StopTraceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops a trace."
+    },
+    {
+      "name": "incrementMetric",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IncrementMetricOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Atomically increments the metric with the given name for the selected trace by the `incrementBy` value."
+    },
+    {
+      "name": "setEnabled",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetEnabledOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enables or disables performance monitoring.\nWill be applied with the next start of the app."
+    },
+    {
+      "name": "isEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsEnabledResult"
+      },
+      "promise": true,
+      "comment": "Determines whether performance monitoring is enabled or disabled."
+    },
+    {
+      "name": "putAttribute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PutAttributeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets a custom attribute of a trace to a given value."
+    },
+    {
+      "name": "getAttribute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAttributeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetAttributeResult"
+      },
+      "promise": true,
+      "comment": "Returns the value of a custom attribute of a trace."
+    },
+    {
+      "name": "getAttributes",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAttributesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetAttributesResult"
+      },
+      "promise": true,
+      "comment": "Gets the all the custom attributes of a trace with their values."
+    },
+    {
+      "name": "removeAttribute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAttributeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes a custom attribute from a trace given its name."
+    },
+    {
+      "name": "putMetric",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PutMetricOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the value of a custom metric."
+    },
+    {
+      "name": "getMetric",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetMetricOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetMetricResult"
+      },
+      "promise": true,
+      "comment": "Get the value of a custom metric by name."
+    },
+    {
+      "name": "record",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RecordOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Records a trace given its name and options.\n\nOnly available on web."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

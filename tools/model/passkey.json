@@ -1,0 +1,756 @@
+{
+  "namespace": "Passkey",
+  "family": "Auth",
+  "package": "@capgo/capacitor-passkey",
+  "version": "8.5.10",
+  "export": "CapacitorPasskey",
+  "types": [
+    {
+      "name": "CreateCredentialOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "publicKey",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyPublicKeyCredentialCreationOptionsJSON"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "origin",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetCredentialOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "publicKey",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyPublicKeyCredentialRequestOptionsJSON"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "mediation",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "origin",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "preferImmediatelyAvailableCredentials",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyAuthenticationCredential",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rawId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientExtensionResults",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorAssertionResponseJSON"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "authenticatorAttachment",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorSelectionAuthenticatorAttachment"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyAuthenticatorAssertionResponseJSON",
+      "kind": "config",
+      "required": [
+        {
+          "name": "clientDataJSON",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authenticatorData",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "signature",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "userHandle",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyAuthenticatorAttestationResponseJSON",
+      "kind": "config",
+      "required": [
+        {
+          "name": "clientDataJSON",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "attestationObject",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "publicKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "publicKeyAlgorithm",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "transports",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "authenticatorData",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyAuthenticatorSelection",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "authenticatorAttachment",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorSelectionAuthenticatorAttachment"
+          }
+        },
+        {
+          "name": "residentKey",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorSelectionResidentKey"
+          }
+        },
+        {
+          "name": "requireResidentKey",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "userVerification",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorSelectionResidentKey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyAuthenticatorSelectionAuthenticatorAttachment",
+      "kind": "enumStrings",
+      "cases": [
+        "platform",
+        "cross-platform"
+      ]
+    },
+    {
+      "name": "PasskeyAuthenticatorSelectionResidentKey",
+      "kind": "enumStrings",
+      "cases": [
+        "discouraged",
+        "preferred",
+        "required"
+      ]
+    },
+    {
+      "name": "PasskeyCredentialDescriptor",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "transports",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyCredentialParameter",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "alg",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PasskeyPublicKeyCredentialCreationOptionsJSON",
+      "kind": "config",
+      "required": [
+        {
+          "name": "challenge",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rp",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyRelyingParty"
+          }
+        },
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyUserEntity"
+          }
+        },
+        {
+          "name": "pubKeyCredParams",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PasskeyCredentialParameter"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "excludeCredentials",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PasskeyCredentialDescriptor"
+            }
+          }
+        },
+        {
+          "name": "authenticatorSelection",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorSelection"
+          }
+        },
+        {
+          "name": "attestation",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyPublicKeyCredentialCreationOptionsJSONAttestation"
+          }
+        },
+        {
+          "name": "hints",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "extensions",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyPublicKeyCredentialCreationOptionsJSONAttestation",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "indirect",
+        "direct",
+        "enterprise"
+      ]
+    },
+    {
+      "name": "PasskeyPublicKeyCredentialRequestOptionsJSON",
+      "kind": "config",
+      "required": [
+        {
+          "name": "challenge",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "rpId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "allowCredentials",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PasskeyCredentialDescriptor"
+            }
+          }
+        },
+        {
+          "name": "userVerification",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorSelectionResidentKey"
+          }
+        },
+        {
+          "name": "hints",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "extensions",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyRegistrationCredential",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rawId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clientExtensionResults",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "response",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorAttestationResponseJSON"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "authenticatorAttachment",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyAuthenticatorSelectionAuthenticatorAttachment"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyRelyingParty",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyRuntimeConfiguration",
+      "kind": "config",
+      "required": [
+        {
+          "name": "autoShim",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "domains",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyRuntimeConfigurationPlatform"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "origin",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PasskeyRuntimeConfigurationPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "PasskeySupportResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "conditionalMediation",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "PasskeyRuntimeConfigurationPlatform"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PasskeyUserEntity",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ShimWebAuthnOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "origin",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "force",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "shimWebAuthn",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShimWebAuthnOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "Install a browser-style WebAuthn shim on top of the native plugin.\n\nThe shim patches `navigator.credentials.create/get` for `publicKey`\nrequests and returns browser-like credential objects.\n\nUse this when you want to override the auto-loaded config manually."
+    },
+    {
+      "name": "getConfiguration",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PasskeyRuntimeConfiguration"
+      },
+      "promise": true,
+      "comment": "Load plugin configuration from the host Capacitor app.\n\nThis reads `plugins.CapacitorPasskey` from `capacitor.config.*`."
+    },
+    {
+      "name": "autoShimWebAuthn",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShimWebAuthnOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PasskeyRuntimeConfiguration"
+      },
+      "promise": true,
+      "comment": "Install the browser-style shim using host app configuration.\n\nThis is the easiest way to keep existing browser WebAuthn code working:\nconfigure the plugin in `capacitor.config.*`, then call this once during\napp bootstrap."
+    },
+    {
+      "name": "createCredential",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateCredentialOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PasskeyRegistrationCredential"
+      },
+      "promise": true,
+      "comment": "Register a passkey from a JSON-safe WebAuthn request.\n\nThis method is useful when your backend already returns the\n`PublicKeyCredentialCreationOptionsJSON` form."
+    },
+    {
+      "name": "getCredential",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetCredentialOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PasskeyAuthenticationCredential"
+      },
+      "promise": true,
+      "comment": "Authenticate with an existing passkey from a JSON-safe WebAuthn request.\n\nThis method is useful when your backend already returns the\n`PublicKeyCredentialRequestOptionsJSON` form."
+    },
+    {
+      "name": "isSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PasskeySupportResult"
+      },
+      "promise": true,
+      "comment": "Report whether passkeys are available in the current runtime."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the current platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

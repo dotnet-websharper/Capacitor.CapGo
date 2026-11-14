@@ -1,0 +1,342 @@
+{
+  "namespace": "Contentsquare",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-contentsquare",
+  "version": "8.1.19",
+  "export": "Contentsquare",
+  "types": [
+    {
+      "name": "DynamicVarItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "dynVarKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "dynVarValue",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ExcludeURLForReplayOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PIIAttribute",
+      "kind": "config",
+      "required": [
+        {
+          "name": "selector",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "attrName",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "string"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PIIConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "PIISelectors",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "Attributes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PIIAttribute"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SendScreenNameOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetCapturedElementsSelectorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "elements",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TelemetryItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TransactionItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "transactionValue",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "transactionCurrency",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "transactionId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "optIn",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "optOut",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "sendScreenName",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendScreenNameOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "sendTransaction",
+      "params": [
+        {
+          "name": "transactionItem",
+          "type": {
+            "k": "ref",
+            "name": "TransactionItem"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "sendDynamicVarWithStringValue",
+      "params": [
+        {
+          "name": "dynamicVarItem",
+          "type": {
+            "k": "ref",
+            "name": "DynamicVarItem"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "sendDynamicVarWithIntValue",
+      "params": [
+        {
+          "name": "dynamicVarItem",
+          "type": {
+            "k": "ref",
+            "name": "DynamicVarItem"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "onReady",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "excludeURLForReplay",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ExcludeURLForReplayOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setPIISelectors",
+      "params": [
+        {
+          "name": "pii",
+          "type": {
+            "k": "ref",
+            "name": "PIIConfig"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setCapturedElementsSelector",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetCapturedElementsSelectorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "collect",
+      "params": [
+        {
+          "name": "telemetryItem",
+          "type": {
+            "k": "ref",
+            "name": "TelemetryItem"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

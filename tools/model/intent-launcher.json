@@ -1,0 +1,285 @@
+{
+  "namespace": "IntentLauncher",
+  "family": "Device",
+  "package": "@capgo/capacitor-intent-launcher",
+  "version": "8.3.44",
+  "export": "IntentLauncher",
+  "types": [
+    {
+      "name": "GetApplicationIconOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetApplicationIconResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "icon",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntentLauncherParams",
+      "kind": "config",
+      "required": [
+        {
+          "name": "action",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "category",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "className",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "extra",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "flags",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntentLauncherResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "resultCode",
+          "type": {
+            "k": "ref",
+            "name": "ResultCode"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "extra",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IOSSettingsParams",
+      "kind": "config",
+      "required": [
+        {
+          "name": "option",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IOSSettingsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenApplicationOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ResultCode",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "Success",
+          "value": -1
+        },
+        {
+          "name": "Canceled",
+          "value": 0
+        },
+        {
+          "name": "FirstUser",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "startActivityAsync",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntentLauncherParams"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IntentLauncherResult"
+      },
+      "promise": true,
+      "comment": "Starts an Android activity for the given action."
+    },
+    {
+      "name": "openIOSSettings",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IOSSettingsParams"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IOSSettingsResult"
+      },
+      "promise": true,
+      "comment": "Opens iOS settings screen.\n\nNote: The only officially supported option by Apple is `App` which opens your app's settings page.\nOther options may work but are not guaranteed and could break in future iOS versions or cause App Store rejection.\n\nAlso note that the iOS Simulator will sometimes only open the Settings app,\ninstead of the specified option."
+    },
+    {
+      "name": "openApplication",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenApplicationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens an application by its package name."
+    },
+    {
+      "name": "getApplicationIconAsync",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetApplicationIconOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetApplicationIconResult"
+      },
+      "promise": true,
+      "comment": "Gets the application icon as a base64-encoded PNG string."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

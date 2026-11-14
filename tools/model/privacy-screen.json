@@ -1,0 +1,194 @@
+{
+  "namespace": "PrivacyScreen",
+  "family": "Auth",
+  "package": "@capgo/capacitor-privacy-screen",
+  "version": "8.3.16",
+  "export": "PrivacyScreen",
+  "types": [
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PrivacyScreenActionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PrivacyScreenConfig",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "PrivacyScreenConfigAndroid"
+          }
+        },
+        {
+          "name": "ios",
+          "type": {
+            "k": "ref",
+            "name": "PrivacyScreenConfigIos"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrivacyScreenConfigAndroid",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "dimBackground",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "preventScreenshots",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "privacyModeOnActivityHidden",
+          "type": {
+            "k": "ref",
+            "name": "PrivacyScreenConfigAndroidPrivacyModeOnActivityHidden"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrivacyScreenConfigAndroidPrivacyModeOnActivityHidden",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "dim",
+        "splash"
+      ]
+    },
+    {
+      "name": "PrivacyScreenConfigIos",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "blurEffect",
+          "type": {
+            "k": "ref",
+            "name": "PrivacyScreenConfigIosBlurEffect"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrivacyScreenConfigIosBlurEffect",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "name": "PrivacyScreenStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "enable",
+      "params": [
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "PrivacyScreenConfig"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PrivacyScreenActionResult"
+      },
+      "promise": true,
+      "comment": "Enables privacy screen protection.\n\nOn Android this sets `FLAG_SECURE`, which also blocks screenshots and screen recording.\nOn iOS this places app content in a secure rendering subtree while enabled\nand adds an overlay while the app is backgrounded so app content does not\nappear in the app-switcher snapshot."
+    },
+    {
+      "name": "disable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PrivacyScreenActionResult"
+      },
+      "promise": true,
+      "comment": "Disables privacy screen protection.\n\nUse this only when you explicitly want the current screen to remain visible in system previews."
+    },
+    {
+      "name": "isEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PrivacyScreenStatus"
+      },
+      "promise": true,
+      "comment": "Returns the current enabled state."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the native implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

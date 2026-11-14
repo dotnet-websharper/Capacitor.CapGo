@@ -1,0 +1,2544 @@
+{
+  "namespace": "InAppBrowser",
+  "family": "UI",
+  "package": "@capgo/capacitor-inappbrowser",
+  "version": "8.27.9",
+  "export": "InAppBrowser",
+  "types": [
+    {
+      "name": "BackgroundColor",
+      "kind": "enumStrings",
+      "cases": [
+        "white",
+        "black"
+      ]
+    },
+    {
+      "name": "BringToFrontOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isAnimated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BrowserPageLoadProgressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BtnEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ButtonNearDoneEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ClearCookieOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CloseAction",
+      "kind": "enumStrings",
+      "cases": [
+        "close",
+        "hide"
+      ]
+    },
+    {
+      "name": "CloseButtonPosition",
+      "kind": "enumStrings",
+      "cases": [
+        "start",
+        "end"
+      ]
+    },
+    {
+      "name": "CloseWebviewOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isAnimated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ConsoleMessageEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "level",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "line",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "column",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "kind",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Credentials",
+      "kind": "config",
+      "required": [
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CustomSchemeInterceptedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "opened",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DisclaimerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "confirmBtn",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelBtn",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DispatchPointerInputEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "DispatchPointerInputEventOptionsType"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DispatchPointerInputEventOptionsType",
+      "kind": "enumStrings",
+      "cases": [
+        "click",
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "touchcancel"
+      ]
+    },
+    {
+      "name": "DispatchScrollInputEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "deltaX",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "deltaY",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadCompletedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "fileName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "localUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "handledBy",
+          "type": {
+            "k": "ref",
+            "name": "DownloadCompletedEventHandledBy"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadCompletedEventHandledBy",
+      "kind": "enumStrings",
+      "cases": [
+        "inAppBrowser",
+        "systemPreview",
+        "external",
+        "wallet"
+      ]
+    },
+    {
+      "name": "DownloadFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ExecuteScriptOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "code",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FullscreenChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetCookieOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "includeHttpOnly",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetFullscreenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GoBackOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GoBackResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "canGoBack",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandleProxyRequestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "decision",
+          "type": {
+            "k": "ref",
+            "name": "ProxyDecision"
+          }
+        },
+        {
+          "name": "response",
+          "type": {
+            "k": "ref",
+            "name": "ProxyResponse"
+          }
+        },
+        {
+          "name": "webviewId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phase",
+          "type": {
+            "k": "ref",
+            "name": "ProxyRequestPhase"
+          }
+        }
+      ]
+    },
+    {
+      "name": "HideEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "screenshot",
+          "type": {
+            "k": "ref",
+            "name": "ScreenshotResult"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InvisibilityMode",
+      "kind": "enumStrings",
+      "cases": [
+        "AWARE",
+        "FAKE_VISIBLE"
+      ]
+    },
+    {
+      "name": "LayerOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "transparentBackground",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MessageFromWebviewEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "detail",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "rawMessage",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeProxyRule",
+      "kind": "config",
+      "required": [
+        {
+          "name": "action",
+          "type": {
+            "k": "ref",
+            "name": "NativeProxyRuleAction"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "urlRegex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "methodRegex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headerRegex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bodyRegex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "statusRegex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "responseHeaderRegex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "responseBodyRegex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mainFrameOnly",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeProxyRuleAction",
+      "kind": "enumStrings",
+      "cases": [
+        "continue",
+        "cancel",
+        "delegateToJs"
+      ]
+    },
+    {
+      "name": "OpenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isPresentAfterPageLoad",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "preventDeeplink",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "toolbarColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "urlBarHidingEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "showTitle",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "showArrow",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableShare",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableBookmark",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableDownload",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenSecureWindowOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "authEndpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "redirectUri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "broadcastChannelName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "prefersEphemeralWebBrowserSession",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenSecureWindowResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "redirectedUri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenWebViewOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fullscreen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "customUserAgent",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "credentials",
+          "type": {
+            "k": "ref",
+            "name": "Credentials"
+          }
+        },
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "materialPicker",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "jsInterface",
+          "type": {
+            "k": "obj"
+          }
+        },
+        {
+          "name": "javascriptBridgeOrigins",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "allowScreenshotsFromWebPage",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "captureConsoleLogs",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "persistWebViewData",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "clearCookiesOnOpen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "clearCacheOnOpen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "useSharedDataStore",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "clientCertificate",
+          "type": {
+            "k": "ref",
+            "name": "OpenWebViewOptionsClientCertificate"
+          }
+        },
+        {
+          "name": "clientCertificatePrompt",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "handleDownloads",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "openWalletPasses",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "downloadPreview",
+          "type": {
+            "k": "ref",
+            "name": "OpenWebViewOptionsDownloadPreview"
+          }
+        },
+        {
+          "name": "shareDisclaimer",
+          "type": {
+            "k": "ref",
+            "name": "DisclaimerOptions"
+          }
+        },
+        {
+          "name": "toolbarType",
+          "type": {
+            "k": "ref",
+            "name": "ToolBarType"
+          }
+        },
+        {
+          "name": "shareSubject",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "titleFontFamily",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "titleIcon",
+          "type": {
+            "k": "ref",
+            "name": "ToolbarTitleIconOptions"
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "type": {
+            "k": "ref",
+            "name": "BackgroundColor"
+          }
+        },
+        {
+          "name": "activeNativeNavigationForWebview",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enableReloadGesture",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "allowWebViewFullscreen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableGoBackOnNativeApplication",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isPresentAfterPageLoad",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "preferredContentMode",
+          "type": {
+            "k": "ref",
+            "name": "OpenWebViewOptionsPreferredContentMode"
+          }
+        },
+        {
+          "name": "disablePrivacyScreen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isInspectable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isAnimated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "showReloadButton",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "closeAction",
+          "type": {
+            "k": "ref",
+            "name": "CloseAction"
+          }
+        },
+        {
+          "name": "closeButtonPosition",
+          "type": {
+            "k": "ref",
+            "name": "CloseButtonPosition"
+          }
+        },
+        {
+          "name": "screenshotOnHide",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "closeModal",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "closeModalTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "closeModalDescription",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "closeModalOk",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "closeModalCancel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "closeModalURLPattern",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "visibleTitle",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "toolbarColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "toolbarTextColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "showArrow",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "ignoreUntrustedSSLError",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "preShowScript",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "preShowScriptInjectionTime",
+          "type": {
+            "k": "ref",
+            "name": "OpenWebViewOptionsPreShowScriptInjectionTime"
+          }
+        },
+        {
+          "name": "proxyRequests",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "obj"
+              }
+            ]
+          }
+        },
+        {
+          "name": "outboundProxyRules",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeProxyRule"
+            }
+          }
+        },
+        {
+          "name": "inboundProxyRules",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeProxyRule"
+            }
+          }
+        },
+        {
+          "name": "buttonNearDone",
+          "type": {
+            "k": "ref",
+            "name": "OpenWebViewOptionsButtonNearDone"
+          }
+        },
+        {
+          "name": "showScreenshotButton",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "textZoom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "enableZoom",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "preventDeeplink",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "openCustomSchemesWithoutQuery",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "openBlankTargetInWebView",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "authorizedAppLinks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "enabledSafeBottomMargin",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enabledSafeTopMargin",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "useTopInset",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enableGooglePaySupport",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hiddenPopupWindow",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "blockedHosts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "toBack",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "transparentBackground",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableOverscroll",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hidden",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "invisibilityMode",
+          "type": {
+            "k": "ref",
+            "name": "InvisibilityMode"
+          }
+        },
+        {
+          "name": "web",
+          "type": {
+            "k": "ref",
+            "name": "OpenWebViewOptionsWeb"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenWebViewOptionsButtonNearDone",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ios",
+          "type": {
+            "k": "ref",
+            "name": "ToolbarTitleIconOptionsIos"
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "ToolbarTitleIconOptionsAndroid"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenWebViewOptionsClientCertificate",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "prompt"
+      ]
+    },
+    {
+      "name": "OpenWebViewOptionsDownloadPreview",
+      "kind": "enumStrings",
+      "cases": [
+        "inAppBrowser",
+        "systemPreview"
+      ]
+    },
+    {
+      "name": "OpenWebViewOptionsPreferredContentMode",
+      "kind": "enumStrings",
+      "cases": [
+        "recommended",
+        "mobile",
+        "desktop"
+      ]
+    },
+    {
+      "name": "OpenWebViewOptionsPreShowScriptInjectionTime",
+      "kind": "enumStrings",
+      "cases": [
+        "documentStart",
+        "pageLoad"
+      ]
+    },
+    {
+      "name": "OpenWebViewOptionsWeb",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "popup",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenWebViewResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PopupWindowEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "visible",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "parentId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PostMessageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "detail",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProxyDecision",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "request",
+          "type": {
+            "k": "ref",
+            "name": "ProxyRequestOverride"
+          }
+        },
+        {
+          "name": "response",
+          "type": {
+            "k": "ref",
+            "name": "ProxyResponse"
+          }
+        },
+        {
+          "name": "cancel",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProxyRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phase",
+          "type": {
+            "k": "ref",
+            "name": "ProxyRequestPhase"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "webviewId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "status",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "responseHeaders",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "responseBody",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProxyRequestOverride",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProxyRequestPhase",
+      "kind": "enumStrings",
+      "cases": [
+        "outbound",
+        "inbound"
+      ]
+    },
+    {
+      "name": "ProxyResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ScreenshotResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "format",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "base64",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "dataUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetFullscreenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetUrlOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ToolbarTitleIconOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "ios",
+          "type": {
+            "k": "ref",
+            "name": "ToolbarTitleIconOptionsIos"
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "ToolbarTitleIconOptionsAndroid"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ToolbarTitleIconOptionsAndroid",
+      "kind": "config",
+      "required": [
+        {
+          "name": "iconType",
+          "type": {
+            "k": "ref",
+            "name": "ToolbarTitleIconOptionsAndroidIconType"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ToolbarTitleIconOptionsAndroidIconType",
+      "kind": "enumStrings",
+      "cases": [
+        "asset",
+        "vector"
+      ]
+    },
+    {
+      "name": "ToolbarTitleIconOptionsIos",
+      "kind": "config",
+      "required": [
+        {
+          "name": "iconType",
+          "type": {
+            "k": "ref",
+            "name": "ToolbarTitleIconOptionsIosIconType"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ToolbarTitleIconOptionsIosIconType",
+      "kind": "enumStrings",
+      "cases": [
+        "sf-symbol",
+        "asset"
+      ]
+    },
+    {
+      "name": "ToolBarType",
+      "kind": "enumStrings",
+      "cases": [
+        "activity",
+        "compact",
+        "navigation",
+        "blank"
+      ]
+    },
+    {
+      "name": "UrlEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "goBack",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GoBackResult"
+      },
+      "promise": true,
+      "comment": "Navigates back in the WebView's history if possible"
+    },
+    {
+      "name": "open",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Open url in a new window fullscreen, on android it use chrome custom tabs, on ios it use SFSafariViewController\nOn web, opens the URL in a new tab via `window.open` and rejects with `Popup blocked` when the browser blocks it."
+    },
+    {
+      "name": "clearCookies",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ClearCookieOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Clear cookies of url\nWhen `id` is omitted, applies to all open webviews."
+    },
+    {
+      "name": "clearAllCookies",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Clear all cookies\nWhen `id` is omitted, applies to all open webviews."
+    },
+    {
+      "name": "clearCache",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Clear cache\nWhen `id` is omitted, applies to all open webviews."
+    },
+    {
+      "name": "clearAllBrowsingData",
+      "params": [],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Clear all browsing data from InAppBrowser-managed webviews and the plugin-owned data store.\n\nThis removes cookies, disk cache, memory cache, local storage, session storage, IndexedDB,\nWebSQL where supported, form data, and HTTP auth data for InAppBrowser only.\n\nIt does **not** clear the Capacitor/Ionic host WebView stores. On iOS 17+, InAppBrowser uses a\ndedicated persistent `WKWebsiteDataStore` so host and browser data stay isolated (unless\n`useSharedDataStore: true` was set on `openWebView`). On Android, process-global `CookieManager`\n/ `WebStorage` are shared with the host WebView and are not wiped by this method; open managed\nWebViews still clear per-view cache/history and page storage."
+    },
+    {
+      "name": "getCookies",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetCookieOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "map",
+        "of": {
+          "k": "string"
+        }
+      },
+      "promise": true,
+      "comment": "Get cookies for a specific URL."
+    },
+    {
+      "name": "close",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CloseWebviewOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Close the webview.\nWhen `id` is omitted, closes the active webview."
+    },
+    {
+      "name": "hide",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide the webview without closing it.\nUse show() to bring it back.\nWhen `id` is omitted, targets the active webview."
+    },
+    {
+      "name": "show",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show a previously hidden webview.\nWhen `id` is omitted, targets the active webview."
+    },
+    {
+      "name": "sendToBack",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LayerOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Moves the native browser behind the Capacitor host WebView.\nUse `dispatchInputEvent()` to forward overlay gestures to the browser while it is behind the app UI."
+    },
+    {
+      "name": "bringToFront",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BringToFrontOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Moves a browser that was behind the host WebView back to the front.\nOn iOS, set `isAnimated` to `false` to skip the presentation animation.\nWhen `id` is omitted, targets the active webview."
+    },
+    {
+      "name": "dispatchInputEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "DispatchPointerInputEventOptions"
+              },
+              {
+                "k": "ref",
+                "name": "DispatchScrollInputEventOptions"
+              }
+            ]
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Dispatches a click, touch, or scroll event to a managed browser.\nCoordinates are relative to the browser viewport in CSS pixels."
+    },
+    {
+      "name": "openWebView",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenWebViewOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OpenWebViewResult"
+      },
+      "promise": true,
+      "comment": "Open url in a new webview with toolbars, and enhanced capabilities, like camera access, file access, listen events, inject javascript, bi directional communication, etc.\n\nJavaScript Interface:\nWhen you open a webview with this method, a JavaScript interface is automatically injected that provides:\n- `window.mobileApp.close()`: Closes the webview from JavaScript\n- `window.mobileApp.postMessage({detail: {message: \"myMessage\"}})`: Sends a message from the webview to the app, detail object is the data you want to send to the webview\n- `window.mobileApp.takeScreenshot()` when `allowScreenshotsFromWebPage` is true\n\nPromise timing differs by platform when `isPresentAfterPageLoad` is used.\nAndroid resolves with `{ id }` after the dialog is ready to control, while iOS resolves with `{ id }` immediately after creating the native webview."
+    },
+    {
+      "name": "executeScript",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ExecuteScriptOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Injects JavaScript code into the InAppBrowser window.\nWhen `id` is omitted, executes in all open webviews."
+    },
+    {
+      "name": "postMessage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PostMessageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends an event to the webview(inappbrowser). you can listen to this event in the inappbrowser JS with window.addEventListener(\"messageFromNative\", listenerFunc: (event: Record<string, any>) => void)\ndetail is the data you want to send to the webview, it's a requirement of Capacitor we cannot send direct objects\nYour object has to be serializable to JSON, so no functions or other non-JSON-serializable types are allowed.\nWhen `id` is omitted, broadcasts to all open webviews."
+    },
+    {
+      "name": "takeScreenshot",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ScreenshotResult"
+      },
+      "promise": true,
+      "comment": "Captures the current webview viewport as a PNG screenshot.\nWhen `id` is omitted, targets the active webview.\n\nOn iOS, when testing through Apple's iPhone Mirroring app with the physical\ndevice locked, the snapshot can succeed with the correct dimensions but a\nfully transparent PNG. Capture works as expected on a normal unlocked device."
+    },
+    {
+      "name": "setUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetUrlOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Sets the URL of the webview.\nWhen `id` is omitted, targets the active webview."
+    },
+    {
+      "name": "handleProxyRequest",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "HandleProxyRequestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Internal method used by `addProxyHandler()` to send a proxy decision back to native.\nForward the original `phase` when replying to a manual `proxyRequest` listener."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "reload",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true,
+      "comment": "Reload the current web page."
+    },
+    {
+      "name": "updateDimensions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "obj"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update the dimensions of the webview.\nAllows changing the size and position of the webview at runtime.\nWhen `id` is omitted, targets the active webview."
+    },
+    {
+      "name": "setFullscreen",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetFullscreenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enter or exit immersive fullscreen without recreating or reloading the webview.\nWhen `id` is omitted, targets the active webview. Repeated calls are idempotent.\nEntry requires a visible, frontmost, full-size `openWebView` on iOS or Android.\nMissing webviews, invalid arguments, custom dimensions, behind-host presentations,\nand the Web platform reject. Use the opening `fullscreen` option for an initially hidden webview.\nDisabling also cancels any pending fullscreen-at-launch request.\n\nNative exit controls, backgrounding, hiding, closing, cross-origin navigation, and renderer\ntermination restore the original chrome even when host JavaScript cannot respond."
+    },
+    {
+      "name": "getFullscreen",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoBackOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetFullscreenResult"
+      },
+      "promise": true,
+      "comment": "Read the applied host-controlled fullscreen state of an `openWebView`.\nWhen `id` is omitted, targets the active webview. Initially hidden fullscreen webviews\nreport `false` until their first presentation. Missing webviews and Web usage reject.\nHTML/video fullscreen does not change this value."
+    },
+    {
+      "name": "setEnabledSafeTopMargin",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetFullscreenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the enabled safe top margin of the webview at runtime.\nWhen `id` is omitted, targets the active webview.\nOn Web, this method is a no-op and resolves without changing layout."
+    },
+    {
+      "name": "setEnabledSafeBottomMargin",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetFullscreenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the enabled safe bottom margin of the webview at runtime.\nWhen `id` is omitted, targets the active webview.\nOn Web, this method is a no-op and resolves without changing layout."
+    },
+    {
+      "name": "openSecureWindow",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenSecureWindowOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OpenSecureWindowResponse"
+      },
+      "promise": true,
+      "comment": "Opens a secured window for OAuth2 authentication.\n\nOn web, the redirect page should post the final URL to a `BroadcastChannel` and close itself.\nOn mobile, register a custom redirect URI scheme (for example `myapp://oauth_callback/`) in Info.plist and AndroidManifest.xml.\nSee the README section \"openSecureWindow (OAuth)\" for full setup examples."
+    }
+  ],
+  "events": [
+    {
+      "name": "urlChangeEvent",
+      "listener": {
+        "k": "ref",
+        "name": "UrlEvent"
+      }
+    },
+    {
+      "name": "fullscreenChange",
+      "listener": {
+        "k": "ref",
+        "name": "FullscreenChangeEvent"
+      }
+    },
+    {
+      "name": "buttonNearDoneClick",
+      "listener": {
+        "k": "ref",
+        "name": "ButtonNearDoneEvent"
+      }
+    },
+    {
+      "name": "closeEvent",
+      "listener": {
+        "k": "ref",
+        "name": "UrlEvent"
+      }
+    },
+    {
+      "name": "hideEvent",
+      "listener": {
+        "k": "ref",
+        "name": "HideEvent"
+      }
+    },
+    {
+      "name": "confirmBtnClicked",
+      "listener": {
+        "k": "ref",
+        "name": "BtnEvent"
+      }
+    },
+    {
+      "name": "messageFromWebview",
+      "listener": {
+        "k": "ref",
+        "name": "MessageFromWebviewEvent"
+      }
+    },
+    {
+      "name": "screenshotTaken",
+      "listener": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "browserPageLoaded",
+      "listener": {
+        "k": "ref",
+        "name": "GoBackOptions"
+      }
+    },
+    {
+      "name": "browserPageLoadStart",
+      "listener": {
+        "k": "ref",
+        "name": "GoBackOptions"
+      }
+    },
+    {
+      "name": "browserPageLoadProgress",
+      "listener": {
+        "k": "ref",
+        "name": "BrowserPageLoadProgressEvent"
+      }
+    },
+    {
+      "name": "pageLoadError",
+      "listener": {
+        "k": "ref",
+        "name": "GoBackOptions"
+      }
+    },
+    {
+      "name": "customSchemeIntercepted",
+      "listener": {
+        "k": "ref",
+        "name": "CustomSchemeInterceptedEvent"
+      }
+    },
+    {
+      "name": "downloadCompleted",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadCompletedEvent"
+      }
+    },
+    {
+      "name": "downloadFailed",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadFailedEvent"
+      }
+    },
+    {
+      "name": "popupWindowOpened",
+      "listener": {
+        "k": "ref",
+        "name": "PopupWindowEvent"
+      }
+    },
+    {
+      "name": "proxyRequest",
+      "listener": {
+        "k": "ref",
+        "name": "ProxyRequest"
+      }
+    },
+    {
+      "name": "consoleMessage",
+      "listener": {
+        "k": "ref",
+        "name": "ConsoleMessageEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,82 @@
+{
+  "namespace": "AppTrackingTransparency",
+  "family": "Auth",
+  "package": "@capgo/capacitor-app-tracking-transparency",
+  "version": "8.1.23",
+  "export": "AppTrackingTransparency",
+  "types": [
+    {
+      "name": "AppTrackingStatusResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "AppTrackingStatusResponseStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppTrackingStatusResponseStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "authorized",
+        "denied",
+        "notDetermined",
+        "restricted"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AppTrackingStatusResponse"
+      },
+      "promise": true,
+      "comment": "Gets the current tracking authorization status without prompting the user."
+    },
+    {
+      "name": "requestPermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AppTrackingStatusResponse"
+      },
+      "promise": true,
+      "comment": "Requests user authorization to access app-related data for tracking.\nDisplays the native iOS tracking permission dialog.\n\nNote: This method will only show the dialog once. Subsequent calls\nwill return the stored authorization status without showing the dialog."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

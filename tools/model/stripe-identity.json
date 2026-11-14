@@ -1,0 +1,168 @@
+{
+  "namespace": "StripeIdentity",
+  "family": "Commerce",
+  "package": "@capgo/capacitor-stripe-identity",
+  "version": "8.0.11",
+  "export": "StripeIdentity",
+  "types": [
+    {
+      "name": "CreateIdentityVerificationSheetOption",
+      "kind": "config",
+      "required": [
+        {
+          "name": "verificationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ephemeralKeySecret",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "clientSecret",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IdentityVerificationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "IdentityVerificationResultResult"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "error",
+          "type": {
+            "k": "ref",
+            "name": "StripeIdentityError"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IdentityVerificationResultResult",
+      "kind": "enumStrings",
+      "cases": [
+        "identityVerificationSheetCompleted",
+        "identityVerificationSheetCanceled",
+        "identityVerificationSheetFailed"
+      ]
+    },
+    {
+      "name": "InitializeIdentityVerificationSheetOption",
+      "kind": "config",
+      "required": [
+        {
+          "name": "publishableKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StripeIdentityError",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "code",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitializeIdentityVerificationSheetOption"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "create",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateIdentityVerificationSheetOption"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "present",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    }
+  ],
+  "events": [
+    {
+      "name": "identityVerificationSheetLoaded",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "identityVerificationSheetFailedToLoad",
+      "listener": {
+        "k": "ref",
+        "name": "StripeIdentityError"
+      }
+    },
+    {
+      "name": "identityVerificationResult",
+      "listener": {
+        "k": "ref",
+        "name": "IdentityVerificationResult"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -381,5 +381,6 @@
     }
   ],
   "unsupported": [],
-  "coreRefs": []
+  "coreRefs": [],
+  "externalTypes": []
 }

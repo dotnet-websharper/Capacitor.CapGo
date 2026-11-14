@@ -1,0 +1,643 @@
+{
+  "namespace": "Supabase",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-supabase",
+  "version": "8.2.10",
+  "export": "CapacitorSupabase",
+  "types": [
+    {
+      "name": "AuthResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "session",
+          "type": {
+            "k": "ref",
+            "name": "Session"
+          }
+        },
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AuthStateChange",
+      "kind": "config",
+      "required": [
+        {
+          "name": "event",
+          "type": {
+            "k": "ref",
+            "name": "AuthStateChangeEvent"
+          }
+        },
+        {
+          "name": "session",
+          "type": {
+            "k": "ref",
+            "name": "Session"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AuthStateChangeEvent",
+      "kind": "enumStrings",
+      "cases": [
+        "INITIAL_SESSION",
+        "SIGNED_IN",
+        "SIGNED_OUT",
+        "TOKEN_REFRESHED",
+        "USER_UPDATED",
+        "PASSWORD_RECOVERY"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSessionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "session",
+          "type": {
+            "k": "ref",
+            "name": "Session"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetUserResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Session",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tokenType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "expiresIn",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "expiresAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "refreshToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SignInWithOAuthOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "provider",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptionsProvider"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "redirectTo",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithOAuthOptionsProvider",
+      "kind": "enumStrings",
+      "cases": [
+        "apple",
+        "azure",
+        "bitbucket",
+        "discord",
+        "facebook",
+        "figma",
+        "github",
+        "gitlab",
+        "google",
+        "kakao",
+        "keycloak",
+        "linkedin",
+        "linkedin_oidc",
+        "notion",
+        "slack",
+        "slack_oidc",
+        "spotify",
+        "twitch",
+        "twitter",
+        "workos",
+        "zoom"
+      ]
+    },
+    {
+      "name": "SignInWithOtpOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "shouldCreateUser",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithPasswordOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SignUpOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "data",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SupabaseConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supabaseUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "supabaseKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "User",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "lastSignInAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "userMetadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "appMetadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "VerifyOtpOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "VerifyOtpOptionsType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phone",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VerifyOtpOptionsType",
+      "kind": "enumStrings",
+      "cases": [
+        "sms",
+        "email",
+        "magiclink",
+        "signup",
+        "recovery"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SupabaseConfig"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize the Supabase client with your project credentials.\nMust be called before any other methods."
+    },
+    {
+      "name": "signInWithPassword",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithPasswordOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AuthResult"
+      },
+      "promise": true,
+      "comment": "Sign in with email and password."
+    },
+    {
+      "name": "signUp",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignUpOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AuthResult"
+      },
+      "promise": true,
+      "comment": "Sign up a new user with email and password."
+    },
+    {
+      "name": "signInAnonymously",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AuthResult"
+      },
+      "promise": true,
+      "comment": "Sign in anonymously.\nCreates a temporary guest session without requiring credentials."
+    },
+    {
+      "name": "signInWithOAuth",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sign in with an OAuth provider.\nOpens the provider's authentication page."
+    },
+    {
+      "name": "signInWithOtp",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOtpOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sign in with OTP (One-Time Password) sent via email or SMS."
+    },
+    {
+      "name": "verifyOtp",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VerifyOtpOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AuthResult"
+      },
+      "promise": true,
+      "comment": "Verify an OTP token."
+    },
+    {
+      "name": "signOut",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sign out the current user."
+    },
+    {
+      "name": "getSession",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSessionResult"
+      },
+      "promise": true,
+      "comment": "Get the current session if one exists.\nReturns the session with JWT access token."
+    },
+    {
+      "name": "refreshSession",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSessionResult"
+      },
+      "promise": true,
+      "comment": "Refresh the current session and get new tokens."
+    },
+    {
+      "name": "getUser",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetUserResult"
+      },
+      "promise": true,
+      "comment": "Get the currently authenticated user."
+    },
+    {
+      "name": "setSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetSessionResult"
+      },
+      "promise": true,
+      "comment": "Set the session manually with access and refresh tokens.\nUseful for restoring a session or integrating with external auth."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for auth state changes."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "authStateChange",
+      "listener": {
+        "k": "ref",
+        "name": "AuthStateChange"
+      }
+    }
+  ],
+  "unsupported": [
+    {
+      "method": "select",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "insert",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "update",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "delete",
+      "reason": "generic method cannot be flattened"
+    }
+  ],
+  "coreRefs": [],
+  "externalTypes": []
+}

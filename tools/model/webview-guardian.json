@@ -1,0 +1,274 @@
+{
+  "namespace": "WebviewGuardian",
+  "family": "UI",
+  "package": "@capgo/capacitor-webview-guardian",
+  "version": "8.1.7",
+  "export": "WebviewGuardian",
+  "types": [
+    {
+      "name": "CheckNowOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CheckResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "healthy",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "restarted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "pendingRestart",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GuardianState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "monitoring",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "lastHealthyAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "lastRestartAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "lastCrashAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "pendingRestartReason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartMonitoringOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "foregroundDebounceMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "pingScript",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoRestart",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "restartStrategy",
+          "type": {
+            "k": "ref",
+            "name": "StartMonitoringOptionsRestartStrategy"
+          }
+        },
+        {
+          "name": "customRestartUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "debug",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "runInitialCheck",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartMonitoringOptionsRestartStrategy",
+      "kind": "enumStrings",
+      "cases": [
+        "reload",
+        "reloadFromOrigin",
+        "customUrl"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "startMonitoring",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartMonitoringOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GuardianState"
+      },
+      "promise": true,
+      "comment": "Starts observing foreground events and automatically checks the WebView health."
+    },
+    {
+      "name": "stopMonitoring",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GuardianState"
+      },
+      "promise": true,
+      "comment": "Stops any automatic foreground monitoring."
+    },
+    {
+      "name": "getState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GuardianState"
+      },
+      "promise": true,
+      "comment": "Returns the latest known monitoring state."
+    },
+    {
+      "name": "checkNow",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CheckNowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CheckResult"
+      },
+      "promise": true,
+      "comment": "Forces a WebView health probe immediately."
+    }
+  ],
+  "events": [
+    {
+      "name": "foreground",
+      "listener": {
+        "k": "ref",
+        "name": "GuardianState"
+      }
+    },
+    {
+      "name": "webviewHealthy",
+      "listener": {
+        "k": "ref",
+        "name": "GuardianState"
+      }
+    },
+    {
+      "name": "webviewCrashed",
+      "listener": {
+        "k": "ref",
+        "name": "GuardianState"
+      }
+    },
+    {
+      "name": "webviewRestarted",
+      "listener": {
+        "k": "ref",
+        "name": "GuardianState"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

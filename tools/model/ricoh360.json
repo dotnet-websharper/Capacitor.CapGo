@@ -1,0 +1,565 @@
+{
+  "namespace": "Ricoh360",
+  "family": "Media",
+  "package": "@capgo/capacitor-ricoh360",
+  "version": "8.1.5",
+  "export": "Ricoh360Camera",
+  "types": [
+    {
+      "name": "CommandResponse",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "session",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "info",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "preview",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "picture",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "settings",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetCameraAssetOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "saveToFile",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetCameraAssetResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "statusCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "filePath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitializeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListFilesOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "fileType",
+          "type": {
+            "k": "ref",
+            "name": "ListFilesOptionsFileType"
+          }
+        },
+        {
+          "name": "startPosition",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "entryCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maxThumbSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "_detail",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ListFilesOptionsFileType",
+      "kind": "enumStrings",
+      "cases": [
+        "all",
+        "image",
+        "video"
+      ]
+    },
+    {
+      "name": "ListFilesResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "results",
+          "type": {
+            "k": "ref",
+            "name": "ListFilesResponseResults"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListFilesResponseResults",
+      "kind": "config",
+      "required": [
+        {
+          "name": "entries",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ListFilesResponseResultsEntries"
+            }
+          }
+        },
+        {
+          "name": "totalEntries",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListFilesResponseResultsEntries",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fileUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "dateTimeZone",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "previewUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "_projectionType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isProcessed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "_thumbSize",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LivePreviewOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "displayInFront",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "cropPreview",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReadSettingsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "options",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SendCommandOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "endpoint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSettingsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "options",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "VideoCaptureOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "resolution",
+          "type": {
+            "k": "ref",
+            "name": "VideoCaptureOptionsResolution"
+          }
+        },
+        {
+          "name": "frameRate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bitrate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VideoCaptureOptionsResolution",
+      "kind": "enumStrings",
+      "cases": [
+        "4K",
+        "2K"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Initializes the SDK with camera URL"
+    },
+    {
+      "name": "getCameraAsset",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetCameraAssetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetCameraAssetResponse"
+      },
+      "promise": true,
+      "comment": "Retrieves a camera asset from a URL and returns it as base64"
+    },
+    {
+      "name": "listFiles",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ListFilesOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ListFilesResponse"
+      },
+      "promise": true,
+      "comment": "Lists files stored on the camera"
+    },
+    {
+      "name": "capturePicture",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Captures a picture"
+    },
+    {
+      "name": "captureVideo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VideoCaptureOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Captures a video"
+    },
+    {
+      "name": "livePreview",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LivePreviewOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Starts live preview"
+    },
+    {
+      "name": "stopLivePreview",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Stops live preview"
+    },
+    {
+      "name": "readSettings",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReadSettingsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Reads camera settings"
+    },
+    {
+      "name": "setSettings",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSettingsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Sets camera settings"
+    },
+    {
+      "name": "sendCommand",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendCommandOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CommandResponse"
+      },
+      "promise": true,
+      "comment": "Send raw command to camera"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

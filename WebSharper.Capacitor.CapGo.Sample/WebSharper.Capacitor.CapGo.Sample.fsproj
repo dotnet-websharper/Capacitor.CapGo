@@ -7,9 +7,29 @@
     <Compile Include="Client.fs" />
     <Compile Include="Startup.fs" />
     <None Include="wsconfig.json" />
+    <None Include="package.json" />
+    <None Include="vite.config.mjs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebSharper.Capacitor.CapGo\WebSharper.Capacitor.CapGo.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.AI\WebSharper.Capacitor.CapGo.AI.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Analytics\WebSharper.Capacitor.CapGo.Analytics.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Auth\WebSharper.Capacitor.CapGo.Auth.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Commerce\WebSharper.Capacitor.CapGo.Commerce.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Device\WebSharper.Capacitor.CapGo.Device.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Files\WebSharper.Capacitor.CapGo.Files.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Media\WebSharper.Capacitor.CapGo.Media.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Messaging\WebSharper.Capacitor.CapGo.Messaging.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.Tooling\WebSharper.Capacitor.CapGo.Tooling.fsproj" />
+    <ProjectReference Include="..\WebSharper.Capacitor.CapGo.UI\WebSharper.Capacitor.CapGo.UI.fsproj" />
   </ItemGroup>
+  <Target Name="NpmInstall" BeforeTargets="ViteBuild" Inputs="package.json" Outputs="node_modules/.package-lock.json">
+    <Exec Command="npm install --no-audit --no-fund" />
+  </Target>
+
+  <Target Name="ViteBuild" AfterTargets="WebSharperCompile">
+    <Exec Command="node_modules/.bin/vite build" />
+  </Target>
+
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

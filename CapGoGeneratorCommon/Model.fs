@@ -20,6 +20,10 @@ type MType =
     | TArray of MType
     | TMap of MType
     | TUnion of MType list
+    /// A Promise returned as a value (property or field), not a method return.
+    | TPromise of MType
+    /// A type from outside the plugin package that the WIG may not model.
+    | TExt of string
 
 type Member =
     {
@@ -102,6 +106,8 @@ let rec private recType (e: JsonElement) : MType =
     | "array" -> TArray (recType (e.GetProperty "of"))
     | "map" -> TMap (recType (e.GetProperty "of"))
     | "union" -> TUnion (arr e "of" |> List.map recType)
+    | "promise" -> TPromise (recType (e.GetProperty "of"))
+    | "ext" -> TExt (str (e.GetProperty "name"))
     | other -> failwithf "unknown type kind '%s'" other
 
 let rec private recTypeDef (e: JsonElement) : TypeDef =

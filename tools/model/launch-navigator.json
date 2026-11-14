@@ -1,0 +1,566 @@
+{
+  "namespace": "LaunchNavigator",
+  "family": "UI",
+  "package": "@capgo/capacitor-launch-navigator",
+  "version": "8.1.9",
+  "export": "LaunchNavigator",
+  "types": [
+    {
+      "name": "AvailableApp",
+      "kind": "config",
+      "required": [
+        {
+          "name": "app",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ClearIconCacheOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "apps",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClearIconCacheResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cleared",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAppIconsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "apps",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "providers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "IconProvider"
+            }
+          }
+        },
+        {
+          "name": "maxAgeMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "forceRefresh",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetAvailableAppsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "apps",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AvailableApp"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSupportedAppsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "apps",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IconProvider",
+      "kind": "config",
+      "required": [
+        {
+          "name": "app",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iconUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsAppAvailableOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "app",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAppAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LaunchMode",
+      "kind": "enumStrings",
+      "cases": [
+        "maps",
+        "turn_by_turn",
+        "geo"
+      ]
+    },
+    {
+      "name": "NavigateOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "start",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "startName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "destinationName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "transportMode",
+          "type": {
+            "k": "ref",
+            "name": "TransportMode"
+          }
+        },
+        {
+          "name": "app",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "launchMode",
+          "type": {
+            "k": "ref",
+            "name": "LaunchMode"
+          }
+        },
+        {
+          "name": "extras",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "enableDebug",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NavigateOptions2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "destination",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NavigateOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProviderIcon",
+      "kind": "config",
+      "required": [
+        {
+          "name": "app",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "localUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fetchedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fromCache",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "stale",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProviderIconFailure",
+      "kind": "config",
+      "required": [
+        {
+          "name": "app",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProviderIconsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "icons",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ProviderIcon"
+            }
+          }
+        },
+        {
+          "name": "failures",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ProviderIconFailure"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TransportMode",
+      "kind": "enumStrings",
+      "cases": [
+        "driving",
+        "walking",
+        "bicycling",
+        "transit"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "navigate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NavigateOptions2"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Navigate to a location using latitude and longitude"
+    },
+    {
+      "name": "isAppAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsAppAvailableOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsAppAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if a specific navigation app is available"
+    },
+    {
+      "name": "getAvailableApps",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAvailableAppsResult"
+      },
+      "promise": true,
+      "comment": "Get list of available navigation apps on the device"
+    },
+    {
+      "name": "getSupportedApps",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSupportedAppsResult"
+      },
+      "promise": true,
+      "comment": "Get list of supported apps for the current platform"
+    },
+    {
+      "name": "getDefaultApp",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAppAvailableOptions"
+      },
+      "promise": true,
+      "comment": "Get the name of the default app for navigation"
+    },
+    {
+      "name": "getAppIcons",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAppIconsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ProviderIconsResult"
+      },
+      "promise": true,
+      "comment": "Fetch provider icons and cache them locally.\n\nThe native implementations revalidate cached icons after 24 hours by default.\nPass `forceRefresh: true` to bypass the cache when an icon must be repaired."
+    },
+    {
+      "name": "refreshAppIcons",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAppIconsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ProviderIconsResult"
+      },
+      "promise": true,
+      "comment": "Refresh provider icons, ignoring the cache age."
+    },
+    {
+      "name": "clearIconCache",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ClearIconCacheOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ClearIconCacheResult"
+      },
+      "promise": true,
+      "comment": "Clear cached provider icons."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

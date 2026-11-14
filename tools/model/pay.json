@@ -1,0 +1,1451 @@
+{
+  "namespace": "Pay",
+  "family": "Commerce",
+  "package": "@capgo/capacitor-pay",
+  "version": "8.2.5",
+  "export": "Pay",
+  "types": [
+    {
+      "name": "ApplePayAvailabilityOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "supportedNetworks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePayAvailabilityOptionsSupportedNetworks"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayAvailabilityOptionsSupportedNetworks",
+      "kind": "enumStrings",
+      "cases": [
+        "AmEx",
+        "amex",
+        "Bancomat",
+        "Bancontact",
+        "PagoBancomat",
+        "CarteBancaire",
+        "CarteBancaires",
+        "CartesBancaires",
+        "ChinaUnionPay",
+        "Dankort",
+        "Discover",
+        "discover",
+        "Eftpos",
+        "Electron",
+        "Elo",
+        "girocard",
+        "Himyan",
+        "Interac",
+        "iD",
+        "Jaywan",
+        "JCB",
+        "jcb",
+        "mada",
+        "Maestro",
+        "maestro",
+        "MasterCard",
+        "masterCard",
+        "Meeza",
+        "Mir",
+        "MyDebit",
+        "NAPAS",
+        "BankAxept",
+        "PostFinanceAG",
+        "PrivateLabel",
+        "QUICPay",
+        "Suica",
+        "Visa",
+        "visa",
+        "VPay",
+        "vPay"
+      ]
+    },
+    {
+      "name": "ApplePayAvailabilityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "canMakePayments",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "canMakePaymentsUsingNetworks",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ApplePayContact",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayContactName"
+          }
+        },
+        {
+          "name": "emailAddress",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalAddress",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayContactPostalAddress"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayContactName",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "givenName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "familyName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "middleName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "namePrefix",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nameSuffix",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nickname",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayContactPostalAddress",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "street",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "city",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "country",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isoCountryCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subAdministrativeArea",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subLocality",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayPaymentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "merchantIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "countryCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currencyCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "paymentSummaryItems",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePaySummaryItem"
+            }
+          }
+        },
+        {
+          "name": "supportedNetworks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePayAvailabilityOptionsSupportedNetworks"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "merchantCapabilities",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePayPaymentOptionsMerchantCapabilities"
+            }
+          }
+        },
+        {
+          "name": "requiredShippingContactFields",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePayPaymentOptionsRequiredShippingContactFields"
+            }
+          }
+        },
+        {
+          "name": "requiredBillingContactFields",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePayPaymentOptionsRequiredShippingContactFields"
+            }
+          }
+        },
+        {
+          "name": "shippingType",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayPaymentOptionsShippingType"
+          }
+        },
+        {
+          "name": "shippingMethods",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePayShippingMethod"
+            }
+          }
+        },
+        {
+          "name": "supportedCountries",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "applicationData",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recurringPaymentRequest",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayRecurringPaymentRequest"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayPaymentOptionsMerchantCapabilities",
+      "kind": "enumStrings",
+      "cases": [
+        "3DS",
+        "credit",
+        "debit",
+        "emv"
+      ]
+    },
+    {
+      "name": "ApplePayPaymentOptionsRequiredShippingContactFields",
+      "kind": "enumStrings",
+      "cases": [
+        "emailAddress",
+        "name",
+        "phoneNumber",
+        "postalAddress"
+      ]
+    },
+    {
+      "name": "ApplePayPaymentOptionsShippingType",
+      "kind": "enumStrings",
+      "cases": [
+        "shipping",
+        "delivery",
+        "servicePickup",
+        "storePickup"
+      ]
+    },
+    {
+      "name": "ApplePayPaymentResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "paymentData",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "paymentString",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "transactionIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "paymentMethod",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayPaymentResultPaymentMethod"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "shippingContact",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayContact"
+          }
+        },
+        {
+          "name": "billingContact",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayContact"
+          }
+        },
+        {
+          "name": "shippingMethod",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayShippingMethod"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayPaymentResultPaymentMethod",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayPaymentResultPaymentMethodType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "network",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayAvailabilityOptionsSupportedNetworks"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayPaymentResultPaymentMethodType",
+      "kind": "enumStrings",
+      "cases": [
+        "credit",
+        "debit",
+        "prepaid",
+        "store"
+      ]
+    },
+    {
+      "name": "ApplePayRecurringPaymentRequest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "paymentDescription",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "regularBilling",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayRecurringPaymentSummaryItem"
+          }
+        },
+        {
+          "name": "managementURL",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "billingAgreement",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tokenNotificationURL",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "trialBilling",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayRecurringPaymentSummaryItem"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayRecurringPaymentSummaryItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "intervalUnit",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayRecurringPaymentSummaryItemIntervalUnit"
+          }
+        },
+        {
+          "name": "intervalCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "amount",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "startDate",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "ApplePaySummaryItemType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayRecurringPaymentSummaryItemIntervalUnit",
+      "kind": "enumStrings",
+      "cases": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ]
+    },
+    {
+      "name": "ApplePayRequestPaymentResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "apple",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayPaymentResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ApplePayShippingContactSelectedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "selectionId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayContactName"
+          }
+        },
+        {
+          "name": "emailAddress",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalAddress",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayContactPostalAddress"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayShippingMethod",
+      "kind": "config",
+      "required": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "amount",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "detail",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayShippingMethodSelectedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "selectionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "amount",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "detail",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePayShippingUpdate",
+      "kind": "config",
+      "required": [
+        {
+          "name": "selectionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "paymentSummaryItems",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePaySummaryItem"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "shippingMethods",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ApplePayShippingMethod"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePaySummaryItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "amount",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "ApplePaySummaryItemType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ApplePaySummaryItemType",
+      "kind": "enumStrings",
+      "cases": [
+        "final",
+        "pending"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GooglePayAddress",
+      "kind": "config",
+      "required": [
+        {
+          "name": "countryCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "address1",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "address2",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "address3",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "locality",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "administrativeArea",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sortingCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iso3166AdministrativeArea",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GooglePayAssuranceDetails",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "accountVerified",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "cardHolderAuthenticated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GooglePayAvailabilityOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "environment",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayAvailabilityOptionsEnvironment"
+          }
+        },
+        {
+          "name": "isReadyToPayRequest",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GooglePayAvailabilityOptionsEnvironment",
+      "kind": "enumStrings",
+      "cases": [
+        "test",
+        "production"
+      ]
+    },
+    {
+      "name": "GooglePayAvailabilityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isReady",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "paymentMethodPresent",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GooglePayCardInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cardNetwork",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "obj"
+              }
+            ]
+          }
+        },
+        {
+          "name": "cardDetails",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "assuranceDetails",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayAssuranceDetails"
+          }
+        },
+        {
+          "name": "billingAddress",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayAddress"
+          }
+        },
+        {
+          "name": "cardFundingSource",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "obj"
+              },
+              {
+                "k": "string"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GooglePayOfferData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "redemptionCodes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GooglePayPaymentData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "apiVersion",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "apiVersionMinor",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "paymentMethodData",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayPaymentMethodData"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "shippingAddress",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayAddress"
+          }
+        },
+        {
+          "name": "offerData",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayOfferData"
+          }
+        },
+        {
+          "name": "shippingOptionData",
+          "type": {
+            "k": "ref",
+            "name": "GooglePaySelectionOptionData"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GooglePayPaymentMethodData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "obj"
+              }
+            ]
+          }
+        },
+        {
+          "name": "tokenizationData",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayPaymentMethodTokenizationData"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "info",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayCardInfo"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GooglePayPaymentMethodTokenizationData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "obj"
+              },
+              {
+                "k": "string"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GooglePayPaymentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "paymentDataRequest",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "environment",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayAvailabilityOptionsEnvironment"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GooglePayPaymentResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "paymentData",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayPaymentData"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GooglePayRequestPaymentResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "google",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayPaymentResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GooglePaySelectionOptionData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PayAvailabilityOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "apple",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayAvailabilityOptions"
+          }
+        },
+        {
+          "name": "google",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayAvailabilityOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PayAvailabilityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "PayAvailabilityResultPlatform"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "apple",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayAvailabilityResult"
+          }
+        },
+        {
+          "name": "google",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayAvailabilityResult"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PayAvailabilityResultPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "PayPaymentOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "apple",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayPaymentOptions"
+          }
+        },
+        {
+          "name": "google",
+          "type": {
+            "k": "ref",
+            "name": "GooglePayPaymentOptions"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "isPayAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PayAvailabilityOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PayAvailabilityResult"
+      },
+      "promise": true,
+      "comment": "Checks whether native pay is available on the current platform.\nOn iOS this evaluates Apple Pay, on Android it evaluates Google Pay."
+    },
+    {
+      "name": "requestPayment",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PayPaymentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "ApplePayRequestPaymentResult"
+          },
+          {
+            "k": "ref",
+            "name": "GooglePayRequestPaymentResult"
+          }
+        ]
+      },
+      "promise": true,
+      "comment": "Presents the native pay sheet for the current platform.\nProvide the Apple Pay configuration on iOS and the Google Pay configuration on Android.\n\nThis promise is the completion path on both platforms."
+    },
+    {
+      "name": "updateApplePayShipping",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ApplePayShippingUpdate"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Answers the latest `applePayShippingContactSelected` or `applePayShippingMethodSelected` event\nwith new totals and, for a new address, new shipping methods. iOS only.\n\nThe Apple Pay sheet waits for this call, so call it once for every event you listen to, also when\nyour own lookup fails. Without an update within 20 seconds, the sheet reports the selection as failed."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [
+    {
+      "name": "applePayShippingContactSelected",
+      "listener": {
+        "k": "ref",
+        "name": "ApplePayShippingContactSelectedEvent"
+      }
+    },
+    {
+      "name": "applePayShippingMethodSelected",
+      "listener": {
+        "k": "ref",
+        "name": "ApplePayShippingMethodSelectedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

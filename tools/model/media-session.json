@@ -1,0 +1,261 @@
+{
+  "namespace": "MediaSession",
+  "family": "Media",
+  "package": "@capgo/capacitor-media-session",
+  "version": "8.1.11",
+  "export": "MediaSession",
+  "types": [
+    {
+      "name": "ActionHandlerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "action",
+          "type": {
+            "k": "ref",
+            "name": "ActionHandlerOptionsAction"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ActionHandlerOptionsAction",
+      "kind": "enumStrings",
+      "cases": [
+        "play",
+        "pause",
+        "seekbackward",
+        "seekforward",
+        "previoustrack",
+        "nexttrack",
+        "seekto",
+        "stop"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MediaImage",
+      "kind": "config",
+      "required": [
+        {
+          "name": "src",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "sizes",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MetadataOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "album",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "artist",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "artwork",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "MediaImage"
+            }
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PlaybackStateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playbackState",
+          "type": {
+            "k": "ref",
+            "name": "PlaybackStateOptionsPlaybackState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PlaybackStateOptionsPlaybackState",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "paused",
+        "playing"
+      ]
+    },
+    {
+      "name": "PositionStateOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "playbackRate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "position",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetActionHandlerHandler",
+      "kind": "config",
+      "required": [],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "setMetadata",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MetadataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets metadata of the currently playing media."
+    },
+    {
+      "name": "setPlaybackState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlaybackStateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Updates the playback state of the media session."
+    },
+    {
+      "name": "setActionHandler",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ActionHandlerOptions"
+          },
+          "optional": false
+        },
+        {
+          "name": "handler",
+          "type": {
+            "k": "ref",
+            "name": "SetActionHandlerHandler"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Registers a handler for a media session action."
+    },
+    {
+      "name": "setPositionState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PositionStateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Updates position state for the active media session."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

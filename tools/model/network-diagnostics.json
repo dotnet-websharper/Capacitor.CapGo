@@ -1,0 +1,824 @@
+{
+  "namespace": "NetworkDiagnostics",
+  "family": "Device",
+  "package": "@capgo/capacitor-network-diagnostics",
+  "version": "8.0.17",
+  "export": "NetworkDiagnostics",
+  "types": [
+    {
+      "name": "DownloadSpeedTestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "maxBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadSpeedTestResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ok",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bytesDownloaded",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bytesPerSecond",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "mbps",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "statusCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "errorMessage",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NetworkStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "connected",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "connectionType",
+          "type": {
+            "k": "ref",
+            "name": "NetworkStatusResultConnectionType"
+          }
+        },
+        {
+          "name": "internetReachable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "expensive",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "constrained",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "captivePortal",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "details",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "NetworkStatusResultConnectionType",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "wifi",
+        "cellular",
+        "ethernet",
+        "vpn",
+        "other",
+        "unknown"
+      ]
+    },
+    {
+      "name": "PacketLossTestOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "PacketLossTestOptionsMode"
+          }
+        },
+        {
+          "name": "host",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "intervalMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PacketLossTestOptionsMode",
+      "kind": "enumStrings",
+      "cases": [
+        "tcp",
+        "http"
+      ]
+    },
+    {
+      "name": "PacketLossTestResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "PacketLossTestOptionsMode"
+          }
+        },
+        {
+          "name": "target",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "received",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lost",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lossPercent",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "averageLatencyMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minLatencyMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maxLatencyMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "errorMessage",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PortTestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "host",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PortTestResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "host",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "open",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "errorMessage",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RunDiagnosticsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "urls",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UrlTestOptions"
+            }
+          }
+        },
+        {
+          "name": "ports",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PortTestOptions"
+            }
+          }
+        },
+        {
+          "name": "websockets",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "WebSocketTestOptions"
+            }
+          }
+        },
+        {
+          "name": "download",
+          "type": {
+            "k": "ref",
+            "name": "DownloadSpeedTestOptions"
+          }
+        },
+        {
+          "name": "packetLoss",
+          "type": {
+            "k": "ref",
+            "name": "PacketLossTestOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RunDiagnosticsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "NetworkStatusResult"
+          }
+        },
+        {
+          "name": "urls",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UrlTestResult"
+            }
+          }
+        },
+        {
+          "name": "ports",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PortTestResult"
+            }
+          }
+        },
+        {
+          "name": "websockets",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "WebSocketTestResult"
+            }
+          }
+        },
+        {
+          "name": "issues",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "download",
+          "type": {
+            "k": "ref",
+            "name": "DownloadSpeedTestResult"
+          }
+        },
+        {
+          "name": "packetLoss",
+          "type": {
+            "k": "ref",
+            "name": "PacketLossTestResult"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UrlTestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "method",
+          "type": {
+            "k": "ref",
+            "name": "UrlTestOptionsMethod"
+          }
+        },
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "followRedirects",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UrlTestOptionsMethod",
+      "kind": "enumStrings",
+      "cases": [
+        "HEAD",
+        "GET"
+      ]
+    },
+    {
+      "name": "UrlTestResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "method",
+          "type": {
+            "k": "ref",
+            "name": "UrlTestOptionsMethod"
+          }
+        },
+        {
+          "name": "ok",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "reachable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "statusCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "finalUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "errorMessage",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebSocketTestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebSocketTestResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "open",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "protocol",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "statusCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "errorMessage",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getNetworkStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "NetworkStatusResult"
+      },
+      "promise": true,
+      "comment": "Read the current native connection type and platform network flags."
+    },
+    {
+      "name": "testUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UrlTestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "UrlTestResult"
+      },
+      "promise": true,
+      "comment": "Test whether an HTTP or HTTPS URL can be reached from native networking."
+    },
+    {
+      "name": "testPort",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PortTestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PortTestResult"
+      },
+      "promise": true,
+      "comment": "Test whether a TCP host:port can be opened from native networking."
+    },
+    {
+      "name": "testWebSocket",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WebSocketTestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WebSocketTestResult"
+      },
+      "promise": true,
+      "comment": "Test whether a WebSocket URL can complete its native handshake."
+    },
+    {
+      "name": "testDownloadSpeed",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DownloadSpeedTestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DownloadSpeedTestResult"
+      },
+      "promise": true,
+      "comment": "Measure download throughput from a native HTTP request."
+    },
+    {
+      "name": "testPacketLoss",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PacketLossTestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PacketLossTestResult"
+      },
+      "promise": true,
+      "comment": "Estimate application-level packet loss with repeated TCP or HTTP probes."
+    },
+    {
+      "name": "runDiagnostics",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RunDiagnosticsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "RunDiagnosticsResult"
+      },
+      "promise": true,
+      "comment": "Run several diagnostics and return a compact issue list."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

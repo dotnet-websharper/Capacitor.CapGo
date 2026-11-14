@@ -1,0 +1,1763 @@
+{
+  "namespace": "BluetoothLowEnergy",
+  "family": "Device",
+  "package": "@capgo/capacitor-bluetooth-low-energy",
+  "version": "8.2.9",
+  "export": "BluetoothLowEnergy",
+  "types": [
+    {
+      "name": "AddGattServiceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristics",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "GattCharacteristicDefinition"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BleCharacteristic",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "CharacteristicProperties"
+          }
+        },
+        {
+          "name": "descriptors",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BleDescriptor"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BleDescriptor",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BleDevice",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "rssi",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "manufacturerData",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "serviceUuids",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "BleService",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristics",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BleCharacteristic"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CentralConnectedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CentralDisconnectedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CharacteristicChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CharacteristicProperties",
+      "kind": "config",
+      "required": [
+        {
+          "name": "broadcast",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "read",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "writeWithoutResponse",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "write",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "notify",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "indicate",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "authenticatedSignedWrites",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "extendedProperties",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ConnectOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "autoConnect",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CreateBondOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeviceConnectedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeviceDisconnectedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeviceScannedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "device",
+          "type": {
+            "k": "ref",
+            "name": "BleDevice"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DisconnectOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DiscoverServicesOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GattCharacteristicDefinition",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "CharacteristicProperties"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "descriptors",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "GattDescriptorDefinition"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GattCharacteristicReadRequestEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GattCharacteristicWriteRequestEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GattDescriptorDefinition",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetConnectedDevicesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "devices",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BleDevice"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetServicesOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetServicesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "services",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BleService"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitializeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptionsMode"
+          }
+        },
+        {
+          "name": "showPowerAlert",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitializeOptionsMode",
+      "kind": "enumStrings",
+      "cases": [
+        "central",
+        "peripheral"
+      ]
+    },
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsBondedOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsBondedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bonded",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsLocationEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NotifyGattCharacteristicChangedOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bluetooth",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusBluetooth"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusBluetooth"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusBluetooth",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "ReadCharacteristicOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReadCharacteristicResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReadDescriptorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "descriptor",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReadDescriptorResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReadRssiOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReadRssiResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "rssi",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RemoveGattServiceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RequestConnectionPriorityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "priority",
+          "type": {
+            "k": "ref",
+            "name": "RequestConnectionPriorityOptionsPriority"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RequestConnectionPriorityOptionsPriority",
+      "kind": "enumStrings",
+      "cases": [
+        "low",
+        "balanced",
+        "high"
+      ]
+    },
+    {
+      "name": "RequestMtuOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mtu",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RequestMtuResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mtu",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetGattCharacteristicValueOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartAdvertisingOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "services",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "includeName",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "includeTxPowerLevel",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartCharacteristicNotificationsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartForegroundServiceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "smallIcon",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartScanOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "services",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "allowDuplicates",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StopCharacteristicNotificationsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WriteCharacteristicOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "WriteCharacteristicOptionsType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WriteCharacteristicOptionsType",
+      "kind": "enumStrings",
+      "cases": [
+        "withResponse",
+        "withoutResponse"
+      ]
+    },
+    {
+      "name": "WriteDescriptorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "service",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "characteristic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "descriptor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize the BLE plugin.\nMust be called before any other method."
+    },
+    {
+      "name": "shimWebBluetooth",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "Install the Capacitor Web Bluetooth shim on `navigator.bluetooth`.\nCall this manually before using the Web Bluetooth API from a Capacitor native app."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if Bluetooth is available on the device."
+    },
+    {
+      "name": "isEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsEnabledResult"
+      },
+      "promise": true,
+      "comment": "Check if Bluetooth is enabled on the device."
+    },
+    {
+      "name": "isLocationEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsLocationEnabledResult"
+      },
+      "promise": true,
+      "comment": "Check if location services are enabled (Android only)."
+    },
+    {
+      "name": "openAppSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the app settings page."
+    },
+    {
+      "name": "openBluetoothSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the Bluetooth settings page (Android only)."
+    },
+    {
+      "name": "openLocationSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the location settings page (Android only)."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check the current permission status."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request Bluetooth permissions."
+    },
+    {
+      "name": "startScan",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartScanOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start scanning for BLE devices."
+    },
+    {
+      "name": "stopScan",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop scanning for BLE devices."
+    },
+    {
+      "name": "connect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Connect to a BLE device."
+    },
+    {
+      "name": "disconnect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisconnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disconnect from a BLE device."
+    },
+    {
+      "name": "createBond",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateBondOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Create a bond with a BLE device (Android only)."
+    },
+    {
+      "name": "isBonded",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsBondedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsBondedResult"
+      },
+      "promise": true,
+      "comment": "Check if a device is bonded (Android only)."
+    },
+    {
+      "name": "discoverServices",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverServicesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Discover services on a connected device."
+    },
+    {
+      "name": "getServices",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetServicesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetServicesResult"
+      },
+      "promise": true,
+      "comment": "Get discovered services for a device."
+    },
+    {
+      "name": "getConnectedDevices",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetConnectedDevicesResult"
+      },
+      "promise": true,
+      "comment": "Get a list of connected devices."
+    },
+    {
+      "name": "readCharacteristic",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReadCharacteristicOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReadCharacteristicResult"
+      },
+      "promise": true,
+      "comment": "Read a characteristic value."
+    },
+    {
+      "name": "writeCharacteristic",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WriteCharacteristicOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Write a value to a characteristic."
+    },
+    {
+      "name": "startCharacteristicNotifications",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartCharacteristicNotificationsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start notifications for a characteristic."
+    },
+    {
+      "name": "stopCharacteristicNotifications",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StopCharacteristicNotificationsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop notifications for a characteristic."
+    },
+    {
+      "name": "readDescriptor",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReadDescriptorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReadDescriptorResult"
+      },
+      "promise": true,
+      "comment": "Read a descriptor value."
+    },
+    {
+      "name": "writeDescriptor",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WriteDescriptorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Write a value to a descriptor."
+    },
+    {
+      "name": "readRssi",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReadRssiOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReadRssiResult"
+      },
+      "promise": true,
+      "comment": "Read the RSSI (signal strength) of a connected device."
+    },
+    {
+      "name": "requestMtu",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestMtuOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "RequestMtuResult"
+      },
+      "promise": true,
+      "comment": "Request MTU size change (Android only)."
+    },
+    {
+      "name": "requestConnectionPriority",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestConnectionPriorityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Request connection priority (Android only)."
+    },
+    {
+      "name": "startAdvertising",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartAdvertisingOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start advertising as a peripheral (BLE server)."
+    },
+    {
+      "name": "stopAdvertising",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop advertising."
+    },
+    {
+      "name": "addGattService",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AddGattServiceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Add a GATT service with characteristics to the local GATT server.\nMust be called in peripheral mode before starting advertising."
+    },
+    {
+      "name": "removeGattService",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveGattServiceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove a GATT service from the local GATT server."
+    },
+    {
+      "name": "setGattCharacteristicValue",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetGattCharacteristicValueOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the value of a local GATT characteristic."
+    },
+    {
+      "name": "notifyGattCharacteristicChanged",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NotifyGattCharacteristicChangedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Notify connected centrals that a local GATT characteristic value changed."
+    },
+    {
+      "name": "startForegroundService",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartForegroundServiceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start a foreground service to maintain BLE connections in background (Android only)."
+    },
+    {
+      "name": "stopForegroundService",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop the foreground service (Android only)."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "deviceScanned",
+      "listener": {
+        "k": "ref",
+        "name": "DeviceScannedEvent"
+      }
+    },
+    {
+      "name": "deviceConnected",
+      "listener": {
+        "k": "ref",
+        "name": "DeviceConnectedEvent"
+      }
+    },
+    {
+      "name": "deviceDisconnected",
+      "listener": {
+        "k": "ref",
+        "name": "DeviceDisconnectedEvent"
+      }
+    },
+    {
+      "name": "characteristicChanged",
+      "listener": {
+        "k": "ref",
+        "name": "CharacteristicChangedEvent"
+      }
+    },
+    {
+      "name": "centralConnected",
+      "listener": {
+        "k": "ref",
+        "name": "CentralConnectedEvent"
+      }
+    },
+    {
+      "name": "centralDisconnected",
+      "listener": {
+        "k": "ref",
+        "name": "CentralDisconnectedEvent"
+      }
+    },
+    {
+      "name": "gattCharacteristicReadRequest",
+      "listener": {
+        "k": "ref",
+        "name": "GattCharacteristicReadRequestEvent"
+      }
+    },
+    {
+      "name": "gattCharacteristicWriteRequest",
+      "listener": {
+        "k": "ref",
+        "name": "GattCharacteristicWriteRequestEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

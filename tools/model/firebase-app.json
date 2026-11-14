@@ -1,0 +1,91 @@
+{
+  "namespace": "FirebaseApp",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-app",
+  "version": "7.4.2",
+  "export": "FirebaseApp",
+  "types": [
+    {
+      "name": "GetNameResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetOptionsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "apiKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "applicationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "databaseUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "gcmSenderId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "projectId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "storageBucket",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getName",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetNameResult"
+      },
+      "promise": true,
+      "comment": "Get the name for this app."
+    },
+    {
+      "name": "getOptions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetOptionsResult"
+      },
+      "promise": true,
+      "comment": "Get the configuration options for this app."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

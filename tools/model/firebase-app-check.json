@@ -1,0 +1,191 @@
+{
+  "namespace": "FirebaseAppCheck",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-app-check",
+  "version": "7.4.2",
+  "export": "FirebaseAppCheck",
+  "types": [
+    {
+      "name": "GetTokenOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "forceRefresh",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetTokenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "expireTimeMillis",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitializeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "debug",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "debugToken",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "obj"
+              }
+            ]
+          }
+        },
+        {
+          "name": "isTokenAutoRefreshEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "provider",
+          "type": {
+            "k": "obj"
+          }
+        },
+        {
+          "name": "siteKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetTokenAutoRefreshEnabledOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TokenChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetTokenOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetTokenResult"
+      },
+      "promise": true,
+      "comment": "Get the current App Check token."
+    },
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Activate App Check for the given app.\nCan be called only once per app."
+    },
+    {
+      "name": "setTokenAutoRefreshEnabled",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetTokenAutoRefreshEnabledOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set whether the App Check token should be refreshed automatically or not."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin.\n\nOnly available for Web."
+    }
+  ],
+  "events": [
+    {
+      "name": "tokenChanged",
+      "listener": {
+        "k": "ref",
+        "name": "TokenChangedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

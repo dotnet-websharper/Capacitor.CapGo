@@ -61,6 +61,18 @@ let private orderTypes (defs: TypeDef list) =
 
 // --- WIG construction -----------------------------------------------------
 
+/// DOM types that WebSharper.JavaScript already models; anything else that comes
+/// from outside the plugin package falls back to `obj` (and is logged).
+let private knownExternal =
+    dict [
+        "Blob", T<Blob>
+        "Uint8Array", T<Uint8Array>
+        "HTMLImageElement", T<HTMLImageElement>
+        "HTMLVideoElement", T<HTMLVideoElement>
+        "File", T<File>
+        "Worker", T<Worker>
+    ]
+
 let rec private conv (types: Dictionary<string, Type.Type>) (t: MType) : Type.Type =
     match t with
     | TString -> T<string>
@@ -71,13 +83,24 @@ let rec private conv (types: Dictionary<string, Type.Type>) (t: MType) : Type.Ty
     | TRef n ->
         match types.TryGetValue n with
         | true, x -> x
-        | _ -> failwithf "unresolved type reference '%s'" n
+        | _ ->
+            // Only reachable for recursive type graphs, where the back-edge is
+            // cut. Surface it instead of silently emitting a wrong shape.
+            printfn "capgo-generator: cyclic reference '%s' falls back to obj" n
+            T<obj>
     | TArray x -> !| (conv types x)
     | TMap _ -> T<obj>
     | TUnion [] -> T<unit>
     | TUnion (x :: xs) ->
         xs
         |> List.fold (fun acc y -> acc + (conv types y)) (conv types x)
+    | TPromise x -> T<Promise<_>>[ conv types x ]
+    | TExt n ->
+        match knownExternal.TryGetValue n with
+        | true, x -> x
+        | _ ->
+            printfn "capgo-generator: external type '%s' falls back to obj" n
+            T<obj>
 
 let private mkParameters (types: Dictionary<string, Type.Type>) (ps: Param list) : Type.Parameters =
     {
@@ -94,6 +117,38 @@ let private mkParameters (types: Dictionary<string, Type.Type>) (ps: Param list)
         Variable = None
     }
 
+/// A JS string literal.
+let private quote (s: string) =
+    let b = System.Text.StringBuilder("\"")
+    for ch in s do
+        match ch with
+        | '"' -> b.Append("\\\"") |> ignore
+        | '\\' -> b.Append("\\\\") |> ignore
+        | '\n' -> b.Append("\\n") |> ignore
+        | '\r' -> b.Append("\\r") |> ignore
+        | '\t' -> b.Append("\\t") |> ignore
+        | c -> b.Append(c) |> ignore
+    b.Append("\"").ToString()
+
+/// Turns raw string cases into unique, valid member names. CapGo enums repeat
+/// values with different casing ("VISA"/"visa") and use "" as a value.
+let private enumMemberNames (cases: string list) =
+    let sanitize (s: string) =
+        let s = System.Text.RegularExpressions.Regex.Replace(s, "[^A-Za-z0-9_]", "_")
+        let s = if s = "" then "Unspecified" else s
+        if System.Char.IsDigit s.[0] then "_" + s else s
+    let seen = System.Collections.Generic.HashSet<string>()
+    [
+        for c in cases ->
+            let baseName = sanitize c
+            let mutable name = baseName
+            let mutable i = 2
+            while not (seen.Add(name.ToLowerInvariant())) do
+                name <- baseName + string i
+                i <- i + 1
+            name, c
+    ]
+
 let private cap (s: string) =
     if System.String.IsNullOrEmpty s then s
     else System.Char.ToUpperInvariant(s.[0]).ToString() + s.Substring(1)
@@ -107,6 +162,33 @@ let private comment (c: string option) =
     match c with
     | Some c -> firstLine c
     | None -> None
+
+let rec private typeKey (t: MType) =
+    match t with
+    | TString -> "string"
+    | TFloat -> "float"
+    | TBool -> "bool"
+    | TUnit -> "unit"
+    | TObj -> "obj"
+    | TRef n -> "ref:" + n
+    | TArray x -> "array:" + typeKey x
+    | TMap x -> "map:" + typeKey x
+    | TUnion xs -> "union:" + (xs |> List.map typeKey |> String.concat "|")
+    | TPromise x -> "promise:" + typeKey x
+    | TExt n -> "ext:" + n
+
+/// Two members that differ only by casing (e.g. `getReferrer` / `GetReferrer`
+/// aliases) collapse to one CLR signature; keep the first.
+let private methodKey (m: Method) =
+    let paramKey (p: Param) =
+        (if p.Optional then "?" else "") + typeKey p.Type
+    [
+        m.Name.ToLowerInvariant()
+        yield! m.Params |> List.map paramKey
+        typeKey m.Returns
+        string m.Promise
+    ]
+    |> String.concat "|"
 
 let private mkMethod
     (types: Dictionary<string, Type.Type>)
@@ -154,6 +236,7 @@ let private mkEvent
 /// Builds one plugin's namespace members and plugin class.
 let private buildPlugin (handle: Type.Type) (p: Plugin) =
     let types = Dictionary<string, Type.Type>()
+    types.["PluginListenerHandle"] <- handle
     let members = ResizeArray<CodeModel.NamespaceEntity>()
 
     let ordered = orderTypes p.Types
@@ -173,11 +256,17 @@ let private buildPlugin (handle: Type.Type) (p: Plugin) =
                 types.[def.Name] <- cls.Type
                 members.Add(cls :> CodeModel.NamespaceEntity)
             | Strings cases ->
-                let cls = Pattern.EnumStrings def.Name cases
+                let cls =
+                    Pattern.EnumInlines def.Name [
+                        for name, value in enumMemberNames cases -> name, quote value
+                    ]
                 types.[def.Name] <- cls.Type
                 members.Add(cls :> CodeModel.NamespaceEntity)
             | Numbers cases ->
-                let cls = Pattern.EnumInlines def.Name [ for n, v in cases -> n, string v ]
+                let cls =
+                    Pattern.EnumInlines def.Name [
+                        for name, value in enumMemberNames (cases |> List.map fst) -> name, string value
+                    ]
                 types.[def.Name] <- cls.Type
                 members.Add(cls :> CodeModel.NamespaceEntity)
             | UnionOf ns ->
@@ -198,10 +287,14 @@ let private buildPlugin (handle: Type.Type) (p: Plugin) =
                 e, cls.Type
         ]
 
+    let methods = p.Methods |> List.distinctBy methodKey
+    if methods.Length <> p.Methods.Length then
+        printfn "capgo-generator: %s dropped %d duplicate overload(s)" p.Namespace (p.Methods.Length - methods.Length)
+
     let pluginClass =
         Class (p.Namespace + "Plugin")
         |+> Instance [
-                for m in p.Methods -> mkMethod types m
+                for m in methods -> mkMethod types m
                 for e, nameType in eventNameTypes -> mkEvent types handle nameType e
             ]
 

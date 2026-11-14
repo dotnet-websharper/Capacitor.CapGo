@@ -1,0 +1,533 @@
+{
+  "namespace": "Rudderstack",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-rudderstack",
+  "version": "8.1.19",
+  "export": "RudderClient",
+  "types": [
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RudderConfiguration",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "dataPlaneUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "flushQueueSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "dbCountThreshold",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "configRefreshInterval",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "logLevel",
+          "type": {
+            "k": "ref",
+            "name": "RudderConfigurationLogLevel"
+          }
+        },
+        {
+          "name": "sleepTimeOut",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoCollectAdvertId",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "trackLifecycleEvents",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "controlPlaneUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recordScreenViews",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "factories",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "RudderConfigurationLogLevel",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "0",
+          "value": 0
+        },
+        {
+          "name": "1",
+          "value": 1
+        },
+        {
+          "name": "2",
+          "value": 2
+        },
+        {
+          "name": "3",
+          "value": 3
+        },
+        {
+          "name": "4",
+          "value": 4
+        },
+        {
+          "name": "5",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "RudderOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "externalIds",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "integrations",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "bool"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "writeKey",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "config",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "RudderConfiguration"
+              },
+              {
+                "k": "ref",
+                "name": "RudderOptions"
+              }
+            ]
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RudderOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initializes the RudderStack client.\n\nThe method keeps the Cordova signature, so the second argument may be either a config object or\na Rudder options object."
+    },
+    {
+      "name": "identify",
+      "params": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "traits",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "RudderOptions"
+              },
+              {
+                "k": "map",
+                "of": {
+                  "k": "obj"
+                }
+              }
+            ]
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RudderOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends an identify call for the provided user id."
+    },
+    {
+      "name": "group",
+      "params": [
+        {
+          "name": "groupId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "groupTraits",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "RudderOptions"
+              },
+              {
+                "k": "map",
+                "of": {
+                  "k": "obj"
+                }
+              }
+            ]
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RudderOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends a group call for the provided group id."
+    },
+    {
+      "name": "track",
+      "params": [
+        {
+          "name": "eventName",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "RudderOptions"
+              },
+              {
+                "k": "map",
+                "of": {
+                  "k": "obj"
+                }
+              }
+            ]
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RudderOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends a track call for the provided event name."
+    },
+    {
+      "name": "screen",
+      "params": [
+        {
+          "name": "screenName",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "RudderOptions"
+              },
+              {
+                "k": "map",
+                "of": {
+                  "k": "obj"
+                }
+              }
+            ]
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RudderOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends a screen call for the provided screen name."
+    },
+    {
+      "name": "alias",
+      "params": [
+        {
+          "name": "newId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RudderOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Aliases the current user to a new identifier."
+    },
+    {
+      "name": "reset",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resets the current RudderStack identity state."
+    },
+    {
+      "name": "flush",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Flushes queued events immediately."
+    },
+    {
+      "name": "putDeviceToken",
+      "params": [
+        {
+          "name": "deviceToken",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the push token that RudderStack forwards to supported destinations."
+    },
+    {
+      "name": "setAdvertisingId",
+      "params": [
+        {
+          "name": "advertisingId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "putAdvertisingId",
+      "params": [
+        {
+          "name": "advertisingId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets a custom advertising id value."
+    },
+    {
+      "name": "setAnonymousId",
+      "params": [
+        {
+          "name": "anonymousId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "putAnonymousId",
+      "params": [
+        {
+          "name": "anonymousId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets a custom anonymous id value."
+    },
+    {
+      "name": "optOut",
+      "params": [
+        {
+          "name": "optOut",
+          "type": {
+            "k": "bool"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Toggles RudderStack tracking opt-out."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the plugin version marker from the native implementation."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

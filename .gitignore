@@ -25,3 +25,5 @@ websharper.log
 
 # generator tooling
 tools/.cache/
+
+/*/dist

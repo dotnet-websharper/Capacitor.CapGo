@@ -2808,5 +2808,6 @@
     }
   ],
   "unsupported": [],
-  "coreRefs": []
+  "coreRefs": [],
+  "externalTypes": []
 }

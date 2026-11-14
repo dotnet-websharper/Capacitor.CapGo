@@ -1,35 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Product>WebSharper.Capacitor.CapGo</Product>
-    <Title>https://github.com/dotnet-websharper/capacitor.capGo/</Title>
+    <Title>https://github.com/dotnet-websharper/capacitor.capgo/</Title>
     <Company>IntelliFactory</Company>
     <Copyright>(c) 2023 IntelliFactory</Copyright>
   </PropertyGroup>
 
-	<PropertyGroup>
-		<NpmDependencies>
+  <PropertyGroup>
+    <NpmDependencies>
 			<NpmPackage Name="@capgo/capacitor-crisp" Version="&gt;= 8.2.17 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-data-storage-sqlite" Version="&gt;= 8.0.64 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-downloader" Version="&gt;= 8.6.0 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-flash" Version="&gt;= 8.0.54 &lt; 9.0.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-mute" Version="&gt;= 8.1.21 &lt; 9.0.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-shake" Version="&gt;= 8.0.58 &lt; 9.0.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-updater" Version="&gt;= 8.54.2 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-home-indicator" Version="&gt;= 8.1.8 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-ivs-player" Version="&gt;= 8.0.47 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-mute" Version="&gt;= 8.1.21 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-native-audio" Version="&gt;= 8.5.4 &lt; 9.0.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-nativegeocoder" Version="&gt;= 8.0.64 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-native-market" Version="&gt;= 8.0.60 &lt; 9.0.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/native-purchases" Version="&gt;= 8.9.16 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-nativegeocoder" Version="&gt;= 8.0.64 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-navigation-bar" Version="&gt;= 8.2.23 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-screen-recorder" Version="&gt;= 8.4.10 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-shake" Version="&gt;= 8.0.58 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-social-login" Version="&gt;= 8.7.11 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-updater" Version="&gt;= 8.54.2 &lt; 9.0.0" ResolutionStrategy="Max" />
 			<NpmPackage Name="@capgo/capacitor-uploader" Version="&gt;= 8.3.31 &lt; 9.0.0" ResolutionStrategy="Max" />
-		</NpmDependencies>
-	</PropertyGroup>
+			<NpmPackage Name="@capgo/native-purchases" Version="&gt;= 8.9.16 &lt; 9.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
+  </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Main.fs" />

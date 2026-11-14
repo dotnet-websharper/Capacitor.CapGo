@@ -1,0 +1,182 @@
+{
+  "namespace": "FileSharer",
+  "family": "Files",
+  "package": "@capgo/capacitor-file-sharer",
+  "version": "8.1.18",
+  "export": "FileSharer",
+  "types": [
+    {
+      "name": "AndroidFileSharerOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "chooserTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "saveDirectory",
+          "type": {
+            "k": "ref",
+            "name": "AndroidFileSharerOptionsSaveDirectory"
+          }
+        },
+        {
+          "name": "relativePath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AndroidFileSharerOptionsSaveDirectory",
+      "kind": "enumStrings",
+      "cases": [
+        "downloads",
+        "pictures",
+        "movies",
+        "music",
+        "documents"
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SaveFileResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShareFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "filename",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "base64Data",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "text",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subject",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "AndroidFileSharerOptions"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "share",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShareFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Share a file using the native share sheet on Android and iOS.\nOn web, this downloads the file because browsers do not expose a consistent native file share target."
+    },
+    {
+      "name": "save",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShareFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SaveFileResult"
+      },
+      "promise": true,
+      "comment": "Save a file locally.\nOn Android this writes to MediaStore/Downloads. On web this downloads the file.\nOn iOS this opens the share sheet so the user can choose Save to Files or another target."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

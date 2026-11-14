@@ -1,0 +1,272 @@
+{
+  "namespace": "PdfGenerator",
+  "family": "Media",
+  "package": "@capgo/capacitor-pdf-generator",
+  "version": "8.0.53",
+  "export": "PdfGenerator",
+  "types": [
+    {
+      "name": "FromURLResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "base64",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FromURLResult2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "completed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfGeneratorFromDataOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "baseUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "documentSize",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromUrlOptionsDocumentSize"
+          }
+        },
+        {
+          "name": "orientation",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromUrlOptionsOrientation"
+          }
+        },
+        {
+          "name": "landscape",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "obj"
+              },
+              {
+                "k": "string"
+              }
+            ]
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromUrlOptionsType"
+          }
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PdfGeneratorFromUrlOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "documentSize",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromUrlOptionsDocumentSize"
+          }
+        },
+        {
+          "name": "orientation",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromUrlOptionsOrientation"
+          }
+        },
+        {
+          "name": "landscape",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "obj"
+              },
+              {
+                "k": "string"
+              }
+            ]
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromUrlOptionsType"
+          }
+        },
+        {
+          "name": "fileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PdfGeneratorFromUrlOptionsDocumentSize",
+      "kind": "enumStrings",
+      "cases": [
+        "A3",
+        "A4"
+      ]
+    },
+    {
+      "name": "PdfGeneratorFromUrlOptionsOrientation",
+      "kind": "enumStrings",
+      "cases": [
+        "portrait",
+        "landscape"
+      ]
+    },
+    {
+      "name": "PdfGeneratorFromUrlOptionsType",
+      "kind": "enumStrings",
+      "cases": [
+        "base64",
+        "share"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "fromURL",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromUrlOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "FromURLResult"
+          },
+          {
+            "k": "ref",
+            "name": "FromURLResult2"
+          }
+        ]
+      },
+      "promise": true,
+      "comment": "Generates a PDF from the provided URL."
+    },
+    {
+      "name": "fromData",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PdfGeneratorFromDataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "FromURLResult"
+          },
+          {
+            "k": "ref",
+            "name": "FromURLResult2"
+          }
+        ]
+      },
+      "promise": true,
+      "comment": "Generates a PDF from a raw HTML string."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,555 @@
+{
+  "namespace": "IncomingCallKit",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-incoming-call-kit",
+  "version": "8.2.16",
+  "export": "IncomingCallKit",
+  "types": [
+    {
+      "name": "ActiveCallsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "calls",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "IncomingCallRecord"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AndroidIncomingCallOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "channelId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "channelName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "showFullScreen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "accentColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ringtoneUri",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isHighPriority",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EndAllCallsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EndCallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IncomingCallEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "call",
+          "type": {
+            "k": "ref",
+            "name": "IncomingCallRecord"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "IncomingCallEventSource"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IncomingCallEventSource",
+      "kind": "enumStrings",
+      "cases": [
+        "api",
+        "user",
+        "system"
+      ]
+    },
+    {
+      "name": "IncomingCallPermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notifications",
+          "type": {
+            "k": "ref",
+            "name": "IncomingCallPermissionStatusNotifications"
+          }
+        },
+        {
+          "name": "fullScreenIntent",
+          "type": {
+            "k": "ref",
+            "name": "IncomingCallPermissionStatusNotifications"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IncomingCallPermissionStatusNotifications",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied",
+        "notApplicable"
+      ]
+    },
+    {
+      "name": "IncomingCallRecord",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "callerName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hasVideo",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "IncomingCallRecordState"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IncomingCallRecordPlatform"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "handle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "extra",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IncomingCallRecordPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "android",
+        "ios",
+        "web"
+      ]
+    },
+    {
+      "name": "IncomingCallRecordState",
+      "kind": "enumStrings",
+      "cases": [
+        "ringing",
+        "accepted",
+        "ended"
+      ]
+    },
+    {
+      "name": "IOSIncomingCallOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "handleType",
+          "type": {
+            "k": "ref",
+            "name": "IOSIncomingCallOptionsHandleType"
+          }
+        },
+        {
+          "name": "supportsHolding",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "supportsDTMF",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "supportsGrouping",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "supportsUngrouping",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IOSIncomingCallOptionsHandleType",
+      "kind": "enumStrings",
+      "cases": [
+        "generic",
+        "phoneNumber",
+        "emailAddress"
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ShowIncomingCallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "callerName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "handle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hasVideo",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "acceptText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "declineText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "extra",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "AndroidIncomingCallOptions"
+          }
+        },
+        {
+          "name": "ios",
+          "type": {
+            "k": "ref",
+            "name": "IOSIncomingCallOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShowIncomingCallResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "call",
+          "type": {
+            "k": "ref",
+            "name": "IncomingCallRecord"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "showIncomingCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowIncomingCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ShowIncomingCallResult"
+      },
+      "promise": true,
+      "comment": "Displays the native incoming call UI.\n\nAndroid shows a high-priority notification and can raise a full-screen activity.\niOS reports the call to CallKit."
+    },
+    {
+      "name": "endCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "EndCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ActiveCallsResult"
+      },
+      "promise": true,
+      "comment": "Ends a specific tracked call."
+    },
+    {
+      "name": "endAllCalls",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "EndAllCallsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ActiveCallsResult"
+      },
+      "promise": true,
+      "comment": "Ends every tracked call."
+    },
+    {
+      "name": "getActiveCalls",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ActiveCallsResult"
+      },
+      "promise": true,
+      "comment": "Returns the currently tracked calls."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IncomingCallPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Returns the current permission state for notifications and full-screen intents."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IncomingCallPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Requests the notification permission when the platform supports it.\n\niOS CallKit itself does not require a runtime prompt, so iOS resolves without prompting."
+    },
+    {
+      "name": "requestFullScreenIntentPermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IncomingCallPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Opens the Android 14+ full-screen intent settings page when available.\n\nOn other platforms this resolves with the current permission status."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the native implementation version marker."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes every native listener registered by the plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "incomingCallDisplayed",
+      "listener": {
+        "k": "ref",
+        "name": "IncomingCallEvent"
+      }
+    },
+    {
+      "name": "callAccepted",
+      "listener": {
+        "k": "ref",
+        "name": "IncomingCallEvent"
+      }
+    },
+    {
+      "name": "callDeclined",
+      "listener": {
+        "k": "ref",
+        "name": "IncomingCallEvent"
+      }
+    },
+    {
+      "name": "callEnded",
+      "listener": {
+        "k": "ref",
+        "name": "IncomingCallEvent"
+      }
+    },
+    {
+      "name": "callTimedOut",
+      "listener": {
+        "k": "ref",
+        "name": "IncomingCallEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,442 @@
+{
+  "namespace": "Watch",
+  "family": "Device",
+  "package": "@capgo/capacitor-watch",
+  "version": "8.2.1",
+  "export": "CapgoWatch",
+  "types": [
+    {
+      "name": "ActivationStateChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "state",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ContextReceivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "context",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MessageReceivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MessageReceivedWithReplyEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "callbackId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "watchRequestId",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              },
+              {
+                "k": "obj"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReachabilityChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isReachable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReceivedState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "context",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReplyMessageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callbackId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SendMessageOptionsWithReply",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "expectsReply",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SendMessageResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reply",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TransferUserInfoOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userInfo",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateContextOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "context",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UserInfoReceivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userInfo",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WatchInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSupported",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isPaired",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isWatchAppInstalled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isReachable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "activationState",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "sendMessage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendMessageOptionsWithReply"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SendMessageResult"
+      },
+      "promise": true,
+      "comment": "Send an interactive message to the watch.\nThe watch must be reachable for this to succeed.\nUse this for time-sensitive, interactive communication."
+    },
+    {
+      "name": "updateApplicationContext",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateContextOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update the application context shared with the watch.\nOnly the latest context is kept - this overwrites any previous context.\nUse this for syncing app state that the watch needs to display."
+    },
+    {
+      "name": "transferUserInfo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TransferUserInfoOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Transfer user info to the watch.\nTransfers are queued for delivery, even if the watch is not currently reachable.\niOS delivers transfers in order. Android Data Layer transfers use separate paths and do not guarantee ordering.\nUse this for important data that must be delivered reliably."
+    },
+    {
+      "name": "replyToMessage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReplyMessageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reply to a message from the watch that requested a reply.\nUse this in response to the messageReceivedWithReply event."
+    },
+    {
+      "name": "getInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "WatchInfo"
+      },
+      "promise": true,
+      "comment": "Get information about the watch connectivity status."
+    },
+    {
+      "name": "getReceivedState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ReceivedState"
+      },
+      "promise": true,
+      "comment": "Get the last persisted application context received from the watch.\nUseful after app restart to restore watch-synced state without waiting for a new event."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "messageReceived",
+      "listener": {
+        "k": "ref",
+        "name": "MessageReceivedEvent"
+      }
+    },
+    {
+      "name": "messageReceivedWithReply",
+      "listener": {
+        "k": "ref",
+        "name": "MessageReceivedWithReplyEvent"
+      }
+    },
+    {
+      "name": "applicationContextReceived",
+      "listener": {
+        "k": "ref",
+        "name": "ContextReceivedEvent"
+      }
+    },
+    {
+      "name": "userInfoReceived",
+      "listener": {
+        "k": "ref",
+        "name": "UserInfoReceivedEvent"
+      }
+    },
+    {
+      "name": "reachabilityChanged",
+      "listener": {
+        "k": "ref",
+        "name": "ReachabilityChangedEvent"
+      }
+    },
+    {
+      "name": "activationStateChanged",
+      "listener": {
+        "k": "ref",
+        "name": "ActivationStateChangedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

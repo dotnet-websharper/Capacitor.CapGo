@@ -1,0 +1,117 @@
+{
+  "namespace": "VideoThumbnails",
+  "family": "Media",
+  "package": "@capgo/capacitor-video-thumbnails",
+  "version": "8.1.27",
+  "export": "CapgoVideoThumbnails",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "VideoThumbnailsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sourceUri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "quality",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "VideoThumbnailsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getThumbnail",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VideoThumbnailsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "VideoThumbnailsResult"
+      },
+      "promise": true,
+      "comment": "Generate a thumbnail image from a video file at a specific time position."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

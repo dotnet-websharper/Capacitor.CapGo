@@ -1,0 +1,565 @@
+{
+  "namespace": "SpeechSynthesis",
+  "family": "AI",
+  "package": "@capgo/capacitor-speech-synthesis",
+  "version": "8.0.29",
+  "export": "SpeechSynthesis",
+  "types": [
+    {
+      "name": "ActivateAudioSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "category",
+          "type": {
+            "k": "ref",
+            "name": "ActivateAudioSessionOptionsCategory"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ActivateAudioSessionOptionsCategory",
+      "kind": "enumStrings",
+      "cases": [
+        "Ambient",
+        "Playback"
+      ]
+    },
+    {
+      "name": "BoundaryEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "utteranceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "charIndex",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "charLength",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "utteranceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetLanguagesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "languages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetVoicesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "voices",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "VoiceInfo"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsLanguageAvailableOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSpeakingResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSpeaking",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsVoiceAvailableOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "voiceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpeakOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "text",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "voiceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "pitch",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "rate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "queueStrategy",
+          "type": {
+            "k": "ref",
+            "name": "SpeakOptionsQueueStrategy"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SpeakOptionsQueueStrategy",
+      "kind": "enumStrings",
+      "cases": [
+        "Add",
+        "Flush"
+      ]
+    },
+    {
+      "name": "SpeakResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "utteranceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SynthesizeToFileResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "filePath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "utteranceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UtteranceEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "utteranceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "VoiceInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "gender",
+          "type": {
+            "k": "ref",
+            "name": "VoiceInfoGender"
+          }
+        },
+        {
+          "name": "isNetworkConnectionRequired",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "default",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VoiceInfoGender",
+      "kind": "enumStrings",
+      "cases": [
+        "male",
+        "female",
+        "neutral"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "speak",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SpeakOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SpeakResult"
+      },
+      "promise": true,
+      "comment": "Speaks the given text with specified options.\nThe utterance is added to the speech queue."
+    },
+    {
+      "name": "synthesizeToFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SpeakOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SynthesizeToFileResult"
+      },
+      "promise": true,
+      "comment": "Synthesizes speech to an audio file (Android/iOS only).\nReturns the file path where the audio was saved."
+    },
+    {
+      "name": "cancel",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Cancels all queued utterances and stops current speech."
+    },
+    {
+      "name": "pause",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Pauses speech immediately."
+    },
+    {
+      "name": "resume",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resumes paused speech."
+    },
+    {
+      "name": "isSpeaking",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsSpeakingResult"
+      },
+      "promise": true,
+      "comment": "Checks if speech synthesis is currently speaking."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Checks if speech synthesis is available on the device."
+    },
+    {
+      "name": "getVoices",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetVoicesResult"
+      },
+      "promise": true,
+      "comment": "Gets all available voices."
+    },
+    {
+      "name": "getLanguages",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetLanguagesResult"
+      },
+      "promise": true,
+      "comment": "Gets all available languages."
+    },
+    {
+      "name": "isLanguageAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsLanguageAvailableOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Checks if a specific language is available."
+    },
+    {
+      "name": "isVoiceAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsVoiceAvailableOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Checks if a specific voice is available."
+    },
+    {
+      "name": "initialize",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initializes the speech synthesis engine (iOS optimization).\nThis can reduce latency for the first speech request."
+    },
+    {
+      "name": "activateAudioSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ActivateAudioSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Activates the audio session with a specific category (iOS only)."
+    },
+    {
+      "name": "deactivateAudioSession",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deactivates the audio session (iOS only)."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Gets the native plugin version."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes all event listeners."
+    }
+  ],
+  "events": [
+    {
+      "name": "start",
+      "listener": {
+        "k": "ref",
+        "name": "UtteranceEvent"
+      }
+    },
+    {
+      "name": "end",
+      "listener": {
+        "k": "ref",
+        "name": "UtteranceEvent"
+      }
+    },
+    {
+      "name": "boundary",
+      "listener": {
+        "k": "ref",
+        "name": "BoundaryEvent"
+      }
+    },
+    {
+      "name": "error",
+      "listener": {
+        "k": "ref",
+        "name": "ErrorEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

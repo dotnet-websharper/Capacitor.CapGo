@@ -13,7 +13,7 @@ import {
   Project,
   ScriptTarget,
 } from "ts-morph";
-import { fetchPackage, listDts, npmLatest } from "./lib/fetch.mjs";
+import { fetchPackage, indexDts, listDts, npmLatest } from "./lib/fetch.mjs";
 
 const modelDir = new URL("./model/", import.meta.url).pathname;
 const rosterPath = new URL("./plugins.json", import.meta.url).pathname;
@@ -45,15 +45,17 @@ class Extractor {
     this.dir = dir;
     this.types = new Map();
     this.byShape = new Map();
+    this.externalTypes = new Set();
     this.visiting = new Set();
     this.coreRefs = new Set();
   }
 
-  /** Whether the declaration comes from a dependency (e.g. @capacitor/core). */
-  isExternal(symbol) {
+  /** The dependency path a symbol comes from, when it is not the plugin's own. */
+  externalPath(symbol) {
     const decl = symbol.getDeclarations()[0];
-    if (!decl) return false;
-    return decl.getSourceFile().getFilePath().includes("/node_modules/");
+    if (!decl) return null;
+    const p = decl.getSourceFile().getFilePath();
+    return p.startsWith(this.dir) ? null : p;
   }
 
   hintName(hint) {
@@ -161,6 +163,21 @@ class Extractor {
   }
 
   conv(type, hint) {
+    // Cyclic type graphs exist in a few plugins (self-referential aliases);
+    // cut them at the first repeat rather than recursing forever.
+    const key = type.getText();
+    if (this.converting?.has(key)) return { k: "obj" };
+    this.converting = this.converting ?? new Set();
+    this.converting.add(key);
+    try {
+      return this.convInner(type, hint);
+    } finally {
+      this.converting.delete(key);
+    }
+  }
+
+  convInner(type, hint) {
+    if (type.getText() === "void") return { k: "unit" };
     if (type.isAny() || type.isUnknown()) return { k: "obj" };
     if (type.isStringLiteral() || type.isString()) return { k: "string" };
     if (type.isNumberLiteral()) return { k: "float" };
@@ -228,9 +245,18 @@ class Extractor {
         const shape = this.membersOf(type, this.hintName(hint));
         return { k: "ref", name: this.registerAnonymous(this.hintName(hint), { kind: "config", ...shape }) };
       }
-      if (this.isExternal(symbol)) {
-        this.coreRefs.add(name);
-        return { k: "ref", name, core: true };
+      const external = this.externalPath(symbol);
+      if (external) {
+        if (external.includes("@capacitor/core")) {
+          this.coreRefs.add(name);
+          return { k: "ref", name, core: true };
+        }
+        if (name === "Promise") {
+          const args = type.getTypeArguments();
+          if (args.length) return { k: "promise", of: this.conv(args[0], hint) };
+        }
+        this.externalTypes.add(name);
+        return { k: "ext", name };
       }
       const registered = this.registerNamed(name, type);
       if (registered) return { k: "ref", name: registered };
@@ -326,8 +352,10 @@ export function extract(plugin) {
   const version = npmLatest(plugin.package);
   const dir = fetchPackage(plugin.package, version);
   const project = makeProject(dir);
-  const index = project.getSourceFile(join(dir, "dist", "esm", "index.d.ts"));
-  if (!index) throw new Error(`no dist/esm/index.d.ts in ${plugin.package}@${version}`);
+  const indexPath = indexDts(dir);
+  if (!indexPath) throw new Error(`no index.d.ts in ${plugin.package}@${version}`);
+  const index = project.getSourceFile(indexPath);
+  if (!index) throw new Error(`could not load ${indexPath}`);
 
   const exported = index.getExportedDeclarations();
   const candidates = [];
@@ -395,6 +423,7 @@ export function extract(plugin) {
     events,
     unsupported,
     coreRefs: [...ex.coreRefs].sort(),
+    externalTypes: [...ex.externalTypes].sort(),
   };
 
   applyOverrides(model, plugin);
@@ -439,8 +468,16 @@ mkdirSync(modelDir, { recursive: true });
 let changed = 0;
 const summary = [];
 
+const failures = [];
 for (const plugin of selected) {
-  const model = extract(plugin);
+  let model;
+  try {
+    model = extract(plugin);
+  } catch (e) {
+    failures.push({ plugin, error: e instanceof Error ? e.message : String(e) });
+    console.error(`FAILED ${plugin.namespace} (${plugin.package}): ${e instanceof Error ? e.message : e}`);
+    continue;
+  }
   const path = join(modelDir, `${slugOf(plugin.namespace)}.json`);
   const text = JSON.stringify(model, null, 2) + "\n";
   let previous = null;
@@ -481,9 +518,14 @@ const report = [
 const reportPath = new URL("./coverage.md", import.meta.url).pathname;
 writeFileSync(reportPath, report);
 
+if (failures.length) {
+  console.log("\n## Extraction failures\n");
+  for (const f of failures) console.log(`- ${f.plugin.namespace} (${f.plugin.package}): ${f.error}`);
+}
 console.log(report);
 console.log(check ? (changed ? `${changed} plugin(s) drifted` : "no drift") : `${changed} plugin(s) updated`);
 if (check) process.exitCode = changed ? 1 : 0;
+if (failures.length) process.exitCode = 2;
 
 function slugOf(namespace) {
   return namespace.replace(/([a-z0-9])([A-Z])/g, "$1-$2").replace(/([A-Z])([A-Z][a-z])/g, "$1-$2").toLowerCase();

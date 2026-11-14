@@ -1,0 +1,503 @@
+{
+  "namespace": "AppIntents",
+  "family": "Device",
+  "package": "@capgo/capacitor-app-intents",
+  "version": "8.1.3",
+  "export": "CapgoAppIntents",
+  "types": [
+    {
+      "name": "AppIntentInvocation",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "params",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "AppIntentInvocationSource"
+          }
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AppIntentInvocationSource",
+      "kind": "enumStrings",
+      "cases": [
+        "app_intent",
+        "spotlight",
+        "quick_action",
+        "apple_schema"
+      ]
+    },
+    {
+      "name": "AppIntentInvokedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "invocation",
+          "type": {
+            "k": "ref",
+            "name": "AppIntentInvocation"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "EntityCatalogEntry",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPendingInvocationsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "invocations",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AppIntentInvocation"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HomeScreenShortcutItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iconName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "params",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IndexSpotlightEntitiesOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "entities",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SpotlightEntity"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PerformAppleSchemaTemplateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "template",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "params",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PerformAppleSchemaTemplateResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "queuedInvocationId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RemovePendingInvocationOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RemoveSpotlightEntitiesOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ids",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetEntityCatalogOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "entries",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "EntityCatalogEntry"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetHomeScreenShortcutItemsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "items",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "HomeScreenShortcutItem"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SpotlightEntity",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "actionName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "keywords",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "params",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getPendingInvocations",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPendingInvocationsResult"
+      },
+      "promise": true,
+      "comment": "Return invocations queued before JavaScript was ready."
+    },
+    {
+      "name": "removePendingInvocation",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemovePendingInvocationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove one pending invocation after your handler processes it."
+    },
+    {
+      "name": "setEntityCatalog",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetEntityCatalogOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Persist an entity catalog for a given type string.\n\nPowers Siri and Shortcuts entity parameters without new Swift per row."
+    },
+    {
+      "name": "setHomeScreenShortcutItems",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetHomeScreenShortcutItemsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Replace Home Screen quick actions (UIApplicationShortcutItems)."
+    },
+    {
+      "name": "indexSpotlightEntities",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IndexSpotlightEntitiesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Index Spotlight items for your app domain.\n\nUses `CSSearchableItem` on iOS 16 and later. On iOS 18 and later also donates\n`IndexedEntity` values through `indexAppEntities` and `associateAppEntity`."
+    },
+    {
+      "name": "removeSpotlightEntities",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveSpotlightEntitiesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove Spotlight items by id."
+    },
+    {
+      "name": "performAppleSchemaTemplate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PerformAppleSchemaTemplateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PerformAppleSchemaTemplateResult"
+      },
+      "promise": true,
+      "comment": "Queue a JavaScript handler for an alpha Apple schema template.\n\nThis does not call private Mail or system schema APIs. It only enqueues an\ninvocation (for example `appleSchemaMailCreateDraft`) for your app code to handle."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Native plugin version string."
+    }
+  ],
+  "events": [
+    {
+      "name": "appIntentInvoked",
+      "listener": {
+        "k": "ref",
+        "name": "AppIntentInvokedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

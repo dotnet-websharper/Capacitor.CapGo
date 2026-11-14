@@ -1,0 +1,123 @@
+{
+  "namespace": "FileCompressor",
+  "family": "Media",
+  "package": "@capgo/capacitor-file-compressor",
+  "version": "8.1.22",
+  "export": "FileCompressor",
+  "types": [
+    {
+      "name": "CompressImageOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "blob",
+          "type": {
+            "k": "ext",
+            "name": "Blob"
+          }
+        },
+        {
+          "name": "quality",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CompressImageResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "blob",
+          "type": {
+            "k": "ext",
+            "name": "Blob"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "compressImage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CompressImageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CompressImageResult"
+      },
+      "promise": true,
+      "comment": "Compresses an image file with specified dimensions and quality settings.\n\nThis method compresses images to reduce file size while maintaining acceptable quality.\nIt supports resizing and format conversion across common image formats.\n\n**Supported input formats (platform decoder dependent):**\nJPEG, PNG, WebP, GIF, BMP, TIFF, HEIF/HEIC\n\n**Supported output formats:**\n- **iOS:** `image/jpeg`, `image/png`, `image/heif`, `image/heic`, `image/webp` (iOS 14+)\n- **Android:** `image/jpeg`, `image/png`, `image/webp`\n- **Web:** `image/jpeg`, `image/png`, `image/webp`\n\n**Important Notes:**\n- EXIF metadata is removed during compression on all platforms\n- Aspect ratio is automatically maintained if only one dimension is provided\n- When both width and height are provided, the image fits inside that box without upscaling\n- Compressed files are saved to temporary directories on native platforms\n- If the encoded output would be larger than the source file, quality is reduced automatically while keeping the requested output format"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version.\n\nReturns the version of the native plugin implementation.\nUseful for debugging and ensuring compatibility."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": [
+    "Blob"
+  ]
+}

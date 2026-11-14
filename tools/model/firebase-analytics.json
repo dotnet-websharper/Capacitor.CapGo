@@ -1,0 +1,485 @@
+{
+  "namespace": "FirebaseAnalytics",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-analytics",
+  "version": "8.0.2",
+  "export": "FirebaseAnalytics",
+  "types": [
+    {
+      "name": "ConsentStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "GRANTED",
+        "DENIED"
+      ]
+    },
+    {
+      "name": "ConsentType",
+      "kind": "enumStrings",
+      "cases": [
+        "AD_PERSONALIZATION",
+        "AD_STORAGE",
+        "AD_USER_DATA",
+        "ANALYTICS_STORAGE",
+        "FUNCTIONALITY_STORAGE",
+        "PERSONALIZATION_STORAGE"
+      ]
+    },
+    {
+      "name": "GetAppInstanceIdResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "appInstanceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetSessionIdResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitiateOnDeviceConversionMeasurementWithEmailAddressOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "emailAddress",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitiateOnDeviceConversionMeasurementWithHashedEmailAddressOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "emailAddressToHash",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitiateOnDeviceConversionMeasurementWithHashedPhoneNumberOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "phoneNumberToHash",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitiateOnDeviceConversionMeasurementWithPhoneNumberOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LogEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "params",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetConsentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "ConsentType"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "ConsentStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetCurrentScreenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "screenName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "screenClassOverride",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetEnabledOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSessionTimeoutDurationOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetUserIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetUserPropertyOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getAppInstanceId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAppInstanceIdResult"
+      },
+      "promise": true,
+      "comment": "Retrieves the app instance id.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "getSessionId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSessionIdResult"
+      },
+      "promise": true,
+      "comment": "Retrieves the current session id (`ga_session_id`).\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "setConsent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetConsentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the user's consent mode."
+    },
+    {
+      "name": "setUserId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetUserIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the user ID property."
+    },
+    {
+      "name": "setUserProperty",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetUserPropertyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets a custom user property to a given value."
+    },
+    {
+      "name": "setCurrentScreen",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetCurrentScreenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the current screen name."
+    },
+    {
+      "name": "logEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LogEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Logs an app event."
+    },
+    {
+      "name": "setSessionTimeoutDuration",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSessionTimeoutDurationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the duration of inactivity that terminates the current session.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "setEnabled",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetEnabledOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enables/disables automatic data collection.\nThe value does not apply until the next run of the app."
+    },
+    {
+      "name": "isEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsEnabledResult"
+      },
+      "promise": true,
+      "comment": "Returns whether or not automatic data collection is enabled.\n\nOnly available for Web."
+    },
+    {
+      "name": "resetAnalyticsData",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Clears all analytics data for this app from the device.\nResets the app instance id.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "initiateOnDeviceConversionMeasurementWithEmailAddress",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitiateOnDeviceConversionMeasurementWithEmailAddressOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initiates on-device conversion measurement with an email address.\n\nOnly available for iOS."
+    },
+    {
+      "name": "initiateOnDeviceConversionMeasurementWithPhoneNumber",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitiateOnDeviceConversionMeasurementWithPhoneNumberOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initiates on-device conversion measurement with a phone number.\n\nOnly available for iOS."
+    },
+    {
+      "name": "initiateOnDeviceConversionMeasurementWithHashedEmailAddress",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitiateOnDeviceConversionMeasurementWithHashedEmailAddressOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initiates on-device conversion measurement with a hashed email address.\n\nOnly available for iOS."
+    },
+    {
+      "name": "initiateOnDeviceConversionMeasurementWithHashedPhoneNumber",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitiateOnDeviceConversionMeasurementWithHashedPhoneNumberOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initiates on-device conversion measurement with a hashed phone number.\n\nOnly available for iOS."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

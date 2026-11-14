@@ -1,0 +1,270 @@
+{
+  "namespace": "Compass",
+  "family": "Device",
+  "package": "@capgo/capacitor-compass",
+  "version": "8.1.26",
+  "export": "CapgoCompass",
+  "types": [
+    {
+      "name": "AccuracyChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accuracy",
+          "type": {
+            "k": "ref",
+            "name": "CompassAccuracy"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CompassAccuracy",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "HIGH",
+          "value": 3
+        },
+        {
+          "name": "MEDIUM",
+          "value": 2
+        },
+        {
+          "name": "LOW",
+          "value": 1
+        },
+        {
+          "name": "UNRELIABLE",
+          "value": 0
+        },
+        {
+          "name": "UNKNOWN",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "name": "CompassHeading",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAccuracyResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accuracy",
+          "type": {
+            "k": "ref",
+            "name": "CompassAccuracy"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HeadingChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListeningOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "minInterval",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minHeadingChange",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "compass",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusCompass"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusCompass",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getCurrentHeading",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CompassHeading"
+      },
+      "promise": true,
+      "comment": "Get the current compass heading in degrees.\nOn iOS, the heading is updated in the background, and the latest value is returned.\nOn Android, the heading is calculated when the method is called using accelerometer and magnetometer sensors.\nNot implemented on Web."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "startListening",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ListeningOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start listening for compass heading changes via events.\nThis starts the compass sensors and emits 'headingChange' events."
+    },
+    {
+      "name": "stopListening",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop listening for compass heading changes.\nThis stops the compass sensors and stops emitting events."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check the current permission status for accessing compass data.\nOn iOS, this checks location permission status.\nOn Android, this always returns 'granted' as no permissions are required."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission to access compass data.\nOn iOS, this requests location permission (required for heading data).\nOn Android, this resolves immediately as no permissions are required."
+    },
+    {
+      "name": "watchAccuracy",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start monitoring compass accuracy.\nOn Android, this monitors the magnetometer accuracy and emits accuracyChange events.\nDevelopers can listen to these events and implement their own UI for calibration prompts.\nOn iOS and Web, this method does nothing as compass accuracy monitoring is not available."
+    },
+    {
+      "name": "unwatchAccuracy",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop monitoring compass accuracy.\nThis stops the accuracy monitoring."
+    },
+    {
+      "name": "getAccuracy",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAccuracyResult"
+      },
+      "promise": true,
+      "comment": "Get the current compass accuracy level.\nOn Android, returns the current magnetometer sensor accuracy.\nOn iOS and Web, always returns CompassAccuracy.UNKNOWN as accuracy monitoring is not available."
+    }
+  ],
+  "events": [
+    {
+      "name": "headingChange",
+      "listener": {
+        "k": "ref",
+        "name": "HeadingChangeEvent"
+      }
+    },
+    {
+      "name": "accuracyChange",
+      "listener": {
+        "k": "ref",
+        "name": "AccuracyChangeEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

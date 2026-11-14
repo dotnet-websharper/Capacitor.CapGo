@@ -1,0 +1,658 @@
+{
+  "namespace": "Intercom",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-intercom",
+  "version": "8.2.5",
+  "export": "CapgoIntercom",
+  "types": [
+    {
+      "name": "IntercomArticleOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "articleId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomBottomPaddingOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomCarouselOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "carouselId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomCompany",
+      "kind": "config",
+      "required": [
+        {
+          "name": "companyId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "plan",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "monthlySpend",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "customAttributes",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntercomIdentifiedUserOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntercomLoadOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "apiKeyIOS",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "apiKeyAndroid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntercomLogEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "data",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntercomMessageComposerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomPushTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomSurveyOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "surveyId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomUnreadCountResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomUserHashOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "hmac",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomUserJwtOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "jwt",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntercomUserUpdateOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "languageOverride",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "customAttributes",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "companies",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "IntercomCompany"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "loadWithKeys",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomLoadOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize Intercom with API keys at runtime.\nUse this if you prefer not to configure keys in capacitor.config."
+    },
+    {
+      "name": "registerIdentifiedUser",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomIdentifiedUserOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Register a known user with Intercom.\nAt least one of userId or email must be provided."
+    },
+    {
+      "name": "registerUnidentifiedUser",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Register an anonymous user with Intercom."
+    },
+    {
+      "name": "updateUser",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomUserUpdateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update user attributes in Intercom."
+    },
+    {
+      "name": "logout",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Log the user out of Intercom."
+    },
+    {
+      "name": "logEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomLogEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Log a custom event in Intercom."
+    },
+    {
+      "name": "displayMessenger",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the Intercom messenger."
+    },
+    {
+      "name": "displayMessageComposer",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomMessageComposerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the message composer with a pre-filled message."
+    },
+    {
+      "name": "displayHelpCenter",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the Intercom help center."
+    },
+    {
+      "name": "hideMessenger",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide the Intercom messenger."
+    },
+    {
+      "name": "displayLauncher",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show the Intercom launcher button."
+    },
+    {
+      "name": "hideLauncher",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide the Intercom launcher button."
+    },
+    {
+      "name": "displayInAppMessages",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable in-app messages from Intercom."
+    },
+    {
+      "name": "hideInAppMessages",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disable in-app messages from Intercom."
+    },
+    {
+      "name": "displayCarousel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomCarouselOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Display a specific Intercom carousel."
+    },
+    {
+      "name": "displayArticle",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomArticleOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Display a specific Intercom article."
+    },
+    {
+      "name": "displaySurvey",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomSurveyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Display a specific Intercom survey."
+    },
+    {
+      "name": "setUserHash",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomUserHashOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the HMAC for identity verification."
+    },
+    {
+      "name": "setUserJwt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomUserJwtOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set JWT for secure messenger authentication."
+    },
+    {
+      "name": "setBottomPadding",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomBottomPaddingOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the bottom padding for the Intercom messenger UI."
+    },
+    {
+      "name": "sendPushTokenToIntercom",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IntercomPushTokenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Send a push notification token to Intercom."
+    },
+    {
+      "name": "receivePush",
+      "params": [
+        {
+          "name": "notification",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Handle a received Intercom push notification."
+    },
+    {
+      "name": "getUnreadConversationCount",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IntercomUnreadCountResult"
+      },
+      "promise": true,
+      "comment": "Get the number of unread conversations for the current user."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all event listeners."
+    }
+  ],
+  "events": [
+    {
+      "name": "windowDidShow",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "windowDidHide",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "unreadCountDidChange",
+      "listener": {
+        "k": "ref",
+        "name": "IntercomUnreadCountResult"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

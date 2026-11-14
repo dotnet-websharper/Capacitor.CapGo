@@ -1,0 +1,1425 @@
+{
+  "namespace": "StripeTerminal",
+  "family": "Commerce",
+  "package": "@capgo/capacitor-stripe-terminal",
+  "version": "8.0.10",
+  "export": "StripeTerminal",
+  "types": [
+    {
+      "name": "BatteryStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "UNKNOWN",
+        "CRITICAL",
+        "LOW",
+        "NOMINAL"
+      ]
+    },
+    {
+      "name": "CollectPaymentMethodOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "paymentIntent",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ConnectionStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "UNKNOWN",
+        "NOT_CONNECTED",
+        "CONNECTING",
+        "CONNECTED"
+      ]
+    },
+    {
+      "name": "ConnectReaderOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reader",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersResultReaders"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "autoReconnectOnUnexpectedDisconnect",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "merchantDisplayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "onBehalfOf",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeviceType",
+      "kind": "enumStrings",
+      "cases": [
+        "tapToPayDevice",
+        "wisePad3s",
+        "appleBuiltIn",
+        "chipper1X",
+        "chipper2X",
+        "etna",
+        "stripeM2",
+        "stripeS700",
+        "stripeS700Devkit",
+        "wiseCube",
+        "wisePad3",
+        "wisePosE",
+        "wisePosEDevkit",
+        "unknown"
+      ]
+    },
+    {
+      "name": "DisconnectReason",
+      "kind": "enumStrings",
+      "cases": [
+        "UNKNOWN",
+        "DISCONNECT_REQUESTED",
+        "REBOOT_REQUESTED",
+        "SECURITY_REBOOT",
+        "CRITICALLY_LOW_BATTERY",
+        "POWERED_OFF",
+        "BLUETOOTH_DISABLED"
+      ]
+    },
+    {
+      "name": "DiscoverReadersOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "TerminalConnectTypes"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "locationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bluetoothScanWaitTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DiscoverReadersResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DiscoverReadersResultReaders"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DiscoverReadersResultReaders",
+      "kind": "config",
+      "required": [
+        {
+          "name": "serialNumber",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "batteryLevel",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "batteryStatus",
+          "type": {
+            "k": "ref",
+            "name": "BatteryStatus"
+          }
+        },
+        {
+          "name": "simulated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "availableUpdate",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersResultReadersAvailableUpdate"
+          }
+        },
+        {
+          "name": "locationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ipAddress",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "NetworkStatus"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersResultReadersLocation"
+          }
+        },
+        {
+          "name": "locationStatus",
+          "type": {
+            "k": "ref",
+            "name": "LocationStatus"
+          }
+        },
+        {
+          "name": "deviceType",
+          "type": {
+            "k": "ref",
+            "name": "DeviceType"
+          }
+        },
+        {
+          "name": "deviceSoftwareVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isCharging",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "baseUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bootloaderVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "configVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "emvKeyProfileId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "firmwareVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hardwareVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "macKeyProfileId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "pinKeyProfileId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "trackKeyProfileId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "settingsVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "pinKeysetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DiscoverReadersResultReadersAvailableUpdate",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceSoftwareVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "estimatedUpdateTime",
+          "type": {
+            "k": "ref",
+            "name": "UpdateTimeEstimate"
+          }
+        },
+        {
+          "name": "requiredAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DiscoverReadersResultReadersLocation",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "address",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersResultReadersLocationAddress"
+          }
+        },
+        {
+          "name": "ipAddress",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DiscoverReadersResultReadersLocationAddress",
+      "kind": "config",
+      "required": [
+        {
+          "name": "city",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "country",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "line1",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "line2",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetConnectedReaderResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reader",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersResultReaders"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitializeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isTest",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "tokenProviderEndpoint",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LocationStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "NOT_SET",
+        "SET",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "name": "NetworkStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "UNKNOWN",
+        "ONLINE",
+        "OFFLINE"
+      ]
+    },
+    {
+      "name": "PaymentStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "UNKNOWN",
+        "NOT_READY",
+        "READY",
+        "WAITING_FOR_INPUT",
+        "PROCESSING"
+      ]
+    },
+    {
+      "name": "ReaderDisplayMessage",
+      "kind": "enumStrings",
+      "cases": [
+        "CHECK_MOBILE_DEVICE",
+        "RETRY_CARD",
+        "INSERT_CARD",
+        "INSERT_OR_SWIPE_CARD",
+        "SWIPE_CARD",
+        "REMOVE_CARD",
+        "MULTIPLE_CONTACTLESS_CARDS_DETECTED",
+        "TRY_ANOTHER_READ_METHOD",
+        "TRY_ANOTHER_CARD",
+        "CARD_REMOVED_TOO_EARLY"
+      ]
+    },
+    {
+      "name": "ReaderEvent",
+      "kind": "enumStrings",
+      "cases": [
+        "UNKNOWN",
+        "CARD_INSERTED",
+        "CARD_REMOVED"
+      ]
+    },
+    {
+      "name": "ReaderInputOption",
+      "kind": "enumStrings",
+      "cases": [
+        "NONE",
+        "INSERT",
+        "SWIPE",
+        "TAP",
+        "MANUAL_ENTRY"
+      ]
+    },
+    {
+      "name": "SetConnectionTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetReaderDisplayOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "currency",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tax",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "total",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lineItems",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SetReaderDisplayOptionsLineItems"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetReaderDisplayOptionsLineItems",
+      "kind": "config",
+      "required": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "quantity",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "amount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSimulatorConfigurationOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "update",
+          "type": {
+            "k": "ref",
+            "name": "SimulateReaderUpdate"
+          }
+        },
+        {
+          "name": "simulatedCard",
+          "type": {
+            "k": "ref",
+            "name": "SimulatedCardType"
+          }
+        },
+        {
+          "name": "simulatedTipAmount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SimulatedCardType",
+      "kind": "enumStrings",
+      "cases": [
+        "VISA",
+        "VISA_DEBIT",
+        "MASTERCARD",
+        "MASTERCARD_DEBIT",
+        "MASTERCARD_PREPAID",
+        "AMEX",
+        "AMEX_2",
+        "DISCOVER",
+        "DISCOVER_2",
+        "DINERS",
+        "DINERS_14_DIGITS",
+        "JCB",
+        "UNION_PAY",
+        "INTERAC",
+        "EFTPOS_AU_DEBIT",
+        "VISA_US_COMMON_DEBIT",
+        "CHARGE_DECLINED",
+        "CHARGE_DECLINED_INSUFFICIENT_FUNDS",
+        "CHARGE_DECLINED_LOST_CARD",
+        "CHARGE_DECLINED_STOLEN_CARD",
+        "CHARGE_DECLINED_EXPIRED_CARD",
+        "CHARGE_DECLINED_PROCESSING_ERROR",
+        "EFTPOS_AU_VISA_DEBIT",
+        "EFTPOS_AU_DEBIT_MASTERCARD",
+        "OFFLINE_PIN_CVM",
+        "OFFLINE_PIN_SCA_RETRY",
+        "ONLINE_PIN_CVM",
+        "ONLINE_PIN_SCA_RETRY"
+      ]
+    },
+    {
+      "name": "SimulateReaderUpdate",
+      "kind": "enumStrings",
+      "cases": [
+        "UPDATE_AVAILABLE",
+        "NONE",
+        "REQUIRED",
+        "RANDOM",
+        "LOW_BATTERY",
+        "LOW_BATTERY_SUCCEED_CONNECT"
+      ]
+    },
+    {
+      "name": "TapToPayColorScheme",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "primary",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "success",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TapToPayDarkMode",
+      "kind": "enumStrings",
+      "cases": [
+        "SYSTEM",
+        "DARK",
+        "LIGHT"
+      ]
+    },
+    {
+      "name": "TapToPayUxConfiguration",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "colors",
+          "type": {
+            "k": "ref",
+            "name": "TapToPayColorScheme"
+          }
+        },
+        {
+          "name": "darkMode",
+          "type": {
+            "k": "ref",
+            "name": "TapToPayDarkMode"
+          }
+        },
+        {
+          "name": "tapZone",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "TapToPayUxConfigurationTapZone"
+              },
+              {
+                "k": "ref",
+                "name": "TapToPayUxConfigurationTapZone2"
+              },
+              {
+                "k": "ref",
+                "name": "TapToPayUxConfigurationTapZone3"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "TapToPayUxConfigurationTapZone",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TapToPayUxConfigurationTapZone2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "xBias",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "yBias",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TapToPayUxConfigurationTapZone3",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bias",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TerminalBatteryLevelEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "level",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "charging",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "BatteryStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalConnectionStatusChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "ConnectionStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalConnectTypes",
+      "kind": "enumStrings",
+      "cases": [
+        "simulated",
+        "internet",
+        "bluetooth",
+        "usb",
+        "tap-to-pay",
+        "hand-off"
+      ]
+    },
+    {
+      "name": "TerminalDisconnectedReaderEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "DisconnectReason"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TerminalFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "code",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "declineCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TerminalFinishInstallingUpdateEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalPaymentStatusChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "PaymentStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalReaderEventEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "event",
+          "type": {
+            "k": "ref",
+            "name": "ReaderEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalReaderReconnectStartedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reader",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersResultReaders"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalReaderSoftwareUpdateProgressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalReportAvailableUpdateEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "update",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersResultReadersAvailableUpdate"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalRequestDisplayMessageEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "messageType",
+          "type": {
+            "k": "ref",
+            "name": "ReaderDisplayMessage"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TerminalRequestReaderInputEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "options",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ReaderInputOption"
+            }
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateTimeEstimate",
+      "kind": "enumStrings",
+      "cases": [
+        "LESS_THAN_ONE_MINUTE",
+        "ONE_TO_TWO_MINUTES",
+        "TWO_TO_FIVE_MINUTES",
+        "FIVE_TO_FIFTEEN_MINUTES"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitializeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "discoverReaders",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DiscoverReadersOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DiscoverReadersResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "setConnectionToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetConnectionTokenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setSimulatorConfiguration",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSimulatorConfigurationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "[*Stripe docs reference*](https://stripe.dev/stripe-terminal-android/external/com.stripe.stripeterminal.external.models/-simulator-configuration/index.html)"
+    },
+    {
+      "name": "connectReader",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConnectReaderOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "getConnectedReader",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetConnectedReaderResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "disconnectReader",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "cancelDiscoverReaders",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "collectPaymentMethod",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CollectPaymentMethodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "cancelCollectPaymentMethod",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "confirmPaymentIntent",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "installAvailableUpdate",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "cancelInstallUpdate",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setReaderDisplay",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetReaderDisplayOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "clearReaderDisplay",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "rebootReader",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "cancelReaderReconnection",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setTapToPayUxConfiguration",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TapToPayUxConfiguration"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure the Tap to Pay UX appearance (Android only).\nCall this after initialize() but before connectReader().\nHas no effect on iOS or web platforms."
+    }
+  ],
+  "events": [
+    {
+      "name": "terminalLoaded",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "terminalRequestedConnectionToken",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "terminalDiscoveredReaders",
+      "listener": {
+        "k": "ref",
+        "name": "DiscoverReadersResult"
+      }
+    },
+    {
+      "name": "terminalConnectedReader",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "terminalDisconnectedReader",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalDisconnectedReaderEvent"
+      }
+    },
+    {
+      "name": "terminalConnectionStatusChange",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalConnectionStatusChangeEvent"
+      }
+    },
+    {
+      "name": "terminalUnexpectedReaderDisconnect",
+      "listener": {
+        "k": "ref",
+        "name": "GetConnectedReaderResult"
+      }
+    },
+    {
+      "name": "terminalConfirmedPaymentIntent",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "terminalCollectedPaymentIntent",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "terminalCanceled",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "terminalFailed",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalFailedEvent"
+      }
+    },
+    {
+      "name": "terminalReportAvailableUpdate",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalReportAvailableUpdateEvent"
+      }
+    },
+    {
+      "name": "terminalStartInstallingUpdate",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalReportAvailableUpdateEvent"
+      }
+    },
+    {
+      "name": "terminalReaderSoftwareUpdateProgress",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalReaderSoftwareUpdateProgressEvent"
+      }
+    },
+    {
+      "name": "terminalFinishInstallingUpdate",
+      "listener": {
+        "k": "union",
+        "of": [
+          {
+            "k": "ref",
+            "name": "TerminalReportAvailableUpdateEvent"
+          },
+          {
+            "k": "ref",
+            "name": "TerminalFinishInstallingUpdateEvent"
+          }
+        ]
+      }
+    },
+    {
+      "name": "terminalBatteryLevel",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalBatteryLevelEvent"
+      }
+    },
+    {
+      "name": "terminalReaderEvent",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalReaderEventEvent"
+      }
+    },
+    {
+      "name": "terminalRequestDisplayMessage",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalRequestDisplayMessageEvent"
+      }
+    },
+    {
+      "name": "terminalRequestReaderInput",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalRequestReaderInputEvent"
+      }
+    },
+    {
+      "name": "terminalPaymentStatusChange",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalPaymentStatusChangeEvent"
+      }
+    },
+    {
+      "name": "terminalReaderReconnectStarted",
+      "listener": {
+        "k": "ref",
+        "name": "TerminalReaderReconnectStartedEvent"
+      }
+    },
+    {
+      "name": "terminalReaderReconnectSucceeded",
+      "listener": {
+        "k": "ref",
+        "name": "GetConnectedReaderResult"
+      }
+    },
+    {
+      "name": "terminalReaderReconnectFailed",
+      "listener": {
+        "k": "ref",
+        "name": "GetConnectedReaderResult"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

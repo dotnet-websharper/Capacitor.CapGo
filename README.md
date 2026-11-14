@@ -1,91 +1,161 @@
 # WebSharper Capacitor CapGo
 
-This repository provides WebSharper bindings for [Capacitor CapGo](https://capgo.app/) plugins, enabling seamless integration of CapGo functionality into [WebSharper](https://websharper.com/) projects.
+[![NuGet](https://img.shields.io/nuget/v/WebSharper.Capacitor.CapGo.svg)](https://www.nuget.org/packages/WebSharper.Capacitor.CapGo)
 
-## Overview
+F# bindings for the [CapGo](https://capgo.app/) Capacitor plugin collection, for use with
+[WebSharper](https://websharper.com/). They let you build cross-platform web, Android and iOS
+apps in F# on top of CapGo's plugins.
 
-WebSharper Capacitor CapGo extends the functionality of WebSharper Capacitor by providing bindings for plugins maintained by CapGo. These bindings facilitate the development of cross-platform applications by allowing seamless integration of CapGo's advanced features into WebSharper projects.
+The surface is **generated** from each plugin's published TypeScript declarations
+(`tools/extract.mjs` → `tools/model/*.json` → `CapGoGeneratorCommon`), so the bindings track
+upstream instead of drifting: 148 plugins across 11 packages, typed method-by-method.
 
-## Currently Bound Plugins
+## Live demos
 
-The following CapGo plugins are currently bound in this repository:
+**Try it live:** [Open the sample in your browser](https://dotnet-websharper.github.io/Capacitor.CapGo/)
 
-1. **SocialLogin** - [@capgo/capacitor-social-login](https://www.npmjs.com/package/@capgo/capacitor-social-login)
-2. **Uploader** - [@capgo/capacitor-uploader](https://www.npmjs.com/package/@capgo/capacitor-uploader)
-3. **NavigationBar** - [@capgo/capacitor-navigation-bar](https://www.npmjs.com/package/@capgo/capacitor-navigation-bar)
-4. **CapacitorDataStorageSqlite** - [@capgo/capacitor-data-storage-sqlite](https://www.npmjs.com/package/@capgo/capacitor-data-storage-sqlite)
-5. **ScreenRecorder** - [@capgo/capacitor-screen-recorder](https://www.npmjs.com/package/@capgo/capacitor-screen-recorder)
-6. **NativePurchases** - [@capgo/native-purchases](https://www.npmjs.com/package/@capgo/native-purchases)
-7. **CapacitorFlash** - [@capgo/capacitor-flash](https://www.npmjs.com/package/@capgo/capacitor-flash)
-8. **CapacitorUpdater** - [@capgo/capacitor-updater](https://www.npmjs.com/package/@capgo/capacitor-updater)
-9. **HomeIndicator** - [@capgo/home-indicator](https://www.npmjs.com/package/@capgo/home-indicator)
-10. **NativeGeocoder** - [@capgo/nativegeocoder](https://www.npmjs.com/package/@capgo/nativegeocoder)
-11. **CapacitorCrisp** - [@capgo/capacitor-crisp](https://www.npmjs.com/package/@capgo/capacitor-crisp)
-12. **CapacitorMute** - [@capgo/capacitor-mute](https://www.npmjs.com/package/@capgo/capacitor-mute)
-13. **NativeAudio** - [@capgo/native-audio](https://www.npmjs.com/package/@capgo/native-audio)
-14. **CapacitorDownloader** - [@capgo/capacitor-downloader](https://www.npmjs.com/package/@capgo/capacitor-downloader)
-15. **CapacitorShake** - [@capgo/capacitor-shake](https://www.npmjs.com/package/@capgo/capacitor-shake)
-16. **IvsPlayer** - [@capgo/ivs-player](https://www.npmjs.com/package/@capgo/ivs-player)
-17. **NativeMarket** - [@capgo/native-market](https://www.npmjs.com/package/@capgo/native-market)
+![Capacitor CapGo sample](docs/sample.png)
 
-1. **CapacitorUpdater** - [@capgo/capacitor-updater](https://www.npmjs.com/package/@capgo/capacitor-updater)
+The sample doubles as the binding's [test case](#running-the-test-case): one demo per family
+package, calling the real plugin API and reporting the outcome — or the native-only error —
+instead of failing silently.
 
-## Getting Started
+## Packages
 
-### Prerequisites
+Each family ships as its own package so a small app only installs the npm packages it uses.
 
-Before starting, ensure you have the following:
+| Package | Plugins | Examples |
+|---|---:|---|
+| `WebSharper.Capacitor.CapGo` | 17 | updater, social-login, native-purchases, data-storage-sqlite, uploader, downloader, navigation-bar, native-audio |
+| `WebSharper.Capacitor.CapGo.Auth` | 21 | passkey, native-biometric, app-attest, permissions, ssl-pinning, nfc |
+| `WebSharper.Capacitor.CapGo.Media` | 16 | audio-recorder, audio-session, camera-preview, document-scanner, pdf-generator |
+| `WebSharper.Capacitor.CapGo.Files` | 8 | file, file-picker, file-sharer, zip, asset-cache, fast-sql |
+| `WebSharper.Capacitor.CapGo.Device` | 27 | accelerometer, pedometer, bluetooth-low-energy, health, screen-orientation, contacts |
+| `WebSharper.Capacitor.CapGo.UI` | 16 | inappbrowser, native-navigation, date-picker, pretty-toast, kiosk |
+| `WebSharper.Capacitor.CapGo.Commerce` | 7 | pay, stripe-*, admob, in-app-review |
+| `WebSharper.Capacitor.CapGo.Analytics` | 20 | firebase-* (9), appsflyer, rudderstack, gtm, supabase |
+| `WebSharper.Capacitor.CapGo.Messaging` | 9 | notifications, rich-notifications, twilio-voice, stream-call, intercom |
+| `WebSharper.Capacitor.CapGo.AI` | 3 | llm, speech-recognition, speech-synthesis |
+| `WebSharper.Capacitor.CapGo.Tooling` | 4 | env, sim, live-reload, auto |
 
-- Node.js and npm installed on your machine.
-- [Capacitor](https://capacitorjs.com/) set up for managing cross-platform apps.
-- [WebSharper](https://websharper.com/) for building F#-based web applications.
+The full roster — package, current npm version, method/event counts and any known gap — is in
+[`tools/coverage.md`](tools/coverage.md).
 
-### Installation
+Plugin types live under `WebSharper.Capacitor.CapGo.<Plugin>`; each package also exposes a root
+class (`CapacitorCapGo`, `CapacitorCapGoAuth`, `CapacitorCapGoMedia`, …) with one property per
+plugin, mirroring how the official `WebSharper.Capacitor` binding is used.
 
-1. Initialize a Capacitor project if not already done:
+## Install
 
-   ```bash
-   npm init                # Initialize a new Node.js project
-   npm install             # Install default dependencies
-   npm i @capacitor/core   # Install Capacitor core library
-   npm i -D @capacitor/cli # Install Capacitor CLI as a dev dependency
-   npx cap init "YourApp" com.example.yourapp --web-dir wwwroot/dist # Initialize Capacitor in the project
-   ```
+```sh
+dotnet add package WebSharper.Capacitor.CapGo        # or one of the family packages
+```
 
-2. Add the WebSharper Capacitor NuGet package:
+Install the npm plugin you actually use in your Capacitor app:
 
-   ```bash
-   dotnet add package WebSharper.Capacitor --version 8.0.0.494-beta1
-   ```
+```sh
+npm i @capgo/capacitor-flash
+npx cap sync
+```
 
-   This package is required because WebSharper Capacitor CapGo builds upon the core functionality provided by WebSharper Capacitor. It ensures compatibility and seamless integration of Capacitor plugins into your WebSharper project.
+The binding imports the plugin from its npm package, so the bundler resolves it; there is no
+CDN script.
 
-3. Add the WebSharper Capacitor CapGo NuGet package:
+## Usage
 
-   ```bash
-   dotnet add package WebSharper.Capacitor.CapGo --version 8.0.0.494-beta1
-   ```
+```fsharp
+open WebSharper
+open WebSharper.JavaScript
+open WebSharper.Capacitor.CapGo
 
-4. Choose and install the CapGo plugins you want to use. For example, to use the **SocialLogin** plugin:
+[<JavaScript>]
+let checkTorch () =
+    promise {
+        let! available = CapacitorCapGo.CapacitorFlash.IsAvailable()
+        let! on = CapacitorCapGo.CapacitorFlash.IsSwitchedOn()
+        return if available.Value then sprintf "torch on=%b" on.Value else "no torch"
+    }
+```
 
-   ```bash
-   npm i @capgo/capacitor-social-login
-   ```
+Method and event shapes follow the plugin's declaration: optional options objects, typed
+`Promise<'T>` results, and one `AddListener` overload per event (the event name is a single-case
+enum), e.g.:
 
-5. Build your project:
+```fsharp
+let! _ =
+    CapacitorCapGo.CapacitorUpdater.AddListener(
+        CapacitorUpdater.CapacitorUpdaterDownloadEventName.download,
+        fun (e: CapacitorUpdater.DownloadEvent) -> printfn "%d%%" e.Percent)
+```
 
-   ```bash
-   npm i vite                # Install Vite for building your web assets
-   npx vite build            # Build your web project with Vite
-   ```
+## Running the test case
 
-6. Sync configuration:
+```sh
+dotnet build WebSharper.Capacitor.CapGo.Sample/WebSharper.Capacitor.CapGo.Sample.fsproj -c Release
+dotnet serve -d WebSharper.Capacitor.CapGo.Sample/dist -p 8080
+```
 
-   ```bash
-   npx cap sync              # Sync Capacitor configuration and plugins
-   ```
+Install the `dotnet-serve` tool once with `dotnet tool install -g dotnet-serve`.
 
-## Notes
+Most CapGo plugins are native-only: in a plain browser their calls reject and the sample's log
+reports that. To exercise the native paths, run the bundled site inside a Capacitor shell:
 
-- Ensure your Capacitor project is correctly configured with `capacitor.config.json`.
-- Check out sample usage of the plugin in the `WebSharper.Capacitor.CapGo.Sample` directory.
+```sh
+cd WebSharper.Capacitor.CapGo.Sample
+npm i @capacitor/core @capacitor/cli
+npx cap add android   # or ios
+npx cap sync
+```
+
+## Regenerating the bindings
+
+The bindings are not hand-written. After an upstream release:
+
+```sh
+cd tools
+npm install
+node extract.mjs            # refreshes tools/model/*.json and tools/coverage.md
+node sync-projects.mjs      # refreshes the npm pins and package templates
+```
+
+`node extract.mjs --check` exits non-zero when a committed model is out of date; that is the CI
+guard. Anything the extractor cannot flatten (generic methods, hand-curated unions) lives in
+`tools/overrides/*.json` and is listed under `unsupported` in the coverage table.
+
+## Build from source
+
+```sh
+dotnet tool restore
+dotnet paket install
+dotnet build WebSharper.Capacitor.CapGo.sln -c Release
+```
+
+WebSharper 11 needs the .NET 11 runtime for `wsfsc`.
+
+## Pack
+
+```sh
+WSPackageFolder=/tmp/pkg dotnet fsi ./build.fsx -t WS-Package
+```
+
+One `.nupkg` is produced per project (`nuget/*.paket.template`), all on the same version line.
+
+## Deployment
+
+`.github/workflows/ghpages.yml` builds the sample in Release (which runs `npm install` and
+`vite build`) and publishes `WebSharper.Capacitor.CapGo.Sample/dist` to the `gh-pages` branch.
+Enable Pages per repo with the `gh-pages` source.
+
+## Repository layout
+
+| Path | Purpose |
+|---|---|
+| `tools/` | d.ts extractor, JSON models, overrides, roster, project/template sync |
+| `CapGoGeneratorCommon/` | model → WIG assembly (not packed) |
+| `WebSharper.Capacitor.CapGo*/` | the binding packages (one per family) |
+| `WebSharper.Capacitor.CapGo.Sample/` | SPA sample + Vite build + test case |
+| `nuget/` | paket templates (one per package) |
+
+## License
+
+Apache 2.0 — see [LICENSE.md](LICENSE.md).

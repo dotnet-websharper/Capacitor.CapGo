@@ -1,0 +1,1938 @@
+{
+  "namespace": "NativeNavigation",
+  "family": "UI",
+  "package": "@capgo/capacitor-native-navigation",
+  "version": "8.16.3",
+  "export": "NativeNavigation",
+  "types": [
+    {
+      "name": "NativeNavigationBackButton",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "visible",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "role",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBackButtonRole"
+          }
+        },
+        {
+          "name": "display",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBackButtonDisplay"
+          }
+        },
+        {
+          "name": "supplements",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationBackButtonDisplay",
+      "kind": "enumStrings",
+      "cases": [
+        "icon",
+        "title"
+      ]
+    },
+    {
+      "name": "NativeNavigationBackButtonRole",
+      "kind": "enumStrings",
+      "cases": [
+        "back",
+        "close"
+      ]
+    },
+    {
+      "name": "NativeNavigationBackEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationBarButton",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessibilityLabel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationIcon"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "dock",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBarButtonDock"
+          }
+        },
+        {
+          "name": "group",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "axis",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBarButtonAxis"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationBarButtonAxis",
+      "kind": "enumStrings",
+      "cases": [
+        "automatic",
+        "horizontal",
+        "vertical"
+      ]
+    },
+    {
+      "name": "NativeNavigationBarButtonDock",
+      "kind": "enumStrings",
+      "cases": [
+        "prominent",
+        "shared",
+        "detached"
+      ]
+    },
+    {
+      "name": "NativeNavigationBarItemTapEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "placement",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBarItemTapEventPlacement"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationBarItemTapEventPlacement",
+      "kind": "enumStrings",
+      "cases": [
+        "left",
+        "right"
+      ]
+    },
+    {
+      "name": "NativeNavigationBeginTransitionOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBeginTransitionOptionsDirection"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "sourceRect",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationRect"
+          }
+        },
+        {
+          "name": "targetRect",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationRect"
+          }
+        },
+        {
+          "name": "cornerRadius",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationBeginTransitionOptionsDirection",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "back",
+        "forward",
+        "root",
+        "tab",
+        "zoom"
+      ]
+    },
+    {
+      "name": "NativeNavigationColors",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "dynamic",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "tint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "inactiveTint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "background",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "foreground",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "badgeBackground",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "badgeText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "indicator",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ripple",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationConfigureOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platformStyle",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationConfigureOptionsPlatformStyle"
+          }
+        },
+        {
+          "name": "contentInsetMode",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationConfigureOptionsContentInsetMode"
+          }
+        },
+        {
+          "name": "animationDuration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "colors",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationColors"
+          }
+        },
+        {
+          "name": "glass",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationGlassOptions"
+          }
+        },
+        {
+          "name": "verticalBarBehavior",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationConfigureOptionsVerticalBarBehavior"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationConfigureOptionsContentInsetMode",
+      "kind": "enumStrings",
+      "cases": [
+        "css",
+        "none"
+      ]
+    },
+    {
+      "name": "NativeNavigationConfigureOptionsPlatformStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "auto",
+        "ios",
+        "android"
+      ]
+    },
+    {
+      "name": "NativeNavigationConfigureOptionsVerticalBarBehavior",
+      "kind": "enumStrings",
+      "cases": [
+        "automatic",
+        "disabled"
+      ]
+    },
+    {
+      "name": "NativeNavigationFinishTransitionOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBeginTransitionOptionsDirection"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "sourceRect",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationRect"
+          }
+        },
+        {
+          "name": "targetRect",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationRect"
+          }
+        },
+        {
+          "name": "cornerRadius",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationGlassOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "effect",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationGlassOptionsEffect"
+          }
+        },
+        {
+          "name": "blurRadius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "surfaceAlpha",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationGlassOptionsEffect",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "liquidGlass"
+      ]
+    },
+    {
+      "name": "NativeNavigationHinge",
+      "kind": "config",
+      "required": [
+        {
+          "name": "angle",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationHingeStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationHingeChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "hinge",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationHinge"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationHingeStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "closed",
+        "partiallyOpen",
+        "fullyOpen"
+      ]
+    },
+    {
+      "name": "NativeNavigationIcon",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "src",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "svg",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "template",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "ios",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationIconIos"
+          }
+        },
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationIconAndroid"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationIconAndroid",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "resource",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "image",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "svg",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationIconIos",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "sfSymbol",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "image",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "svg",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationInsets",
+      "kind": "config",
+      "required": [
+        {
+          "name": "top",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "right",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "left",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "navbarHeight",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "tabbarHeight",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "systemTabbarHeight",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "verticalBarEdge",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationInsetsVerticalBarEdge"
+          }
+        },
+        {
+          "name": "reservedRegions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeNavigationReservedRegion"
+            }
+          }
+        },
+        {
+          "name": "hinge",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationHinge"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationInsetsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "insets",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationInsets"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationInsetsVerticalBarEdge",
+      "kind": "enumStrings",
+      "cases": [
+        "leading",
+        "trailing"
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "hidden",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "large",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "transparent",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "blurEffect",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarOptionsBlurEffect"
+          }
+        },
+        {
+          "name": "glass",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationGlassOptions"
+          }
+        },
+        {
+          "name": "edgeBlur",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "backButton",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBackButton"
+          }
+        },
+        {
+          "name": "verticalBarCompression",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarOptionsVerticalBarCompression"
+          }
+        },
+        {
+          "name": "leftItems",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeNavigationBarButton"
+            }
+          }
+        },
+        {
+          "name": "rightItems",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeNavigationBarButton"
+            }
+          }
+        },
+        {
+          "name": "search",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarSearch"
+          }
+        },
+        {
+          "name": "segments",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeNavigationNavbarSegmentGroup"
+            }
+          }
+        },
+        {
+          "name": "colors",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationColors"
+          }
+        },
+        {
+          "name": "animated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "scrollBehavior",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarOptionsScrollBehavior"
+          }
+        },
+        {
+          "name": "scrollThreshold",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "resetScrollCollapsed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarOptionsBlurEffect",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "systemDefault",
+        "extraLight",
+        "light",
+        "dark",
+        "regular",
+        "prominent",
+        "systemUltraThinMaterial",
+        "systemThinMaterial",
+        "systemMaterial",
+        "systemThickMaterial",
+        "systemChromeMaterial",
+        "systemUltraThinMaterialLight",
+        "systemThinMaterialLight",
+        "systemMaterialLight",
+        "systemThickMaterialLight",
+        "systemChromeMaterialLight",
+        "systemUltraThinMaterialDark",
+        "systemThinMaterialDark",
+        "systemMaterialDark",
+        "systemThickMaterialDark",
+        "systemChromeMaterialDark"
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarOptionsScrollBehavior",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "hideOnScrollDown",
+        "revealOnScrollUp",
+        "both"
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarOptionsVerticalBarCompression",
+      "kind": "enumStrings",
+      "cases": [
+        "automatic",
+        "preferItems",
+        "preferTabs"
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarScrollEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "offsetY",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "deltaY",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationNavbarSearch",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "hidden",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "placeholder",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "text",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "placement",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarSearchPlacement"
+          }
+        },
+        {
+          "name": "hidesWhenCollapsed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarSearchEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "text",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarSearchEventReason"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationNavbarSearchEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "input",
+        "submit",
+        "cancel"
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarSearchPlacement",
+      "kind": "enumStrings",
+      "cases": [
+        "stacked",
+        "button"
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarSegmentGroup",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "items",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeNavigationNavbarSegmentItem"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "selectedId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarSegmentGroupStyle"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarSegmentGroupStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "auto",
+        "segmented",
+        "scroll"
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarSegmentItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationIcon"
+          }
+        },
+        {
+          "name": "accessibilityLabel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationNavbarSegmentSelectEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "groupId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationPullToRefreshOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "tintColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationRect",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationReservedRegion",
+      "kind": "config",
+      "required": [
+        {
+          "name": "kind",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationReservedRegionKind"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "active",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationReservedRegionKind",
+      "kind": "enumStrings",
+      "cases": [
+        "division",
+        "occlusion"
+      ]
+    },
+    {
+      "name": "NativeNavigationSafeAreaChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "insets",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationInsets"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationTab",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationIcon"
+          }
+        },
+        {
+          "name": "selectedIcon",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationIcon"
+          }
+        },
+        {
+          "name": "badge",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hidden",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "role",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabRole"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "hidden",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "tabs",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NativeNavigationTab"
+            }
+          }
+        },
+        {
+          "name": "selectedId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "labels",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "labelVisibilityMode",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarOptionsLabelVisibilityMode"
+          }
+        },
+        {
+          "name": "icons",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "colors",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationColors"
+          }
+        },
+        {
+          "name": "blurEffect",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarOptionsBlurEffect"
+          }
+        },
+        {
+          "name": "glass",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationGlassOptions"
+          }
+        },
+        {
+          "name": "experimentalBakedTintColors",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableTransparentOnScrollEdge",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "layoutDirection",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarOptionsLayoutDirection"
+          }
+        },
+        {
+          "name": "disableIndicator",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "indicatorColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rippleColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "badgeBackgroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "badgeTextColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarStyle"
+          }
+        },
+        {
+          "name": "minimizeBehavior",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarOptionsMinimizeBehavior"
+          }
+        },
+        {
+          "name": "edgeBlur",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "dragToSelect",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "animated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarOptionsLabelVisibilityMode",
+      "kind": "enumStrings",
+      "cases": [
+        "auto",
+        "selected",
+        "labeled",
+        "unlabeled"
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarOptionsLayoutDirection",
+      "kind": "enumStrings",
+      "cases": [
+        "ltr",
+        "rtl"
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarOptionsMinimizeBehavior",
+      "kind": "enumStrings",
+      "cases": [
+        "never",
+        "onScrollDown"
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarStyle",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "shape",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarStyleShape"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "horizontalMargin",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maxWidth",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bottomGap",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "cornerRadius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "centerItemId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "centerButtonDiameter",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "centerButtonLift",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "centerButtonColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "centerButtonIconColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "alignment",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarStyleAlignment"
+          }
+        },
+        {
+          "name": "placement",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarStylePlacement"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarStyleAlignment",
+      "kind": "enumStrings",
+      "cases": [
+        "start",
+        "center",
+        "end"
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarStylePlacement",
+      "kind": "enumStrings",
+      "cases": [
+        "auto",
+        "bottom",
+        "sidebar"
+      ]
+    },
+    {
+      "name": "NativeNavigationTabbarStyleShape",
+      "kind": "enumStrings",
+      "cases": [
+        "floating",
+        "curve"
+      ]
+    },
+    {
+      "name": "NativeNavigationTabRole",
+      "kind": "enumStrings",
+      "cases": [
+        "prominent",
+        "normal",
+        "search"
+      ]
+    },
+    {
+      "name": "NativeNavigationTabSelectEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeNavigationTransitionEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBeginTransitionOptionsDirection"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationTransitionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBeginTransitionOptionsDirection"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeNavigationVerticalBarChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "edge",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationInsetsVerticalBarEdge"
+          }
+        },
+        {
+          "name": "active",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationConfigureOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeNavigationInsetsResult"
+      },
+      "promise": true,
+      "comment": "Configure the native chrome host and content inset behavior."
+    },
+    {
+      "name": "setNavbar",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeNavigationInsetsResult"
+      },
+      "promise": true,
+      "comment": "Render or update the native navbar."
+    },
+    {
+      "name": "reportNavbarScroll",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationNavbarScrollEvent"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Report scroll samples for `scrollBehavior`. Use only for scroll roots that\nare not already wired by `setNavbar` (`window`, `#app`, or\n`[data-cap-native-navigation-scroll]`). iOS, Android, and the web fallback\ninstall those listeners automatically when scrolling is enabled."
+    },
+    {
+      "name": "setPullToRefresh",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationPullToRefreshOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable or disable the native pull-to-refresh gesture. Listen for\n`pullToRefresh`, reload your data, then call `endPullToRefresh()` to hide\nthe spinner. No-op on web."
+    },
+    {
+      "name": "endPullToRefresh",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop the native pull-to-refresh spinner once the refresh is done."
+    },
+    {
+      "name": "setTabbar",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationTabbarOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeNavigationInsetsResult"
+      },
+      "promise": true,
+      "comment": "Render or update the native tabbar."
+    },
+    {
+      "name": "beginTransition",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationBeginTransitionOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeNavigationTransitionResult"
+      },
+      "promise": true,
+      "comment": "Capture the current WebView and prepare a native transition."
+    },
+    {
+      "name": "finishTransition",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeNavigationFinishTransitionOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeNavigationTransitionResult"
+      },
+      "promise": true,
+      "comment": "Animate from the captured WebView snapshot to the current live WebView."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [
+    {
+      "name": "navbarBack",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationBackEvent"
+      }
+    },
+    {
+      "name": "navbarItemTap",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationBarItemTapEvent"
+      }
+    },
+    {
+      "name": "navbarSearch",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationNavbarSearchEvent"
+      }
+    },
+    {
+      "name": "navbarSegmentSelect",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationNavbarSegmentSelectEvent"
+      }
+    },
+    {
+      "name": "tabSelect",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationTabSelectEvent"
+      }
+    },
+    {
+      "name": "safeAreaChanged",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationSafeAreaChangedEvent"
+      }
+    },
+    {
+      "name": "verticalBarChanged",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationVerticalBarChangedEvent"
+      }
+    },
+    {
+      "name": "hingeChanged",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationHingeChangedEvent"
+      }
+    },
+    {
+      "name": "transitionStart",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationTransitionEvent"
+      }
+    },
+    {
+      "name": "transitionEnd",
+      "listener": {
+        "k": "ref",
+        "name": "NativeNavigationTransitionEvent"
+      }
+    },
+    {
+      "name": "pullToRefresh",
+      "listener": {
+        "k": "unit"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

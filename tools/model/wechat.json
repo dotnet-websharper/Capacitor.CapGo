@@ -1,0 +1,487 @@
+{
+  "namespace": "Wechat",
+  "family": "Auth",
+  "package": "@capgo/capacitor-wechat",
+  "version": "8.0.59",
+  "export": "CapacitorWechat",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsInstalledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "installed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenMiniProgramResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "extMsg",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WechatAuthOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scope",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WechatAuthResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "code",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WechatInitializationOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "universalLink",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WechatInvoiceCard",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cardId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "encryptCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WechatInvoiceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "signType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cardSign",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timeStamp",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nonceStr",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WechatInvoiceResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cards",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "WechatInvoiceCard"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WechatMiniProgramOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WechatPaymentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "partnerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "prepayId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nonceStr",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timeStamp",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "package",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sign",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WechatShareOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scene",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "WechatShareOptionsType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "text",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "link",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "imageUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "thumbUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mediaUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "miniProgramUsername",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "miniProgramPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "miniProgramType",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "miniProgramWebPageUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WechatShareOptionsType",
+      "kind": "enumStrings",
+      "cases": [
+        "text",
+        "image",
+        "link",
+        "music",
+        "video",
+        "miniprogram"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WechatInitializationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize the WeChat SDK with your application credentials.\n\nYou can also set these values in `capacitor.config.ts` under the `CapacitorWechat`\nplugin configuration. Calling this method overrides any bundled configuration at runtime."
+    },
+    {
+      "name": "isInstalled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsInstalledResult"
+      },
+      "promise": true,
+      "comment": "Check if WeChat app is installed on the device."
+    },
+    {
+      "name": "auth",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WechatAuthOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WechatAuthResponse"
+      },
+      "promise": true,
+      "comment": "Authenticate user with WeChat OAuth."
+    },
+    {
+      "name": "share",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WechatShareOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Share content to WeChat."
+    },
+    {
+      "name": "sendPaymentRequest",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WechatPaymentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Send payment request to WeChat Pay."
+    },
+    {
+      "name": "openMiniProgram",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WechatMiniProgramOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OpenMiniProgramResult"
+      },
+      "promise": true,
+      "comment": "Open WeChat mini-program."
+    },
+    {
+      "name": "chooseInvoice",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WechatInvoiceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WechatInvoiceResponse"
+      },
+      "promise": true,
+      "comment": "Choose invoice from WeChat."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,171 @@
+{
+  "namespace": "MuxPlayer",
+  "family": "Media",
+  "package": "@capgo/capacitor-mux-player",
+  "version": "8.1.4",
+  "export": "MuxPlayer",
+  "types": [
+    {
+      "name": "IsActiveResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "active",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MuxPlayOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playbackId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "playbackToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "drmToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "customDomain",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoPlay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "startTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "poster",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "muted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "environmentKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "playerName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enableSmartCache",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "debug",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "play",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MuxPlayOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Launch the native Mux Player in fullscreen and begin playback."
+    },
+    {
+      "name": "dismiss",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Dismiss the player if it is visible."
+    },
+    {
+      "name": "isActive",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsActiveResult"
+      },
+      "promise": true,
+      "comment": "Returns whether the player is currently being displayed."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all event listeners registered on the plugin instance."
+    }
+  ],
+  "events": [],
+  "unsupported": [
+    {
+      "method": "addListener",
+      "reason": "addListener signature not recognised"
+    }
+  ],
+  "coreRefs": [],
+  "externalTypes": []
+}

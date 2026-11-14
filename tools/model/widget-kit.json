@@ -1,0 +1,2483 @@
+{
+  "namespace": "WidgetKit",
+  "family": "UI",
+  "package": "@capgo/capacitor-widget-kit",
+  "version": "8.2.2",
+  "export": "CapgoWidgetKit",
+  "types": [
+    {
+      "name": "AcknowledgeTemplateEventsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "eventIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AcknowledgeWidgetMessagesOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "messageIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "SendWidgetMessageOptionsDirection"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ActivitiesSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CompleteWidgetMessageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "messageId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "response",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EndTemplateActivityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetTemplateActivityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetWidgetSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "JsonObject",
+      "kind": "config",
+      "required": [],
+      "optional": []
+    },
+    {
+      "name": "ListTemplateActivitiesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activities",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateActivityRecord"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListTemplateEventsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "unacknowledgedOnly",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ListTemplateEventsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "events",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateActionEvent"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListWidgetMessagesOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "SendWidgetMessageOptionsDirection"
+          }
+        },
+        {
+          "name": "unacknowledgedOnly",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "pendingOnly",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ListWidgetMessagesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "messages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "WidgetBridgeMessage"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListWidgetSessionsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sessions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "WidgetSessionRecord"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PerformTemplateActionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "actionId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "sourceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PerformTemplateActionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activity",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateActivityRecord"
+          }
+        },
+        {
+          "name": "event",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateActionEvent"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReloadWidgetsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "kind",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SendWidgetMessageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "SendWidgetMessageOptionsDirection"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "expectsResponse",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SendWidgetMessageOptionsDirection",
+      "kind": "enumStrings",
+      "cases": [
+        "appToWidget",
+        "widgetToApp"
+      ]
+    },
+    {
+      "name": "SendWidgetMessageResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "ref",
+            "name": "WidgetBridgeMessage"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartTemplateActivityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "definition",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateDefinition"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "openUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startLiveActivity",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartTemplateActivityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activity",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateActivityRecord"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartTemplateWidgetOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "definition",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateDefinition"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "openUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartWidgetSessionOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "kind",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartWidgetSessionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "session",
+          "type": {
+            "k": "ref",
+            "name": "WidgetSessionRecord"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StopWidgetSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateActionDefinition",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "eventName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "patches",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateStatePatch"
+            }
+          }
+        },
+        {
+          "name": "timerMutations",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateTimerMutation"
+            }
+          }
+        },
+        {
+          "name": "frameMutations",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateFrameMutation"
+            }
+          }
+        },
+        {
+          "name": "openUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateActionEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "eventId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "actionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "timers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateTimerState"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "eventName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "acknowledgedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateActivityRecord",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "definition",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateDefinition"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "timers",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateTimerState"
+            }
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateActivityRecordStatus"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "revision",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "openUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateActivityRecordStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "active",
+        "ended"
+      ]
+    },
+    {
+      "name": "SvgTemplateDefinition",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "layouts",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateLayouts"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "actions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateActionDefinition"
+            }
+          }
+        },
+        {
+          "name": "timers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateTimerDefinition"
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateFrame",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "svg",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "hotspots",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateHotspot"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateFrameMutation",
+      "kind": "config",
+      "required": [
+        {
+          "name": "op",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateFrameMutationOp"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "frameId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "frameIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "surface",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateFrameMutationSurface"
+          }
+        },
+        {
+          "name": "wrap",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateFrameMutationOp",
+      "kind": "enumStrings",
+      "cases": [
+        "set",
+        "toggle",
+        "next",
+        "previous"
+      ]
+    },
+    {
+      "name": "SvgTemplateFrameMutationSurface",
+      "kind": "enumStrings",
+      "cases": [
+        "homeScreen",
+        "lockScreen",
+        "dynamicIslandExpanded",
+        "dynamicIslandCompactLeading",
+        "dynamicIslandCompactTrailing",
+        "dynamicIslandMinimal"
+      ]
+    },
+    {
+      "name": "SvgTemplateHotspot",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "actionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "role",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateHotspotRole"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateHotspotRole",
+      "kind": "enumStrings",
+      "cases": [
+        "button",
+        "link"
+      ]
+    },
+    {
+      "name": "SvgTemplateLayouts",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "homeScreen",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithSvg"
+              },
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithFrames"
+              }
+            ]
+          }
+        },
+        {
+          "name": "lockScreen",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithSvg"
+              },
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithFrames"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dynamicIslandExpanded",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithSvg"
+              },
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithFrames"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dynamicIslandCompactLeading",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithSvg"
+              },
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithFrames"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dynamicIslandCompactTrailing",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithSvg"
+              },
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithFrames"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dynamicIslandMinimal",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithSvg"
+              },
+              {
+                "k": "ref",
+                "name": "SvgTemplateLayoutWithFrames"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateLayoutWithFrames",
+      "kind": "config",
+      "required": [
+        {
+          "name": "frames",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateFrame"
+            }
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "svg",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "frameIdPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "defaultFrameId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hotspots",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateHotspot"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateLayoutWithSvg",
+      "kind": "config",
+      "required": [
+        {
+          "name": "svg",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "frames",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateFrame"
+            }
+          }
+        },
+        {
+          "name": "frameIdPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "defaultFrameId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hotspots",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SvgTemplateHotspot"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateStatePatch",
+      "kind": "config",
+      "required": [
+        {
+          "name": "op",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateStatePatchOp"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "value",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              },
+              {
+                "k": "obj"
+              },
+              {
+                "k": "map",
+                "of": {
+                  "k": "obj"
+                }
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "obj"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "valuePath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "valueTemplate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "amount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateStatePatchOp",
+      "kind": "enumStrings",
+      "cases": [
+        "set",
+        "increment",
+        "toggle",
+        "unset",
+        "timestamp"
+      ]
+    },
+    {
+      "name": "SvgTemplateTimerDefinition",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "durationPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startAtPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoStart",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateTimerMutation",
+      "kind": "config",
+      "required": [
+        {
+          "name": "op",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateTimerMutationOp"
+          }
+        },
+        {
+          "name": "timerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "durationPath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateTimerMutationOp",
+      "kind": "enumStrings",
+      "cases": [
+        "toggle",
+        "start",
+        "stop",
+        "restart",
+        "pause",
+        "resume",
+        "reset",
+        "setDuration"
+      ]
+    },
+    {
+      "name": "SvgTemplateTimerState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateTimerStateStatus"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "startedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "elapsedMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SvgTemplateTimerStateStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "idle",
+        "running",
+        "paused",
+        "finished",
+        "stopped"
+      ]
+    },
+    {
+      "name": "TemplateActivityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activity",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateActivityRecord"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateTemplateActivityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "definition",
+          "type": {
+            "k": "ref",
+            "name": "SvgTemplateDefinition"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "openUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UpdateWidgetSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "merge",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WidgetBridgeMessage",
+      "kind": "config",
+      "required": [
+        {
+          "name": "messageId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "SendWidgetMessageOptionsDirection"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "expectsResponse",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "WidgetBridgeMessageStatus"
+          }
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "payload",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "acknowledgedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "response",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WidgetBridgeMessageStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "pending",
+        "completed",
+        "failed"
+      ]
+    },
+    {
+      "name": "WidgetMessageResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "ref",
+            "name": "WidgetBridgeMessage"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WidgetSessionRecord",
+      "kind": "config",
+      "required": [
+        {
+          "name": "widgetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "WidgetSessionRecordStatus"
+          }
+        },
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "revision",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "kind",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "obj"
+                },
+                {
+                  "k": "array",
+                  "of": {
+                    "k": "obj"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "WidgetSessionRecordStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "stopped",
+        "active"
+      ]
+    },
+    {
+      "name": "WidgetSessionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "session",
+          "type": {
+            "k": "ref",
+            "name": "WidgetSessionRecord"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "areActivitiesSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ActivitiesSupportedResult"
+      },
+      "promise": true,
+      "comment": "Check whether the native template activity bridge can run on the current device."
+    },
+    {
+      "name": "startTemplateActivity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartTemplateActivityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartTemplateActivityResult"
+      },
+      "promise": true,
+      "comment": "Persist a generic SVG template activity and start the matching native Live Activity bridge."
+    },
+    {
+      "name": "startTemplateWidget",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartTemplateWidgetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartTemplateActivityResult"
+      },
+      "promise": true,
+      "comment": "Persist a generic SVG template for Home Screen / SpringBoard widgets without starting a Live Activity."
+    },
+    {
+      "name": "updateTemplateActivity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateTemplateActivityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "TemplateActivityResult"
+      },
+      "promise": true,
+      "comment": "Replace part or all of the stored activity definition/state."
+    },
+    {
+      "name": "endTemplateActivity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "EndTemplateActivityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "End a running activity while optionally persisting one last state snapshot."
+    },
+    {
+      "name": "performTemplateAction",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PerformTemplateActionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PerformTemplateActionResult"
+      },
+      "promise": true,
+      "comment": "Execute one declarative action and record the resulting event."
+    },
+    {
+      "name": "getTemplateActivity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetTemplateActivityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "TemplateActivityResult"
+      },
+      "promise": true,
+      "comment": "Read one activity back from the shared store."
+    },
+    {
+      "name": "listTemplateActivities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ListTemplateActivitiesResult"
+      },
+      "promise": true,
+      "comment": "List every activity currently known by the plugin."
+    },
+    {
+      "name": "listTemplateEvents",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ListTemplateEventsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ListTemplateEventsResult"
+      },
+      "promise": true,
+      "comment": "List stored action events so the app can react to widget interactions later."
+    },
+    {
+      "name": "acknowledgeTemplateEvents",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcknowledgeTemplateEventsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Mark previously processed events as acknowledged."
+    },
+    {
+      "name": "startWidgetSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartWidgetSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartWidgetSessionResult"
+      },
+      "promise": true,
+      "comment": "Start a full-native widget session backed by shared JSON state."
+    },
+    {
+      "name": "updateWidgetSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateWidgetSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WidgetSessionResult"
+      },
+      "promise": true,
+      "comment": "Update a full-native widget session."
+    },
+    {
+      "name": "stopWidgetSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StopWidgetSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop a full-native widget session."
+    },
+    {
+      "name": "getWidgetSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetWidgetSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WidgetSessionResult"
+      },
+      "promise": true,
+      "comment": "Read one full-native widget session."
+    },
+    {
+      "name": "listWidgetSessions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ListWidgetSessionsResult"
+      },
+      "promise": true,
+      "comment": "List every full-native widget session currently known by the plugin."
+    },
+    {
+      "name": "sendWidgetMessage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendWidgetMessageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SendWidgetMessageResult"
+      },
+      "promise": true,
+      "comment": "Queue a message between the app and native widget code."
+    },
+    {
+      "name": "listWidgetMessages",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ListWidgetMessagesOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ListWidgetMessagesResult"
+      },
+      "promise": true,
+      "comment": "List queued full-native widget bridge messages."
+    },
+    {
+      "name": "acknowledgeWidgetMessages",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcknowledgeWidgetMessagesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Mark widget bridge messages as acknowledged after processing."
+    },
+    {
+      "name": "completeWidgetMessage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CompleteWidgetMessageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WidgetMessageResult"
+      },
+      "promise": true,
+      "comment": "Complete or fail an async widget bridge message."
+    },
+    {
+      "name": "reloadWidgets",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReloadWidgetsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Ask native widgets to reload after external app state changes."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Return the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

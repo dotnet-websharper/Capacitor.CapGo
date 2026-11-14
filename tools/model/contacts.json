@@ -1,0 +1,1429 @@
+{
+  "namespace": "Contacts",
+  "family": "Device",
+  "package": "@capgo/capacitor-contacts",
+  "version": "8.1.12",
+  "export": "CapacitorContacts",
+  "types": [
+    {
+      "name": "Account",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Birthday",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "day",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "month",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "year",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "account",
+          "type": {
+            "k": "ref",
+            "name": "Account"
+          }
+        },
+        {
+          "name": "birthday",
+          "type": {
+            "k": "ref",
+            "name": "Birthday"
+          }
+        },
+        {
+          "name": "emailAddresses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "EmailAddress"
+            }
+          }
+        },
+        {
+          "name": "familyName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "givenName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "groupIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "jobTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "middleName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "namePrefix",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nameSuffix",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "note",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "organizationName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phoneNumbers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PhoneNumber"
+            }
+          }
+        },
+        {
+          "name": "photo",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalAddresses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PostalAddress"
+            }
+          }
+        },
+        {
+          "name": "urlAddresses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UrlAddress"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ContactProperty",
+      "kind": "enumStrings",
+      "cases": [
+        "phoneNumber",
+        "emailAddress",
+        "postalAddress"
+      ]
+    },
+    {
+      "name": "CountContactsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateContactOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "contact",
+          "type": {
+            "k": "ref",
+            "name": "CreateContactOptionsContact"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateContactOptionsContact",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "account",
+          "type": {
+            "k": "ref",
+            "name": "Account"
+          }
+        },
+        {
+          "name": "birthday",
+          "type": {
+            "k": "ref",
+            "name": "Birthday"
+          }
+        },
+        {
+          "name": "emailAddresses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "EmailAddress"
+            }
+          }
+        },
+        {
+          "name": "familyName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "givenName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "groupIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "jobTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "middleName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "namePrefix",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nameSuffix",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "note",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "organizationName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phoneNumbers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PhoneNumber"
+            }
+          }
+        },
+        {
+          "name": "photo",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalAddresses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PostalAddress"
+            }
+          }
+        },
+        {
+          "name": "urlAddresses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UrlAddress"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "CreateContactResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateGroupOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "group",
+          "type": {
+            "k": "ref",
+            "name": "CreateGroupOptionsGroup"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateGroupOptionsGroup",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateGroupResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteContactByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteGroupByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DisplayContactByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DisplayCreateContactOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "contact",
+          "type": {
+            "k": "ref",
+            "name": "CreateContactOptionsContact"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DisplayCreateContactResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DisplayUpdateContactByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "EmailAddress",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "EmailAddressType"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isPrimary",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EmailAddressType",
+      "kind": "enumStrings",
+      "cases": [
+        "CUSTOM",
+        "HOME",
+        "ICLOUD",
+        "OTHER",
+        "WORK"
+      ]
+    },
+    {
+      "name": "GetAccountsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accounts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Account"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetContactByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fields",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "GetContactByIdOptionsFields"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetContactByIdOptionsFields",
+      "kind": "enumStrings",
+      "cases": [
+        "id",
+        "displayName",
+        "account",
+        "birthday",
+        "emailAddresses",
+        "familyName",
+        "fullName",
+        "givenName",
+        "groupIds",
+        "jobTitle",
+        "middleName",
+        "namePrefix",
+        "nameSuffix",
+        "note",
+        "organizationName",
+        "phoneNumbers",
+        "photo",
+        "postalAddresses",
+        "urlAddresses"
+      ]
+    },
+    {
+      "name": "GetContactByIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "contact",
+          "type": {
+            "k": "ref",
+            "name": "Contact"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetContactsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "fields",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "GetContactByIdOptionsFields"
+            }
+          }
+        },
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "offset",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetContactsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "contacts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Contact"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetGroupByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetGroupByIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "group",
+          "type": {
+            "k": "ref",
+            "name": "Group"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetGroupsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "groups",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Group"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Group",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSupported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readContacts",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusReadContacts"
+          }
+        },
+        {
+          "name": "writeContacts",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusReadContacts"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusReadContacts",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied",
+        "limited"
+      ]
+    },
+    {
+      "name": "PhoneNumber",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "PhoneNumberType"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isPrimary",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PhoneNumberType",
+      "kind": "enumStrings",
+      "cases": [
+        "CUSTOM",
+        "HOME",
+        "OTHER",
+        "WORK",
+        "ASSISTANT",
+        "CALLBACK",
+        "CAR",
+        "COMPANY_MAIN",
+        "FAX_HOME",
+        "FAX_WORK",
+        "HOME_FAX",
+        "ISDN",
+        "MAIN",
+        "MMS",
+        "MOBILE",
+        "OTHER_FAX",
+        "PAGER",
+        "RADIO",
+        "TELEX",
+        "TTY_TDD",
+        "WORK_MOBILE",
+        "WORK_PAGER"
+      ]
+    },
+    {
+      "name": "PickContactsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "fields",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "GetContactByIdOptionsFields"
+            }
+          }
+        },
+        {
+          "name": "multiple",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "property",
+          "type": {
+            "k": "ref",
+            "name": "ContactProperty"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PickContactsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "contacts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Contact"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PostalAddress",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "city",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "country",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "formatted",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isoCountryCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isPrimary",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "neighborhood",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "street",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "PostalAddressType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PostalAddressType",
+      "kind": "enumStrings",
+      "cases": [
+        "CUSTOM",
+        "HOME",
+        "OTHER",
+        "WORK"
+      ]
+    },
+    {
+      "name": "RequestPermissionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "permissions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "RequestPermissionsOptionsPermissions"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "RequestPermissionsOptionsPermissions",
+      "kind": "enumStrings",
+      "cases": [
+        "readContacts",
+        "writeContacts"
+      ]
+    },
+    {
+      "name": "UpdateContactByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contact",
+          "type": {
+            "k": "ref",
+            "name": "CreateContactOptionsContact"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UrlAddress",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "UrlAddressType"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UrlAddressType",
+      "kind": "enumStrings",
+      "cases": [
+        "CUSTOM",
+        "HOME",
+        "OTHER",
+        "WORK",
+        "BLOG",
+        "FTP",
+        "HOMEPAGE",
+        "PROFILE",
+        "SCHOOL"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "countContacts",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CountContactsResult"
+      },
+      "promise": true,
+      "comment": "Count the total number of contacts on the device."
+    },
+    {
+      "name": "createContact",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateContactOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateContactResult"
+      },
+      "promise": true,
+      "comment": "Create a new contact programmatically."
+    },
+    {
+      "name": "createGroup",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateGroupOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateGroupResult"
+      },
+      "promise": true,
+      "comment": "Create a new contact group."
+    },
+    {
+      "name": "deleteContactById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteContactByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a contact by ID."
+    },
+    {
+      "name": "deleteGroupById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteGroupByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a group by ID."
+    },
+    {
+      "name": "displayContactById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisplayContactByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Display a contact using the native contact viewer."
+    },
+    {
+      "name": "displayCreateContact",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisplayCreateContactOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DisplayCreateContactResult"
+      },
+      "promise": true,
+      "comment": "Display the native create contact UI."
+    },
+    {
+      "name": "displayUpdateContactById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisplayUpdateContactByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Display the native update contact UI for a specific contact."
+    },
+    {
+      "name": "getAccounts",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAccountsResult"
+      },
+      "promise": true,
+      "comment": "Get all accounts available on the device."
+    },
+    {
+      "name": "getContactById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetContactByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetContactByIdResult"
+      },
+      "promise": true,
+      "comment": "Get a specific contact by ID."
+    },
+    {
+      "name": "getContacts",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetContactsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetContactsResult"
+      },
+      "promise": true,
+      "comment": "Get all contacts from the device."
+    },
+    {
+      "name": "getGroupById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetGroupByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetGroupByIdResult"
+      },
+      "promise": true,
+      "comment": "Get a specific group by ID."
+    },
+    {
+      "name": "getGroups",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetGroupsResult"
+      },
+      "promise": true,
+      "comment": "Get all contact groups."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if contacts are available on the device."
+    },
+    {
+      "name": "isSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsSupportedResult"
+      },
+      "promise": true,
+      "comment": "Check if the plugin is supported on the current platform."
+    },
+    {
+      "name": "openSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the device's contacts settings."
+    },
+    {
+      "name": "pickContact",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PickContactsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PickContactsResult"
+      },
+      "promise": true,
+      "comment": "Pick a single contact using the native contact picker.\n\nSame options as {@link pickContacts}. Without `property`, Android still\nreturns the full contact when `READ_CONTACTS` is granted."
+    },
+    {
+      "name": "pickContacts",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PickContactsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PickContactsResult"
+      },
+      "promise": true,
+      "comment": "Pick one or more contacts using the native contact picker.\n\nOn iOS this never requires a contacts permission.\n\nOn Android, `pickContacts()` without `property` still returns the full\ncontact when the app has `READ_CONTACTS`. Pass `property` only when you\nwant a single phone number, email address, or postal address and can omit\nthat permission (required to target Android 17 / API 37 without a Play\nConsole contacts declaration)."
+    },
+    {
+      "name": "updateContactById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateContactByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update an existing contact by ID."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check the current permission status for contacts."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestPermissionsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permissions to access contacts."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

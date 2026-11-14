@@ -1,12 +1,12 @@
-﻿namespace WebSharper.Capacitor.CapGo
+namespace WebSharper.Capacitor.CapGo
 
 open WebSharper
 open WebSharper.InterfaceGenerator
 open CapGoGeneratorCommon
 
 module Definition =
-    /// The plugins of this package. Each family package filters by `Family`; the
-    /// surface itself comes from tools/model/*.json (see tools/README.md).
+    /// The plugins of this package. The surface itself comes from
+    /// tools/model/*.json (see tools/README.md).
     let plugins =
         Model.loadDir (__SOURCE_DIRECTORY__ + "/../tools/model")
         |> List.filter (fun p -> p.Family = "Core")

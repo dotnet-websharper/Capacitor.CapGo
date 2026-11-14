@@ -1,0 +1,887 @@
+{
+  "namespace": "NativeBiometric",
+  "family": "Auth",
+  "package": "@capgo/capacitor-native-biometric",
+  "version": "8.9.3",
+  "export": "NativeBiometric",
+  "types": [
+    {
+      "name": "AccessControl",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "NONE",
+          "value": 0
+        },
+        {
+          "name": "BIOMETRY_CURRENT_SET",
+          "value": 1
+        },
+        {
+          "name": "BIOMETRY_ANY",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "AuthenticationStrength",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "NONE",
+          "value": 0
+        },
+        {
+          "name": "STRONG",
+          "value": 1
+        },
+        {
+          "name": "WEAK",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "AvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isAvailable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "authenticationStrength",
+          "type": {
+            "k": "ref",
+            "name": "AuthenticationStrength"
+          }
+        },
+        {
+          "name": "biometryType",
+          "type": {
+            "k": "ref",
+            "name": "BiometryType"
+          }
+        },
+        {
+          "name": "deviceIsSecure",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "strongBiometryIsAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "ref",
+            "name": "BiometricAuthError"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BiometricAuthError",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "UNKNOWN_ERROR",
+          "value": 0
+        },
+        {
+          "name": "BIOMETRICS_UNAVAILABLE",
+          "value": 1
+        },
+        {
+          "name": "USER_LOCKOUT",
+          "value": 2
+        },
+        {
+          "name": "BIOMETRICS_NOT_ENROLLED",
+          "value": 3
+        },
+        {
+          "name": "USER_TEMPORARY_LOCKOUT",
+          "value": 4
+        },
+        {
+          "name": "AUTHENTICATION_FAILED",
+          "value": 10
+        },
+        {
+          "name": "APP_CANCEL",
+          "value": 11
+        },
+        {
+          "name": "INVALID_CONTEXT",
+          "value": 12
+        },
+        {
+          "name": "NOT_INTERACTIVE",
+          "value": 13
+        },
+        {
+          "name": "PASSCODE_NOT_SET",
+          "value": 14
+        },
+        {
+          "name": "SYSTEM_CANCEL",
+          "value": 15
+        },
+        {
+          "name": "USER_CANCEL",
+          "value": 16
+        },
+        {
+          "name": "USER_FALLBACK",
+          "value": 17
+        },
+        {
+          "name": "NO_PROTECTED_CREDENTIALS_FOUND",
+          "value": 21
+        }
+      ]
+    },
+    {
+      "name": "BiometricOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "negativeButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "useFallback",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fallbackTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxAttempts",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "allowedBiometryTypes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BiometryType"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "BiometryType",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "NONE",
+          "value": 0
+        },
+        {
+          "name": "TOUCH_ID",
+          "value": 1
+        },
+        {
+          "name": "FACE_ID",
+          "value": 2
+        },
+        {
+          "name": "FINGERPRINT",
+          "value": 3
+        },
+        {
+          "name": "FACE_AUTHENTICATION",
+          "value": 4
+        },
+        {
+          "name": "IRIS_AUTHENTICATION",
+          "value": 5
+        },
+        {
+          "name": "MULTIPLE",
+          "value": 6
+        },
+        {
+          "name": "DEVICE_CREDENTIAL",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "name": "Credentials",
+      "kind": "config",
+      "required": [
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteCredentialOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "server",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteDataOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetCredentialOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "server",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetDataOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSecureCredentialsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "server",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "negativeButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxAttempts",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetSecureDataOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "negativeButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fallbackTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxAttempts",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsAvailableOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "useFallback",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "preferMultipleBiometryType",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsCredentialsSavedOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "server",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsCredentialsSavedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSaved",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsDataSavedOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsDataSavedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSaved",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetCredentialOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "server",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accessControl",
+          "type": {
+            "k": "ref",
+            "name": "AccessControl"
+          }
+        },
+        {
+          "name": "authValidityDuration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "negativeButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxAttempts",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetDataOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accessControl",
+          "type": {
+            "k": "ref",
+            "name": "AccessControl"
+          }
+        },
+        {
+          "name": "authValidityDuration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "negativeButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxAttempts",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StoredData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "isAvailable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsAvailableOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AvailableResult"
+      },
+      "promise": true,
+      "comment": "Checks if biometric authentication hardware is available."
+    },
+    {
+      "name": "verifyIdentity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BiometricOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Prompts the user to authenticate with biometrics."
+    },
+    {
+      "name": "getCredentials",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetCredentialOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "Credentials"
+      },
+      "promise": true,
+      "comment": "Gets the stored credentials for a given server."
+    },
+    {
+      "name": "setCredentials",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetCredentialOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stores the given credentials for a given server."
+    },
+    {
+      "name": "deleteCredentials",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteCredentialOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deletes the stored credentials for a given server."
+    },
+    {
+      "name": "getSecureCredentials",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetSecureCredentialsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "Credentials"
+      },
+      "promise": true,
+      "comment": "Gets the stored credentials for a given server, requiring biometric authentication.\nCredentials must have been stored with accessControl set to BIOMETRY_CURRENT_SET or BIOMETRY_ANY.\n\nOn iOS, the system automatically shows the biometric prompt when accessing the protected Keychain item.\nOn Android, BiometricPrompt is shown with a CryptoObject bound to the credential decryption key.\n\nIf no protected credentials exist for the server, the promise rejects with code `21`\n(`BiometricAuthError.NO_PROTECTED_CREDENTIALS_FOUND`). This is stable, expected\nbehavior — for example when credentials were never saved with biometric protection,\nwere deleted, or were invalidated after biometric enrollment changes.\n`isCredentialsSaved()` returns true when any credentials (protected or unprotected) exist,\nso it does not guarantee a biometric-protected entry is present — handle code `21` in\nyour catch block or only call after storing with `accessControl` BIOMETRY_CURRENT_SET\nor BIOMETRY_ANY.\nPlatform messages: Android `No protected credentials found`, iOS\n`No protected credentials found for server`."
+    },
+    {
+      "name": "isCredentialsSaved",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsCredentialsSavedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsCredentialsSavedResult"
+      },
+      "promise": true,
+      "comment": "Checks if credentials are already saved for a given server."
+    },
+    {
+      "name": "setData",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetDataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stores an arbitrary string value under the given key.\nValues are encrypted at rest using the platform secure storage backend\n(Android Keystore + SharedPreferences, iOS Keychain).\n\nFor biometric-protected storage, set `accessControl` and retrieve the value\nwith `getSecureData()`. Credential helpers remain available for username/password flows."
+    },
+    {
+      "name": "getData",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetDataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StoredData"
+      },
+      "promise": true,
+      "comment": "Gets a previously stored value for the given key.\nOnly returns values stored without biometric `accessControl`."
+    },
+    {
+      "name": "getSecureData",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetSecureDataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StoredData"
+      },
+      "promise": true,
+      "comment": "Gets a biometric-protected value for the given key.\nThe value must have been stored with `accessControl` set to BIOMETRY_CURRENT_SET or BIOMETRY_ANY."
+    },
+    {
+      "name": "deleteData",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteDataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deletes the stored value for the given key (protected and unprotected)."
+    },
+    {
+      "name": "isDataSaved",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsDataSavedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsDataSavedResult"
+      },
+      "promise": true,
+      "comment": "Checks whether a value is already saved for the given key."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "biometryChange",
+      "listener": {
+        "k": "ref",
+        "name": "AvailableResult"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,181 @@
+{
+  "namespace": "WebviewCrash",
+  "family": "UI",
+  "package": "@capgo/capacitor-webview-crash",
+  "version": "8.1.15",
+  "export": "WebViewCrash",
+  "types": [
+    {
+      "name": "PendingCrashInfoResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "ref",
+            "name": "WebViewCrashInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WebViewCrashInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "WebViewCrashInfoPlatform"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timestampISO",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "WebViewCrashInfoReason"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "didCrash",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "rendererPriorityAtExit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "appState",
+          "type": {
+            "k": "ref",
+            "name": "WebViewCrashInfoAppState"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebViewCrashInfoAppState",
+      "kind": "enumStrings",
+      "cases": [
+        "active",
+        "inactive",
+        "background",
+        "unknown"
+      ]
+    },
+    {
+      "name": "WebViewCrashInfoPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "android",
+        "ios",
+        "web"
+      ]
+    },
+    {
+      "name": "WebViewCrashInfoReason",
+      "kind": "enumStrings",
+      "cases": [
+        "renderProcessGone",
+        "webContentProcessDidTerminate",
+        "periodicRestart",
+        "manualRestart",
+        "simulated"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getPendingCrashInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PendingCrashInfoResult"
+      },
+      "promise": true,
+      "comment": "Returns the pending native crash or restart marker, if one exists."
+    },
+    {
+      "name": "clearPendingCrashInfo",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Clears the stored marker after the app has handled recovery."
+    },
+    {
+      "name": "simulateCrashRecovery",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PendingCrashInfoResult"
+      },
+      "promise": true,
+      "comment": "Creates a fake crash marker so recovery flows can be tested locally."
+    },
+    {
+      "name": "restartWebView",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PendingCrashInfoResult"
+      },
+      "promise": true,
+      "comment": "Stores a manual restart marker and asks native code to create a fresh WebView.\n\nOn Android this recreates the host Activity. On iOS this rebuilds the Capacitor bridge view so a new `WKWebView`\ninstance is created instead of reloading the current page."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes all plugin listeners."
+    }
+  ],
+  "events": [
+    {
+      "name": "webViewRestoredAfterCrash",
+      "listener": {
+        "k": "ref",
+        "name": "WebViewCrashInfo"
+      }
+    },
+    {
+      "name": "webViewRestoredAfterRestart",
+      "listener": {
+        "k": "ref",
+        "name": "WebViewCrashInfo"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

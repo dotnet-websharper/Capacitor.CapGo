@@ -1,0 +1,1158 @@
+{
+  "namespace": "Health",
+  "family": "Device",
+  "package": "@capgo/capacitor-health",
+  "version": "8.13.0",
+  "export": "Health",
+  "types": [
+    {
+      "name": "AggregatedSample",
+      "kind": "config",
+      "required": [
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "values",
+          "type": {
+            "k": "ref",
+            "name": "AggregatedSampleValues"
+          }
+        },
+        {
+          "name": "unit",
+          "type": {
+            "k": "ref",
+            "name": "HealthSampleUnit"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AggregatedSampleValues",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "sum",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "average",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "min",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "max",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AuthorizationOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "read",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AuthorizationOptionsRead"
+            }
+          }
+        },
+        {
+          "name": "write",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AuthorizationOptionsRead"
+            }
+          }
+        },
+        {
+          "name": "requestHistoryAccess",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AuthorizationOptionsRead",
+      "kind": "enumStrings",
+      "cases": [
+        "steps",
+        "distance",
+        "calories",
+        "heartRate",
+        "weight",
+        "sleep",
+        "respiratoryRate",
+        "oxygenSaturation",
+        "restingHeartRate",
+        "heartRateVariability",
+        "vo2Max",
+        "bloodPressure",
+        "bloodGlucose",
+        "bodyTemperature",
+        "height",
+        "flightsClimbed",
+        "exerciseTime",
+        "distanceCycling",
+        "bodyFat",
+        "basalBodyTemperature",
+        "appleSleepingWristTemperature",
+        "basalCalories",
+        "totalCalories",
+        "mindfulness",
+        "appleStandHour",
+        "dietaryWater",
+        "dietaryEnergyConsumed",
+        "dietaryProtein",
+        "stateOfMind",
+        "workouts"
+      ]
+    },
+    {
+      "name": "AuthorizationStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readAuthorized",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AuthorizationOptionsRead"
+            }
+          }
+        },
+        {
+          "name": "readDenied",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AuthorizationOptionsRead"
+            }
+          }
+        },
+        {
+          "name": "writeAuthorized",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AuthorizationOptionsRead"
+            }
+          }
+        },
+        {
+          "name": "writeDenied",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AuthorizationOptionsRead"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "historyAccessAuthorized",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "historyAccessAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AvailabilityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "AvailabilityResultPlatform"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AvailabilityResultPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HealthSample",
+      "kind": "config",
+      "required": [
+        {
+          "name": "dataType",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationOptionsRead"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "unit",
+          "type": {
+            "k": "ref",
+            "name": "HealthSampleUnit"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "sourceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "deviceType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platformId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sleepState",
+          "type": {
+            "k": "ref",
+            "name": "HealthSampleSleepState"
+          }
+        },
+        {
+          "name": "standState",
+          "type": {
+            "k": "ref",
+            "name": "HealthSampleStandState"
+          }
+        },
+        {
+          "name": "stateOfMindKind",
+          "type": {
+            "k": "ref",
+            "name": "HealthSampleStateOfMindKind"
+          }
+        },
+        {
+          "name": "stages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SleepStage"
+            }
+          }
+        },
+        {
+          "name": "hasStageData",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "systolic",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "diastolic",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "measurementMethod",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "HealthSampleSleepState",
+      "kind": "enumStrings",
+      "cases": [
+        "inBed",
+        "asleep",
+        "awake",
+        "rem",
+        "deep",
+        "light"
+      ]
+    },
+    {
+      "name": "HealthSampleStandState",
+      "kind": "enumStrings",
+      "cases": [
+        "stood",
+        "idle"
+      ]
+    },
+    {
+      "name": "HealthSampleStateOfMindKind",
+      "kind": "enumStrings",
+      "cases": [
+        "momentaryEmotion",
+        "dailyMood"
+      ]
+    },
+    {
+      "name": "HealthSampleUnit",
+      "kind": "enumStrings",
+      "cases": [
+        "count",
+        "meter",
+        "kilocalorie",
+        "bpm",
+        "kilogram",
+        "gram",
+        "minute",
+        "percent",
+        "millisecond",
+        "mL/min/kg",
+        "mmHg",
+        "mg/dL",
+        "celsius",
+        "fahrenheit",
+        "centimeter",
+        "liter",
+        "valence"
+      ]
+    },
+    {
+      "name": "QueryAggregatedOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "dataType",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationOptionsRead"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bucket",
+          "type": {
+            "k": "ref",
+            "name": "QueryAggregatedOptionsBucket"
+          }
+        },
+        {
+          "name": "aggregation",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "array",
+                "of": {
+                  "k": "ref",
+                  "name": "QueryAggregatedOptionsAggregation"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "QueryAggregatedOptionsAggregation",
+      "kind": "enumStrings",
+      "cases": [
+        "sum",
+        "average",
+        "min",
+        "max"
+      ]
+    },
+    {
+      "name": "QueryAggregatedOptionsBucket",
+      "kind": "enumStrings",
+      "cases": [
+        "hour",
+        "day",
+        "week",
+        "month"
+      ]
+    },
+    {
+      "name": "QueryAggregatedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "samples",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AggregatedSample"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "dataType",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationOptionsRead"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "ascending",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "QueryWorkoutsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "workoutType",
+          "type": {
+            "k": "ref",
+            "name": "QueryWorkoutsOptionsWorkoutType"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "ascending",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "anchor",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "QueryWorkoutsOptionsWorkoutType",
+      "kind": "enumStrings",
+      "cases": [
+        "meditation",
+        "americanFootball",
+        "australianFootball",
+        "badminton",
+        "baseball",
+        "basketball",
+        "bowling",
+        "boxing",
+        "climbing",
+        "cricket",
+        "crossTraining",
+        "curling",
+        "cycling",
+        "dance",
+        "elliptical",
+        "fencing",
+        "functionalStrengthTraining",
+        "golf",
+        "gymnastics",
+        "handball",
+        "hiking",
+        "hockey",
+        "jumpRope",
+        "kickboxing",
+        "lacrosse",
+        "martialArts",
+        "pilates",
+        "racquetball",
+        "rowing",
+        "rugby",
+        "running",
+        "sailing",
+        "skatingSports",
+        "skiing",
+        "snowboarding",
+        "soccer",
+        "softball",
+        "squash",
+        "stairClimbing",
+        "strengthTraining",
+        "surfing",
+        "swimming",
+        "swimmingPool",
+        "swimmingOpenWater",
+        "tableTennis",
+        "tennis",
+        "trackAndField",
+        "traditionalStrengthTraining",
+        "volleyball",
+        "walking",
+        "waterFitness",
+        "waterPolo",
+        "waterSports",
+        "weightlifting",
+        "wheelchair",
+        "yoga",
+        "archery",
+        "barre",
+        "cooldown",
+        "coreTraining",
+        "crossCountrySkiing",
+        "discSports",
+        "downhillSkiing",
+        "equestrianSports",
+        "fishing",
+        "fitnessGaming",
+        "flexibility",
+        "handCycling",
+        "highIntensityIntervalTraining",
+        "hunting",
+        "mindAndBody",
+        "mixedCardio",
+        "paddleSports",
+        "pickleball",
+        "play",
+        "preparationAndRecovery",
+        "snowSports",
+        "stairs",
+        "stepTraining",
+        "surfingSports",
+        "taiChi",
+        "transition",
+        "underwaterDiving",
+        "wheelchairRunPace",
+        "wheelchairWalkPace",
+        "wrestling",
+        "cardioDance",
+        "socialDance",
+        "backExtension",
+        "barbellShoulderPress",
+        "benchPress",
+        "benchSitUp",
+        "bikingStationary",
+        "bootCamp",
+        "burpee",
+        "calisthenics",
+        "crunch",
+        "dancing",
+        "deadlift",
+        "dumbbellCurlLeftArm",
+        "dumbbellCurlRightArm",
+        "dumbbellFrontRaise",
+        "dumbbellLateralRaise",
+        "dumbbellTricepsExtensionLeftArm",
+        "dumbbellTricepsExtensionRightArm",
+        "dumbbellTricepsExtensionTwoArm",
+        "exerciseClass",
+        "forwardTwist",
+        "frisbeedisc",
+        "guidedBreathing",
+        "iceHockey",
+        "iceSkating",
+        "jumpingJack",
+        "latPullDown",
+        "lunge",
+        "paddling",
+        "paraGliding",
+        "plank",
+        "rockClimbing",
+        "rollerHockey",
+        "rowingMachine",
+        "runningTreadmill",
+        "scubaDiving",
+        "skating",
+        "snowshoeing",
+        "stairClimbingMachine",
+        "stretching",
+        "upperTwist",
+        "other"
+      ]
+    },
+    {
+      "name": "QueryWorkoutsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "workouts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Workout"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "anchor",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReadSamplesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "samples",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "HealthSample"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SleepStage",
+      "kind": "config",
+      "required": [
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "stage",
+          "type": {
+            "k": "ref",
+            "name": "HealthSampleSleepState"
+          }
+        },
+        {
+          "name": "durationMinutes",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Workout",
+      "kind": "config",
+      "required": [
+        {
+          "name": "workoutType",
+          "type": {
+            "k": "ref",
+            "name": "QueryWorkoutsOptionsWorkoutType"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "totalEnergyBurned",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalDistance",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "sourceName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platformId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "workoutEvents",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "WorkoutEvent"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "WorkoutEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "date",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "durationSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "distanceMeters",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WriteSampleOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "dataType",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationOptionsRead"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "unit",
+          "type": {
+            "k": "ref",
+            "name": "HealthSampleUnit"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "mindfulnessSessionType",
+          "type": {
+            "k": "ref",
+            "name": "WriteSampleOptionsMindfulnessSessionType"
+          }
+        },
+        {
+          "name": "systolic",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "diastolic",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WriteSampleOptionsMindfulnessSessionType",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "meditation",
+        "breathing",
+        "music",
+        "movement",
+        "unguided"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AvailabilityResult"
+      },
+      "promise": true,
+      "comment": "Returns whether the current platform supports the native health SDK."
+    },
+    {
+      "name": "requestAuthorization",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AuthorizationStatus"
+      },
+      "promise": true,
+      "comment": "Requests read/write access to the provided data types.\n\nSet `requestHistoryAccess: true` to additionally request Android's\n`READ_HEALTH_DATA_HISTORY` permission in the same Health Connect permission sheet\n(see {@link AuthorizationOptions.requestHistoryAccess}). The granted/denied status is\nreported back as `historyAccessAuthorized` on the result."
+    },
+    {
+      "name": "checkAuthorization",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AuthorizationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AuthorizationStatus"
+      },
+      "promise": true,
+      "comment": "Checks authorization status for the provided data types without prompting the user."
+    },
+    {
+      "name": "readSamples",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "QueryOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReadSamplesResult"
+      },
+      "promise": true,
+      "comment": "Reads samples for the given data type within the specified time frame."
+    },
+    {
+      "name": "saveSample",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WriteSampleOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Writes a single sample to the native health store."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    },
+    {
+      "name": "openHealthConnectSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens the Health Connect settings screen (Android only).\nOn iOS, this method does nothing.\n\nUse this to direct users to manage their Health Connect permissions\nor to install Health Connect if not available."
+    },
+    {
+      "name": "showPrivacyPolicy",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Shows the app's privacy policy for Health Connect (Android only).\nOn iOS, this method does nothing.\n\nThis displays the same privacy policy screen that Health Connect shows\nwhen the user taps \"Privacy policy\" in the permissions dialog.\n\nThe privacy policy URL can be configured by adding a string resource\nnamed \"health_connect_privacy_policy_url\" in your app's strings.xml,\nor by placing an HTML file at www/privacypolicy.html in your assets."
+    },
+    {
+      "name": "queryWorkouts",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "QueryWorkoutsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "QueryWorkoutsResult"
+      },
+      "promise": true,
+      "comment": "Queries workout sessions from the native health store.\nSupported on iOS (HealthKit) and Android (Health Connect)."
+    },
+    {
+      "name": "queryAggregated",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "QueryAggregatedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "QueryAggregatedResult"
+      },
+      "promise": true,
+      "comment": "Queries aggregated health data from the native health store.\nAggregates data into time buckets (hour, day, week, month) with operations like sum, average, min, or max.\nThis is more efficient than fetching individual samples for large date ranges.\n\nSupported on iOS (HealthKit) and Android (Health Connect)."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

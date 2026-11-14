@@ -1,0 +1,79 @@
+{
+  "namespace": "SslPinning",
+  "family": "Auth",
+  "package": "@capgo/capacitor-ssl-pinning",
+  "version": "8.1.17",
+  "export": "SSLPinning",
+  "types": [
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SSLPinningConfigurationState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "configured",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "certs",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "excludedDomains",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getConfiguration",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SSLPinningConfigurationState"
+      },
+      "promise": true,
+      "comment": "Returns the active native configuration visible to the plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the native implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

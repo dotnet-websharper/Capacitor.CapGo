@@ -1,0 +1,748 @@
+{
+  "namespace": "ScreenOrientation",
+  "family": "Device",
+  "package": "@capgo/capacitor-screen-orientation",
+  "version": "8.4.5",
+  "export": "ScreenOrientation",
+  "types": [
+    {
+      "name": "BarPlacement",
+      "kind": "config",
+      "required": [
+        {
+          "name": "verticalBarEdge",
+          "type": {
+            "k": "ref",
+            "name": "BarPlacementVerticalBarEdge"
+          }
+        },
+        {
+          "name": "inset",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BarPlacementVerticalBarEdge",
+      "kind": "enumStrings",
+      "cases": [
+        "leading",
+        "trailing"
+      ]
+    },
+    {
+      "name": "DeviceFoldableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "foldable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "supportsTabletop",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FoldBounds",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FoldState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "FoldStateState"
+          }
+        },
+        {
+          "name": "isSeparating",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "posture",
+          "type": {
+            "k": "ref",
+            "name": "FoldStatePosture"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "hingeOrientation",
+          "type": {
+            "k": "ref",
+            "name": "FoldStateHingeOrientation"
+          }
+        },
+        {
+          "name": "hingeBounds",
+          "type": {
+            "k": "ref",
+            "name": "FoldBounds"
+          }
+        },
+        {
+          "name": "occludedBounds",
+          "type": {
+            "k": "ref",
+            "name": "FoldBounds"
+          }
+        },
+        {
+          "name": "activeDisplay",
+          "type": {
+            "k": "ref",
+            "name": "FoldStateActiveDisplay"
+          }
+        },
+        {
+          "name": "hingeMargins",
+          "type": {
+            "k": "ref",
+            "name": "FoldStateHingeMargins"
+          }
+        },
+        {
+          "name": "cameraBounds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "FoldBounds"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FoldStateActiveDisplay",
+      "kind": "enumStrings",
+      "cases": [
+        "inner",
+        "outer"
+      ]
+    },
+    {
+      "name": "FoldStateHingeMargins",
+      "kind": "config",
+      "required": [
+        {
+          "name": "top",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "right",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "left",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FoldStateHingeOrientation",
+      "kind": "enumStrings",
+      "cases": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    {
+      "name": "FoldStatePosture",
+      "kind": "enumStrings",
+      "cases": [
+        "flat",
+        "tabletop",
+        "book"
+      ]
+    },
+    {
+      "name": "FoldStateState",
+      "kind": "enumStrings",
+      "cases": [
+        "flat",
+        "half-opened"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetReservedRegionsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "regions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ReservedRegion"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HingeAngleResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "angle",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "HingeAngleResultStatus"
+          }
+        }
+      ]
+    },
+    {
+      "name": "HingeAngleResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "closed",
+        "partiallyOpen",
+        "fullyOpen"
+      ]
+    },
+    {
+      "name": "OrientationLockOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "orientation",
+          "type": {
+            "k": "ref",
+            "name": "OrientationLockOptionsOrientation"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bypassOrientationLock",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OrientationLockOptionsOrientation",
+      "kind": "enumStrings",
+      "cases": [
+        "portrait-primary",
+        "portrait-secondary",
+        "landscape-primary",
+        "landscape-secondary",
+        "any",
+        "natural",
+        "landscape",
+        "portrait"
+      ]
+    },
+    {
+      "name": "OrientationLockStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "locked",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "uiOrientation",
+          "type": {
+            "k": "ref",
+            "name": "ScreenOrientationResultType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "physicalOrientation",
+          "type": {
+            "k": "ref",
+            "name": "ScreenOrientationResultType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReservedRegion",
+      "kind": "config",
+      "required": [
+        {
+          "name": "kind",
+          "type": {
+            "k": "ref",
+            "name": "ReservedRegionKind"
+          }
+        },
+        {
+          "name": "isActive",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "margins",
+          "type": {
+            "k": "ref",
+            "name": "FoldStateHingeMargins"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReservedRegionKind",
+      "kind": "enumStrings",
+      "cases": [
+        "division",
+        "occlusion"
+      ]
+    },
+    {
+      "name": "ScreenOrientationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "ScreenOrientationResultType"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ScreenOrientationResultType",
+      "kind": "enumStrings",
+      "cases": [
+        "portrait-primary",
+        "portrait-secondary",
+        "landscape-primary",
+        "landscape-secondary"
+      ]
+    },
+    {
+      "name": "SetVerticalBarBehaviorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "behavior",
+          "type": {
+            "k": "ref",
+            "name": "SetVerticalBarBehaviorOptionsBehavior"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetVerticalBarBehaviorOptionsBehavior",
+      "kind": "enumStrings",
+      "cases": [
+        "automatic",
+        "disabled"
+      ]
+    },
+    {
+      "name": "SetVerticalBarBehaviorResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "applied",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SizeClass",
+      "kind": "config",
+      "required": [
+        {
+          "name": "horizontal",
+          "type": {
+            "k": "ref",
+            "name": "SizeClassHorizontal"
+          }
+        },
+        {
+          "name": "vertical",
+          "type": {
+            "k": "ref",
+            "name": "SizeClassHorizontal"
+          }
+        },
+        {
+          "name": "widthClass",
+          "type": {
+            "k": "ref",
+            "name": "SizeClassWidthClass"
+          }
+        },
+        {
+          "name": "heightClass",
+          "type": {
+            "k": "ref",
+            "name": "SizeClassHeightClass"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SizeClassHeightClass",
+      "kind": "enumStrings",
+      "cases": [
+        "compact",
+        "medium",
+        "expanded"
+      ]
+    },
+    {
+      "name": "SizeClassHorizontal",
+      "kind": "enumStrings",
+      "cases": [
+        "compact",
+        "regular"
+      ]
+    },
+    {
+      "name": "SizeClassWidthClass",
+      "kind": "enumStrings",
+      "cases": [
+        "compact",
+        "medium",
+        "expanded",
+        "large",
+        "extraLarge"
+      ]
+    },
+    {
+      "name": "StartOrientationTrackingOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "bypassOrientationLock",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "orientation",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ScreenOrientationResult"
+      },
+      "promise": true,
+      "comment": "Get the current screen orientation.\n\nReturns the current orientation of the device screen."
+    },
+    {
+      "name": "lock",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OrientationLockOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Lock the screen orientation to a specific type.\n\nLocks the screen to the specified orientation.\nOn iOS, if bypassOrientationLock is true, it will also start\ntracking physical device orientation using motion sensors.\n\nNote: The UI will still respect the user's orientation lock setting.\nMotion tracking allows you to detect how the device is physically held\neven when the UI doesn't rotate.\n\nOn iOS 15 there is no public API to force a rotation, so the lock restricts\nthe allowed orientations and the UI rotates into them when the device\norientation allows it. On iOS 16 and later the rotation is requested immediately."
+    },
+    {
+      "name": "unlock",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Unlock the screen orientation.\n\nAllows the screen to rotate freely based on device position.\nAlso stops any motion-based orientation tracking if it was enabled."
+    },
+    {
+      "name": "startOrientationTracking",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartOrientationTrackingOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start tracking device orientation using motion sensors.\n\nThis method is useful when you want to track the device's physical\norientation independently from the screen orientation lock.\nIt uses Core Motion on iOS to detect orientation changes."
+    },
+    {
+      "name": "stopOrientationTracking",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop tracking device orientation using motion sensors.\n\nStops the motion-based orientation tracking if it was started."
+    },
+    {
+      "name": "isOrientationLocked",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "OrientationLockStatusResult"
+      },
+      "promise": true,
+      "comment": "Check if device orientation lock is currently enabled.\n\nThis method compares the physical device orientation (from motion sensors)\nwith the UI orientation. If they differ, orientation lock is enabled.\n\nNote: This requires motion tracking to be active via\nstartOrientationTracking() or lock() with bypassOrientationLock: true.\nWorks on both iOS (Core Motion) and Android (Accelerometer)."
+    },
+    {
+      "name": "isDeviceFoldable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DeviceFoldableResult"
+      },
+      "promise": true,
+      "comment": "Listen for screen orientation changes.\n\nRegisters a listener that will be called whenever the screen orientation changes.\nIf motion-based tracking is enabled, this will also fire for orientation changes\ndetected by motion sensors even when orientation lock is enabled. Whether this device folds, and whether it can stand half-open like a laptop.\n\nOn web, both flags are `false` when the browser lacks fold APIs or the current reading shows\nno fold (`devicePosture.type` is `continuous` with a single viewport segment). `foldable`\nbecomes `true` when posture is `folded` or the viewport splits into two segments.\nOn web, `supportsTabletop` reflects the current reading (for example, `false` in a book\npose) rather than permanent device capability.\n\nOn Android, both flags are `false` on phones that do not fold. On iOS, both are `false`\nexcept on iPhone Duo (iOS 27.1 or later)."
+    },
+    {
+      "name": "getFoldState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "FoldState"
+      },
+      "promise": true,
+      "comment": "Read the current fold.\n\nResolves to a flat state when the device has no fold. On web, uses\n`navigator.devicePosture` and `window.viewport.segments` when the browser provides them."
+    },
+    {
+      "name": "getHingeAngle",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "HingeAngleResult"
+      },
+      "promise": true,
+      "comment": "Read the hinge angle in degrees.\n\n`0` is closed and `180` is flat. `angle` is `null` without a hinge sensor."
+    },
+    {
+      "name": "getReservedRegions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetReservedRegionsResult"
+      },
+      "promise": true,
+      "comment": "Read the fold and anything covering the screen.\n\niPhone Duo reports the fold, the vertical status bar area, and the under-display camera.\nResolves to an empty list on Android, web, and iOS before 27.1."
+    },
+    {
+      "name": "getBarPlacement",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "BarPlacement"
+      },
+      "promise": true,
+      "comment": "Read where iPhone Duo puts native tab bars and toolbars.\n\n`verticalBarEdge` is `null` when bars stay horizontal, and always on Android and web."
+    },
+    {
+      "name": "setVerticalBarBehavior",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetVerticalBarBehaviorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVerticalBarBehaviorResult"
+      },
+      "promise": true,
+      "comment": "Choose whether iPhone Duo may move this app's bars to the side.\n\nResolves to `{ applied: false }` unless the app's bridge view controller opts in.\nAndroid and web always resolve to `{ applied: false }`."
+    },
+    {
+      "name": "getSizeClass",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SizeClass"
+      },
+      "promise": true,
+      "comment": "Read the window size classes."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin.\n\nRemoves all registered event listeners."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native plugin version.\n\nReturns the current version of the native plugin implementation."
+    }
+  ],
+  "events": [
+    {
+      "name": "screenOrientationChange",
+      "listener": {
+        "k": "ref",
+        "name": "ScreenOrientationResult"
+      }
+    },
+    {
+      "name": "foldStateChange",
+      "listener": {
+        "k": "ref",
+        "name": "FoldState"
+      }
+    },
+    {
+      "name": "hingeAngleChange",
+      "listener": {
+        "k": "ref",
+        "name": "HingeAngleResult"
+      }
+    },
+    {
+      "name": "sizeClassChange",
+      "listener": {
+        "k": "ref",
+        "name": "SizeClass"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

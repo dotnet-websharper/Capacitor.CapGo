@@ -1,0 +1,818 @@
+{
+  "namespace": "RichNotifications",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-rich-notifications",
+  "version": "8.2.9",
+  "export": "RichNotifications",
+  "types": [
+    {
+      "name": "ActionInputOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "placeholder",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BadgeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DismissEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitialNotification",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "actionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "input",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InitialNotificationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "InitialNotification"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntervalTrigger",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "interval",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "repeats",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NotificationAction",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "input",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "obj"
+              },
+              {
+                "k": "ref",
+                "name": "ActionInputOptions"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "NotificationChannel",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "importance",
+          "type": {
+            "k": "ref",
+            "name": "NotificationChannelImportance"
+          }
+        },
+        {
+          "name": "sound",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "vibration",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NotificationChannelGroup",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NotificationChannelImportance",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "min",
+        "low",
+        "default",
+        "high",
+        "max"
+      ]
+    },
+    {
+      "name": "NotificationIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NotificationIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NotificationListResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notifications",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NotificationSummary"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NotificationProgress",
+      "kind": "config",
+      "required": [
+        {
+          "name": "current",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "max",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "indeterminate",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NotificationSummary",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "PermissionResultStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "granted",
+        "denied",
+        "blocked",
+        "unavailable"
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "actionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "input",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RegisterActionsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "actions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NotificationAction"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RichNotification",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "image",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "badge",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "ongoing",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "progress",
+          "type": {
+            "k": "ref",
+            "name": "NotificationProgress"
+          }
+        },
+        {
+          "name": "fullScreen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "foregroundService",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "RichNotificationStyle"
+          }
+        },
+        {
+          "name": "lines",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "channelId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "groupId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "categoryId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "interruptionLevel",
+          "type": {
+            "k": "ref",
+            "name": "RichNotificationInterruptionLevel"
+          }
+        },
+        {
+          "name": "actions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NotificationAction"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "RichNotificationInterruptionLevel",
+      "kind": "enumStrings",
+      "cases": [
+        "passive",
+        "active",
+        "timeSensitive",
+        "critical"
+      ]
+    },
+    {
+      "name": "RichNotificationStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "bigtext",
+        "picture",
+        "inbox"
+      ]
+    },
+    {
+      "name": "ScheduleOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "RichNotification"
+          }
+        },
+        {
+          "name": "trigger",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "TimestampTrigger"
+              },
+              {
+                "k": "ref",
+                "name": "IntervalTrigger"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TimestampTrigger",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "checkPermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionResult"
+      },
+      "promise": true,
+      "comment": "Check the current local notification permission status without prompting."
+    },
+    {
+      "name": "requestPermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionResult"
+      },
+      "promise": true,
+      "comment": "Request local notification permission from the user.\n\nOn Android 13+, this maps to `POST_NOTIFICATIONS`. On iOS, uses `UNUserNotificationCenter`."
+    },
+    {
+      "name": "createChannel",
+      "params": [
+        {
+          "name": "channel",
+          "type": {
+            "k": "ref",
+            "name": "NotificationChannel"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Create an Android notification channel.\n\nResolves as a no-op on iOS and web."
+    },
+    {
+      "name": "createChannelGroup",
+      "params": [
+        {
+          "name": "group",
+          "type": {
+            "k": "ref",
+            "name": "NotificationChannelGroup"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Create an Android notification channel group.\n\nResolves as a no-op on iOS and web."
+    },
+    {
+      "name": "deleteChannel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NotificationIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete an Android notification channel by id.\n\nResolves as a no-op on iOS and web."
+    },
+    {
+      "name": "display",
+      "params": [
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "RichNotification"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NotificationIdResult"
+      },
+      "promise": true,
+      "comment": "Display a local notification immediately.\n\nReturns the notification id (generated when omitted in the payload)."
+    },
+    {
+      "name": "schedule",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ScheduleOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NotificationIdResult"
+      },
+      "promise": true,
+      "comment": "Schedule a local notification for later.\n\nOn Android, exact timing may require `SCHEDULE_EXACT_ALARM` in the host app.\nOn web, scheduling uses `setTimeout` and only works while the page stays open."
+    },
+    {
+      "name": "cancel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NotificationIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Cancel a pending or displayed notification by id."
+    },
+    {
+      "name": "cancelAll",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Cancel every pending and displayed local notification managed by this plugin."
+    },
+    {
+      "name": "getDisplayed",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "NotificationListResult"
+      },
+      "promise": true,
+      "comment": "List notifications currently shown in the notification shade or Notification Center."
+    },
+    {
+      "name": "getPending",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "NotificationListResult"
+      },
+      "promise": true,
+      "comment": "List notifications that are scheduled but not yet shown."
+    },
+    {
+      "name": "getInitialNotification",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "InitialNotificationResult"
+      },
+      "promise": true,
+      "comment": "Return the notification that opened the app, if any.\n\nCall early on startup to handle cold-start taps."
+    },
+    {
+      "name": "setBadge",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BadgeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the app icon badge count (iOS)."
+    },
+    {
+      "name": "registerActions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RegisterActionsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Register a reusable action category (iOS `UNNotificationCategory`, Android action set).\n\nReference the same id in `categoryId` when displaying notifications."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker (`native` or `web`)."
+    }
+  ],
+  "events": [
+    {
+      "name": "press",
+      "listener": {
+        "k": "ref",
+        "name": "PressEvent"
+      }
+    },
+    {
+      "name": "dismiss",
+      "listener": {
+        "k": "ref",
+        "name": "DismissEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

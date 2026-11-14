@@ -1,0 +1,218 @@
+{
+  "namespace": "AndroidKiosk",
+  "family": "UI",
+  "package": "@capgo/capacitor-android-kiosk",
+  "version": "8.3.5",
+  "export": "CapacitorAndroidKiosk",
+  "types": [
+    {
+      "name": "AllowedKeysOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "volumeUp",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "volumeDown",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "back",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "home",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "recent",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "power",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "camera",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "menu",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EnterKioskModeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "restoreAfterReboot",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "relaunch",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "relaunchIntervalMinutes",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsInKioskModeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isInKioskMode",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSetAsLauncherResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isLauncher",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "isInKioskMode",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsInKioskModeResult"
+      },
+      "promise": true,
+      "comment": "Checks if the app is currently running in kiosk mode."
+    },
+    {
+      "name": "isSetAsLauncher",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsSetAsLauncherResult"
+      },
+      "promise": true,
+      "comment": "Checks if the app is set as the device launcher (home app)."
+    },
+    {
+      "name": "enterKioskMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "EnterKioskModeOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enters kiosk mode, hiding system UI and blocking hardware buttons.\nAlso starts a foreground keep-alive service so the app is less likely to be killed by the system.\nThe app must be set as the device launcher for this to work effectively."
+    },
+    {
+      "name": "exitKioskMode",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Exits kiosk mode, restoring normal system UI and hardware button functionality.\nAlso stops the foreground keep-alive service started in enterKioskMode()."
+    },
+    {
+      "name": "setAsLauncher",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens the device's home screen settings to allow user to set this app as the launcher.\nThis is required for full kiosk mode functionality."
+    },
+    {
+      "name": "setAllowedKeys",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AllowedKeysOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets which hardware keys are allowed to function in kiosk mode.\nBy default, all hardware keys are blocked in kiosk mode."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

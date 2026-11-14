@@ -1,24 +1,757 @@
 {
   "families": {
-    "Core": "WebSharper.Capacitor.CapGo"
+    "Core": "WebSharper.Capacitor.CapGo",
+    "Auth": "WebSharper.Capacitor.CapGo.Auth",
+    "Media": "WebSharper.Capacitor.CapGo.Media",
+    "Files": "WebSharper.Capacitor.CapGo.Files",
+    "Device": "WebSharper.Capacitor.CapGo.Device",
+    "UI": "WebSharper.Capacitor.CapGo.UI",
+    "Commerce": "WebSharper.Capacitor.CapGo.Commerce",
+    "Analytics": "WebSharper.Capacitor.CapGo.Analytics",
+    "Messaging": "WebSharper.Capacitor.CapGo.Messaging",
+    "AI": "WebSharper.Capacitor.CapGo.AI",
+    "Tooling": "WebSharper.Capacitor.CapGo.Tooling"
   },
   "plugins": [
-    { "namespace": "SocialLogin", "family": "Core", "package": "@capgo/capacitor-social-login", "overrides": "social-login" },
-    { "namespace": "Uploader", "family": "Core", "package": "@capgo/capacitor-uploader", "overrides": "uploader" },
-    { "namespace": "NavigationBar", "family": "Core", "package": "@capgo/capacitor-navigation-bar" },
-    { "namespace": "CapacitorDataStorageSqlite", "family": "Core", "package": "@capgo/capacitor-data-storage-sqlite" },
-    { "namespace": "ScreenRecorder", "family": "Core", "package": "@capgo/capacitor-screen-recorder" },
-    { "namespace": "NativePurchases", "family": "Core", "package": "@capgo/native-purchases" },
-    { "namespace": "CapacitorFlash", "family": "Core", "package": "@capgo/capacitor-flash" },
-    { "namespace": "CapacitorUpdater", "family": "Core", "package": "@capgo/capacitor-updater", "overrides": "capacitor-updater" },
-    { "namespace": "HomeIndicator", "family": "Core", "package": "@capgo/capacitor-home-indicator" },
-    { "namespace": "NativeGeocoder", "family": "Core", "package": "@capgo/capacitor-nativegeocoder" },
-    { "namespace": "CapacitorCrisp", "family": "Core", "package": "@capgo/capacitor-crisp" },
-    { "namespace": "CapacitorMute", "family": "Core", "package": "@capgo/capacitor-mute" },
-    { "namespace": "NativeAudio", "family": "Core", "package": "@capgo/capacitor-native-audio" },
-    { "namespace": "CapacitorDownloader", "family": "Core", "package": "@capgo/capacitor-downloader" },
-    { "namespace": "CapacitorShake", "family": "Core", "package": "@capgo/capacitor-shake" },
-    { "namespace": "IvsPlayer", "family": "Core", "package": "@capgo/capacitor-ivs-player" },
-    { "namespace": "NativeMarket", "family": "Core", "package": "@capgo/capacitor-native-market" }
+    {
+      "namespace": "SocialLogin",
+      "family": "Core",
+      "package": "@capgo/capacitor-social-login"
+    },
+    {
+      "namespace": "Uploader",
+      "family": "Core",
+      "package": "@capgo/capacitor-uploader"
+    },
+    {
+      "namespace": "NavigationBar",
+      "family": "Core",
+      "package": "@capgo/capacitor-navigation-bar"
+    },
+    {
+      "namespace": "CapacitorDataStorageSqlite",
+      "family": "Core",
+      "package": "@capgo/capacitor-data-storage-sqlite"
+    },
+    {
+      "namespace": "ScreenRecorder",
+      "family": "Core",
+      "package": "@capgo/capacitor-screen-recorder"
+    },
+    {
+      "namespace": "NativePurchases",
+      "family": "Core",
+      "package": "@capgo/native-purchases"
+    },
+    {
+      "namespace": "CapacitorFlash",
+      "family": "Core",
+      "package": "@capgo/capacitor-flash"
+    },
+    {
+      "namespace": "CapacitorUpdater",
+      "family": "Core",
+      "package": "@capgo/capacitor-updater"
+    },
+    {
+      "namespace": "HomeIndicator",
+      "family": "Core",
+      "package": "@capgo/capacitor-home-indicator"
+    },
+    {
+      "namespace": "NativeGeocoder",
+      "family": "Core",
+      "package": "@capgo/capacitor-nativegeocoder"
+    },
+    {
+      "namespace": "CapacitorCrisp",
+      "family": "Core",
+      "package": "@capgo/capacitor-crisp"
+    },
+    {
+      "namespace": "CapacitorMute",
+      "family": "Core",
+      "package": "@capgo/capacitor-mute"
+    },
+    {
+      "namespace": "NativeAudio",
+      "family": "Core",
+      "package": "@capgo/capacitor-native-audio"
+    },
+    {
+      "namespace": "CapacitorDownloader",
+      "family": "Core",
+      "package": "@capgo/capacitor-downloader"
+    },
+    {
+      "namespace": "CapacitorShake",
+      "family": "Core",
+      "package": "@capgo/capacitor-shake"
+    },
+    {
+      "namespace": "IvsPlayer",
+      "family": "Core",
+      "package": "@capgo/capacitor-ivs-player"
+    },
+    {
+      "namespace": "NativeMarket",
+      "family": "Core",
+      "package": "@capgo/capacitor-native-market"
+    },
+    {
+      "namespace": "Passkey",
+      "family": "Auth",
+      "package": "@capgo/capacitor-passkey"
+    },
+    {
+      "namespace": "NativeBiometric",
+      "family": "Auth",
+      "package": "@capgo/capacitor-native-biometric"
+    },
+    {
+      "namespace": "AppAttest",
+      "family": "Auth",
+      "package": "@capgo/capacitor-app-attest"
+    },
+    {
+      "namespace": "DeviceIntegrity",
+      "family": "Auth",
+      "package": "@capgo/capacitor-device-integrity"
+    },
+    {
+      "namespace": "SslPinning",
+      "family": "Auth",
+      "package": "@capgo/capacitor-ssl-pinning"
+    },
+    {
+      "namespace": "AutofillSavePassword",
+      "family": "Auth",
+      "package": "@capgo/capacitor-autofill-save-password"
+    },
+    {
+      "namespace": "Permissions",
+      "family": "Auth",
+      "package": "@capgo/capacitor-permissions"
+    },
+    {
+      "namespace": "PrivacyScreen",
+      "family": "Auth",
+      "package": "@capgo/capacitor-privacy-screen"
+    },
+    {
+      "namespace": "IsRoot",
+      "family": "Auth",
+      "package": "@capgo/capacitor-is-root"
+    },
+    {
+      "namespace": "MockLocationDetector",
+      "family": "Auth",
+      "package": "@capgo/capacitor-mock-location-detector"
+    },
+    {
+      "namespace": "AppTrackingTransparency",
+      "family": "Auth",
+      "package": "@capgo/capacitor-app-tracking-transparency"
+    },
+    {
+      "namespace": "Recaptcha",
+      "family": "Auth",
+      "package": "@capgo/capacitor-recaptcha"
+    },
+    {
+      "namespace": "Persona",
+      "family": "Auth",
+      "package": "@capgo/capacitor-persona"
+    },
+    {
+      "namespace": "Verisoul",
+      "family": "Auth",
+      "package": "@capgo/capacitor-verisoul"
+    },
+    {
+      "namespace": "Intune",
+      "family": "Auth",
+      "package": "@capgo/capacitor-intune"
+    },
+    {
+      "namespace": "Nfc",
+      "family": "Auth",
+      "package": "@capgo/capacitor-nfc"
+    },
+    {
+      "namespace": "Wechat",
+      "family": "Auth",
+      "package": "@capgo/capacitor-wechat"
+    },
+    {
+      "namespace": "AndroidAgeSignals",
+      "family": "Auth",
+      "package": "@capgo/capacitor-android-age-signals"
+    },
+    {
+      "namespace": "AgeRange",
+      "family": "Auth",
+      "package": "@capgo/capacitor-age-range"
+    },
+    {
+      "namespace": "PersistentAccount",
+      "family": "Auth",
+      "package": "@capgo/capacitor-persistent-account"
+    },
+    {
+      "namespace": "AndroidSmsRetriever",
+      "family": "Auth",
+      "package": "@capgo/capacitor-android-sms-retriever"
+    },
+    {
+      "namespace": "AudioRecorder",
+      "family": "Media",
+      "package": "@capgo/capacitor-audio-recorder"
+    },
+    {
+      "namespace": "AudioSession",
+      "family": "Media",
+      "package": "@capgo/capacitor-audio-session"
+    },
+    {
+      "namespace": "MediaSession",
+      "family": "Media",
+      "package": "@capgo/capacitor-media-session"
+    },
+    {
+      "namespace": "VideoPlayer",
+      "family": "Media",
+      "package": "@capgo/capacitor-video-player"
+    },
+    {
+      "namespace": "YoutubePlayer",
+      "family": "Media",
+      "package": "@capgo/capacitor-youtube-player"
+    },
+    {
+      "namespace": "MuxPlayer",
+      "family": "Media",
+      "package": "@capgo/capacitor-mux-player"
+    },
+    {
+      "namespace": "JwPlayer",
+      "family": "Media",
+      "package": "@capgo/capacitor-jw-player"
+    },
+    {
+      "namespace": "CameraPreview",
+      "family": "Media",
+      "package": "@capgo/camera-preview"
+    },
+    {
+      "namespace": "DocumentScanner",
+      "family": "Media",
+      "package": "@capgo/capacitor-document-scanner"
+    },
+    {
+      "namespace": "PhotoLibrary",
+      "family": "Media",
+      "package": "@capgo/capacitor-photo-library"
+    },
+    {
+      "namespace": "VideoThumbnails",
+      "family": "Media",
+      "package": "@capgo/capacitor-video-thumbnails"
+    },
+    {
+      "namespace": "FileCompressor",
+      "family": "Media",
+      "package": "@capgo/capacitor-file-compressor"
+    },
+    {
+      "namespace": "PdfGenerator",
+      "family": "Media",
+      "package": "@capgo/capacitor-pdf-generator"
+    },
+    {
+      "namespace": "PdfViewer",
+      "family": "Media",
+      "package": "@capgo/capacitor-pdf-viewer"
+    },
+    {
+      "namespace": "Ffmpeg",
+      "family": "Media",
+      "package": "@capgo/capacitor-ffmpeg"
+    },
+    {
+      "namespace": "Ricoh360",
+      "family": "Media",
+      "package": "@capgo/capacitor-ricoh360"
+    },
+    {
+      "namespace": "File",
+      "family": "Files",
+      "package": "@capgo/capacitor-file"
+    },
+    {
+      "namespace": "FilePicker",
+      "family": "Files",
+      "package": "@capgo/capacitor-file-picker"
+    },
+    {
+      "namespace": "FileSharer",
+      "family": "Files",
+      "package": "@capgo/capacitor-file-sharer"
+    },
+    {
+      "namespace": "Zip",
+      "family": "Files",
+      "package": "@capgo/capacitor-zip"
+    },
+    {
+      "namespace": "AssetCache",
+      "family": "Files",
+      "package": "@capgo/capacitor-asset-cache"
+    },
+    {
+      "namespace": "FastSql",
+      "family": "Files",
+      "package": "@capgo/capacitor-fast-sql"
+    },
+    {
+      "namespace": "IcloudKv",
+      "family": "Files",
+      "package": "@capgo/capacitor-icloud-kv"
+    },
+    {
+      "namespace": "PersistentUuid",
+      "family": "Files",
+      "package": "@capgo/capacitor-persistent-uuid"
+    },
+    {
+      "namespace": "Accelerometer",
+      "family": "Device",
+      "package": "@capgo/capacitor-accelerometer"
+    },
+    {
+      "namespace": "Pedometer",
+      "family": "Device",
+      "package": "@capgo/capacitor-pedometer"
+    },
+    {
+      "namespace": "Barometer",
+      "family": "Device",
+      "package": "@capgo/capacitor-barometer"
+    },
+    {
+      "namespace": "Compass",
+      "family": "Device",
+      "package": "@capgo/capacitor-compass"
+    },
+    {
+      "namespace": "LightSensor",
+      "family": "Device",
+      "package": "@capgo/capacitor-light-sensor"
+    },
+    {
+      "namespace": "Proximity",
+      "family": "Device",
+      "package": "@capgo/capacitor-proximity"
+    },
+    {
+      "namespace": "Brightness",
+      "family": "Device",
+      "package": "@capgo/capacitor-brightness"
+    },
+    {
+      "namespace": "VolumeButtons",
+      "family": "Device",
+      "package": "@capgo/capacitor-volume-buttons"
+    },
+    {
+      "namespace": "Health",
+      "family": "Device",
+      "package": "@capgo/capacitor-health"
+    },
+    {
+      "namespace": "Watch",
+      "family": "Device",
+      "package": "@capgo/capacitor-watch"
+    },
+    {
+      "namespace": "ScreenOrientation",
+      "family": "Device",
+      "package": "@capgo/capacitor-screen-orientation"
+    },
+    {
+      "namespace": "DeviceInfo",
+      "family": "Device",
+      "package": "@capgo/capacitor-device-info"
+    },
+    {
+      "namespace": "NetworkDiagnostics",
+      "family": "Device",
+      "package": "@capgo/capacitor-network-diagnostics"
+    },
+    {
+      "namespace": "Wifi",
+      "family": "Device",
+      "package": "@capgo/capacitor-wifi"
+    },
+    {
+      "namespace": "BluetoothLowEnergy",
+      "family": "Device",
+      "package": "@capgo/capacitor-bluetooth-low-energy"
+    },
+    {
+      "namespace": "Ibeacon",
+      "family": "Device",
+      "package": "@capgo/capacitor-ibeacon"
+    },
+    {
+      "namespace": "Uwb",
+      "family": "Device",
+      "package": "@capgo/capacitor-uwb"
+    },
+    {
+      "namespace": "KeepAwake",
+      "family": "Device",
+      "package": "@capgo/capacitor-keep-awake"
+    },
+    {
+      "namespace": "BackgroundTask",
+      "family": "Device",
+      "package": "@capgo/capacitor-background-task"
+    },
+    {
+      "namespace": "BackgroundGeolocation",
+      "family": "Device",
+      "package": "@capgo/background-geolocation"
+    },
+    {
+      "namespace": "Alarm",
+      "family": "Device",
+      "package": "@capgo/capacitor-alarm"
+    },
+    {
+      "namespace": "Calendar",
+      "family": "Device",
+      "package": "@capgo/capacitor-calendar"
+    },
+    {
+      "namespace": "Contacts",
+      "family": "Device",
+      "package": "@capgo/capacitor-contacts"
+    },
+    {
+      "namespace": "IntentLauncher",
+      "family": "Device",
+      "package": "@capgo/capacitor-intent-launcher"
+    },
+    {
+      "namespace": "AppIntents",
+      "family": "Device",
+      "package": "@capgo/capacitor-app-intents"
+    },
+    {
+      "namespace": "AndroidUsageStatsManager",
+      "family": "Device",
+      "package": "@capgo/capacitor-android-usagestatsmanager"
+    },
+    {
+      "namespace": "ZebraDatawedge",
+      "family": "Device",
+      "package": "@capgo/capacitor-zebra-datawedge"
+    },
+    {
+      "namespace": "NativeNavigation",
+      "family": "UI",
+      "package": "@capgo/capacitor-native-navigation"
+    },
+    {
+      "namespace": "InAppBrowser",
+      "family": "UI",
+      "package": "@capgo/capacitor-inappbrowser"
+    },
+    {
+      "namespace": "PrettyToast",
+      "family": "UI",
+      "package": "@capgo/capacitor-pretty-toast"
+    },
+    {
+      "namespace": "NativeLoader",
+      "family": "UI",
+      "package": "@capgo/capacitor-native-loader"
+    },
+    {
+      "namespace": "DatePicker",
+      "family": "UI",
+      "package": "@capgo/capacitor-date-picker"
+    },
+    {
+      "namespace": "LaunchNavigator",
+      "family": "UI",
+      "package": "@capgo/capacitor-launch-navigator"
+    },
+    {
+      "namespace": "TextInteraction",
+      "family": "UI",
+      "package": "@capgo/capacitor-textinteraction"
+    },
+    {
+      "namespace": "WebviewCrash",
+      "family": "UI",
+      "package": "@capgo/capacitor-webview-crash"
+    },
+    {
+      "namespace": "WebviewGuardian",
+      "family": "UI",
+      "package": "@capgo/capacitor-webview-guardian"
+    },
+    {
+      "namespace": "WebviewVersionChecker",
+      "family": "UI",
+      "package": "@capgo/capacitor-webview-version-checker"
+    },
+    {
+      "namespace": "AndroidKiosk",
+      "family": "UI",
+      "package": "@capgo/capacitor-android-kiosk"
+    },
+    {
+      "namespace": "AndroidInlineInstall",
+      "family": "UI",
+      "package": "@capgo/capacitor-android-inline-install"
+    },
+    {
+      "namespace": "Printer",
+      "family": "UI",
+      "package": "@capgo/capacitor-printer"
+    },
+    {
+      "namespace": "ShareTarget",
+      "family": "UI",
+      "package": "@capgo/capacitor-share-target"
+    },
+    {
+      "namespace": "LiveActivities",
+      "family": "UI",
+      "package": "@capgo/capacitor-live-activities"
+    },
+    {
+      "namespace": "WidgetKit",
+      "family": "UI",
+      "package": "@capgo/capacitor-widget-kit"
+    },
+    {
+      "namespace": "Pay",
+      "family": "Commerce",
+      "package": "@capgo/capacitor-pay"
+    },
+    {
+      "namespace": "Stripe",
+      "family": "Commerce",
+      "package": "@capgo/capacitor-stripe"
+    },
+    {
+      "namespace": "StripePay",
+      "family": "Commerce",
+      "package": "@capgo/capacitor-stripe-pay"
+    },
+    {
+      "namespace": "StripeTerminal",
+      "family": "Commerce",
+      "package": "@capgo/capacitor-stripe-terminal"
+    },
+    {
+      "namespace": "StripeIdentity",
+      "family": "Commerce",
+      "package": "@capgo/capacitor-stripe-identity"
+    },
+    {
+      "namespace": "AdMob",
+      "family": "Commerce",
+      "package": "@capgo/capacitor-admob"
+    },
+    {
+      "namespace": "InAppReview",
+      "family": "Commerce",
+      "package": "@capgo/capacitor-in-app-review"
+    },
+    {
+      "namespace": "Appsflyer",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-appsflyer"
+    },
+    {
+      "namespace": "Rudderstack",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-rudderstack"
+    },
+    {
+      "namespace": "Gtm",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-gtm"
+    },
+    {
+      "namespace": "Appinsights",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-appinsights"
+    },
+    {
+      "namespace": "Contentsquare",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-contentsquare"
+    },
+    {
+      "namespace": "FacebookAnalytics",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-facebook-analytics"
+    },
+    {
+      "namespace": "Disqo",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-disqo"
+    },
+    {
+      "namespace": "FirebaseAnalytics",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-analytics"
+    },
+    {
+      "namespace": "FirebaseCrashlytics",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-crashlytics"
+    },
+    {
+      "namespace": "FirebasePerformance",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-performance"
+    },
+    {
+      "namespace": "FirebaseRemoteConfig",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-remote-config"
+    },
+    {
+      "namespace": "FirebaseFirestore",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-firestore"
+    },
+    {
+      "namespace": "FirebaseStorage",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-storage"
+    },
+    {
+      "namespace": "FirebaseAuthentication",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-authentication"
+    },
+    {
+      "namespace": "FirebaseFunctions",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-functions"
+    },
+    {
+      "namespace": "FirebaseApp",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-app"
+    },
+    {
+      "namespace": "FirebaseAppCheck",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-firebase-app-check"
+    },
+    {
+      "namespace": "Supabase",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-supabase"
+    },
+    {
+      "namespace": "Neon",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-neon"
+    },
+    {
+      "namespace": "InstallReferrer",
+      "family": "Analytics",
+      "package": "@capgo/capacitor-install-referrer"
+    },
+    {
+      "namespace": "Notifications",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-notifications"
+    },
+    {
+      "namespace": "RichNotifications",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-rich-notifications"
+    },
+    {
+      "namespace": "FirebaseMessaging",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-firebase-messaging"
+    },
+    {
+      "namespace": "TwilioVoice",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-twilio-voice"
+    },
+    {
+      "namespace": "StreamCall",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-stream-call"
+    },
+    {
+      "namespace": "Realtimekit",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-realtimekit"
+    },
+    {
+      "namespace": "Intercom",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-intercom"
+    },
+    {
+      "namespace": "IncomingCallKit",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-incoming-call-kit"
+    },
+    {
+      "namespace": "Mqtt",
+      "family": "Messaging",
+      "package": "@capgo/capacitor-mqtt"
+    },
+    {
+      "namespace": "Llm",
+      "family": "AI",
+      "package": "@capgo/capacitor-llm"
+    },
+    {
+      "namespace": "SpeechRecognition",
+      "family": "AI",
+      "package": "@capgo/capacitor-speech-recognition"
+    },
+    {
+      "namespace": "SpeechSynthesis",
+      "family": "AI",
+      "package": "@capgo/capacitor-speech-synthesis"
+    },
+    {
+      "namespace": "Env",
+      "family": "Tooling",
+      "package": "@capgo/capacitor-env"
+    },
+    {
+      "namespace": "Sim",
+      "family": "Tooling",
+      "package": "@capgo/capacitor-sim"
+    },
+    {
+      "namespace": "LiveReload",
+      "family": "Tooling",
+      "package": "@capgo/capacitor-live-reload"
+    },
+    {
+      "namespace": "Auto",
+      "family": "Tooling",
+      "package": "@capgo/capacitor-auto"
+    }
   ]
 }

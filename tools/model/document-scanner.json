@@ -1,0 +1,146 @@
+{
+  "namespace": "DocumentScanner",
+  "family": "Media",
+  "package": "@capgo/capacitor-document-scanner",
+  "version": "8.4.20",
+  "export": "DocumentScanner",
+  "types": [
+    {
+      "name": "ResponseType",
+      "kind": "enumStrings",
+      "cases": [
+        "base64",
+        "imageFilePath"
+      ]
+    },
+    {
+      "name": "ScanDocumentOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "croppedImageQuality",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "letUserAdjustCrop",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "reviewCapturedDocument",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "maxNumDocuments",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "responseType",
+          "type": {
+            "k": "ref",
+            "name": "ResponseType"
+          }
+        },
+        {
+          "name": "brightness",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "contrast",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "scannerMode",
+          "type": {
+            "k": "ref",
+            "name": "ScannerMode"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScanDocumentResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "getPluginVersion",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "scannedImages",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "ScanDocumentResponseStatus"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScanDocumentResponseStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "success",
+        "cancel"
+      ]
+    },
+    {
+      "name": "ScannerMode",
+      "kind": "enumStrings",
+      "cases": [
+        "base",
+        "base_with_filter",
+        "full"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "scanDocument",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ScanDocumentOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ScanDocumentResponse"
+      },
+      "promise": true,
+      "comment": "Opens the device camera and starts the document scanning experience."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

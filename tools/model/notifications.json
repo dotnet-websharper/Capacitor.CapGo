@@ -1,0 +1,800 @@
+{
+  "namespace": "Notifications",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-notifications",
+  "version": "8.1.1",
+  "export": "CapgoNotifications",
+  "types": [
+    {
+      "name": "CapgoBackgroundNotificationEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "CapgoPushNotificationSchema"
+          }
+        },
+        {
+          "name": "finish",
+          "type": {
+            "k": "ref",
+            "name": "CapgoBackgroundNotificationEventFinish"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CapgoBackgroundNotificationEventFinish",
+      "kind": "config",
+      "required": [],
+      "optional": []
+    },
+    {
+      "name": "CapgoNotificationEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "campaignId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "notificationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "eventId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "occurredAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "externalId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nativeInstallId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recipientKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "deviceKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "eventProof",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationRegistrationPlatform"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "badge",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "badgeRevision",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoNotificationOpenedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "CapgoPushNotificationSchema"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "actionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "inputValue",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoNotificationRegisterOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "externalId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "identityProof",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "serverUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tags",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "attributes",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        },
+        {
+          "name": "consent",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "appVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoNotificationRegistration",
+      "kind": "config",
+      "required": [
+        {
+          "name": "recipientKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "deviceKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bucket",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationRegistrationPlatform"
+          }
+        },
+        {
+          "name": "permission",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationRegistrationPermission"
+          }
+        },
+        {
+          "name": "eventProof",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "badgeRevision",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoNotificationRegistrationPermission",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "prompt",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "CapgoNotificationRegistrationPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android"
+      ]
+    },
+    {
+      "name": "CapgoNotificationsConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "serverUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoUpdater",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "updateInstallMode",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationsConfigUpdateInstallMode"
+          }
+        },
+        {
+          "name": "updateChannel",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoNotificationsConfigUpdateInstallMode",
+      "kind": "enumStrings",
+      "cases": [
+        "next",
+        "set"
+      ]
+    },
+    {
+      "name": "CapgoNotificationSyncResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "badge",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "badgeRevision",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "appliedBadge",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "pendingEvents",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoNotificationToken",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CapgoPushNotificationSchema",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "map",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "backgroundTaskId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tag",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "badge",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "click_action",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "link",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "group",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "groupSummary",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoUpdateCheckResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "CapgoUpdateCheckResultStatus"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bundleId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CapgoUpdateCheckResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "disabled",
+        "unavailable",
+        "no_update",
+        "installed",
+        "queued",
+        "already_running",
+        "failed"
+      ]
+    },
+    {
+      "name": "CapgoUpdaterIntegrationOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "installMode",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationsConfigUpdateInstallMode"
+          }
+        },
+        {
+          "name": "channel",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UnregisterOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "dropToken",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationsConfig"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "register",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationRegisterOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CapgoNotificationRegistration"
+      },
+      "promise": true
+    },
+    {
+      "name": "unregister",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UnregisterOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deactivate this device's registration and forget the stored identity. Pass dropToken to remove the shared native push token."
+    },
+    {
+      "name": "setExternalId",
+      "params": [
+        {
+          "name": "externalId",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "identityProof",
+          "type": {
+            "k": "string"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setTags",
+      "params": [
+        {
+          "name": "tags",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setBadge",
+      "params": [
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "clearBadge",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "incrementBadge",
+      "params": [
+        {
+          "name": "by",
+          "type": {
+            "k": "float"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "sync",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CapgoNotificationSyncResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "enableUpdaterIntegration",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CapgoUpdaterIntegrationOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "runUpdateCheck",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CapgoUpdaterIntegrationOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CapgoUpdateCheckResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "trackReceived",
+      "params": [
+        {
+          "name": "event",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationEvent"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "trackOpened",
+      "params": [
+        {
+          "name": "event",
+          "type": {
+            "k": "ref",
+            "name": "CapgoNotificationEvent"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    }
+  ],
+  "events": [
+    {
+      "name": "notificationReceived",
+      "listener": {
+        "k": "ref",
+        "name": "CapgoPushNotificationSchema"
+      }
+    },
+    {
+      "name": "notificationOpened",
+      "listener": {
+        "k": "ref",
+        "name": "CapgoNotificationOpenedEvent"
+      }
+    },
+    {
+      "name": "backgroundNotification",
+      "listener": {
+        "k": "ref",
+        "name": "CapgoBackgroundNotificationEvent"
+      }
+    },
+    {
+      "name": "registrationChanged",
+      "listener": {
+        "k": "ref",
+        "name": "CapgoNotificationToken"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}
