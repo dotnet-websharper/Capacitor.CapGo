@@ -8,6 +8,13 @@ import { join } from "node:path";
 
 const root = new URL("../", import.meta.url).pathname;
 const roster = JSON.parse(readFileSync(join(root, "tools/plugins.json"), "utf8"));
+// WebSharper 11 writes `.websharper` sidecars that the template must ship;
+// WebSharper 10 embeds the metadata in the assembly, so listing the sidecar
+// makes `paket pack` fail. Detect the line from the paket pins.
+const dependencies = readFileSync(join(root, "paket.dependencies"), "utf8");
+const ws10 = /~\>\s*10\.0/.test(dependencies);
+const sidecar = id =>
+  ws10 ? "" : `    ../${id}/bin/Release/netstandard2.0/${id}.websharper ==> lib/netstandard2.0\n`;
 const models = new Map();
 for (const family of Object.keys(roster.families)) {
   models.set(family, []);
@@ -118,8 +125,7 @@ tags
     Web JavaScript F# C#
 files
     ../${id}/bin/Release/netstandard2.0/${id}.dll ==> lib/netstandard2.0
-    ../${id}/bin/Release/netstandard2.0/${id}.websharper ==> lib/netstandard2.0
-    ../${id}/bin/Release/netstandard2.0/${id}.xml ==> lib/netstandard2.0
+${sidecar(id)}    ../${id}/bin/Release/netstandard2.0/${id}.xml ==> lib/netstandard2.0
     ../${id}/${id}.fsproj ==> src/
 dependencies
         WebSharper ~> LOCKEDVERSION:[3]
