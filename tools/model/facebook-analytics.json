@@ -45,24 +45,29 @@
         {
           "name": "params",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "LogEventOptionsParamsMap"
           }
         }
       ]
+    },
+    {
+      "name": "LogEventOptionsParamsMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          }
+        ]
+      }
     },
     {
       "name": "LogPurchaseOptions",
@@ -85,21 +90,8 @@
         {
           "name": "params",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "LogEventOptionsParamsMap"
           }
         }
       ]

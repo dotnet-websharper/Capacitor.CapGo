@@ -259,10 +259,8 @@
         {
           "name": "extras",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "NavigateOptionsExtrasMap"
           }
         },
         {
@@ -296,6 +294,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "NavigateOptionsExtrasMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "ProviderIcon",

@@ -8,7 +8,8 @@ apps in F# on top of CapGo's plugins.
 
 The surface is **generated** from each plugin's published TypeScript declarations
 (`tools/extract.mjs` → `tools/model/*.json` → `CapGoGeneratorCommon`), so the bindings track
-upstream instead of drifting: 148 plugins across 11 packages, typed method-by-method.
+upstream instead of drifting: 148 plugins across 11 packages, typed method-by-method — 99% of
+9,953 type positions are concrete, the rest being upstream `any`/`unknown` JSON payloads.
 
 ## Live demos
 

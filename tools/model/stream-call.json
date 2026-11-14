@@ -56,56 +56,8 @@
         {
           "name": "custom",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "string"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "union",
-                    "of": [
-                      {
-                        "k": "string"
-                      },
-                      {
-                        "k": "float"
-                      },
-                      {
-                        "k": "obj"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "bool"
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "float"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "CallOptionsCustomMap"
           }
         },
         {
@@ -219,59 +171,69 @@
         {
           "name": "custom",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "string"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "union",
-                    "of": [
-                      {
-                        "k": "string"
-                      },
-                      {
-                        "k": "float"
-                      },
-                      {
-                        "k": "obj"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "bool"
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "float"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "CallOptionsCustomMap"
           }
         }
       ]
+    },
+    {
+      "name": "CallOptionsCustomMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          },
+          {
+            "k": "ref",
+            "name": "CallOptionsCustomValueMap"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "bool"
+            }
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CallOptionsCustomValueMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          }
+        ]
+      }
     },
     {
       "name": "CallOptionsType",
@@ -362,19 +324,6 @@
       "optional": []
     },
     {
-      "name": "GetPluginVersionResult",
-      "kind": "config",
-      "required": [
-        {
-          "name": "version",
-          "type": {
-            "k": "string"
-          }
-        }
-      ],
-      "optional": []
-    },
-    {
       "name": "IncomingCallPayload",
       "kind": "config",
       "required": [
@@ -393,7 +342,15 @@
         {
           "name": "getPluginVersion",
           "type": {
-            "k": "obj"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "promise",
+              "of": {
+                "k": "ref",
+                "name": "IncomingCallPayloadGetPluginVersionResult"
+              }
+            }
           }
         }
       ],
@@ -408,59 +365,24 @@
         {
           "name": "custom",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "string"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "union",
-                    "of": [
-                      {
-                        "k": "string"
-                      },
-                      {
-                        "k": "float"
-                      },
-                      {
-                        "k": "obj"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "bool"
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "float"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "CallOptionsCustomMap"
           }
         }
       ]
+    },
+    {
+      "name": "IncomingCallPayloadGetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
     },
     {
       "name": "JoinCallOptions",
@@ -954,7 +876,7 @@
       "params": [],
       "returns": {
         "k": "ref",
-        "name": "GetPluginVersionResult"
+        "name": "IncomingCallPayloadGetPluginVersionResult"
       },
       "promise": true,
       "comment": "Get the native Capacitor plugin version"

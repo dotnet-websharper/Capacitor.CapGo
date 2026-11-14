@@ -6,6 +6,13 @@
   "export": "PdfViewer",
   "types": [
     {
+      "name": "CloseEventMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
       "name": "GoToPageOptions",
       "kind": "config",
       "required": [
@@ -40,10 +47,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OpenPdfOptionsHeadersMap"
           }
         },
         {
@@ -98,6 +103,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "OpenPdfOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "OpenPdfOptionsMode",
@@ -488,10 +500,8 @@
     {
       "name": "close",
       "listener": {
-        "k": "map",
-        "of": {
-          "k": "obj"
-        }
+        "k": "ref",
+        "name": "CloseEventMap"
       }
     },
     {

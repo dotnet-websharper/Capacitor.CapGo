@@ -51,10 +51,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "DownloadOptionsHeadersMap"
           }
         },
         {
@@ -113,6 +111,13 @@
         "okhttp",
         "downloadManager"
       ]
+    },
+    {
+      "name": "DownloadOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "DownloadOptionsNetwork",

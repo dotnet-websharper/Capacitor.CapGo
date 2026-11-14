@@ -109,7 +109,7 @@
                   "k": "float"
                 },
                 {
-                  "k": "obj"
+                  "k": "bool"
                 },
                 {
                   "k": "ext",
@@ -251,25 +251,8 @@
           "type": {
             "k": "array",
             "of": {
-              "k": "map",
-              "of": {
-                "k": "union",
-                "of": [
-                  {
-                    "k": "string"
-                  },
-                  {
-                    "k": "float"
-                  },
-                  {
-                    "k": "obj"
-                  },
-                  {
-                    "k": "ext",
-                    "name": "Uint8Array"
-                  }
-                ]
-              }
+              "k": "ref",
+              "name": "SQLResultRowsMap"
             }
           }
         },
@@ -288,6 +271,28 @@
           }
         }
       ]
+    },
+    {
+      "name": "SQLResultRowsMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "ext",
+            "name": "Uint8Array"
+          }
+        ]
+      }
     },
     {
       "name": "WebConfig",
@@ -316,19 +321,17 @@
                 "name": "Worker"
               },
               {
-                "k": "ref",
-                "name": "WebConfigWorker"
+                "k": "func",
+                "args": [],
+                "ret": {
+                  "k": "ext",
+                  "name": "Worker"
+                }
               }
             ]
           }
         }
       ]
-    },
-    {
-      "name": "WebConfigWorker",
-      "kind": "config",
-      "required": [],
-      "optional": []
     }
   ],
   "methods": [

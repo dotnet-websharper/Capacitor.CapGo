@@ -867,10 +867,8 @@
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "WriteSampleOptionsMetadataMap"
           }
         },
         {
@@ -958,10 +956,8 @@
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "WriteSampleOptionsMetadataMap"
           }
         },
         {
@@ -984,6 +980,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "WriteSampleOptionsMetadataMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "WriteSampleOptionsMindfulnessSessionType",

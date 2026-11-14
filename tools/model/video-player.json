@@ -175,10 +175,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "CapVideoPlayerOptionsHeadersMap"
           }
         },
         {
@@ -228,6 +226,13 @@
         "playback",
         "moviePlayback"
       ]
+    },
+    {
+      "name": "CapVideoPlayerOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "capVideoPlayerResult",

@@ -67,10 +67,8 @@
         {
           "name": "versionShareByMajor",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "float"
-            }
+            "k": "ref",
+            "name": "CheckWebViewOptionsVersionShareByMajorMap"
           }
         },
         {
@@ -116,6 +114,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "CheckWebViewOptionsVersionShareByMajorMap",
+      "kind": "map",
+      "of": {
+        "k": "float"
+      }
     },
     {
       "name": "LastStatusResult",
@@ -318,10 +323,8 @@
         {
           "name": "versionShareByMajor",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "float"
-            }
+            "k": "ref",
+            "name": "CheckWebViewOptionsVersionShareByMajorMap"
           }
         },
         {

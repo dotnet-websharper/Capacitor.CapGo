@@ -85,12 +85,6 @@
       ]
     },
     {
-      "name": "DefineTaskCallback",
-      "kind": "config",
-      "required": [],
-      "optional": []
-    },
-    {
       "name": "ReactNativeBackgroundTaskOptions",
       "kind": "config",
       "required": [],
@@ -144,8 +138,38 @@
         {
           "name": "callback",
           "type": {
-            "k": "ref",
-            "name": "DefineTaskCallback"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "BackgroundTaskEvent"
+              }
+            ],
+            "ret": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "unit"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "promise",
+                  "of": {
+                    "k": "union",
+                    "of": [
+                      {
+                        "k": "unit"
+                      },
+                      {
+                        "k": "float"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           },
           "optional": false
         }
@@ -265,8 +289,16 @@
         {
           "name": "listener",
           "type": {
-            "k": "ref",
-            "name": "DefineTaskCallback"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "BackgroundTaskEvent"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
           },
           "optional": false
         }
@@ -285,8 +317,38 @@
         {
           "name": "callback",
           "type": {
-            "k": "ref",
-            "name": "DefineTaskCallback"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "BackgroundTaskEvent"
+              }
+            ],
+            "ret": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "unit"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "promise",
+                  "of": {
+                    "k": "union",
+                    "of": [
+                      {
+                        "k": "unit"
+                      },
+                      {
+                        "k": "float"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           },
           "optional": false
         }

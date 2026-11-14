@@ -6,6 +6,13 @@
   "export": "RudderClient",
   "types": [
     {
+      "name": "IdentifyTraitsMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
       "name": "PluginVersionResult",
       "kind": "config",
       "required": [
@@ -133,22 +140,32 @@
         {
           "name": "externalIds",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "RudderOptionsExternalIdsMap"
           }
         },
         {
           "name": "integrations",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "bool"
-            }
+            "k": "ref",
+            "name": "RudderOptionsIntegrationsMap"
           }
         }
       ]
+    },
+    {
+      "name": "RudderOptionsExternalIdsMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "RudderOptionsIntegrationsMap",
+      "kind": "map",
+      "of": {
+        "k": "bool"
+      }
     }
   ],
   "methods": [
@@ -214,10 +231,8 @@
                 "name": "RudderOptions"
               },
               {
-                "k": "map",
-                "of": {
-                  "k": "obj"
-                }
+                "k": "ref",
+                "name": "IdentifyTraitsMap"
               }
             ]
           },
@@ -258,10 +273,8 @@
                 "name": "RudderOptions"
               },
               {
-                "k": "map",
-                "of": {
-                  "k": "obj"
-                }
+                "k": "ref",
+                "name": "IdentifyTraitsMap"
               }
             ]
           },
@@ -302,10 +315,8 @@
                 "name": "RudderOptions"
               },
               {
-                "k": "map",
-                "of": {
-                  "k": "obj"
-                }
+                "k": "ref",
+                "name": "IdentifyTraitsMap"
               }
             ]
           },
@@ -346,10 +357,8 @@
                 "name": "RudderOptions"
               },
               {
-                "k": "map",
-                "of": {
-                  "k": "obj"
-                }
+                "k": "ref",
+                "name": "IdentifyTraitsMap"
               }
             ]
           },

@@ -293,44 +293,8 @@
         {
           "name": "paramList",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "union",
-                    "of": [
-                      {
-                        "k": "string"
-                      },
-                      {
-                        "k": "float"
-                      },
-                      {
-                        "k": "obj"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "DataWedgePluginConfigParamListMap"
           }
         },
         {
@@ -356,6 +320,50 @@
           }
         }
       ]
+    },
+    {
+      "name": "DataWedgePluginConfigParamListMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "obj"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "bool"
+                }
+              ]
+            }
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        ]
+      }
     },
     {
       "name": "DataWedgePluginParameters",
@@ -1015,44 +1023,8 @@
         {
           "name": "scannerParams",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "union",
-                    "of": [
-                      {
-                        "k": "string"
-                      },
-                      {
-                        "k": "float"
-                      },
-                      {
-                        "k": "obj"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "DataWedgePluginConfigParamListMap"
           }
         }
       ],
@@ -1143,10 +1115,8 @@
         {
           "name": "raw",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "ZebraNotificationEventRawMap"
           }
         }
       ],
@@ -1170,6 +1140,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "ZebraNotificationEventRawMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "ZebraProfileConfiguration",

@@ -63,10 +63,8 @@
         {
           "name": "customParams",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "CallInviteCustomParamsMap"
           }
         }
       ],
@@ -99,6 +97,13 @@
         "user_declined",
         "remote_cancelled"
       ]
+    },
+    {
+      "name": "CallInviteCustomParamsMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "CallQualityWarningsChangedEvent",

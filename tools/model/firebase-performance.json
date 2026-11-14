@@ -57,14 +57,19 @@
         {
           "name": "attributes",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetAttributesResultAttributesMap"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "GetAttributesResultAttributesMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "GetMetricOptions",
@@ -228,22 +233,25 @@
         {
           "name": "metrics",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "float"
-            }
+            "k": "ref",
+            "name": "RecordOptionsOptionsMetricsMap"
           }
         },
         {
           "name": "attributes",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetAttributesResultAttributesMap"
           }
         }
       ]
+    },
+    {
+      "name": "RecordOptionsOptionsMetricsMap",
+      "kind": "map",
+      "of": {
+        "k": "float"
+      }
     },
     {
       "name": "SetEnabledOptions",

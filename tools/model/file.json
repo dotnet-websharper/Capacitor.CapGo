@@ -120,13 +120,13 @@
         {
           "name": "isFile",
           "type": {
-            "k": "obj"
+            "k": "bool"
           }
         },
         {
           "name": "isDirectory",
           "type": {
-            "k": "obj"
+            "k": "bool"
           }
         },
         {
@@ -324,13 +324,13 @@
         {
           "name": "isFile",
           "type": {
-            "k": "obj"
+            "k": "bool"
           }
         },
         {
           "name": "isDirectory",
           "type": {
-            "k": "obj"
+            "k": "bool"
           }
         },
         {

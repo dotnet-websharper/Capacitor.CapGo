@@ -74,14 +74,19 @@
         {
           "name": "values",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetAllResultValuesMap"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "GetAllResultValuesMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "GetOptions",

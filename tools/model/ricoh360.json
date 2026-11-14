@@ -314,10 +314,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SetSettingsOptionsOptionsMap"
           }
         }
       ],
@@ -330,14 +328,19 @@
         {
           "name": "options",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SetSettingsOptionsOptionsMap"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "SetSettingsOptionsOptionsMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "VideoCaptureOptions",

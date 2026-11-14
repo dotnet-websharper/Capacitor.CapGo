@@ -131,13 +131,18 @@
         {
           "name": "params",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "LogEventOptionsParamsMap"
           }
         }
       ]
+    },
+    {
+      "name": "LogEventOptionsParamsMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "SetConsentOptions",

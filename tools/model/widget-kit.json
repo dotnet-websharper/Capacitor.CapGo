@@ -91,27 +91,8 @@
         {
           "name": "response",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
@@ -137,27 +118,8 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]
@@ -340,27 +302,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]
@@ -440,27 +383,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
@@ -507,27 +431,8 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ],
@@ -580,27 +485,8 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ],
@@ -639,53 +525,15 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]
@@ -719,27 +567,8 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]
@@ -837,37 +666,15 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
           "name": "timers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "ref",
-              "name": "SvgTemplateTimerState"
-            }
+            "k": "ref",
+            "name": "SvgTemplateActivityRecordTimersMap"
           }
         }
       ],
@@ -893,27 +700,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]
@@ -938,37 +726,15 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
           "name": "timers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "ref",
-              "name": "SvgTemplateTimerState"
-            }
+            "k": "ref",
+            "name": "SvgTemplateActivityRecordTimersMap"
           }
         },
         {
@@ -1007,6 +773,14 @@
         "active",
         "ended"
       ]
+    },
+    {
+      "name": "SvgTemplateActivityRecordTimersMap",
+      "kind": "map",
+      "of": {
+        "k": "ref",
+        "name": "SvgTemplateTimerState"
+      }
     },
     {
       "name": "SvgTemplateDefinition",
@@ -1056,27 +830,8 @@
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]
@@ -1240,30 +995,38 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]
+    },
+    {
+      "name": "SvgTemplateHotspotPayloadMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "obj"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        ]
+      }
     },
     {
       "name": "SvgTemplateHotspotRole",
@@ -1523,13 +1286,11 @@
                 "k": "float"
               },
               {
-                "k": "obj"
+                "k": "bool"
               },
               {
-                "k": "map",
-                "of": {
-                  "k": "obj"
-                }
+                "k": "ref",
+                "name": "SvgTemplateStatePatchValueMap"
               },
               {
                 "k": "array",
@@ -1570,6 +1331,13 @@
         "unset",
         "timestamp"
       ]
+    },
+    {
+      "name": "SvgTemplateStatePatchValueMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "SvgTemplateTimerDefinition",
@@ -1748,27 +1516,8 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
@@ -1794,53 +1543,15 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
@@ -1904,27 +1615,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
@@ -1942,27 +1634,8 @@
         {
           "name": "response",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
@@ -2009,27 +1682,8 @@
         {
           "name": "state",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         },
         {
@@ -2068,27 +1722,8 @@
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "SvgTemplateHotspotPayloadMap"
           }
         }
       ]

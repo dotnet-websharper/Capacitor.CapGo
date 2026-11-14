@@ -22,6 +22,8 @@ type MType =
     | TUnion of MType list
     /// A Promise returned as a value (property or field), not a method return.
     | TPromise of MType
+    /// A callback value: argument types and result type.
+    | TFunc of MType list * MType
     /// A type from outside the plugin package that the WIG may not model.
     | TExt of string
 
@@ -36,6 +38,8 @@ type TypeShape =
     | Strings of string list
     | Numbers of (string * int) list
     | UnionOf of string list
+    /// A string-indexed map `{ [key: string]: T }`.
+    | Map of MType
 
 type TypeDef =
     {
@@ -107,6 +111,7 @@ let rec private recType (e: JsonElement) : MType =
     | "map" -> TMap (recType (e.GetProperty "of"))
     | "union" -> TUnion (arr e "of" |> List.map recType)
     | "promise" -> TPromise (recType (e.GetProperty "of"))
+    | "func" -> TFunc (arr e "args" |> List.map recType, recType (e.GetProperty "ret"))
     | "ext" -> TExt (str (e.GetProperty "name"))
     | other -> failwithf "unknown type kind '%s'" other
 
@@ -126,6 +131,7 @@ let rec private recTypeDef (e: JsonElement) : TypeDef =
                 |> List.map (fun c -> str (c.GetProperty "name"), c.GetProperty("value").GetInt32())
             )
         | "union" -> UnionOf (arr e "of" |> List.map str)
+        | "map" -> Map (recType (e.GetProperty "of"))
         | other -> failwithf "unknown type shape '%s' in %s" other name
     { Name = name; Shape = shape }
 

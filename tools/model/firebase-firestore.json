@@ -18,14 +18,19 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "AddDocumentOptionsDataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "AddDocumentResult",
@@ -73,7 +78,31 @@
         {
           "name": "toJSON",
           "type": {
-            "k": "obj"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "ref",
+              "name": "DocumentReferenceToJSONResult"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DocumentReferenceToJSONResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
           }
         }
       ],
@@ -392,10 +421,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
           }
         }
       ],
@@ -434,10 +461,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
           }
         }
       ],
@@ -485,10 +510,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
           }
         },
         {

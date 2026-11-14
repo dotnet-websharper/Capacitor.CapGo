@@ -22,7 +22,11 @@
         {
           "name": "cancel",
           "type": {
-            "k": "obj"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
           }
         }
       ],
@@ -66,10 +70,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
           }
         },
         {
@@ -201,10 +203,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
           }
         },
         {
@@ -337,10 +337,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
           }
         },
         {
@@ -399,10 +397,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
           }
         },
         {
@@ -419,6 +415,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "ResolveAssetSourceOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "ResolvedAssetSource",
@@ -445,7 +448,7 @@
         {
           "name": "local",
           "type": {
-            "k": "obj"
+            "k": "bool"
           }
         },
         {

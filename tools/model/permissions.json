@@ -29,15 +29,20 @@
         {
           "name": "statuses",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "ref",
-              "name": "PermissionStatusResultStatus"
-            }
+            "k": "ref",
+            "name": "MultiplePermissionStatusResultStatusesMap"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "MultiplePermissionStatusResultStatusesMap",
+      "kind": "map",
+      "of": {
+        "k": "ref",
+        "name": "PermissionStatusResultStatus"
+      }
     },
     {
       "name": "OpenSettingsOptions",

@@ -57,10 +57,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
           }
         }
       ],
@@ -482,10 +480,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
           }
         },
         {
@@ -1217,10 +1213,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
           }
         }
       ],
@@ -1245,6 +1239,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "StartActivityOptionsDataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "StartActivityResult",
@@ -1527,10 +1528,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
           }
         }
       ],

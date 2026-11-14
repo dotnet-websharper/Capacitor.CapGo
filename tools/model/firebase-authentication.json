@@ -99,10 +99,8 @@
         {
           "name": "profile",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AdditionalUserInfoProfileMap"
           }
         },
         {
@@ -118,6 +116,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "AdditionalUserInfoProfileMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "ApplyActionCodeOptions",
@@ -397,10 +402,8 @@
         {
           "name": "claims",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AdditionalUserInfoProfileMap"
           }
         }
       ],

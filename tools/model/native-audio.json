@@ -556,10 +556,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "PreloadOptionsHeadersMap"
           }
         }
       ]
@@ -623,13 +621,18 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "PreloadOptionsHeadersMap"
           }
         }
       ]
+    },
+    {
+      "name": "PreloadOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "ProgressEvent",
@@ -804,10 +807,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "PreloadOptionsHeadersMap"
           }
         }
       ]

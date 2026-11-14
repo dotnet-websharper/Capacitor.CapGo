@@ -324,7 +324,7 @@
             "k": "union",
             "of": [
               {
-                "k": "obj"
+                "k": "bool"
               },
               {
                 "k": "float"

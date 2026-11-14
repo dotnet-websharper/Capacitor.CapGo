@@ -277,10 +277,8 @@
         {
           "name": "claims",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "OAuth2LoginResponseResourceDataMap"
           }
         }
       ],
@@ -856,11 +854,8 @@
         {
           "name": "oauth2",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "ref",
-              "name": "OAuth2ProviderConfig"
-            }
+            "k": "ref",
+            "name": "InitializeOptionsOauth2Map"
           }
         },
         {
@@ -1028,6 +1023,14 @@
         "online",
         "offline"
       ]
+    },
+    {
+      "name": "InitializeOptionsOauth2Map",
+      "kind": "map",
+      "of": {
+        "k": "ref",
+        "name": "OAuth2ProviderConfig"
+      }
     },
     {
       "name": "InitializeOptionsTelegram",
@@ -1343,10 +1346,8 @@
         {
           "name": "additionalParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -1364,19 +1365,15 @@
         {
           "name": "additionalTokenParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
           "name": "additionalResourceHeaders",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -1400,10 +1397,8 @@
         {
           "name": "additionalLogoutParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -1532,10 +1527,8 @@
         {
           "name": "additionalParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -1611,10 +1604,8 @@
         {
           "name": "resourceData",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "OAuth2LoginResponseResourceDataMap"
           }
         },
         {
@@ -1640,6 +1631,13 @@
         }
       ],
       "optional": []
+    },
+    {
+      "name": "OAuth2LoginResponseResourceDataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "OAuth2ProviderConfig",
@@ -1761,10 +1759,8 @@
         {
           "name": "additionalParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -1782,19 +1778,15 @@
         {
           "name": "additionalTokenParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
           "name": "additionalResourceHeaders",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -1818,10 +1810,8 @@
         {
           "name": "additionalLogoutParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -1849,6 +1839,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "OAuth2ProviderConfigAdditionalParametersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "OAuth2ProviderConfigResponseType",
@@ -2154,10 +2151,8 @@
         {
           "name": "additionalParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         },
         {
@@ -2216,10 +2211,8 @@
         {
           "name": "additionalParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         }
       ]
@@ -2251,10 +2244,8 @@
         {
           "name": "additionalParameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "OAuth2ProviderConfigAdditionalParametersMap"
           }
         }
       ]

@@ -27,6 +27,9 @@ let rec private refsOf (t: MType) =
     | TArray x
     | TMap x -> refsOf x
     | TUnion xs -> List.collect refsOf xs
+    | TFunc (args, ret) -> List.collect refsOf (ret :: args)
+    | TPromise x -> refsOf x
+    | TExt _ -> []
     | _ -> []
 
 let private depsOf (d: TypeDef) =
@@ -37,6 +40,7 @@ let private depsOf (d: TypeDef) =
         |> List.filter (fun n -> n <> d.Name)
         |> List.distinct
     | UnionOf ns -> ns
+    | Map v -> refsOf v
     | Strings _
     | Numbers _ -> []
 
@@ -95,6 +99,19 @@ let rec private conv (types: Dictionary<string, Type.Type>) (t: MType) : Type.Ty
         xs
         |> List.fold (fun acc y -> acc + (conv types y)) (conv types x)
     | TPromise x -> T<Promise<_>>[ conv types x ]
+    | TFunc ([], ret) -> T<unit> ^-> conv types ret
+    | TFunc (args, ret) ->
+        let ps : Type.Parameters =
+            {
+                This = None
+                Arguments =
+                    [
+                        for a in args ->
+                            { Type.Parameter.Name = None; Optional = false; Type = conv types a }
+                    ]
+                Variable = None
+            }
+        (ps :> Type.IParameters) ^-> conv types ret
     | TExt n ->
         match knownExternal.TryGetValue n with
         | true, x -> x
@@ -175,6 +192,7 @@ let rec private typeKey (t: MType) =
     | TMap x -> "map:" + typeKey x
     | TUnion xs -> "union:" + (xs |> List.map typeKey |> String.concat "|")
     | TPromise x -> "promise:" + typeKey x
+    | TFunc (args, ret) -> "func:(" + (args |> List.map typeKey |> String.concat ",") + ")->" + typeKey ret
     | TExt n -> "ext:" + n
 
 /// Two members that differ only by casing (e.g. `getReferrer` / `GetReferrer`
@@ -260,6 +278,13 @@ let private buildPlugin (handle: Type.Type) (p: Plugin) =
                     Pattern.EnumInlines def.Name [
                         for name, value in enumMemberNames cases -> name, quote value
                     ]
+                types.[def.Name] <- cls.Type
+                members.Add(cls :> CodeModel.NamespaceEntity)
+            | Map value ->
+                let cls =
+                    Class def.Name
+                    |+> Instance [ Property "" (conv types value) |> Indexed T<string> ]
+                    |+> Static [ Getter "Empty" TSelf |> WithGetterInline "({})" ]
                 types.[def.Name] <- cls.Type
                 members.Add(cls :> CodeModel.NamespaceEntity)
             | Numbers cases ->

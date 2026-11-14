@@ -75,24 +75,29 @@
         {
           "name": "appleAttribution",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "GetReferrerResultAppleAttributionMap"
           }
         }
       ]
+    },
+    {
+      "name": "GetReferrerResultAppleAttributionMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          }
+        ]
+      }
     },
     {
       "name": "PluginVersionResult",

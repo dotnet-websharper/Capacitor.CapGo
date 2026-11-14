@@ -25,10 +25,8 @@
         {
           "name": "context",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],
@@ -54,10 +52,8 @@
         {
           "name": "message",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],
@@ -70,10 +66,8 @@
         {
           "name": "message",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         },
         {
@@ -96,7 +90,7 @@
                 "k": "float"
               },
               {
-                "k": "obj"
+                "k": "bool"
               }
             ]
           }
@@ -123,10 +117,8 @@
         {
           "name": "context",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],
@@ -145,10 +137,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],
@@ -161,20 +151,25 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         },
         {
           "name": "expectsReply",
           "type": {
-            "k": "obj"
+            "k": "bool"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "SendMessageOptionsWithReplyDataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "SendMessageResult",
@@ -183,10 +178,8 @@
         {
           "name": "reply",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],
@@ -199,10 +192,8 @@
         {
           "name": "userInfo",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],
@@ -215,10 +206,8 @@
         {
           "name": "context",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],
@@ -231,10 +220,8 @@
         {
           "name": "userInfo",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "SendMessageOptionsWithReplyDataMap"
           }
         }
       ],

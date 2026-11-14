@@ -283,6 +283,7 @@ module Client =
 
     [<SPAEntryPoint>]
     let Main () =
+
         let saved =
             try JS.Window.LocalStorage.GetItem(themeStorageKey) with _ -> null
         if saved = "dark" || saved = "light" then

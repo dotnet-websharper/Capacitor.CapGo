@@ -236,6 +236,37 @@
       ]
     },
     {
+      "name": "DimensionOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
       "name": "DisclaimerOptions",
       "kind": "config",
       "required": [
@@ -513,6 +544,13 @@
       ]
     },
     {
+      "name": "GetCookiesResultMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
       "name": "GetFullscreenResult",
       "kind": "config",
       "required": [
@@ -660,10 +698,8 @@
         {
           "name": "detail",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "PostMessageOptionsDetailMap"
           }
         },
         {
@@ -886,10 +922,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetCookiesResultMap"
           }
         },
         {
@@ -1221,7 +1255,7 @@
                 "k": "string"
               },
               {
-                "k": "obj"
+                "k": "bool"
               }
             ]
           }
@@ -1532,10 +1566,8 @@
         {
           "name": "detail",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "PostMessageOptionsDetailMap"
           }
         }
       ],
@@ -1547,6 +1579,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "PostMessageOptionsDetailMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "ProxyDecision",
@@ -1607,10 +1646,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetCookiesResultMap"
           }
         },
         {
@@ -1636,10 +1673,8 @@
         {
           "name": "responseHeaders",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetCookiesResultMap"
           }
         },
         {
@@ -1671,10 +1706,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetCookiesResultMap"
           }
         },
         {
@@ -1712,10 +1745,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetCookiesResultMap"
           }
         }
       ],
@@ -2039,10 +2070,8 @@
         }
       ],
       "returns": {
-        "k": "map",
-        "of": {
-          "k": "string"
-        }
+        "k": "ref",
+        "name": "GetCookiesResultMap"
       },
       "promise": true,
       "comment": "Get cookies for a specific URL."
@@ -2307,7 +2336,8 @@
         {
           "name": "options",
           "type": {
-            "k": "obj"
+            "k": "ref",
+            "name": "DimensionOptions"
           },
           "optional": false
         }
@@ -2464,7 +2494,8 @@
     {
       "name": "screenshotTaken",
       "listener": {
-        "k": "obj"
+        "k": "ref",
+        "name": "ScreenshotResult"
       }
     },
     {

@@ -283,10 +283,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "UserUserMetadataMap"
           }
         }
       ]
@@ -349,22 +347,25 @@
         {
           "name": "userMetadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "UserUserMetadataMap"
           }
         },
         {
           "name": "appMetadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "UserUserMetadataMap"
           }
         }
       ]
+    },
+    {
+      "name": "UserUserMetadataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "VerifyOtpOptions",

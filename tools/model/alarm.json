@@ -210,10 +210,8 @@
         {
           "name": "details",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "bool"
-            }
+            "k": "ref",
+            "name": "PermissionResultDetailsMap"
           }
         },
         {
@@ -223,6 +221,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "PermissionResultDetailsMap",
+      "kind": "map",
+      "of": {
+        "k": "bool"
+      }
     },
     {
       "name": "RequestPermissionsOptions",

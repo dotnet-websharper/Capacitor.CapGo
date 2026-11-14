@@ -165,19 +165,15 @@
         {
           "name": "fields",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "UploadOptionHeadersMap"
           }
         },
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "UploadOptionHeadersMap"
           }
         }
       ]
@@ -195,10 +191,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "UploadOptionHeadersMap"
           }
         }
       ],
@@ -241,10 +235,8 @@
         {
           "name": "parameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "UploadOptionHeadersMap"
           }
         },
         {
@@ -267,6 +259,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "UploadOptionHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "UploadOptionMethod",

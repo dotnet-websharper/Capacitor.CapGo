@@ -31,17 +31,14 @@
         {
           "name": "onPress",
           "type": {
-            "k": "ref",
-            "name": "ToastActionOnPress"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
           }
         }
       ],
-      "optional": []
-    },
-    {
-      "name": "ToastActionOnPress",
-      "kind": "config",
-      "required": [],
       "optional": []
     },
     {
@@ -140,29 +137,41 @@
         {
           "name": "onPress",
           "type": {
-            "k": "ref",
-            "name": "ToastActionOnPress"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
           }
         },
         {
           "name": "onShow",
           "type": {
-            "k": "ref",
-            "name": "ToastActionOnPress"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
           }
         },
         {
           "name": "onHide",
           "type": {
-            "k": "ref",
-            "name": "ToastActionOnPress"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
           }
         },
         {
           "name": "onAutoDismiss",
           "type": {
-            "k": "ref",
-            "name": "ToastActionOnPress"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
           }
         }
       ]

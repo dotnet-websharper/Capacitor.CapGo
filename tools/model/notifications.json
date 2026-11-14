@@ -19,18 +19,32 @@
         {
           "name": "finish",
           "type": {
-            "k": "ref",
-            "name": "CapgoBackgroundNotificationEventFinish"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "CapgoBackgroundNotificationEventFinishArg"
+              }
+            ],
+            "ret": {
+              "k": "promise",
+              "of": {
+                "k": "unit"
+              }
+            }
           }
         }
       ],
       "optional": []
     },
     {
-      "name": "CapgoBackgroundNotificationEventFinish",
-      "kind": "config",
-      "required": [],
-      "optional": []
+      "name": "CapgoBackgroundNotificationEventFinishArg",
+      "kind": "enumStrings",
+      "cases": [
+        "failed",
+        "newData",
+        "noData"
+      ]
     },
     {
       "name": "CapgoNotificationEvent",
@@ -193,10 +207,8 @@
         {
           "name": "attributes",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "CapgoNotificationRegisterOptionsAttributesMap"
           }
         },
         {
@@ -212,6 +224,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "CapgoNotificationRegisterOptionsAttributesMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "CapgoNotificationRegistration",
@@ -393,10 +412,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "CapgoNotificationRegisterOptionsAttributesMap"
           }
         }
       ],

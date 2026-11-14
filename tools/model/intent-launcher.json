@@ -77,10 +77,8 @@
         {
           "name": "extra",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "IntentLauncherParamsExtraMap"
           }
         },
         {
@@ -104,6 +102,13 @@
       ]
     },
     {
+      "name": "IntentLauncherParamsExtraMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
       "name": "IntentLauncherResult",
       "kind": "config",
       "required": [
@@ -125,10 +130,8 @@
         {
           "name": "extra",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "IntentLauncherParamsExtraMap"
           }
         }
       ]

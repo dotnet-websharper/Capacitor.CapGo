@@ -45,8 +45,16 @@
         {
           "name": "onProgress",
           "type": {
-            "k": "ref",
-            "name": "ZipOptionsOnProgress"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "ZipProgressEvent"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
           }
         },
         {
@@ -90,8 +98,16 @@
         {
           "name": "onProgress",
           "type": {
-            "k": "ref",
-            "name": "ZipOptionsOnProgress"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "ZipProgressEvent"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
           }
         },
         {
@@ -101,12 +117,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "ZipOptionsOnProgress",
-      "kind": "config",
-      "required": [],
-      "optional": []
     },
     {
       "name": "ZipProgressEvent",

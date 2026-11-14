@@ -214,10 +214,8 @@
         {
           "name": "extra",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "ShowIncomingCallOptionsExtraMap"
           }
         }
       ]
@@ -357,10 +355,8 @@
         {
           "name": "extra",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "ShowIncomingCallOptionsExtraMap"
           }
         },
         {
@@ -378,6 +374,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "ShowIncomingCallOptionsExtraMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "ShowIncomingCallResult",

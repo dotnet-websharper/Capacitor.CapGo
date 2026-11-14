@@ -30,6 +30,13 @@
         }
       ],
       "optional": []
+    },
+    {
+      "name": "TogetDeviceInfoResultMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     }
   ],
   "methods": [
@@ -317,10 +324,8 @@
       "name": "togetDeviceInfo",
       "params": [],
       "returns": {
-        "k": "map",
-        "of": {
-          "k": "obj"
-        }
+        "k": "ref",
+        "name": "TogetDeviceInfoResultMap"
       },
       "promise": true,
       "comment": "Returns device information collected during detection.\n\nProvides additional context and metadata about the device that was\ngathered during the root detection process. Useful for debugging\nand logging purposes."

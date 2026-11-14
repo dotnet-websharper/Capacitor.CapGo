@@ -19,10 +19,43 @@
       "optional": []
     },
     {
-      "name": "DownloadFileCallback",
+      "name": "DownloadFileCallbackEvent",
       "kind": "config",
-      "required": [],
-      "optional": []
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bytesTransferred",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "blob",
+          "type": {
+            "k": "ext",
+            "name": "Blob"
+          }
+        }
+      ]
     },
     {
       "name": "DownloadFileOptions",
@@ -176,13 +209,18 @@
         {
           "name": "customMetadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetMetadataResultCustomMetadataMap"
           }
         }
       ]
+    },
+    {
+      "name": "GetMetadataResultCustomMetadataMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "GetPluginVersionResult",
@@ -285,10 +323,8 @@
         {
           "name": "customMetadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetMetadataResultCustomMetadataMap"
           }
         }
       ]
@@ -337,6 +373,38 @@
         }
       ],
       "optional": []
+    },
+    {
+      "name": "UploadFileCallbackEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bytesTransferred",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalBytes",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
     },
     {
       "name": "UploadFileOptions",
@@ -416,10 +484,8 @@
         {
           "name": "customMetadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "GetMetadataResultCustomMetadataMap"
           }
         }
       ]
@@ -553,8 +619,19 @@
         {
           "name": "callback",
           "type": {
-            "k": "ref",
-            "name": "DownloadFileCallback"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "DownloadFileCallbackEvent"
+              },
+              {
+                "k": "obj"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
           },
           "optional": false
         }
@@ -579,8 +656,19 @@
         {
           "name": "callback",
           "type": {
-            "k": "ref",
-            "name": "DownloadFileCallback"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "UploadFileCallbackEvent"
+              },
+              {
+                "k": "obj"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
           },
           "optional": false
         }

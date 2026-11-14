@@ -33,33 +33,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
           }
         }
       ]
@@ -141,33 +116,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
           }
         }
       ]
@@ -187,33 +137,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
           }
         }
       ]
@@ -246,33 +171,8 @@
         {
           "name": "value",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
           }
         }
       ]
@@ -303,33 +203,8 @@
         {
           "name": "value",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
           }
         }
       ],
@@ -350,33 +225,8 @@
         {
           "name": "value",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
           }
         }
       ]
@@ -408,33 +258,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "obj"
-                  }
-                },
-                {
-                  "k": "map",
-                  "of": {
-                    "k": "obj"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
           }
         },
         {
@@ -444,6 +269,41 @@
           }
         }
       ]
+    },
+    {
+      "name": "AutoTemplateItemPayloadMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          },
+          {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadValueMap"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AutoTemplateItemPayloadValueMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "AutoTemplateOptions",

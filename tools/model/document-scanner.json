@@ -77,7 +77,15 @@
         {
           "name": "getPluginVersion",
           "type": {
-            "k": "obj"
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "promise",
+              "of": {
+                "k": "ref",
+                "name": "ScanDocumentResponseGetPluginVersionResult"
+              }
+            }
           }
         }
       ],
@@ -99,6 +107,19 @@
           }
         }
       ]
+    },
+    {
+      "name": "ScanDocumentResponseGetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
     },
     {
       "name": "ScanDocumentResponseStatus",

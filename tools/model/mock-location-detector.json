@@ -134,13 +134,18 @@
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "LocationCheckResultMetadataMap"
           }
         }
       ]
+    },
+    {
+      "name": "LocationCheckResultMetadataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "LocationIntegrityChangedEvent",

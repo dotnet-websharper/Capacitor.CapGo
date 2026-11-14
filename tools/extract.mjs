@@ -181,6 +181,19 @@ class Extractor {
     if (type.isAny() || type.isUnknown()) return { k: "obj" };
     if (type.isStringLiteral() || type.isString()) return { k: "string" };
     if (type.isNumberLiteral()) return { k: "float" };
+    // TS keeps `true | false` as literals inside unions, and CapGo uses
+    // `boolean` in discriminated unions a lot.
+    if (type.isBooleanLiteral()) return { k: "bool" };
+    // Branded primitive, e.g. `string & Record<never, never>`: the intersection
+    // is still a string at runtime and in the API.
+    if (type.isIntersection()) {
+      const parts = type.getIntersectionTypes();
+      if (parts.some(t => t.isString())) return { k: "string" };
+      if (parts.some(t => t.isNumber())) return { k: "float" };
+      if (parts.some(t => t.isBoolean())) return { k: "bool" };
+      const ref = parts.map(t => this.refNameOf(t)).find(Boolean);
+      return ref ? { k: "ref", name: ref } : { k: "obj" };
+    }
     if (this.isEnumType(type)) {
       const name = type.getSymbol()?.getName();
       if (name && this.registerNamed(name, type) === name) return { k: "ref", name };
@@ -233,9 +246,35 @@ class Extractor {
 
     if (type.isStringLiteral()) return { k: "string" };
 
-    // Index signatures: {[key: string]: T}
+    // Callback-valued fields and parameters: keep the signature.
+    const callSignatures = type.getCallSignatures();
+    if (callSignatures.length) {
+      const sig = callSignatures[0];
+      const args = sig.getParameters().map(p => {
+        const d = p.getDeclarations()[0];
+        return this.conv(p.getTypeAtLocation(d ?? this.indexFile), `${hint}Arg`);
+      });
+      const retType = sig.getReturnType();
+      let ret;
+      if (retType.getText().startsWith("Promise<")) {
+        const a = retType.getTypeArguments();
+        ret = a.length ? { k: "promise", of: this.conv(a[0], `${hint}Result`) } : { k: "promise", of: { k: "unit" } };
+      } else {
+        ret = this.conv(retType, `${hint}Result`);
+      }
+      return { k: "func", args, ret };
+    }
+
+    // Index signatures: {[key: string]: T} become a named map type, which the
+    // generator emits as a class with a string indexer.
     const indexType = type.getStringIndexType();
-    if (indexType) return { k: "map", of: this.conv(indexType, hint) };
+    if (indexType) {
+      const of = this.conv(indexType, `${hint}Value`);
+      return {
+        k: "ref",
+        name: this.registerAnonymous(this.hintName(`${hint}Map`), { kind: "map", of }),
+      };
+    }
 
     // Object types: reuse the declared name when there is one.
     const symbol = type.getSymbol();
@@ -495,23 +534,88 @@ for (const plugin of selected) {
   });
 }
 
-const rows = summary.map(({ plugin, model, status }) => {
+function audit(model) {
+  const stats = { nodes: 0, obj: 0, byParent: {}, external: new Set() };
+  const walk = (t, parent) => {
+    if (!t) return;
+    stats.nodes++;
+    if (t.k === "obj") {
+      stats.obj++;
+      stats.byParent[parent] = (stats.byParent[parent] || 0) + 1;
+    }
+    if (t.k === "ext") stats.external.add(t.name);
+    if (t.k === "array" || t.k === "promise") walk(t.of, t.k);
+    if (t.k === "map") walk(t.of, "map");
+    if (t.k === "union") t.of.forEach(x => walk(x, "union"));
+    if (t.k === "func") {
+      t.args.forEach(a => walk(a, "callback arg"));
+      walk(t.ret, "callback result");
+    }
+  };
+  for (const t of model.types) {
+    if (t.kind === "config") {
+      [...(t.required || []), ...(t.optional || [])].forEach(x => walk(x.type, "field"));
+    }
+    if (t.kind === "map") walk(t.of, "map value");
+  }
+  model.methods.forEach(m => {
+    m.params.forEach(p => walk(p.type, "parameter"));
+    walk(m.returns, "return");
+  });
+  model.events.forEach(e => walk(e.listener, "event"));
+  return stats;
+}
+
+const audits = summary.map(({ model }) => audit(model));
+const totals = audits.reduce(
+  (a, x) => {
+    a.nodes += x.nodes;
+    a.obj += x.obj;
+    for (const [k, v] of Object.entries(x.byParent)) a.byParent[k] = (a.byParent[k] || 0) + v;
+    x.external.forEach(n => a.external.add(n));
+    return a;
+  },
+  { nodes: 0, obj: 0, byParent: {}, external: new Set() },
+);
+
+const rows = summary.map(({ plugin, model, status }, i) => {
   const methods = model.methods.length + model.events.length;
   const unsupported = model.unsupported.length;
+  const a = audits[i];
+  const typed = a.nodes === 0 ? 100 : Math.round(((a.nodes - a.obj) / a.nodes) * 100);
   return `| ${plugin.namespace} | \`${model.package}\` | ${model.version} | ${methods} | ${
     unsupported ? unsupported + " ⚠" : "—"
-  } | ${status} |`;
+  } | ${typed}% | ${a.obj} | ${status} |`;
 });
+
+const pct = Math.round(((totals.nodes - totals.obj) / totals.nodes) * 100);
+const breakdown = Object.entries(totals.byParent)
+  .sort((a, b) => b[1] - a[1])
+  .map(([k, v]) => `| ${k} | ${v} |`)
+  .join("\n");
 
 const report = [
   "# CapGo plugin surface coverage",
   "",
-  "Generated by `tools/extract.mjs` from each package's `dist/esm/*.d.ts`.",
+  "Generated by `tools/extract.mjs` from each package's `dist/**/index.d.ts`.",
   "Methods and events are counted separately; `unsupported` needs a hand-written override.",
+  `**Typed surface: ${pct}%** (${totals.nodes - totals.obj} of ${totals.nodes} type positions). ` +
+    `${totals.obj} positions remain \`obj\`; they are either upstream \`any\`/\`unknown\` or ` +
+    "JSON payloads, broken down below.",
   "",
-  "| Namespace | npm package | Version | Methods + events | Unsupported | Status |",
-  "|---|---|---:|---:|---:|---|",
+  "| Namespace | npm package | Version | Methods + events | Unsupported | Typed | obj | Status |",
+  "|---|---|---:|---:|---:|---:|---:|---|",
   ...rows,
+  "",
+  "## Remaining `obj` positions",
+  "",
+  "| Where | Count |",
+  "|---|---:|",
+  breakdown,
+  "",
+  "External types referenced by the models (mapped to WebSharper.JavaScript types when " +
+    "available, otherwise `obj`): " +
+    (totals.external.size ? [...totals.external].sort().map(n => `\`${n}\``).join(", ") : "none"),
   "",
 ].join("\n");
 

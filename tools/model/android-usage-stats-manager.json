@@ -105,6 +105,14 @@
       "optional": []
     },
     {
+      "name": "QueryAndAggregateUsageStatsResultMap",
+      "kind": "map",
+      "of": {
+        "k": "ref",
+        "name": "UsageStats"
+      }
+    },
+    {
       "name": "QueryEventsOptions",
       "kind": "config",
       "required": [
@@ -386,11 +394,8 @@
         }
       ],
       "returns": {
-        "k": "map",
-        "of": {
-          "k": "ref",
-          "name": "UsageStats"
-        }
+        "k": "ref",
+        "name": "QueryAndAggregateUsageStatsResultMap"
       },
       "promise": true,
       "comment": "Queries and aggregates usage stats for the given time range.\n\nAndroid reads pre-aggregated daily/weekly/monthly/yearly buckets and sums\nevery bucket that intersects `[beginTime, endTime)`, without clipping to it.\n`totalTimeInForeground` can therefore include usage from outside the window.\nUse `queryUsageStats` for the unmerged per-interval buckets, or `queryEvents`\nfor timestamped lifecycle events in the requested range."

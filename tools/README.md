@@ -77,11 +77,22 @@ configs, unions of object types stay unions of refs, and literal unions become
 | `{ "k": "ref", "name": "X" }` | a declared type |
 | `{ "k": "array", "of": T }` | `T[]` |
 | `{ "k": "union", "of": [T, …] }` | `A \| B` (WIG `A + B`) |
-| `{ "k": "map", "of": T }` | string index signature `{ [k: string]: T }` |
+| `{ "k": "map", "of": T }` | string index signature (hoisted to a named type, see below) |
+| `{ "k": "func", "args": [T…], "ret": T }` | a callback value |
 
-Tuples become arrays of their element union; string/number literal unions become
-`enumStrings`/`enum` types; `Record<string, unknown>` (and similar index
-signatures over unknown JSON) is the only place `obj` is expected.
+Tuples become arrays of their element union; string/number/boolean literal
+unions become `enumStrings`/`enum` types; branded primitives
+(`string & Record<never, never>`) keep their primitive type.
+
+Index signatures are hoisted to a named type with `kind: "map"`. The F#
+generator emits those as a class with a **string indexer** plus a static
+`Empty` (`UploadOptionHeadersMap.Empty.["Authorization"] <- token`), so `obj`
+is no longer involved. Callback values (`kind: "func"`) are emitted as typed
+WIG function types.
+
+`obj` now only survives where upstream declares `any`/`unknown`, a JSON
+payload, or an external type the WIG cannot model. `coverage.md` reports the
+typed percentage and breaks the remaining `obj` positions down by context.
 
 ## Overrides (`overrides/*.json`)
 
@@ -98,7 +109,9 @@ provider unions):
 | `unsupportedResolved` | clear an `unsupported` entry once an override covers it |
 
 Anything still listed under `unsupported` is a known gap and shows up with ⚠ in
-`coverage.md` and in the generated binding's build log.
+`coverage.md`. The report also states the typed-surface percentage (currently
+99%) and lists every remaining `obj` position by context, plus the external
+types the models reference.
 
 ## Verification
 

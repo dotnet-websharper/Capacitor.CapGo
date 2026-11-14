@@ -84,10 +84,8 @@
         {
           "name": "clientExtensionResults",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "PasskeyPublicKeyCredentialCreationOptionsJSONExtensionsMap"
           }
         },
         {
@@ -364,10 +362,8 @@
         {
           "name": "extensions",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "PasskeyPublicKeyCredentialCreationOptionsJSONExtensionsMap"
           }
         }
       ]
@@ -381,6 +377,13 @@
         "direct",
         "enterprise"
       ]
+    },
+    {
+      "name": "PasskeyPublicKeyCredentialCreationOptionsJSONExtensionsMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "PasskeyPublicKeyCredentialRequestOptionsJSON",
@@ -435,10 +438,8 @@
         {
           "name": "extensions",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "PasskeyPublicKeyCredentialCreationOptionsJSONExtensionsMap"
           }
         }
       ]
@@ -468,10 +469,8 @@
         {
           "name": "clientExtensionResults",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "PasskeyPublicKeyCredentialCreationOptionsJSONExtensionsMap"
           }
         },
         {

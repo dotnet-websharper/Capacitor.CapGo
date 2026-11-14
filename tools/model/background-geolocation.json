@@ -50,10 +50,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "GeofenceSetupOptionsPayloadMap"
           }
         }
       ]
@@ -106,6 +104,44 @@
         "prompt-with-rationale",
         "granted",
         "denied"
+      ]
+    },
+    {
+      "name": "CallbackError",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "code",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "stack",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cause",
+          "type": {
+            "k": "obj"
+          }
+        }
       ]
     },
     {
@@ -167,10 +203,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "StartOptionsHeadersMap"
           }
         },
         {
@@ -188,10 +222,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "GeofenceSetupOptionsPayloadMap"
           }
         },
         {
@@ -207,6 +239,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "GeofenceSetupOptionsPayloadMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "GeofenceTransitionEvent",
@@ -254,10 +293,8 @@
         {
           "name": "payload",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "GeofenceSetupOptionsPayloadMap"
           }
         },
         {
@@ -303,6 +340,67 @@
           "name": "version",
           "type": {
             "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Location",
+      "kind": "config",
+      "required": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "accuracy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "altitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "altitudeAccuracy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "simulated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "bearing",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
           }
         }
       ],
@@ -508,12 +606,6 @@
       "optional": []
     },
     {
-      "name": "StartCallback",
-      "kind": "config",
-      "required": [],
-      "optional": []
-    },
-    {
       "name": "StartOptions",
       "kind": "config",
       "required": [],
@@ -557,10 +649,8 @@
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "StartOptionsHeadersMap"
           }
         },
         {
@@ -596,16 +686,21 @@
       ]
     },
     {
+      "name": "StartOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
       "name": "UpdateHeadersOptions",
       "kind": "config",
       "required": [
         {
           "name": "headers",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "StartOptionsHeadersMap"
           }
         }
       ],
@@ -627,8 +722,20 @@
         {
           "name": "callback",
           "type": {
-            "k": "ref",
-            "name": "StartCallback"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "Location"
+              },
+              {
+                "k": "ref",
+                "name": "CallbackError"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
           },
           "optional": false
         }

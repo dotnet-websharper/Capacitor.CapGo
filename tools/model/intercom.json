@@ -83,10 +83,8 @@
         {
           "name": "customAttributes",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "IntercomUserUpdateOptionsCustomAttributesMap"
           }
         }
       ]
@@ -150,10 +148,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "IntercomUserUpdateOptionsCustomAttributesMap"
           }
         }
       ]
@@ -274,10 +270,8 @@
         {
           "name": "customAttributes",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "IntercomUserUpdateOptionsCustomAttributesMap"
           }
         },
         {
@@ -291,6 +285,13 @@
           }
         }
       ]
+    },
+    {
+      "name": "IntercomUserUpdateOptionsCustomAttributesMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     }
   ],
   "methods": [
@@ -597,10 +598,8 @@
         {
           "name": "notification",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "IntercomUserUpdateOptionsCustomAttributesMap"
           },
           "optional": false
         }

@@ -83,10 +83,8 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "IsCrispPushNotificationDataDataMap"
           }
         }
       ],
@@ -106,14 +104,19 @@
         {
           "name": "data",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "IsCrispPushNotificationDataDataMap"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "IsCrispPushNotificationDataDataMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "IsCrispPushNotificationResult",

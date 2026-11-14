@@ -139,21 +139,8 @@
         {
           "name": "details",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "NetworkStatusResultDetailsMap"
           }
         }
       ]
@@ -170,6 +157,24 @@
         "other",
         "unknown"
       ]
+    },
+    {
+      "name": "NetworkStatusResultDetailsMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          }
+        ]
+      }
     },
     {
       "name": "PacketLossTestOptions",

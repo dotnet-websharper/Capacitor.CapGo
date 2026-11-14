@@ -6,6 +6,27 @@
   "export": "MediaSession",
   "types": [
     {
+      "name": "ActionDetails",
+      "kind": "config",
+      "required": [
+        {
+          "name": "action",
+          "type": {
+            "k": "ref",
+            "name": "ActionHandlerOptionsAction"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "seekTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
       "name": "ActionHandlerOptions",
       "kind": "config",
       "required": [
@@ -154,12 +175,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "SetActionHandlerHandler",
-      "kind": "config",
-      "required": [],
-      "optional": []
     }
   ],
   "methods": [
@@ -213,8 +228,16 @@
         {
           "name": "handler",
           "type": {
-            "k": "ref",
-            "name": "SetActionHandlerHandler"
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "ActionDetails"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
           },
           "optional": false
         }

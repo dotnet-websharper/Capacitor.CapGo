@@ -128,20 +128,16 @@
           "type": {
             "k": "array",
             "of": {
-              "k": "map",
-              "of": {
-                "k": "string"
-              }
+              "k": "ref",
+              "name": "IntuneMAMAppConfigFullDataMap"
             }
           }
         },
         {
           "name": "values",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "string"
-            }
+            "k": "ref",
+            "name": "IntuneMAMAppConfigFullDataMap"
           }
         },
         {
@@ -155,6 +151,13 @@
         }
       ],
       "optional": []
+    },
+    {
+      "name": "IntuneMAMAppConfigFullDataMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
     },
     {
       "name": "IntuneMAMChangeEvent",

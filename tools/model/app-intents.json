@@ -24,10 +24,8 @@
         {
           "name": "params",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AppIntentInvocationParamsMap"
           }
         },
         {
@@ -45,6 +43,13 @@
         }
       ],
       "optional": []
+    },
+    {
+      "name": "AppIntentInvocationParamsMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "AppIntentInvocationSource",
@@ -97,10 +102,8 @@
         {
           "name": "metadata",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AppIntentInvocationParamsMap"
           }
         }
       ]
@@ -168,10 +171,8 @@
         {
           "name": "params",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AppIntentInvocationParamsMap"
           }
         }
       ]
@@ -206,10 +207,8 @@
         {
           "name": "params",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AppIntentInvocationParamsMap"
           }
         }
       ],
@@ -339,10 +338,8 @@
         {
           "name": "params",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "AppIntentInvocationParamsMap"
           }
         }
       ]

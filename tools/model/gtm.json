@@ -79,13 +79,18 @@
         {
           "name": "parameters",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "obj"
-            }
+            "k": "ref",
+            "name": "PushOptionsParametersMap"
           }
         }
       ]
+    },
+    {
+      "name": "PushOptionsParametersMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
     },
     {
       "name": "SetUserPropertyOptions",
@@ -109,7 +114,7 @@
                 "k": "float"
               },
               {
-                "k": "obj"
+                "k": "bool"
               }
             ]
           }

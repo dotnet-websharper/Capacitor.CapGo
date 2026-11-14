@@ -43,31 +43,36 @@
         {
           "name": "fields",
           "type": {
-            "k": "map",
-            "of": {
-              "k": "union",
-              "of": [
-                {
-                  "k": "string"
-                },
-                {
-                  "k": "float"
-                },
-                {
-                  "k": "obj"
-                },
-                {
-                  "k": "array",
-                  "of": {
-                    "k": "string"
-                  }
-                }
-              ]
-            }
+            "k": "ref",
+            "name": "InquiryCompleteInfoFieldsMap"
           }
         }
       ],
       "optional": []
+    },
+    {
+      "name": "InquiryCompleteInfoFieldsMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        ]
+      }
     },
     {
       "name": "InquiryErrorInfo",
