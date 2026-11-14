@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-native-loader",
   "version": "8.1.14",
+  "license": "MPL-2.0",
   "export": "NativeLoader",
   "types": [
     {

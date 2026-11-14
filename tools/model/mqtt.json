@@ -3,6 +3,7 @@
   "family": "Messaging",
   "package": "@capgo/capacitor-mqtt",
   "version": "8.1.18",
+  "license": "MPL-2.0",
   "export": "MqttBridge",
   "types": [
     {

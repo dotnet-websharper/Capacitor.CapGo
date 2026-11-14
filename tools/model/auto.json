@@ -3,6 +3,7 @@
   "family": "Tooling",
   "package": "@capgo/capacitor-auto",
   "version": "8.1.16",
+  "license": "MPL-2.0",
   "export": "Auto",
   "types": [
     {

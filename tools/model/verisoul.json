@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-verisoul",
   "version": "8.0.19",
+  "license": "MPL-2.0",
   "export": "Verisoul",
   "types": [
     {

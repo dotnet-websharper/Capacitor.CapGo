@@ -75,6 +75,7 @@ type Plugin =
         Family: string
         Package: string
         Version: string
+        License: string
         Export: string
         Types: TypeDef list
         Methods: Method list
@@ -172,6 +173,10 @@ let load (path: string) : Plugin =
         Family = str (root.GetProperty "family")
         Package = str (root.GetProperty "package")
         Version = str (root.GetProperty "version")
+        License =
+            match prop root "license" with
+            | Some v -> str v
+            | None -> "unknown"
         Export = str (root.GetProperty "export")
         Types = arr root "types" |> List.map recTypeDef
         Methods = arr root "methods" |> List.map recMethod

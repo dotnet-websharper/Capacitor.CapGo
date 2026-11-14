@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-app-attest",
   "version": "8.2.21",
+  "license": "MPL-2.0",
   "export": "AppAttest",
   "types": [
     {

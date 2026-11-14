@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-firebase-authentication",
   "version": "8.0.2",
+  "license": "MPL-2.0",
   "export": "FirebaseAuthentication",
   "types": [
     {

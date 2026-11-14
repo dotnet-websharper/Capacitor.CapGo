@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-app-tracking-transparency",
   "version": "8.1.23",
+  "license": "MPL-2.0",
   "export": "AppTrackingTransparency",
   "types": [
     {

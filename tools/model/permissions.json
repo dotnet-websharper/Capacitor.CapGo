@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-permissions",
   "version": "8.2.10",
+  "license": "MPL-2.0",
   "export": "Permissions",
   "types": [
     {

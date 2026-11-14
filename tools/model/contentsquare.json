@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-contentsquare",
   "version": "8.1.19",
+  "license": "MIT",
   "export": "Contentsquare",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "Media",
   "package": "@capgo/capacitor-video-thumbnails",
   "version": "8.1.27",
+  "license": "MPL-2.0",
   "export": "CapgoVideoThumbnails",
   "types": [
     {

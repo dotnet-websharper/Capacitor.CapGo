@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-screen-orientation",
   "version": "8.4.5",
+  "license": "MPL-2.0",
   "export": "ScreenOrientation",
   "types": [
     {

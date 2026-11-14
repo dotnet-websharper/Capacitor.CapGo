@@ -3,6 +3,7 @@
   "family": "Media",
   "package": "@capgo/capacitor-media-session",
   "version": "8.1.11",
+  "license": "MPL-2.0",
   "export": "MediaSession",
   "types": [
     {

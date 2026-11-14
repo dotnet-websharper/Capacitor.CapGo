@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-navigation-bar",
   "version": "8.2.23",
+  "license": "MPL-2.0",
   "export": "NavigationBar",
   "types": [
     {

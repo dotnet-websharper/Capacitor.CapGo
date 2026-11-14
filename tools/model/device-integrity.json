@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-device-integrity",
   "version": "8.0.17",
+  "license": "MPL-2.0",
   "export": "DeviceIntegrity",
   "types": [
     {

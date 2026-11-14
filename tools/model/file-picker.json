@@ -3,6 +3,7 @@
   "family": "Files",
   "package": "@capgo/capacitor-file-picker",
   "version": "8.2.9",
+  "license": "MPL-2.0",
   "export": "CapgoFilePicker",
   "types": [
     {

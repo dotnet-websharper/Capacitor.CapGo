@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-webview-crash",
   "version": "8.1.15",
+  "license": "MPL-2.0",
   "export": "WebViewCrash",
   "types": [
     {

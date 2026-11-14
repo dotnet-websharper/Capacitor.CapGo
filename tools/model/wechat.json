@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-wechat",
   "version": "8.0.59",
+  "license": "MPL-2.0",
   "export": "CapacitorWechat",
   "types": [
     {

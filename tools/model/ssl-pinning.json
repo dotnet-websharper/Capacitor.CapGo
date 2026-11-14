@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-ssl-pinning",
   "version": "8.1.17",
+  "license": "MPL-2.0",
   "export": "SSLPinning",
   "types": [
     {

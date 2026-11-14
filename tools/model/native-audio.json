@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-native-audio",
   "version": "8.5.4",
+  "license": "MPL-2.0",
   "export": "NativeAudio",
   "types": [
     {

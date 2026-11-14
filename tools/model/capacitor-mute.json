@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-mute",
   "version": "8.1.21",
+  "license": "MPL-2.0",
   "export": "Mute",
   "types": [
     {

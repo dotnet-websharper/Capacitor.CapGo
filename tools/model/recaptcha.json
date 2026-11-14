@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-recaptcha",
   "version": "8.1.20",
+  "license": "MPL-2.0",
   "export": "Recaptcha",
   "types": [
     {

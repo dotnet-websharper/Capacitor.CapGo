@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-install-referrer",
   "version": "8.1.17",
+  "license": "MPL-2.0",
   "export": "InstallReferrer",
   "types": [
     {

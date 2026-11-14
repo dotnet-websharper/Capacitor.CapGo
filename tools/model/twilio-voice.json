@@ -3,6 +3,7 @@
   "family": "Messaging",
   "package": "@capgo/capacitor-twilio-voice",
   "version": "8.2.33",
+  "license": "MPL-2.0",
   "export": "CapacitorTwilioVoice",
   "types": [
     {

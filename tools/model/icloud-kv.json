@@ -3,6 +3,7 @@
   "family": "Files",
   "package": "@capgo/capacitor-icloud-kv",
   "version": "8.1.5",
+  "license": "MPL-2.0",
   "export": "ICloudKV",
   "types": [
     {

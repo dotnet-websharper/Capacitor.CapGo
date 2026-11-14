@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-wifi",
   "version": "8.5.12",
+  "license": "MPL-2.0",
   "export": "CapacitorWifi",
   "types": [
     {

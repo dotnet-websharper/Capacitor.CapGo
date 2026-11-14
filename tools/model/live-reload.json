@@ -3,6 +3,7 @@
   "family": "Tooling",
   "package": "@capgo/capacitor-live-reload",
   "version": "8.0.14",
+  "license": "MPL-2.0",
   "export": "LiveReload",
   "types": [
     {

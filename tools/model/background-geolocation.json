@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/background-geolocation",
   "version": "8.6.4",
+  "license": "MPL-2.0",
   "export": "BackgroundGeolocation",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-textinteraction",
   "version": "8.1.11",
+  "license": "MPL-2.0",
   "export": "TextInteraction",
   "types": [
     {

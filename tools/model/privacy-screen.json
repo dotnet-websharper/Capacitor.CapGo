@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-privacy-screen",
   "version": "8.3.16",
+  "license": "MPL-2.0",
   "export": "PrivacyScreen",
   "types": [
     {

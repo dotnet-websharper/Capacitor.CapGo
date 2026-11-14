@@ -3,6 +3,7 @@
   "family": "Files",
   "package": "@capgo/capacitor-fast-sql",
   "version": "8.3.4",
+  "license": "MPL-2.0",
   "export": "CapgoCapacitorFastSql",
   "types": [
     {

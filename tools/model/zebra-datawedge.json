@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-zebra-datawedge",
   "version": "8.2.9",
+  "license": "MPL-2.0",
   "export": "ZebraDataWedge",
   "types": [
     {

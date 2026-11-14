@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-bluetooth-low-energy",
   "version": "8.2.9",
+  "license": "MPL-2.0",
   "export": "BluetoothLowEnergy",
   "types": [
     {

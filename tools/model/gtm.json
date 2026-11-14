@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-gtm",
   "version": "8.0.48",
+  "license": "MPL-2.0",
   "export": "GoogleTagManager",
   "types": [
     {

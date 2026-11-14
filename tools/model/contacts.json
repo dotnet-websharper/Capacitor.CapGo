@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-contacts",
   "version": "8.1.12",
+  "license": "MPL-2.0",
   "export": "CapacitorContacts",
   "types": [
     {

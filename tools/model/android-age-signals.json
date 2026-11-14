@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-android-age-signals",
   "version": "8.1.33",
+  "license": "MPL-2.0",
   "export": "AgeSignals",
   "types": [
     {

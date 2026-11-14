@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-screen-recorder",
   "version": "8.4.10",
+  "license": "MPL-2.0",
   "export": "ScreenRecorder",
   "types": [
     {

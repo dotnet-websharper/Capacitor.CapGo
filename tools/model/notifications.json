@@ -3,6 +3,7 @@
   "family": "Messaging",
   "package": "@capgo/capacitor-notifications",
   "version": "8.1.1",
+  "license": "AGPL-3.0-only",
   "export": "CapgoNotifications",
   "types": [
     {

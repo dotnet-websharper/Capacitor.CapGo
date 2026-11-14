@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-home-indicator",
   "version": "8.1.8",
+  "license": "MPL-2.0",
   "export": "HomeIndicator",
   "types": [
     {

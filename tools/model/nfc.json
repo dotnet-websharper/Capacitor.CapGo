@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-nfc",
   "version": "8.3.11",
+  "license": "MPL-2.0",
   "export": "CapacitorNfc",
   "types": [
     {

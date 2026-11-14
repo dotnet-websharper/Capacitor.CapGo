@@ -3,6 +3,7 @@
   "family": "Files",
   "package": "@capgo/capacitor-asset-cache",
   "version": "8.1.10",
+  "license": "MPL-2.0",
   "export": "AssetCache",
   "types": [
     {

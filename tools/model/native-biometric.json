@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-native-biometric",
   "version": "8.9.3",
+  "license": "MPL-2.0",
   "export": "NativeBiometric",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-webview-guardian",
   "version": "8.1.7",
+  "license": "MPL-2.0",
   "export": "WebviewGuardian",
   "types": [
     {

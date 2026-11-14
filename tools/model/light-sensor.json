@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-light-sensor",
   "version": "8.1.26",
+  "license": "MPL-2.0",
   "export": "LightSensor",
   "types": [
     {

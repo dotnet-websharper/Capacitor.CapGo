@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-intune",
   "version": "8.1.11",
+  "license": "MPL-2.0",
   "export": "IntuneMAM",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-volume-buttons",
   "version": "8.1.8",
+  "license": "MPL-2.0",
   "export": "VolumeButtons",
   "types": [
     {

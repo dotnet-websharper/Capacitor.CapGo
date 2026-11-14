@@ -3,6 +3,7 @@
   "family": "Commerce",
   "package": "@capgo/capacitor-admob",
   "version": "8.2.12",
+  "license": "MPL-2.0",
   "export": "AdMob",
   "types": [
     {

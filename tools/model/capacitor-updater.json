@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-updater",
   "version": "8.54.2",
+  "license": "MPL-2.0",
   "export": "CapacitorUpdater",
   "types": [
     {

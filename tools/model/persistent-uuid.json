@@ -3,6 +3,7 @@
   "family": "Files",
   "package": "@capgo/capacitor-persistent-uuid",
   "version": "8.1.12",
+  "license": "MPL-2.0",
   "export": "PersistentUuid",
   "types": [
     {

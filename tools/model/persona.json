@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-persona",
   "version": "8.2.5",
+  "license": "MPL-2.0",
   "export": "Persona",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-social-login",
   "version": "8.7.11",
+  "license": "MPL-2.0",
   "export": "SocialLogin",
   "types": [
     {

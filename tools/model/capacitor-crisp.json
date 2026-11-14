@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-crisp",
   "version": "8.2.17",
+  "license": "MPL-2.0",
   "export": "CapacitorCrisp",
   "types": [
     {

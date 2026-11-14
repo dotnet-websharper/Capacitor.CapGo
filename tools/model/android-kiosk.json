@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-android-kiosk",
   "version": "8.3.5",
+  "license": "MPL-2.0",
   "export": "CapacitorAndroidKiosk",
   "types": [
     {

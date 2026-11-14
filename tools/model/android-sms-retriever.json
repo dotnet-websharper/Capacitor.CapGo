@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-android-sms-retriever",
   "version": "8.1.4",
+  "license": "MPL-2.0",
   "export": "AndroidSmsRetriever",
   "types": [
     {

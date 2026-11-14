@@ -3,6 +3,7 @@
   "family": "Messaging",
   "package": "@capgo/capacitor-incoming-call-kit",
   "version": "8.2.16",
+  "license": "MPL-2.0",
   "export": "IncomingCallKit",
   "types": [
     {

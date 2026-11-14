@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-android-usagestatsmanager",
   "version": "8.2.18",
+  "license": "MPL-2.0",
   "export": "CapacitorUsageStatsManager",
   "types": [
     {

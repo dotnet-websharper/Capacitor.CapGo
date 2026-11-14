@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-firebase-functions",
   "version": "7.4.2",
+  "license": "MPL-2.0",
   "export": "FirebaseFunctions",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/native-purchases",
   "version": "8.9.16",
+  "license": "MPL-2.0",
   "export": "NativePurchases",
   "types": [
     {

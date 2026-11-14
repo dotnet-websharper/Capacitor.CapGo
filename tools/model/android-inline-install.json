@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-android-inline-install",
   "version": "8.0.21",
+  "license": "MPL-2.0",
   "export": "AndroidInlineInstall",
   "types": [
     {

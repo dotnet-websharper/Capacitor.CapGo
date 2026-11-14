@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-date-picker",
   "version": "8.1.16",
+  "license": "MPL-2.0",
   "export": "DatePicker",
   "types": [
     {

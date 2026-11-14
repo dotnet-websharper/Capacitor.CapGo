@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-native-market",
   "version": "8.0.60",
+  "license": "MPL-2.0",
   "export": "NativeMarket",
   "types": [
     {

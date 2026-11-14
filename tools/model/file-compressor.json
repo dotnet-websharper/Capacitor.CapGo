@@ -3,6 +3,7 @@
   "family": "Media",
   "package": "@capgo/capacitor-file-compressor",
   "version": "8.1.22",
+  "license": "MPL-2.0",
   "export": "FileCompressor",
   "types": [
     {

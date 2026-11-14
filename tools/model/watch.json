@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-watch",
   "version": "8.2.1",
+  "license": "MPL-2.0",
   "export": "CapgoWatch",
   "types": [
     {

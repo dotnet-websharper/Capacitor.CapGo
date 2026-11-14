@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-background-task",
   "version": "8.1.14",
+  "license": "MPL-2.0",
   "export": "BackgroundTask",
   "types": [
     {

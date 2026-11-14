@@ -3,6 +3,7 @@
   "family": "Media",
   "package": "@capgo/camera-preview",
   "version": "8.15.4",
+  "license": "MPL-2.0",
   "export": "CameraPreview",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-widget-kit",
   "version": "8.2.2",
+  "license": "MPL-2.0",
   "export": "CapgoWidgetKit",
   "types": [
     {

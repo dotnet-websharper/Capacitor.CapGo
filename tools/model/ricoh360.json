@@ -3,6 +3,7 @@
   "family": "Media",
   "package": "@capgo/capacitor-ricoh360",
   "version": "8.1.5",
+  "license": "MPL-2.0",
   "export": "Ricoh360Camera",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "AI",
   "package": "@capgo/capacitor-llm",
   "version": "8.2.3",
+  "license": "MPL-2.0",
   "export": "CapgoLLM",
   "types": [
     {

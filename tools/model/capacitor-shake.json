@@ -3,6 +3,7 @@
   "family": "Core",
   "package": "@capgo/capacitor-shake",
   "version": "8.0.58",
+  "license": "MPL-2.0",
   "export": "CapacitorShake",
   "types": [
     {

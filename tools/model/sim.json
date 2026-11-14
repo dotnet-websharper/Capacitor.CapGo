@@ -3,6 +3,7 @@
   "family": "Tooling",
   "package": "@capgo/capacitor-sim",
   "version": "8.0.55",
+  "license": "MPL-2.0",
   "export": "Sim",
   "types": [
     {

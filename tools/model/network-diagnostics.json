@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-network-diagnostics",
   "version": "8.0.17",
+  "license": "MPL-2.0",
   "export": "NetworkDiagnostics",
   "types": [
     {

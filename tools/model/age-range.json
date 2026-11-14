@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-age-range",
   "version": "8.2.7",
+  "license": "MPL-2.0",
   "export": "AgeRange",
   "types": [
     {

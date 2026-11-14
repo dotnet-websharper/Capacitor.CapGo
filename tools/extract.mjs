@@ -387,8 +387,8 @@ function readOverride(plugin) {
   }
 }
 
-export function extract(plugin) {
-  const version = npmLatest(plugin.package);
+export async function extract(plugin) {
+  const { version, license } = await npmLatest(plugin.package);
   const dir = fetchPackage(plugin.package, version);
   const project = makeProject(dir);
   const indexPath = indexDts(dir);
@@ -456,6 +456,7 @@ export function extract(plugin) {
     family: plugin.family,
     package: plugin.package,
     version,
+    license,
     export: chosen.name,
     types: [...ex.types.values()].sort((a, b) => a.name.localeCompare(b.name)),
     methods,
@@ -511,7 +512,7 @@ const failures = [];
 for (const plugin of selected) {
   let model;
   try {
-    model = extract(plugin);
+    model = await extract(plugin);
   } catch (e) {
     failures.push({ plugin, error: e instanceof Error ? e.message : String(e) });
     console.error(`FAILED ${plugin.namespace} (${plugin.package}): ${e instanceof Error ? e.message : e}`);
@@ -583,12 +584,20 @@ const rows = summary.map(({ plugin, model, status }, i) => {
   const unsupported = model.unsupported.length;
   const a = audits[i];
   const typed = a.nodes === 0 ? 100 : Math.round(((a.nodes - a.obj) / a.nodes) * 100);
-  return `| ${plugin.namespace} | \`${model.package}\` | ${model.version} | ${methods} | ${
+  return `| ${plugin.namespace} | \`${model.package}\` | ${model.version} | ${model.license} | ${methods} | ${
     unsupported ? unsupported + " ⚠" : "—"
   } | ${typed}% | ${a.obj} | ${status} |`;
 });
 
 const pct = Math.round(((totals.nodes - totals.obj) / totals.nodes) * 100);
+const licenceTally = {};
+for (const { model } of summary) {
+  licenceTally[model.license] = (licenceTally[model.license] || 0) + 1;
+}
+const licences = Object.entries(licenceTally)
+  .sort((a, b) => b[1] - a[1])
+  .map(([k, v]) => `${k} × ${v}`)
+  .join(", ");
 const breakdown = Object.entries(totals.byParent)
   .sort((a, b) => b[1] - a[1])
   .map(([k, v]) => `| ${k} | ${v} |`)
@@ -602,9 +611,10 @@ const report = [
   `**Typed surface: ${pct}%** (${totals.nodes - totals.obj} of ${totals.nodes} type positions). ` +
     `${totals.obj} positions remain \`obj\`; they are either upstream \`any\`/\`unknown\` or ` +
     "JSON payloads, broken down below.",
+  `Upstream plugin licences: ${licences}. The bindings themselves are Apache 2.0.`,
   "",
-  "| Namespace | npm package | Version | Methods + events | Unsupported | Typed | obj | Status |",
-  "|---|---|---:|---:|---:|---:|---:|---|",
+  "| Namespace | npm package | Version | License | Methods + events | Unsupported | Typed | obj | Status |",
+  "|---|---|---:|---|---:|---:|---:|---:|---|",
   ...rows,
   "",
   "## Remaining `obj` positions",

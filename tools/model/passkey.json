@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-passkey",
   "version": "8.5.10",
+  "license": "MPL-2.0",
   "export": "CapacitorPasskey",
   "types": [
     {

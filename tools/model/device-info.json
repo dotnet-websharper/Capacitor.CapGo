@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-device-info",
   "version": "8.0.18",
+  "license": "MPL-2.0",
   "export": "DeviceInfo",
   "types": [
     {

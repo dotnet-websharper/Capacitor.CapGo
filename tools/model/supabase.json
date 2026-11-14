@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-supabase",
   "version": "8.2.10",
+  "license": "MPL-2.0",
   "export": "CapacitorSupabase",
   "types": [
     {

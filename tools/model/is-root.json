@@ -3,6 +3,7 @@
   "family": "Auth",
   "package": "@capgo/capacitor-is-root",
   "version": "8.2.8",
+  "license": "MPL-2.0",
   "export": "IsRoot",
   "types": [
     {

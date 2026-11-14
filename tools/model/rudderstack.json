@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-rudderstack",
   "version": "8.1.19",
+  "license": "MIT",
   "export": "RudderClient",
   "types": [
     {

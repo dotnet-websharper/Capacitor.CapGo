@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-ibeacon",
   "version": "8.1.51",
+  "license": "MPL-2.0",
   "export": "CapacitorIbeacon",
   "types": [
     {

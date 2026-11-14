@@ -3,6 +3,7 @@
   "family": "Messaging",
   "package": "@capgo/capacitor-rich-notifications",
   "version": "8.2.9",
+  "license": "MPL-2.0",
   "export": "RichNotifications",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "Media",
   "package": "@capgo/capacitor-pdf-viewer",
   "version": "8.3.2",
+  "license": "MPL-2.0",
   "export": "PdfViewer",
   "types": [
     {

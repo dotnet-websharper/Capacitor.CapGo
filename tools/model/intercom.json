@@ -3,6 +3,7 @@
   "family": "Messaging",
   "package": "@capgo/capacitor-intercom",
   "version": "8.2.5",
+  "license": "MPL-2.0",
   "export": "CapgoIntercom",
   "types": [
     {

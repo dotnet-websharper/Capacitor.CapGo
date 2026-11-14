@@ -7,8 +7,13 @@ const cacheRoot = new URL("../.cache/", import.meta.url).pathname;
 
 export const slug = p => p.replace(/^@/, "").replace(/\//g, "-");
 
-export function npmLatest(pkg) {
-  return JSON.parse(execFileSync("npm", ["view", pkg, "version", "--json"], { encoding: "utf8" }));
+export async function npmLatest(pkg) {
+  const m = await fetch(`https://registry.npmjs.org/${pkg.replace("/", "%2F")}/latest`).then(r => r.json());
+  const license =
+    typeof m.license === "string"
+      ? m.license
+      : (m.license && m.license.type) || (m.licenses && m.licenses[0] && m.licenses[0].type) || "unknown";
+  return { version: m.version, license };
 }
 
 // Framework wrappers under dist/{react,vue,...} redeclare the plugin types and

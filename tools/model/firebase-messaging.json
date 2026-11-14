@@ -3,6 +3,7 @@
   "family": "Messaging",
   "package": "@capgo/capacitor-firebase-messaging",
   "version": "7.4.2",
+  "license": "MPL-2.0",
   "export": "FirebaseMessaging",
   "types": [
     {

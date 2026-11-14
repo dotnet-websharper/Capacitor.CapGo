@@ -3,6 +3,7 @@
   "family": "UI",
   "package": "@capgo/capacitor-live-activities",
   "version": "1.3.3",
+  "license": "MPL-2.0",
   "export": "CapgoLiveActivities",
   "types": [
     {

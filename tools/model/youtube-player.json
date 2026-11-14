@@ -3,6 +3,7 @@
   "family": "Media",
   "package": "@capgo/capacitor-youtube-player",
   "version": "8.3.19",
+  "license": "MPL-2.0",
   "export": "YoutubePlayer",
   "types": [
     {

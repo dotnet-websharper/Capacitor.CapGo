@@ -73,6 +73,26 @@ override) are listed with ⚠ in [`tools/coverage.md`](tools/coverage.md).
 > `@capacitor-plus/*` packages (a Capacitor fork, not plugins). Within the `@capgo` scope the
 > authoritative count is the 180 above.
 
+### Licensing of the bound plugins
+
+This repository — the WIG bindings, the generator and the sample — is **Apache 2.0**
+(see [LICENSE.md](LICENSE.md)). That licence does **not** cover the CapGo plugins themselves:
+the binding assemblies only carry generated type metadata, and `npm install` pulls the upstream
+packages, which keep their own licences. Check the `LICENSE` of every plugin you ship.
+
+As of the current npm releases, the 148 bound plugins are:
+
+| Upstream licence | Plugins |
+|---|---|
+| **MPL-2.0** (CapGo's default) | 142 |
+| **MIT** | `capacitor-proximity`, `capacitor-in-app-review`, `capacitor-appsflyer`, `capacitor-rudderstack`, `capacitor-contentsquare` |
+| **AGPL-3.0-only** | `capacitor-notifications` |
+
+MPL-2.0 is file-level copyleft: it does not relicense your app, but modifications to the plugin's
+own source files must be published. **`@capgo/capacitor-notifications` is AGPL-3.0-only** — if you
+ship that plugin, the AGPL's network-use obligations apply to it; replace it or review the terms
+before adding it to a product.
+
 ## Install
 
 ```sh
@@ -186,4 +206,8 @@ Enable Pages per repo with the `gh-pages` source.
 
 ## License
 
-Apache 2.0 — see [LICENSE.md](LICENSE.md).
+The bindings in this repository are Apache 2.0 — see [LICENSE.md](LICENSE.md).
+
+The CapGo plugins are licensed separately: most are MPL-2.0, a few are MIT, and
+`@capgo/capacitor-notifications` is AGPL-3.0-only. See
+[Licensing of the bound plugins](#licensing-of-the-bound-plugins) for the per-plugin breakdown.

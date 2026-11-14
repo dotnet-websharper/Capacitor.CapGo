@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-facebook-analytics",
   "version": "8.1.22",
+  "license": "MPL-2.0",
   "export": "FacebookAnalytics",
   "types": [
     {

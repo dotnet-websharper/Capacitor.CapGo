@@ -3,6 +3,7 @@
   "family": "AI",
   "package": "@capgo/capacitor-speech-recognition",
   "version": "8.5.0",
+  "license": "MPL-2.0",
   "export": "SpeechRecognition",
   "types": [
     {

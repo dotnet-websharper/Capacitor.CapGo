@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-pedometer",
   "version": "8.0.57",
+  "license": "MPL-2.0",
   "export": "CapacitorPedometer",
   "types": [
     {

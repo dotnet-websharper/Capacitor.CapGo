@@ -3,6 +3,7 @@
   "family": "Analytics",
   "package": "@capgo/capacitor-appsflyer",
   "version": "8.1.21",
+  "license": "MIT",
   "export": "AppsFlyer",
   "types": [
     {

@@ -3,6 +3,7 @@
   "family": "Files",
   "package": "@capgo/capacitor-file",
   "version": "8.0.26",
+  "license": "MPL-2.0",
   "export": "CapacitorFile",
   "types": [
     {

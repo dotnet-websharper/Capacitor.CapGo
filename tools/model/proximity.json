@@ -3,6 +3,7 @@
   "family": "Device",
   "package": "@capgo/capacitor-proximity",
   "version": "8.1.18",
+  "license": "MIT",
   "export": "CapacitorProximity",
   "types": [
     {
