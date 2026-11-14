@@ -8,8 +8,9 @@ apps in F# on top of CapGo's plugins.
 
 The surface is **generated** from each plugin's published TypeScript declarations
 (`tools/extract.mjs` → `tools/model/*.json` → `CapGoGeneratorCommon`), so the bindings track
-upstream instead of drifting: 148 plugins across 11 packages, typed method-by-method — 99% of
-9,953 type positions are concrete, the rest being upstream `any`/`unknown` JSON payloads.
+upstream instead of drifting: 148 of the 180 `@capgo` packages, across 11 packages, typed
+method-by-method — 99% of 9,953 type positions are concrete, the rest being upstream
+`any`/`unknown` JSON payloads.
 
 ## Live demos
 
@@ -45,6 +46,32 @@ The full roster — package, current npm version, method/event counts and any kn
 Plugin types live under `WebSharper.Capacitor.CapGo.<Plugin>`; each package also exposes a root
 class (`CapacitorCapGo`, `CapacitorCapGoAuth`, `CapacitorCapGoMedia`, …) with one property per
 plugin, mirroring how the official `WebSharper.Capacitor` binding is used.
+
+## Coverage: what is bound and what is not
+
+The `@capgo` npm scope contains **180 packages**. **148 are bound** across the 11 packages above.
+Typing coverage, per-plugin gaps and the remaining `obj` positions are tracked in
+[`tools/coverage.md`](tools/coverage.md).
+
+### Not bound (32)
+
+None of these are missing capability by accident:
+
+| Reason | Packages |
+|---|---|
+| **Not Capacitor plugins** — CLI, release tooling, JS/Angular libraries, DOM-only libraries, Electron/Cordova | `cli`, `cli-helper-darwin-arm64`, `cli-helper-darwin-x64`, `cli-keychain-darwin-arm64`, `cli-keychain-darwin-x64`, `standard-version`, `capacitor-standard-version`, `capacitor-plugin-standard-version`, `find-package-manager`, `manifest-packing`, `capgo-sec`, `capacitor-sec`, `seo-checker`, `capgo-skills`, `vite-capacitor`, `tailwind-capacitor`, `electron-updater`, `cordova-updater`, `angular-ng-stepper`, `ngx-intl-tel-input`, `ngx-intl-tel-input-app`, `google-libphonenumber`, `google-play-scraper`, `capacitor-sheets`, `capacitor-transitions`, `transitions` |
+| **Legacy name, superseded by a bound package** | `keep-awake` → `capacitor-keep-awake`; `native-navigation` → `capacitor-native-navigation` |
+| **No plugin instance to bind** (different export shape; needs a hand-written model) | `capacitor-native-map` (web-component class), `capacitor-patch` (function exports) |
+| **Not usable on the Capacitor 8 line** | `walletconnect` (WIP `0.0.1`, peer `^3.0.0`) |
+| **Discontinued upstream** | `capacitor-twilio-video` (Twilio Video end-of-life; `capacitor-twilio-voice` is bound) |
+
+Known gaps *inside* bound plugins (generic or JSON-heavy members that need a hand-written
+override) are listed with ⚠ in [`tools/coverage.md`](tools/coverage.md).
+
+> The [CapGo plugin catalog](https://capgo.app/plugins/) advertises “158+ plugins”, but it mixes
+> scopes: it includes `@revenuecat/purchases-capacitor` (not CapGo's) and the four
+> `@capacitor-plus/*` packages (a Capacitor fork, not plugins). Within the `@capgo` scope the
+> authoritative count is the 180 above.
 
 ## Install
 
