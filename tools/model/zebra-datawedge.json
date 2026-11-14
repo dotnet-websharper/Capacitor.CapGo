@@ -1,0 +1,1914 @@
+{
+  "namespace": "ZebraDatawedge",
+  "family": "Device",
+  "package": "@capgo/capacitor-zebra-datawedge",
+  "version": "8.2.9",
+  "license": "MPL-2.0",
+  "export": "ZebraDataWedge",
+  "types": [
+    {
+      "name": "BeginScanSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "leaseTimeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoRenew",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CloneProfileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "destProfileName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceProfileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateProfileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DataWedgeAppConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DataWedgeConfigMode",
+      "kind": "enumStrings",
+      "cases": [
+        "CREATE_IF_NOT_EXIST",
+        "OVERWRITE",
+        "REMOVE",
+        "UPDATE"
+      ]
+    },
+    {
+      "name": "DataWedgeDiagnosticsSnapshot",
+      "kind": "config",
+      "required": [
+        {
+          "name": "diagnosticsVersion",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "maxEntries",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "droppedEntries",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "manufacturer",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "model",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "androidVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "dataWedgePackage",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgeDiagnosticsSnapshotDataWedgePackage"
+          }
+        },
+        {
+          "name": "commands",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgeDiagnosticsSnapshotCommands"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DataWedgeDiagnosticsSnapshotCommands",
+      "kind": "config",
+      "required": [
+        {
+          "name": "commandIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "outcome",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgeDiagnosticsSnapshotCommandsOutcome"
+          }
+        },
+        {
+          "name": "elapsedMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DataWedgeDiagnosticsSnapshotCommandsOutcome",
+      "kind": "enumStrings",
+      "cases": [
+        "SENT",
+        "SUCCESS",
+        "FAILURE",
+        "TIMEOUT",
+        "TRANSPORT_ERROR",
+        "CANCELLED",
+        "INVALID_RESPONSE"
+      ]
+    },
+    {
+      "name": "DataWedgeDiagnosticsSnapshotDataWedgePackage",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgeDiagnosticsSnapshotDataWedgePackageStatus"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DataWedgeDiagnosticsSnapshotDataWedgePackageStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "installed",
+        "notFound",
+        "unavailable"
+      ]
+    },
+    {
+      "name": "DataWedgeNotificationType",
+      "kind": "enumStrings",
+      "cases": [
+        "CONFIGURATION_UPDATE",
+        "PROFILE_SWITCH",
+        "SCANNER_STATUS"
+      ]
+    },
+    {
+      "name": "DataWedgeNotifyOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "notificationSettings",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DataWedgePlugin",
+      "kind": "enumStrings",
+      "cases": [
+        "ADF",
+        "BARCODE",
+        "BDF",
+        "DCP",
+        "EKB",
+        "INTENT",
+        "IP",
+        "KEYSTROKE",
+        "MSR",
+        "RFID",
+        "SERIAL",
+        "TOKENS",
+        "VOICE"
+      ]
+    },
+    {
+      "name": "DataWedgePluginConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "paramList",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgePluginConfigParamListMap"
+          }
+        },
+        {
+          "name": "pluginName",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgePlugin"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "outputPluginName",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgePlugin"
+          }
+        },
+        {
+          "name": "resetConfig",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DataWedgePluginConfigParamListMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "obj"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "string"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "bool"
+                }
+              ]
+            }
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "DataWedgePluginParameters",
+      "kind": "config",
+      "required": [],
+      "optional": []
+    },
+    {
+      "name": "DataWedgeStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isEnabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteProfileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profileNames",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DiagnosticsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "maxEntries",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "reset",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EndScanSessionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "confirmed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "EnumerateScannersResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scanners",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ZebraDeviceScanner"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "EnumerateTriggersResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "triggers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetActiveProfileResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAssociatedAppsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgeAppConfig"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetConfigOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "pluginConfigs",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PluginConfigOptions"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetConfigurationCapabilitiesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "completeConfigResults",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetProfilesListResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profiles",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetScannerStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetScanSessionCapabilitiesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "customProfileNames",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "renewableLease",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "sessionAssociationDetails",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IgnoreDisabledProfilesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ImportConfigOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "folderPath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fileList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginConfigOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pluginName",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgePlugin"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "outputPluginName",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgePlugin"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RegisterForNotificationOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notificationType",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgeNotificationType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "appName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "intentAction",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RegisterScanIntentActionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "intentAction",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RenameProfileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "currentProfileName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "newProfileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RenewScanSessionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReportingOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reportingEnabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reportingGenerateOption",
+          "type": {
+            "k": "ref",
+            "name": "ReportingOptionsReportingGenerateOption"
+          }
+        },
+        {
+          "name": "reportingShowForManualImport",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReportingOptionsReportingGenerateOption",
+      "kind": "enumStrings",
+      "cases": [
+        "manual",
+        "auto",
+        "both"
+      ]
+    },
+    {
+      "name": "ScannerIdentifier",
+      "kind": "enumStrings",
+      "cases": [
+        "AUTO",
+        "BLUETOOTH_DS3678",
+        "BLUETOOTH_RS6000",
+        "BLUETOOTH_SSI",
+        "INTERNAL_CAMERA",
+        "INTERNAL_IMAGER",
+        "INTERNAL_LASER",
+        "PLUGABLE_SSI",
+        "PLUGABLE_SSI_RS5000",
+        "SERIAL_SSI",
+        "USB_SSI_DS3608"
+      ]
+    },
+    {
+      "name": "ScanSession",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgeAppConfig"
+            }
+          }
+        },
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "intentAction",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "leaseTimeoutMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ScanSessionState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "active",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "remainingMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "ScanSessionStateReason"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScanSessionStateReason",
+      "kind": "enumStrings",
+      "cases": [
+        "ended",
+        "background",
+        "destroyed",
+        "heartbeat_expired",
+        "max_duration"
+      ]
+    },
+    {
+      "name": "SetConfigOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "completeResult",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "appList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgeAppConfig"
+            }
+          }
+        },
+        {
+          "name": "configMode",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgeConfigMode"
+          }
+        },
+        {
+          "name": "pluginConfigs",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgePluginConfig"
+            }
+          }
+        },
+        {
+          "name": "profileEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "scanIntentAction",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetDisabledAppListOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "configMode",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgeConfigMode"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "appList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgeAppConfig"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SoftScanTriggerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "intentAction",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SwitchScannerOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scannerIndex",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scannerIdentifier",
+          "type": {
+            "k": "ref",
+            "name": "ScannerIdentifier"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SwitchScannerParamsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scannerIdentifier",
+          "type": {
+            "k": "ref",
+            "name": "ScannerIdentifier"
+          }
+        },
+        {
+          "name": "scannerParams",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgePluginConfigParamListMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ZebraDeviceScanner",
+      "kind": "config",
+      "required": [
+        {
+          "name": "connectionState",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZebraDeviceVersionInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "barcodeVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "dataWedgeVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "decoderVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scannerFirmwareVersions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "simulScanVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZebraNotificationEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notificationType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "raw",
+          "type": {
+            "k": "ref",
+            "name": "ZebraNotificationEventRawMap"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scannerStatus",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZebraNotificationEventRawMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "ZebraProfileConfiguration",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pluginConfigList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgePluginConfig"
+            }
+          }
+        },
+        {
+          "name": "profileEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "profileName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "appList",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "DataWedgeAppConfig"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZebraScanResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "decodedMode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "intentAction",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "labelType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getScanSessionCapabilities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetScanSessionCapabilitiesResult"
+      },
+      "promise": true,
+      "comment": "Read native session API capabilities without sending a DataWedge command.\nCurrently returns version 2 with customProfileNames, renewableLease and sessionAssociationDetails\nset to true. The version and capability flags identify supported behavior and allow applications\nto detect future session API changes. Future versions and capabilities will be documented."
+    },
+    {
+      "name": "beginScanSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BeginScanSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ScanSession"
+      },
+      "promise": true,
+      "comment": "Validate an existing app-owned profile and acquire an opt-in exclusive native session.\nAutomatically renews the native liveness lease from JS until end, native closure, page hiding,\nrenewal failure or the absolute timeout. Application completion/cancellation must still call end.\nReturns the validated appList snapshot; it is not a cache or permission for later profile mutations.\nNative begin failures leave no allocated session. Background begin rejects SESSION_INACTIVE;\nanother reserved session rejects SESSION_BUSY; an unassociated profile rejects SESSION_UNASSOCIATED.\nIf JS cancellation races successful allocation, rejection includes sessionId and cleanupConfirmed for cleanup retry.\nHeartbeat handling requires no framework lifecycle integration. autoRenew: false is for experts.\nThe caller configures INTENT output/decoders and verifies scanner readiness. No profile is created.\nProfiles enrolled in sessions require the matching sessionId on subsequent setConfig calls during\nthis process. Use session APIs to trigger or end scanning and avoid changing the active session's\nprofile through other low-level APIs."
+    },
+    {
+      "name": "renewScanSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RenewScanSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ScanSessionState"
+      },
+      "promise": true,
+      "comment": "Advanced manual renewal; normally called internally. Cannot revive an expired/closing session."
+    },
+    {
+      "name": "getScanSessionState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RenewScanSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ScanSessionState"
+      },
+      "promise": true,
+      "comment": "Inspect the matching session, including closure reason. Does not renew or confirm cleanup."
+    },
+    {
+      "name": "triggerScanSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RenewScanSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Verify the active profile, then dispatch START_SCANNING for a foreground session. Scan values arrive via the scan event."
+    },
+    {
+      "name": "endScanSession",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RenewScanSessionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "EndScanSessionResult"
+      },
+      "promise": true,
+      "comment": "Cancel owned pending calls, remove the action and await targeted Barcode Input disable.\nResolves only after DataWedge acknowledges cleanup. A failed/unanswered end is retryable and\nblocks new sessions; do not start a camera scanner until confirmed. Concurrent end calls reject\nSESSION_BUSY; repeating a completed end is idempotent. Pause/deadline cleanup is best effort and\nstill requires explicit end acknowledgement. No persistent process-death recovery is enabled."
+    },
+    {
+      "name": "configureDiagnostics",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DiagnosticsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure opt-in native command metadata tracing. Never enables DataWedge or scanner input."
+    },
+    {
+      "name": "getDiagnostics",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DataWedgeDiagnosticsSnapshot"
+      },
+      "promise": true,
+      "comment": "Return a read-only native environment and trace snapshot. Does not send any DataWedge commands.\nBarcode values, intent bodies and arbitrary exception text are excluded. The application decides\nwhich device information to include when sharing this snapshot. Android only."
+    },
+    {
+      "name": "cloneProfile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CloneProfileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "createProfile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateProfileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "deleteProfile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteProfileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "importConfig",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ImportConfigOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "renameProfile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RenameProfileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "restoreConfig",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getConfigurationCapabilities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetConfigurationCapabilitiesResult"
+      },
+      "promise": true,
+      "comment": "Read-only native configuration feature negotiation; sends no DataWedge command."
+    },
+    {
+      "name": "setConfig",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetConfigOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Apply profile/plugin configuration. With completeResult true, require successful rows for every\nrequested plugin before updating local intent-action registration. DataWedge changes are not rolled\nback on rejection; use input-disabled configuration followed by separately acknowledged activation."
+    },
+    {
+      "name": "setDisabledAppList",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetDisabledAppListOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setIgnoreDisabledProfiles",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IgnoreDisabledProfilesResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "registerForNotification",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RegisterForNotificationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Completes when the notification command is dispatched to DataWedge.\nThis does not confirm registration, policy approval, or scanner readiness;\nobserve notification events to determine the scanner's state."
+    },
+    {
+      "name": "registerScanIntentAction",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RegisterScanIntentActionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Registers a DataWedge scan broadcast intent action in the Android plugin receiver (runtime only;\ncall again on every app start). Use when your profile uses a custom `intent_action` and scans\ncome from the physical trigger."
+    },
+    {
+      "name": "unRegisterForNotification",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RegisterForNotificationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Completes when the unregistration command is dispatched to DataWedge.\nThis does not confirm unregistration or policy approval; notifications may already be queued.\nDispose of local listeners separately when using the low-level API."
+    },
+    {
+      "name": "enumerateScanners",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "EnumerateScannersResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getActiveProfile",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetActiveProfileResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getAssociatedApps",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetActiveProfileResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetAssociatedAppsResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. For example,\n`getAssociatedApps()` and `getConfig()` both send `CMD_GET_CONFIG` and expect `CONFIG_RESULTS`, so one\npending call to each overlaps. When sender identity is unavailable (Android API 24 to 33, or API\n34+ when the platform withholds it), matching identifier-free replies are accepted for\ncompatibility. If a call times out, a delayed identifier-free reply can still match a later\nsequential call that expects the same shape and resolve it with stale data. This default may\nchange in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getConfig",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetConfigOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ZebraProfileConfiguration"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. For example,\n`getAssociatedApps()` and `getConfig()` both send `CMD_GET_CONFIG` and expect `CONFIG_RESULTS`, so one\npending call to each overlaps. When sender identity is unavailable (Android API 24 to 33, or API\n34+ when the platform withholds it), matching identifier-free replies are accepted for\ncompatibility. If a call times out, a delayed identifier-free reply can still match a later\nsequential call that expects the same shape and resolve it with stale data. This default may\nchange in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getDatawedgeStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DataWedgeStatusResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getDisabledAppList",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAssociatedAppsResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getIgnoreDisabledProfiles",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IgnoreDisabledProfilesResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getProfilesList",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetProfilesListResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getScannerStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetScannerStatusResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "getVersionInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ZebraDeviceVersionInfo"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "disableDatawedge",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "disableScannerInput",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "enableDatawedge",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "enableScannerInput",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "enumerateTriggers",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "EnumerateTriggersResult"
+      },
+      "promise": true,
+      "comment": "Android only. DataWedge may omit `COMMAND_IDENTIFIER` on query replies. The plugin accepts\nidentifier-free replies only when the payload matches exactly one pending call that expects the\nsame result payload shape. Avoid overlapping pending calls that share that shape. When sender\nidentity is unavailable (Android API 24 to 33, or API 34+ when the platform withholds it),\nmatching identifier-free replies are accepted for compatibility. If a call times out, a delayed\nidentifier-free reply can still match a later sequential call that expects the same shape and\nresolve it with stale data. This default may change in the next Capacitor major version; see\nhttps://github.com/Cap-go/capacitor-zebra-datawedge/issues/25/."
+    },
+    {
+      "name": "notify",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DataWedgeNotifyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "resetDefaultProfile",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setDefaultProfile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetActiveProfileResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "setReportingOptions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReportingOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "softRfidTrigger",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ZebraScanResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "softScanTrigger",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SoftScanTriggerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ZebraScanResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "switchScanner",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SwitchScannerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "switchScannerParams",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SwitchScannerParamsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "switchToProfile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetActiveProfileResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    }
+  ],
+  "events": [
+    {
+      "name": "scanSessionClosed",
+      "listener": {
+        "k": "ref",
+        "name": "ScanSessionState"
+      }
+    },
+    {
+      "name": "scan",
+      "listener": {
+        "k": "ref",
+        "name": "ZebraScanResult"
+      }
+    },
+    {
+      "name": "notification",
+      "listener": {
+        "k": "ref",
+        "name": "ZebraNotificationEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

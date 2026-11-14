@@ -1,0 +1,447 @@
+{
+  "namespace": "PrettyToast",
+  "family": "UI",
+  "package": "@capgo/capacitor-pretty-toast",
+  "version": "8.1.31",
+  "license": "MPL-2.0",
+  "export": "toast",
+  "types": [
+    {
+      "name": "ShowOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "force",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ToastAction",
+      "kind": "config",
+      "required": [
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "onPress",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ToastConfig",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iconSource",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "ref",
+                "name": "ToastConfigIconSource"
+              }
+            ]
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoDismiss",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enableSwipeDismiss",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "accentColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "strokeColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "disableBackdropSampling",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "action",
+          "type": {
+            "k": "ref",
+            "name": "ToastAction"
+          }
+        },
+        {
+          "name": "accessibilityAnnouncement",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "onPress",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        },
+        {
+          "name": "onShow",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        },
+        {
+          "name": "onHide",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        },
+        {
+          "name": "onAutoDismiss",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ToastConfigIconSource",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "show",
+      "params": [
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "ToastConfig"
+          },
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": false,
+      "comment": "Show a custom toast and return its id."
+    },
+    {
+      "name": "success",
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "ToastConfig"
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": false,
+      "comment": "Show a success toast."
+    },
+    {
+      "name": "error",
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "ToastConfig"
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": false,
+      "comment": "Show an error toast."
+    },
+    {
+      "name": "info",
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "ToastConfig"
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": false,
+      "comment": "Show an informational toast."
+    },
+    {
+      "name": "warning",
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "ToastConfig"
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": false,
+      "comment": "Show a warning toast."
+    },
+    {
+      "name": "loading",
+      "params": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "ToastConfig"
+          },
+          "optional": true
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": false,
+      "comment": "Show a loading toast. Loading toasts do not auto-dismiss by default."
+    },
+    {
+      "name": "update",
+      "params": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "partial",
+          "type": {
+            "k": "ref",
+            "name": "ToastConfig"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "Update an existing toast by id."
+    },
+    {
+      "name": "dismiss",
+      "params": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "Dismiss one toast by id, or the current toast when no id is provided."
+    },
+    {
+      "name": "dismissAll",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "Dismiss the current toast and clear the queue."
+    }
+  ],
+  "events": [],
+  "unsupported": [
+    {
+      "method": "promise",
+      "reason": "generic method cannot be flattened"
+    }
+  ],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,159 @@
+{
+  "namespace": "Persona",
+  "family": "Auth",
+  "package": "@capgo/capacitor-persona",
+  "version": "8.2.5",
+  "license": "MPL-2.0",
+  "export": "Persona",
+  "types": [
+    {
+      "name": "InquiryCanceledInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "inquiryId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sessionToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "InquiryCompleteInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "inquiryId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fields",
+          "type": {
+            "k": "ref",
+            "name": "InquiryCompleteInfoFieldsMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InquiryCompleteInfoFieldsMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "InquiryErrorInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "errorCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cause",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "startInquiry",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "obj"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Launch a Persona Inquiry flow."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners for this plugin instance."
+    }
+  ],
+  "events": [
+    {
+      "name": "inquiryComplete",
+      "listener": {
+        "k": "ref",
+        "name": "InquiryCompleteInfo"
+      }
+    },
+    {
+      "name": "inquiryCanceled",
+      "listener": {
+        "k": "ref",
+        "name": "InquiryCanceledInfo"
+      }
+    },
+    {
+      "name": "inquiryError",
+      "listener": {
+        "k": "ref",
+        "name": "InquiryErrorInfo"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

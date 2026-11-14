@@ -1,0 +1,2143 @@
+{
+  "namespace": "YoutubePlayer",
+  "family": "Media",
+  "package": "@capgo/capacitor-youtube-player",
+  "version": "8.3.19",
+  "license": "MPL-2.0",
+  "export": "YoutubePlayer",
+  "types": [
+    {
+      "name": "CreatePlayerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "videoId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "playerSize",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerSize"
+          }
+        },
+        {
+          "name": "playerFrame",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerFrame"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "elementId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullscreen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "playerVars",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerVars"
+          }
+        },
+        {
+          "name": "debug",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "privacyEnhanced",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "cookies",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DestroyResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "DestroyResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DestroyResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAllPlayersEventsStateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "GetAllPlayersEventsStateResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAllPlayersEventsStateResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "ext",
+            "name": "Map"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAvailablePlaybackRatesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "GetAvailablePlaybackRatesResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAvailablePlaybackRatesResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAvailableQualityLevelsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "GetAvailableQualityLevelsResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAvailableQualityLevelsResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "IPlaybackQuality"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetIframeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "GetIframeResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetIframeResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "ext",
+            "name": "HTMLIFrameElement"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPlaybackQualityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "GetPlaybackQualityResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPlaybackQualityResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "ref",
+            "name": "IPlaybackQuality"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPlaylistResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "GetPlaylistResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPlaylistResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetVideoUrlResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "GetVideoUrlResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetVideoUrlResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitializeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerReady",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "player",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IPlaybackQuality",
+      "kind": "enumStrings",
+      "cases": [
+        "small",
+        "medium",
+        "large",
+        "hd720",
+        "hd1080",
+        "highres",
+        "default"
+      ]
+    },
+    {
+      "name": "IPlayerFrame",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IPlayerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerSize",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerSize"
+          }
+        },
+        {
+          "name": "videoId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "elementId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "playerFrame",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerFrame"
+          }
+        },
+        {
+          "name": "fullscreen",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "playerVars",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerVars"
+          }
+        },
+        {
+          "name": "debug",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "privacyEnhanced",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "cookies",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPlayerSize",
+      "kind": "config",
+      "required": [
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IPlayerVars",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "autoplay",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "cc_load_policy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "controls",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "disablekb",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "enablejsapi",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "end",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "hl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iv_load_policy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "list",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "listType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "loop",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "modestbranding",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "origin",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "playlist",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "playsinline",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "rel",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "showinfo",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "start",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPlaylistOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "listType",
+          "type": {
+            "k": "ref",
+            "name": "IPlaylistOptionsListType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "list",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "playlist",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "startSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "suggestedQuality",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPlaylistOptionsListType",
+      "kind": "enumStrings",
+      "cases": [
+        "playlist",
+        "search",
+        "user_uploads"
+      ]
+    },
+    {
+      "name": "IVideoOptionsById",
+      "kind": "config",
+      "required": [
+        {
+          "name": "videoId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "startSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "endSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "suggestedQuality",
+          "type": {
+            "k": "ref",
+            "name": "IPlaybackQuality"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IVideoOptionsByUrl",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mediaContentUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "startSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "endSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "suggestedQuality",
+          "type": {
+            "k": "ref",
+            "name": "IPlaybackQuality"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LoadVideoByIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "LoadVideoByIdResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoadVideoByIdResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IVideoOptionsById"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoadVideoByUrlResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "LoadVideoByUrlResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoadVideoByUrlResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IVideoOptionsByUrl"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PlayerIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PlaylistMethodOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "playlistOptions",
+          "type": {
+            "k": "ref",
+            "name": "IPlaylistOptions"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PlayVideoAtOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SeekToOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "seconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "allowSeekAhead",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SeekToResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "SeekToResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SeekToResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "seconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "allowSeekAhead",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetLoopOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "loopPlaylists",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPlaybackQualityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "suggestedQuality",
+          "type": {
+            "k": "ref",
+            "name": "IPlaybackQuality"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPlaybackRateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "suggestedRate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPlayerFrameOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPlayerFrameResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "SetPlayerFrameResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPlayerFrameResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerFrame"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetShuffleOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "shufflePlaylist",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSizeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSizeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "SetSizeResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSizeResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "ref",
+            "name": "SetSizeResultResultValue"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSizeResultResultValue",
+      "kind": "config",
+      "required": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetVolumeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetVolumeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "SetVolumeResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetVolumeResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "method",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ToggleFullScreenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isFullScreen",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "VideoByIdMethodOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IVideoOptionsById"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "VideoByUrlMethodOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "playerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IVideoOptionsByUrl"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IPlayerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "InitializeResult"
+      },
+      "promise": true,
+      "comment": "Initialize a new YouTube player instance."
+    },
+    {
+      "name": "createPlayer",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreatePlayerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "InitializeResult"
+      },
+      "promise": true,
+      "comment": "Convenience alias for `initialize` with a viewport frame and video id.\nCreates an inline native overlay player (Android/iOS) or mounts into the DOM on web."
+    },
+    {
+      "name": "setPlayerFrame",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlayerFrameOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetPlayerFrameResult"
+      },
+      "promise": true,
+      "comment": "Update the viewport frame of a native inline player.\nCall on scroll, resize, and orientation changes to keep the overlay aligned with your layout."
+    },
+    {
+      "name": "destroy",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Destroy a player instance and free resources."
+    },
+    {
+      "name": "stopVideo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Stop video playback and cancel loading.\nUse this sparingly - pauseVideo() is usually preferred."
+    },
+    {
+      "name": "playVideo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Play the currently cued or loaded video.\nFinal player state will be PLAYING (1)."
+    },
+    {
+      "name": "pauseVideo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Pause the currently playing video.\nFinal player state will be PAUSED (2), unless already ENDED (0)."
+    },
+    {
+      "name": "seekTo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SeekToOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SeekToResult"
+      },
+      "promise": true,
+      "comment": "Seek to a specific time in the video.\nIf player is paused, it remains paused. If playing, continues playing."
+    },
+    {
+      "name": "loadVideoById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VideoByIdMethodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoadVideoByIdResult"
+      },
+      "promise": true,
+      "comment": "Load and play a video by its YouTube ID."
+    },
+    {
+      "name": "cueVideoById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VideoByIdMethodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoadVideoByIdResult"
+      },
+      "promise": true,
+      "comment": "Cue a video by ID without playing it.\nLoads thumbnail and prepares player, but doesn't request video until playVideo() called."
+    },
+    {
+      "name": "loadVideoByUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VideoByUrlMethodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoadVideoByUrlResult"
+      },
+      "promise": true,
+      "comment": "Load and play a video by its full URL."
+    },
+    {
+      "name": "cueVideoByUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VideoByUrlMethodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoadVideoByUrlResult"
+      },
+      "promise": true,
+      "comment": "Cue a video by URL without playing it."
+    },
+    {
+      "name": "cuePlaylist",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlaylistMethodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Cue a playlist without playing it.\nLoads playlist and prepares first video."
+    },
+    {
+      "name": "loadPlaylist",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlaylistMethodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Load and play a playlist."
+    },
+    {
+      "name": "nextVideo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Play the next video in the playlist."
+    },
+    {
+      "name": "previousVideo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Play the previous video in the playlist."
+    },
+    {
+      "name": "playVideoAt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayVideoAtOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Play a specific video in the playlist by index."
+    },
+    {
+      "name": "mute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Mute the player audio."
+    },
+    {
+      "name": "unMute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Unmute the player audio."
+    },
+    {
+      "name": "isMuted",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Check if the player is currently muted."
+    },
+    {
+      "name": "setVolume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetVolumeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Set the player volume level."
+    },
+    {
+      "name": "getVolume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Get the current player volume level.\nReturns volume even if player is muted."
+    },
+    {
+      "name": "setSize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSizeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetSizeResult"
+      },
+      "promise": true,
+      "comment": "Set the player dimensions in pixels."
+    },
+    {
+      "name": "getPlaybackRate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Get the current playback rate."
+    },
+    {
+      "name": "setPlaybackRate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlaybackRateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Set the playback speed."
+    },
+    {
+      "name": "getAvailablePlaybackRates",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetAvailablePlaybackRatesResult"
+      },
+      "promise": true,
+      "comment": "Get list of available playback rates for current video."
+    },
+    {
+      "name": "setLoop",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetLoopOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Enable or disable playlist looping.\nWhen enabled, playlist will restart from beginning after last video."
+    },
+    {
+      "name": "setShuffle",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetShuffleOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Enable or disable playlist shuffle."
+    },
+    {
+      "name": "getVideoLoadedFraction",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Get the fraction of the video that has been buffered.\nMore reliable than deprecated getVideoBytesLoaded/getVideoBytesTotal."
+    },
+    {
+      "name": "getPlayerState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Get the current state of the player."
+    },
+    {
+      "name": "getAllPlayersEventsState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAllPlayersEventsStateResult"
+      },
+      "promise": true,
+      "comment": "Get event states for all active players.\nUseful for tracking multiple player instances."
+    },
+    {
+      "name": "getCurrentTime",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Get the current playback position in seconds."
+    },
+    {
+      "name": "toggleFullScreen",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ToggleFullScreenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Toggle fullscreen mode on or off."
+    },
+    {
+      "name": "getPlaybackQuality",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetPlaybackQualityResult"
+      },
+      "promise": true,
+      "comment": "Get the current playback quality."
+    },
+    {
+      "name": "setPlaybackQuality",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlaybackQualityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DestroyResult"
+      },
+      "promise": true,
+      "comment": "Set the suggested playback quality.\nActual quality may differ based on network conditions."
+    },
+    {
+      "name": "getAvailableQualityLevels",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetAvailableQualityLevelsResult"
+      },
+      "promise": true,
+      "comment": "Get list of available quality levels for current video."
+    },
+    {
+      "name": "getDuration",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Get the duration of the current video in seconds."
+    },
+    {
+      "name": "getVideoUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetVideoUrlResult"
+      },
+      "promise": true,
+      "comment": "Get the YouTube.com URL for the current video."
+    },
+    {
+      "name": "getVideoEmbedCode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetVideoUrlResult"
+      },
+      "promise": true,
+      "comment": "Get the embed code for the current video.\nReturns HTML iframe embed code."
+    },
+    {
+      "name": "getPlaylist",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetPlaylistResult"
+      },
+      "promise": true,
+      "comment": "Get array of video IDs in the current playlist."
+    },
+    {
+      "name": "getPlaylistIndex",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SetVolumeResult"
+      },
+      "promise": true,
+      "comment": "Get the index of the currently playing video in the playlist."
+    },
+    {
+      "name": "getIframe",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayerIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetIframeResult"
+      },
+      "promise": true,
+      "comment": "Get the iframe DOM element for the player.\nWeb platform only."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the plugin version number.\nReturns platform-specific version information."
+    }
+  ],
+  "events": [],
+  "unsupported": [
+    {
+      "method": "addEventListener",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "removeEventListener",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "addListener",
+      "reason": "addListener signature not recognised"
+    }
+  ],
+  "coreRefs": [],
+  "externalTypes": [
+    "HTMLIFrameElement",
+    "Map"
+  ]
+}

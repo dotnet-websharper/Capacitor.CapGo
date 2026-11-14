@@ -1,0 +1,746 @@
+{
+  "namespace": "DeviceInfo",
+  "family": "Device",
+  "package": "@capgo/capacitor-device-info",
+  "version": "8.0.18",
+  "license": "MPL-2.0",
+  "export": "DeviceInfo",
+  "types": [
+    {
+      "name": "CpuInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cores",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "activeCores",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "architecture",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "model",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "usagePercent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maxFrequencyHz",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "temperatureCelsius",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeviceInfoSnapshot",
+      "kind": "config",
+      "required": [
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "DeviceInfoSnapshotPlatform"
+          }
+        },
+        {
+          "name": "cpu",
+          "type": {
+            "k": "ref",
+            "name": "CpuInfo"
+          }
+        },
+        {
+          "name": "memory",
+          "type": {
+            "k": "ref",
+            "name": "MemoryInfo"
+          }
+        },
+        {
+          "name": "storage",
+          "type": {
+            "k": "ref",
+            "name": "StorageInfo"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "gpu",
+          "type": {
+            "k": "ref",
+            "name": "GpuInfo"
+          }
+        },
+        {
+          "name": "thermalState",
+          "type": {
+            "k": "ref",
+            "name": "DeviceInfoSnapshotThermalState"
+          }
+        },
+        {
+          "name": "lowPowerMode",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "sensors",
+          "type": {
+            "k": "ref",
+            "name": "OnboardSensorsInfo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeviceInfoSnapshotPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "DeviceInfoSnapshotThermalState",
+      "kind": "enumStrings",
+      "cases": [
+        "critical",
+        "unknown",
+        "nominal",
+        "fair",
+        "serious"
+      ]
+    },
+    {
+      "name": "DeviceInfoUpdate",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sequence",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "startedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "elapsedMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "DeviceInfoSnapshotPlatform"
+          }
+        },
+        {
+          "name": "cpu",
+          "type": {
+            "k": "ref",
+            "name": "CpuInfo"
+          }
+        },
+        {
+          "name": "memory",
+          "type": {
+            "k": "ref",
+            "name": "MemoryInfo"
+          }
+        },
+        {
+          "name": "storage",
+          "type": {
+            "k": "ref",
+            "name": "StorageInfo"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "gpu",
+          "type": {
+            "k": "ref",
+            "name": "GpuInfo"
+          }
+        },
+        {
+          "name": "thermalState",
+          "type": {
+            "k": "ref",
+            "name": "DeviceInfoSnapshotThermalState"
+          }
+        },
+        {
+          "name": "lowPowerMode",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "sensors",
+          "type": {
+            "k": "ref",
+            "name": "OnboardSensorsInfo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GpuInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "api",
+          "type": {
+            "k": "ref",
+            "name": "GpuInfoApi"
+          }
+        },
+        {
+          "name": "vendor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "renderer",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxTextureSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "temperatureCelsius",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GpuInfoApi",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "metal",
+        "opengl",
+        "webgl"
+      ]
+    },
+    {
+      "name": "MemoryInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "totalBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "freeBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "usedBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "usedPercent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "appUsedBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "appLimitBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lowMemory",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "pressure",
+          "type": {
+            "k": "ref",
+            "name": "MemoryInfoPressure"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MemoryInfoPressure",
+      "kind": "enumStrings",
+      "cases": [
+        "normal",
+        "warning",
+        "critical",
+        "unknown"
+      ]
+    },
+    {
+      "name": "MonitoringOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "intervalMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "durationMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "sampleCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "emitImmediately",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MonitoringState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "monitoring",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "intervalMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "startedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "samplesEmitted",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OnboardSensorDescriptor",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "vendor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platformType",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maximumRange",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "resolution",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "powerMilliamp",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minDelayMicroseconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "wakeUp",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OnboardSensorReading",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "unit",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OnboardSensorsInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "availableSensors",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "OnboardSensorDescriptor"
+            }
+          }
+        },
+        {
+          "name": "readings",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "OnboardSensorReading"
+            }
+          }
+        },
+        {
+          "name": "batteryTemperatureCelsius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "ambientTemperatureCelsius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "relativeHumidityPercent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "pressureHpa",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "illuminanceLux",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "proximityDistanceCm",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartMonitoringResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "monitoring",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "intervalMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "startedAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StopMonitoringResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "monitoring",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StorageInfo",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "totalBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "freeBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "usedBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "usedPercent",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DeviceInfoSnapshot"
+      },
+      "promise": true,
+      "comment": "Read one CPU, memory, GPU, storage, thermal, and onboard sensor snapshot."
+    },
+    {
+      "name": "startMonitoring",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MonitoringOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartMonitoringResult"
+      },
+      "promise": true,
+      "comment": "Start periodic device snapshots.\n\nListen to `deviceInfoUpdate` to receive samples. Calling this while monitoring\nis already active restarts monitoring with the new options."
+    },
+    {
+      "name": "stopMonitoring",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "StopMonitoringResult"
+      },
+      "promise": true,
+      "comment": "Stop periodic device snapshots."
+    },
+    {
+      "name": "isMonitoring",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "MonitoringState"
+      },
+      "promise": true,
+      "comment": "Return current periodic monitoring state."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners that have been registered on the plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "deviceInfoUpdate",
+      "listener": {
+        "k": "ref",
+        "name": "DeviceInfoUpdate"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

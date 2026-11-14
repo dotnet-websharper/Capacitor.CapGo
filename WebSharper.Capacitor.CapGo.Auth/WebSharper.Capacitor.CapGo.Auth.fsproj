@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Product>WebSharper.Capacitor.CapGo.Auth</Product>
+    <Title>https://github.com/dotnet-websharper/capacitor.capgo/</Title>
+    <Company>IntelliFactory</Company>
+    <Copyright>(c) 2023 IntelliFactory</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NpmDependencies>
+			<NpmPackage Name="@capgo/capacitor-age-range" Version="&gt;= 8.2.7 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-android-age-signals" Version="&gt;= 8.1.33 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-android-sms-retriever" Version="&gt;= 8.1.4 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-app-attest" Version="&gt;= 8.2.21 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-app-tracking-transparency" Version="&gt;= 8.1.23 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-autofill-save-password" Version="&gt;= 8.2.6 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-device-integrity" Version="&gt;= 8.0.17 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-intune" Version="&gt;= 8.1.11 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-is-root" Version="&gt;= 8.2.8 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-mock-location-detector" Version="&gt;= 8.0.12 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-native-biometric" Version="&gt;= 8.9.3 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-nfc" Version="&gt;= 8.3.11 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-passkey" Version="&gt;= 8.5.10 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-permissions" Version="&gt;= 8.2.10 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-persistent-account" Version="&gt;= 8.0.54 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-persona" Version="&gt;= 8.2.5 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-privacy-screen" Version="&gt;= 8.3.16 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-recaptcha" Version="&gt;= 8.1.20 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-ssl-pinning" Version="&gt;= 8.1.17 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-verisoul" Version="&gt;= 8.0.19 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-wechat" Version="&gt;= 8.0.59 &lt; 9.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.fs" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapGoGeneratorCommon\CapGoGeneratorCommon.fsproj" />
+    <!-- The binding surface is generated from these models; without them MSBuild
+         would happily reuse a stale WebSharper metadata cache. -->
+    <CustomAdditionalCompileInputs Include="..\tools\model\*.json" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

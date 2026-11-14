@@ -1,0 +1,794 @@
+{
+  "namespace": "FirebaseFirestore",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-firestore",
+  "version": "8.3.1",
+  "license": "MPL-2.0",
+  "export": "FirebaseFirestore",
+  "types": [
+    {
+      "name": "AddDocumentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AddDocumentOptionsDataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "AddDocumentResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reference",
+          "type": {
+            "k": "ref",
+            "name": "DocumentReference"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteDocumentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DocumentReference",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "toJSON",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "ref",
+              "name": "DocumentReferenceToJSONResult"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DocumentReferenceToJSONResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "EnablePersistenceOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "cacheSizeBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "synchronizeTabs",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetCountFromServerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "compositeFilter",
+          "type": {
+            "k": "ref",
+            "name": "QueryCompositeFilterConstraint"
+          }
+        },
+        {
+          "name": "queryConstraints",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "ref",
+                  "name": "QueryOrderByConstraint"
+                },
+                {
+                  "k": "ref",
+                  "name": "QueryLimitConstraint"
+                },
+                {
+                  "k": "ref",
+                  "name": "QueryStartAtConstraint"
+                },
+                {
+                  "k": "ref",
+                  "name": "QueryEndAtConstraint"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetCountFromServerResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryCompositeFilterConstraint",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "QueryCompositeFilterConstraintType"
+          }
+        },
+        {
+          "name": "queryConstraints",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "ref",
+                  "name": "QueryCompositeFilterConstraint"
+                },
+                {
+                  "k": "ref",
+                  "name": "QueryFieldFilterConstraint"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryCompositeFilterConstraintType",
+      "kind": "enumStrings",
+      "cases": [
+        "and",
+        "or"
+      ]
+    },
+    {
+      "name": "QueryEndAtConstraint",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "QueryEndAtConstraintType"
+          }
+        },
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryEndAtConstraintType",
+      "kind": "enumStrings",
+      "cases": [
+        "endAt",
+        "endBefore"
+      ]
+    },
+    {
+      "name": "QueryFieldFilterConstraint",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fieldPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "opStr",
+          "type": {
+            "k": "ref",
+            "name": "QueryFieldFilterConstraintOpStr"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryFieldFilterConstraintOpStr",
+      "kind": "enumStrings",
+      "cases": [
+        "<",
+        "<=",
+        "==",
+        ">=",
+        ">",
+        "!=",
+        "array-contains",
+        "array-contains-any",
+        "in",
+        "not-in"
+      ]
+    },
+    {
+      "name": "QueryLimitConstraint",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "QueryLimitConstraintType"
+          }
+        },
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryLimitConstraintType",
+      "kind": "enumStrings",
+      "cases": [
+        "limit",
+        "limitToLast"
+      ]
+    },
+    {
+      "name": "QueryOrderByConstraint",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fieldPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "directionStr",
+          "type": {
+            "k": "ref",
+            "name": "QueryOrderByConstraintDirectionStr"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryOrderByConstraintDirectionStr",
+      "kind": "enumStrings",
+      "cases": [
+        "desc",
+        "asc"
+      ]
+    },
+    {
+      "name": "QueryStartAtConstraint",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "QueryStartAtConstraintType"
+          }
+        },
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueryStartAtConstraintType",
+      "kind": "enumStrings",
+      "cases": [
+        "startAt",
+        "startAfter"
+      ]
+    },
+    {
+      "name": "RemoveSnapshotListenerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callbackId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetDocumentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "merge",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "merge",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UpdateDocumentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UseEmulatorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "host",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WriteBatchOperation",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "WriteBatchOperationType"
+          }
+        },
+        {
+          "name": "reference",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "AddDocumentOptionsDataMap"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WriteBatchOperationType",
+      "kind": "enumStrings",
+      "cases": [
+        "set",
+        "update",
+        "delete"
+      ]
+    },
+    {
+      "name": "WriteBatchOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "operations",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "WriteBatchOperation"
+            }
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "addDocument",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AddDocumentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AddDocumentResult"
+      },
+      "promise": true,
+      "comment": "Adds a new document to a collection with the given data."
+    },
+    {
+      "name": "clearPersistence",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Clears the persistent storage. This includes pending writes and cached documents.\n\n**Attention**: Must be called after the app is shutdown or when the app is first initialized."
+    },
+    {
+      "name": "deleteDocument",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteDocumentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deletes the document referred to by the specified reference."
+    },
+    {
+      "name": "disableNetwork",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disables use of the network."
+    },
+    {
+      "name": "disablePersistence",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disables offline persistence.\n\n**Attention**: Must be called before any other Firestore method."
+    },
+    {
+      "name": "enablePersistence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "EnablePersistenceOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enables offline persistence.\n\n**Attention**: Must be called before any other Firestore method."
+    },
+    {
+      "name": "enableNetwork",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Re-enables use of the network."
+    },
+    {
+      "name": "getCountFromServer",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetCountFromServerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetCountFromServerResult"
+      },
+      "promise": true,
+      "comment": "Fetches the number of documents in a collection."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "removeSnapshotListener",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveSnapshotListenerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove a listener for document or collection snapshot events."
+    },
+    {
+      "name": "setDocument",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetDocumentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Writes to the document referred to by the specified reference.\nIf the document does not yet exist, it will be created."
+    },
+    {
+      "name": "updateDocument",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateDocumentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Updates fields in the document referred to by the specified reference."
+    },
+    {
+      "name": "useEmulator",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UseEmulatorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Instrument your app to talk to the Firestore emulator."
+    },
+    {
+      "name": "writeBatch",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WriteBatchOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Execute multiple write operations as a single batch."
+    }
+  ],
+  "events": [],
+  "unsupported": [
+    {
+      "method": "addCollectionGroupSnapshotListener",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "addCollectionSnapshotListener",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "addDocumentSnapshotListener",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "getCollection",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "getCollectionGroup",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "getDocument",
+      "reason": "generic method cannot be flattened"
+    }
+  ],
+  "coreRefs": [],
+  "externalTypes": []
+}

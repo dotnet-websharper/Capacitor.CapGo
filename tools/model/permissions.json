@@ -1,0 +1,301 @@
+{
+  "namespace": "Permissions",
+  "family": "Auth",
+  "package": "@capgo/capacitor-permissions",
+  "version": "8.2.10",
+  "license": "MPL-2.0",
+  "export": "Permissions",
+  "types": [
+    {
+      "name": "MultiplePermissionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "permissions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PermissionOptionsPermission"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MultiplePermissionStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "statuses",
+          "type": {
+            "k": "ref",
+            "name": "MultiplePermissionStatusResultStatusesMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MultiplePermissionStatusResultStatusesMap",
+      "kind": "map",
+      "of": {
+        "k": "ref",
+        "name": "PermissionStatusResultStatus"
+      }
+    },
+    {
+      "name": "OpenSettingsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "OpenSettingsOptionsType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenSettingsOptionsType",
+      "kind": "enumStrings",
+      "cases": [
+        "notifications",
+        "application"
+      ]
+    },
+    {
+      "name": "PermissionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "permission",
+          "type": {
+            "k": "ref",
+            "name": "PermissionOptionsPermission"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionOptionsPermission",
+      "kind": "enumStrings",
+      "cases": [
+        "camera",
+        "microphone",
+        "photoLibrary",
+        "photoLibraryAddOnly",
+        "contacts",
+        "calendar",
+        "reminders",
+        "locationWhenInUse",
+        "locationAlways",
+        "bluetooth",
+        "motion",
+        "notifications",
+        "speechRecognition",
+        "appTrackingTransparency",
+        "activityRecognition",
+        "phone",
+        "sms",
+        "mediaAudio",
+        "mediaImages",
+        "mediaVideo"
+      ]
+    },
+    {
+      "name": "PermissionStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusResultStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "granted",
+        "denied",
+        "blocked",
+        "limited",
+        "unavailable"
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ShouldShowRationaleResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "shouldShow",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "check",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PermissionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatusResult"
+      },
+      "promise": true,
+      "comment": "Check the current status of one permission without prompting the user."
+    },
+    {
+      "name": "request",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PermissionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatusResult"
+      },
+      "promise": true,
+      "comment": "Request one permission from the user. On Android, shows the system dialog when needed.\nOn iOS, triggers the platform authorization flow for the mapped capability."
+    },
+    {
+      "name": "checkMultiple",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MultiplePermissionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "MultiplePermissionStatusResult"
+      },
+      "promise": true,
+      "comment": "Check several permissions without prompting."
+    },
+    {
+      "name": "requestMultiple",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MultiplePermissionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "MultiplePermissionStatusResult"
+      },
+      "promise": true,
+      "comment": "Request several permissions sequentially so dialogs are not shown on top of each other."
+    },
+    {
+      "name": "shouldShowRationale",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PermissionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ShouldShowRationaleResult"
+      },
+      "promise": true,
+      "comment": "Whether Android should show a rationale before requesting again.\nReturns `{ shouldShow: false }` on iOS and web."
+    },
+    {
+      "name": "openSettings",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenSettingsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the application or notification settings screen.\nRejects on web with `UNIMPLEMENTED`."
+    },
+    {
+      "name": "requestPreciseLocation",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatusResult"
+      },
+      "promise": true,
+      "comment": "Ask for precise location.\nOn iOS, requests temporary full accuracy when already authorized when-in-use.\nOn Android, requests `ACCESS_FINE_LOCATION`.\nOn web, returns the geolocation permission status after prompting when possible."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

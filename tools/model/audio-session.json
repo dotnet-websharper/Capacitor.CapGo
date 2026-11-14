@@ -1,0 +1,150 @@
+{
+  "namespace": "AudioSession",
+  "family": "Media",
+  "package": "@capgo/capacitor-audio-session",
+  "version": "8.1.11",
+  "license": "MPL-2.0",
+  "export": "AudioSession",
+  "types": [
+    {
+      "name": "AudioSessionPorts",
+      "kind": "enumStrings",
+      "cases": [
+        "airplay",
+        "bluetooth-le",
+        "bluetooth-hfp",
+        "bluetooth-a2dp",
+        "builtin-speaker",
+        "builtin-receiver",
+        "hdmi",
+        "headphones",
+        "line-out"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InterruptionTypes",
+      "kind": "enumStrings",
+      "cases": [
+        "began",
+        "ended"
+      ]
+    },
+    {
+      "name": "OverrideOutputResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OverrideOutputType",
+      "kind": "enumStrings",
+      "cases": [
+        "default",
+        "speaker"
+      ]
+    },
+    {
+      "name": "RouteChangeReasons",
+      "kind": "enumStrings",
+      "cases": [
+        "new-device-available",
+        "old-device-unavailable",
+        "category-change",
+        "override",
+        "wake-from-sleep",
+        "no-suitable-route-for-category",
+        "route-config-change",
+        "unknown"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "currentOutputs",
+      "params": [],
+      "returns": {
+        "k": "array",
+        "of": {
+          "k": "ref",
+          "name": "AudioSessionPorts"
+        }
+      },
+      "promise": true,
+      "comment": "Get the current active audio output routes.\n\nOn web and non-iOS platforms, this resolves to an empty array."
+    },
+    {
+      "name": "overrideOutput",
+      "params": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "OverrideOutputType"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OverrideOutputResult"
+      },
+      "promise": true,
+      "comment": "Override the current audio output route.\n\nUse `speaker` to force playback through the built-in speaker, or\n`default` to restore the system-selected route."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [
+    {
+      "name": "routeChanged",
+      "listener": {
+        "k": "ref",
+        "name": "RouteChangeReasons"
+      }
+    },
+    {
+      "name": "interruption",
+      "listener": {
+        "k": "ref",
+        "name": "InterruptionTypes"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,122 @@
+{
+  "namespace": "AndroidInlineInstall",
+  "family": "UI",
+  "package": "@capgo/capacitor-android-inline-install",
+  "version": "8.0.21",
+  "license": "MPL-2.0",
+  "export": "AndroidInlineInstall",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartInlineInstallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "referrer",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "callerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "csl_id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "overlay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fallback",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartInlineInstallResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "started",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fallbackUsed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "startInlineInstall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartInlineInstallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartInlineInstallResult"
+      },
+      "promise": true,
+      "comment": "Start an inline install flow using the Google Play overlay.\n\nNote: Only eligible apps can use Inline Install. See:\nhttps://play.google.com/console/about/guides/premium-growth-tools/"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

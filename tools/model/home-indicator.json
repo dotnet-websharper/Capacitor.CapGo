@@ -1,0 +1,80 @@
+{
+  "namespace": "HomeIndicator",
+  "family": "Core",
+  "package": "@capgo/capacitor-home-indicator",
+  "version": "8.1.8",
+  "license": "MPL-2.0",
+  "export": "HomeIndicator",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsHiddenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "hidden",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "hide",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide the home indicator at the bottom of the screen.\n\nThis visually hides the iOS home indicator bar, providing a more immersive\nfull-screen experience. Users can still swipe up to access home, but the\nindicator will not be visible until they start the gesture.\n\niOS only. Has no effect on Android or web."
+    },
+    {
+      "name": "show",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show the home indicator at the bottom of the screen.\n\nThis restores the default iOS home indicator visibility, making it\nalways visible to the user. This is the default behavior.\n\niOS only. Has no effect on Android or web."
+    },
+    {
+      "name": "isHidden",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsHiddenResult"
+      },
+      "promise": true,
+      "comment": "Check whether the home indicator is currently hidden.\n\nReturns the current visibility state of the iOS home indicator."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

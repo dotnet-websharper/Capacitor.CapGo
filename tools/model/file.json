@@ -1,0 +1,1455 @@
+{
+  "namespace": "File",
+  "family": "Files",
+  "package": "@capgo/capacitor-file",
+  "version": "8.0.26",
+  "license": "MPL-2.0",
+  "export": "CapacitorFile",
+  "types": [
+    {
+      "name": "CopyOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "from",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "to",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "toDirectory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CopyResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteDirectoryOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "recursive",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeleteFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Directory",
+      "kind": "enumStrings",
+      "cases": [
+        "DOCUMENTS",
+        "DATA",
+        "LIBRARY",
+        "CACHE",
+        "EXTERNAL",
+        "EXTERNAL_STORAGE",
+        "APPLICATION"
+      ]
+    },
+    {
+      "name": "DirectoryEntry",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isFile",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isDirectory",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nativeURL",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Encoding",
+      "kind": "enumStrings",
+      "cases": [
+        "utf8",
+        "ascii",
+        "utf16"
+      ]
+    },
+    {
+      "name": "Entry",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isFile",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isDirectory",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nativeURL",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ExistsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ExistsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "exists",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "StatResultType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FileDirectories",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "applicationDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "applicationStorageDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "dataDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cacheDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "externalRootDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "externalApplicationStorageDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "externalDataDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "externalCacheDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "documentsDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "syncedDataDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "libraryDirectory",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tempDirectory",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FileEntry",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isFile",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isDirectory",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nativeURL",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FilePermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "publicStorage",
+          "type": {
+            "k": "ref",
+            "name": "FilePermissionStatusPublicStorage"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FilePermissionStatusPublicStorage",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "FileSystem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "root",
+          "type": {
+            "k": "ref",
+            "name": "DirectoryEntry"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FileSystemType",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "TEMPORARY",
+          "value": 0
+        },
+        {
+          "name": "PERSISTENT",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "GetDirectoryOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetFreeDiskSpaceResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "free",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "create",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "exclusive",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetUriOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetUriResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Metadata",
+      "kind": "config",
+      "required": [
+        {
+          "name": "modificationTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MkdirOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "recursive",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionRequestOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "showSettingsAlert",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "openSettingsButtonTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelButtonTitle",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProgressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "loaded",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "total",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lengthComputable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReadAsDataURLResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReaddirOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReaddirResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "entries",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Entry"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReadFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "k": "ref",
+            "name": "Encoding"
+          }
+        },
+        {
+          "name": "offset",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "length",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReadFileResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RenameOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "from",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "to",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "toDirectory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RequestFileSystemOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "FileSystemType"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ResolveURLOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StatOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StatResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "StatResultType"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "mtime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "ctime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StatResultType",
+      "kind": "enumStrings",
+      "cases": [
+        "file",
+        "directory"
+      ]
+    },
+    {
+      "name": "TruncateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WriteFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "directory",
+          "type": {
+            "k": "ref",
+            "name": "Directory"
+          }
+        },
+        {
+          "name": "encoding",
+          "type": {
+            "k": "ref",
+            "name": "Encoding"
+          }
+        },
+        {
+          "name": "append",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "recursive",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "position",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WriteFileResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "requestFileSystem",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestFileSystemOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "FileSystem"
+      },
+      "promise": true,
+      "comment": "Request a file system."
+    },
+    {
+      "name": "resolveLocalFileSystemURL",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ResolveURLOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "Entry"
+      },
+      "promise": true,
+      "comment": "Resolve a file URL to an entry."
+    },
+    {
+      "name": "getFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "FileEntry"
+      },
+      "promise": true,
+      "comment": "Get a file entry."
+    },
+    {
+      "name": "getDirectory",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetDirectoryOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DirectoryEntry"
+      },
+      "promise": true,
+      "comment": "Get a directory entry."
+    },
+    {
+      "name": "readFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReadFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReadFileResult"
+      },
+      "promise": true,
+      "comment": "Read a file as text or base64."
+    },
+    {
+      "name": "readAsDataURL",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReadFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReadAsDataURLResult"
+      },
+      "promise": true,
+      "comment": "Read a file as a data URL (base64 with MIME type prefix)."
+    },
+    {
+      "name": "writeFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WriteFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WriteFileResult"
+      },
+      "promise": true,
+      "comment": "Write data to a file."
+    },
+    {
+      "name": "appendFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WriteFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WriteFileResult"
+      },
+      "promise": true,
+      "comment": "Append data to a file."
+    },
+    {
+      "name": "deleteFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a file."
+    },
+    {
+      "name": "mkdir",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MkdirOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Create a directory."
+    },
+    {
+      "name": "rmdir",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteDirectoryOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a directory."
+    },
+    {
+      "name": "readdir",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReaddirOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReaddirResult"
+      },
+      "promise": true,
+      "comment": "Read directory contents."
+    },
+    {
+      "name": "stat",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StatOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StatResult"
+      },
+      "promise": true,
+      "comment": "Get metadata about a file or directory."
+    },
+    {
+      "name": "getMetadata",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StatOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "Metadata"
+      },
+      "promise": true,
+      "comment": "Get metadata about a file or directory.\nAlias for stat()."
+    },
+    {
+      "name": "rename",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RenameOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Rename or move a file or directory."
+    },
+    {
+      "name": "move",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RenameOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Move a file or directory.\nAlias for rename()."
+    },
+    {
+      "name": "copy",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CopyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CopyResult"
+      },
+      "promise": true,
+      "comment": "Copy a file or directory."
+    },
+    {
+      "name": "exists",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ExistsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ExistsResult"
+      },
+      "promise": true,
+      "comment": "Check if a file or directory exists."
+    },
+    {
+      "name": "getUri",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetUriOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetUriResult"
+      },
+      "promise": true,
+      "comment": "Get the URI for a file."
+    },
+    {
+      "name": "truncate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TruncateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Truncate a file to a specified size."
+    },
+    {
+      "name": "getDirectories",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "FileDirectories"
+      },
+      "promise": true,
+      "comment": "Get all known file system directories."
+    },
+    {
+      "name": "getFreeDiskSpace",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetFreeDiskSpaceResult"
+      },
+      "promise": true,
+      "comment": "Get the free disk space in bytes."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all event listeners."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the plugin version."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "FilePermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check the current permission status for file operations.\nOn Android, this checks for external storage permissions.\nOn iOS and web, this always returns 'granted' as no special permissions are needed."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PermissionRequestOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "FilePermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permissions for file operations.\nOn Android, this requests external storage permissions needed for\naccessing files outside the app's private directories.\nOn iOS and web, this always returns 'granted' as no special permissions are needed."
+    }
+  ],
+  "events": [
+    {
+      "name": "readProgress",
+      "listener": {
+        "k": "ref",
+        "name": "ProgressEvent"
+      }
+    },
+    {
+      "name": "writeProgress",
+      "listener": {
+        "k": "ref",
+        "name": "ProgressEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

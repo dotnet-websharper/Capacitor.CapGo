@@ -1,0 +1,100 @@
+{
+  "namespace": "AndroidAgeSignals",
+  "family": "Auth",
+  "package": "@capgo/capacitor-android-age-signals",
+  "version": "8.1.33",
+  "license": "MPL-2.0",
+  "export": "AgeSignals",
+  "types": [
+    {
+      "name": "CheckAgeSignalsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userStatus",
+          "type": {
+            "k": "ref",
+            "name": "UserStatus"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "ageLower",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "ageUpper",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "mostRecentApprovalDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "installId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UserStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "VERIFIED",
+        "SUPERVISED",
+        "SUPERVISED_APPROVAL_PENDING",
+        "SUPERVISED_APPROVAL_DENIED",
+        "UNKNOWN",
+        "EMPTY"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "checkAgeSignals",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckAgeSignalsResult"
+      },
+      "promise": true,
+      "comment": "Request the current Play Age Signals for the active user.\n\nOnly available on Android devices with Google Play installed."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

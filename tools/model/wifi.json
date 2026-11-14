@@ -1,0 +1,685 @@
+{
+  "namespace": "Wifi",
+  "family": "Device",
+  "package": "@capgo/capacitor-wifi",
+  "version": "8.5.12",
+  "license": "MPL-2.0",
+  "export": "CapacitorWifi",
+  "types": [
+    {
+      "name": "AddNetworkOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isHiddenSsid",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "securityType",
+          "type": {
+            "k": "ref",
+            "name": "NetworkSecurityType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ConnectOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isHiddenSsid",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoRouteTraffic",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "timeoutMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DisconnectOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetAvailableNetworksResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "networks",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Network"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetIpAddressResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ipAddress",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetRssiResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "rssi",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSsidResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsNetworkSavedOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsNetworkSavedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSaved",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Network",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rssi",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "securityTypes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NetworkSecurityType"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "NetworkSecurityType",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "OPEN",
+          "value": 0
+        },
+        {
+          "name": "WEP",
+          "value": 1
+        },
+        {
+          "name": "WPA2_PSK",
+          "value": 2
+        },
+        {
+          "name": "EAP",
+          "value": 3
+        },
+        {
+          "name": "SAE",
+          "value": 4
+        },
+        {
+          "name": "WPA3_ENTERPRISE",
+          "value": 5
+        },
+        {
+          "name": "WPA3_ENTERPRISE_192_BIT",
+          "value": 6
+        },
+        {
+          "name": "PASSPOINT",
+          "value": 7
+        },
+        {
+          "name": "OWE",
+          "value": 8
+        },
+        {
+          "name": "WAPI_PSK",
+          "value": 9
+        },
+        {
+          "name": "WAPI_CERT",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "location",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusLocation"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusLocation",
+      "kind": "enumStrings",
+      "cases": [
+        "granted",
+        "denied",
+        "prompt"
+      ]
+    },
+    {
+      "name": "RequestPermissionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "permissions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShareNetworkOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "dppUri",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bluetoothIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessoryIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "requestAuthorization",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "askToShare",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShareNetworkResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "started",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "authorizationState",
+          "type": {
+            "k": "ref",
+            "name": "ShareNetworkResultAuthorizationState"
+          }
+        },
+        {
+          "name": "askToShareState",
+          "type": {
+            "k": "ref",
+            "name": "ShareNetworkResultAskToShareState"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShareNetworkResultAskToShareState",
+      "kind": "enumStrings",
+      "cases": [
+        "unsupported",
+        "shared",
+        "declined",
+        "cancelled",
+        "notNeeded"
+      ]
+    },
+    {
+      "name": "ShareNetworkResultAuthorizationState",
+      "kind": "enumStrings",
+      "cases": [
+        "denied",
+        "authorized",
+        "notDetermined",
+        "unsupported"
+      ]
+    },
+    {
+      "name": "WifiInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ssid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ip",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bssid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "frequency",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "linkSpeed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "signalStrength",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "addNetwork",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AddNetworkOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show a system dialog to add a Wi-Fi network to the device.\nOn Android SDK 30+, this opens the system Wi-Fi settings with the network pre-filled.\nOn iOS, this connects to the network directly."
+    },
+    {
+      "name": "connect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Connect to a Wi-Fi network.\nOn Android, this creates a temporary connection that doesn't route traffic through the network by default.\nSet autoRouteTraffic to true to bind app traffic to the connected network (useful for local/device-hosted APs).\nFor a persistent connection on Android, use addNetwork() instead.\nOn iOS, this creates a persistent connection.\n\nResolves only after the device is confirmed associated with the requested SSID.\nOn failure, rejects with a Capacitor error that includes a stable `code`\nfrom {@link WifiConnectionErrorCode}. Prefer `error.code` over parsing `error.message`.\nSpecific codes are returned only when the native OS provides that reason;\notherwise the plugin returns `CONNECTION_FAILED`."
+    },
+    {
+      "name": "disconnect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisconnectOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disconnect from the current Wi-Fi network.\nOn iOS, only disconnects from networks that were added via this plugin."
+    },
+    {
+      "name": "getAvailableNetworks",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAvailableNetworksResult"
+      },
+      "promise": true,
+      "comment": "Get a list of available Wi-Fi networks from the last scan.\nOnly available on Android."
+    },
+    {
+      "name": "getIpAddress",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetIpAddressResult"
+      },
+      "promise": true,
+      "comment": "Get the device's current IP address.\nAvailable on both Android and iOS."
+    },
+    {
+      "name": "getRssi",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetRssiResult"
+      },
+      "promise": true,
+      "comment": "Get the received signal strength indicator (RSSI) of the current network in dBm.\nOnly available on Android."
+    },
+    {
+      "name": "getSsid",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSsidResult"
+      },
+      "promise": true,
+      "comment": "Get the service set identifier (SSID) of the current network.\nAvailable on both Android and iOS."
+    },
+    {
+      "name": "getWifiInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "WifiInfo"
+      },
+      "promise": true,
+      "comment": "Get comprehensive information about the currently connected WiFi network.\nThis method provides detailed network information including SSID, BSSID, IP address,\nfrequency, link speed, and signal strength in a single call.\nOn iOS, some fields may not be available and will be undefined."
+    },
+    {
+      "name": "isEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsEnabledResult"
+      },
+      "promise": true,
+      "comment": "Check if Wi-Fi is enabled on the device.\nOnly available on Android."
+    },
+    {
+      "name": "startScan",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start scanning for Wi-Fi networks.\nOnly available on Android.\nResults are delivered via the 'networksScanned' event listener.\nNote: May fail due to system throttling or hardware issues."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check the current permission status for location access.\nLocation permission is required for Wi-Fi operations on both platforms."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestPermissionsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request location permissions from the user.\nLocation permission is required for Wi-Fi operations on both platforms."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "isNetworkSaved",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsNetworkSavedOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsNetworkSavedResult"
+      },
+      "promise": true,
+      "comment": "Check whether a network with the given SSID has already been saved/configured by this app.\nOn Android SDK 30+, this checks the app's Wi-Fi network suggestions.\nOn older Android (including SDK 29), this checks the system's configured networks list.\nOn iOS, this checks the hotspot configurations managed by this app.\nUse this to decide whether to call addNetwork() (first time) or connect() (already saved)."
+    },
+    {
+      "name": "shareNetwork",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShareNetworkOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ShareNetworkResult"
+      },
+      "promise": true,
+      "comment": "Share Wi-Fi network credentials using platform-native sharing flows.\n\nOn Android 10+, this uses Wi-Fi Easy Connect (DPP). When `dppUri` is provided, the system\nprovisions credentials to the target device. Otherwise, it opens the system UI to share the\ncurrent or specified network (optionally via QR code when `ssid` and `password` are provided).\n\nOn iOS 26.2+, this uses the Wi-Fi Infrastructure framework with a paired AccessorySetupKit\naccessory. The host app must pair the accessory first and pass its `bluetoothIdentifier` or\n`accessoryIdentifier`. The app also needs the `com.apple.developer.wifi-infrastructure` entitlement."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "networksScanned",
+      "listener": {
+        "k": "unit"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

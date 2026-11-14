@@ -1,0 +1,102 @@
+{
+  "namespace": "Proximity",
+  "family": "Device",
+  "package": "@capgo/capacitor-proximity",
+  "version": "8.1.18",
+  "license": "MIT",
+  "export": "CapacitorProximity",
+  "types": [
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ProximityStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "ProximityStatusResultPlatform"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ProximityStatusResultPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "enable",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable proximity monitoring.\n\nOn iOS this enables `UIDevice.isProximityMonitoringEnabled`.\nOn Android this starts listening to `TYPE_PROXIMITY` and dims the current\napp window while the sensor is covered."
+    },
+    {
+      "name": "disable",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disable proximity monitoring.\n\nThis restores the default app window behavior and stops sensor monitoring."
+    },
+    {
+      "name": "getStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ProximityStatusResult"
+      },
+      "promise": true,
+      "comment": "Get the current sensor availability and plugin enabled state."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the current native plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

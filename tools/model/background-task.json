@@ -1,0 +1,425 @@
+{
+  "namespace": "BackgroundTask",
+  "family": "Device",
+  "package": "@capgo/capacitor-background-task",
+  "version": "8.1.14",
+  "license": "MPL-2.0",
+  "export": "BackgroundTask",
+  "types": [
+    {
+      "name": "BackgroundTaskEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "taskName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "taskId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "test",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BackgroundTaskOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "minimumInterval",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "requiresNetwork",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BackgroundTaskResult",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "Success",
+          "value": 1
+        },
+        {
+          "name": "Failed",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "BackgroundTaskStatus",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "Restricted",
+          "value": 1
+        },
+        {
+          "name": "Available",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "ReactNativeBackgroundTaskOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "period",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ReactNativeBackgroundTaskStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "unavailableReason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "defineTask",
+      "params": [
+        {
+          "name": "taskName",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "callback",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "BackgroundTaskEvent"
+              }
+            ],
+            "ret": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "unit"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "promise",
+                  "of": {
+                    "k": "union",
+                    "of": [
+                      {
+                        "k": "unit"
+                      },
+                      {
+                        "k": "float"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "Define the JavaScript callback for a task. Call this at module/global scope."
+    },
+    {
+      "name": "registerTaskAsync",
+      "params": [
+        {
+          "name": "taskName",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BackgroundTaskOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Register a named periodic background task."
+    },
+    {
+      "name": "unregisterTaskAsync",
+      "params": [
+        {
+          "name": "taskName",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Unregister a named periodic background task."
+    },
+    {
+      "name": "isTaskRegisteredAsync",
+      "params": [
+        {
+          "name": "taskName",
+          "type": {
+            "k": "string"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "bool"
+      },
+      "promise": true,
+      "comment": "Check whether a named task is registered."
+    },
+    {
+      "name": "getRegisteredTasksAsync",
+      "params": [],
+      "returns": {
+        "k": "array",
+        "of": {
+          "k": "string"
+        }
+      },
+      "promise": true,
+      "comment": "Return all registered task names."
+    },
+    {
+      "name": "getPendingTaskRunsAsync",
+      "params": [],
+      "returns": {
+        "k": "array",
+        "of": {
+          "k": "ref",
+          "name": "BackgroundTaskEvent"
+        }
+      },
+      "promise": true,
+      "comment": "Return pending task runs that native recorded before JavaScript was ready."
+    },
+    {
+      "name": "getStatusAsync",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "BackgroundTaskStatus"
+      },
+      "promise": true,
+      "comment": "Return native background task availability."
+    },
+    {
+      "name": "triggerTaskWorkerForTestingAsync",
+      "params": [],
+      "returns": {
+        "k": "bool"
+      },
+      "promise": true,
+      "comment": "Trigger all registered tasks immediately for development/testing."
+    },
+    {
+      "name": "addExpirationListener",
+      "params": [
+        {
+          "name": "listener",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "BackgroundTaskEvent"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PluginListenerHandle",
+        "core": true
+      },
+      "promise": true,
+      "comment": "Listen for iOS expiration callbacks."
+    },
+    {
+      "name": "define",
+      "params": [
+        {
+          "name": "callback",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "BackgroundTaskEvent"
+              }
+            ],
+            "ret": {
+              "k": "union",
+              "of": [
+                {
+                  "k": "unit"
+                },
+                {
+                  "k": "float"
+                },
+                {
+                  "k": "promise",
+                  "of": {
+                    "k": "union",
+                    "of": [
+                      {
+                        "k": "unit"
+                      },
+                      {
+                        "k": "float"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "React Native background-task compatible single-task define helper."
+    },
+    {
+      "name": "schedule",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReactNativeBackgroundTaskOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "React Native background-task compatible single-task scheduler."
+    },
+    {
+      "name": "cancel",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "React Native background-task compatible single-task cancel helper."
+    },
+    {
+      "name": "statusAsync",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ReactNativeBackgroundTaskStatus"
+      },
+      "promise": true,
+      "comment": "React Native background-task compatible status helper."
+    },
+    {
+      "name": "finish",
+      "params": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "BackgroundTaskResult"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "React Native background-task compatible finish helper. Normal Expo-style\ncallbacks are finished automatically."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [
+    "PluginListenerHandle"
+  ],
+  "externalTypes": []
+}

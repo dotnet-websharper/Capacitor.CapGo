@@ -1,0 +1,568 @@
+{
+  "namespace": "Auto",
+  "family": "Tooling",
+  "package": "@capgo/capacitor-auto",
+  "version": "8.1.16",
+  "license": "MPL-2.0",
+  "export": "Auto",
+  "types": [
+    {
+      "name": "AutoActionEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "AutoAvailabilityPlatform"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AutoAvailability",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "connected",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "AutoAvailabilityPlatform"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AutoAvailabilityPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "AutoConnectionChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "connected",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "AutoAvailabilityPlatform"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AutoMessageEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "AutoAvailabilityPlatform"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AutoMessageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AutoStateChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "AutoAvailabilityPlatform"
+          }
+        },
+        {
+          "name": "transient",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "value",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AutoStateKeyOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AutoStateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AutoStateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "value",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AutoTemplateItem",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadMap"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AutoTemplateItemPayloadMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          },
+          {
+            "k": "ref",
+            "name": "AutoTemplateItemPayloadValueMap"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AutoTemplateItemPayloadValueMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "AutoTemplateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sections",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AutoTemplateSection"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "emptyText",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AutoTemplateSection",
+      "kind": "config",
+      "required": [
+        {
+          "name": "items",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AutoTemplateItem"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "header",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AutoAvailability"
+      },
+      "promise": true,
+      "comment": "Returns whether the current platform supports this plugin and whether a car is connected."
+    },
+    {
+      "name": "setRootTemplate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AutoTemplateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the root car template. Use this to push phone app state to the car display."
+    },
+    {
+      "name": "setState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AutoStateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Persists a JSON state slice that native Android Auto and CarPlay code can read even when the\nCapacitor WebView is not alive."
+    },
+    {
+      "name": "getState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AutoStateKeyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AutoStateResult"
+      },
+      "promise": true,
+      "comment": "Reads a persisted JSON state slice."
+    },
+    {
+      "name": "removeState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AutoStateKeyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes a persisted JSON state slice."
+    },
+    {
+      "name": "setTransientState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AutoStateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stores a process-local JSON state slice and emits the same `stateChanged` event."
+    },
+    {
+      "name": "getTransientState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AutoStateKeyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AutoStateResult"
+      },
+      "promise": true,
+      "comment": "Reads a process-local JSON state slice."
+    },
+    {
+      "name": "sendMessage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AutoMessageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends an application-defined message to the native car bridge."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    }
+  ],
+  "events": [
+    {
+      "name": "connectionChanged",
+      "listener": {
+        "k": "ref",
+        "name": "AutoConnectionChangedEvent"
+      }
+    },
+    {
+      "name": "carAction",
+      "listener": {
+        "k": "ref",
+        "name": "AutoActionEvent"
+      }
+    },
+    {
+      "name": "messageReceived",
+      "listener": {
+        "k": "ref",
+        "name": "AutoMessageEvent"
+      }
+    },
+    {
+      "name": "stateChanged",
+      "listener": {
+        "k": "ref",
+        "name": "AutoStateChangedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

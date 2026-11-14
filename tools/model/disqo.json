@@ -1,0 +1,489 @@
+{
+  "namespace": "Disqo",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-disqo",
+  "version": "8.1.3",
+  "license": "MPL-2.0",
+  "export": "Disqo",
+  "types": [
+    {
+      "name": "AccessTokenRequestedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DisqoInitializeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "apiUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DisqoStartOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RefreshTokenRequestedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RejectAccessTokenRequestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RejectRefreshTokenRequestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ResolveAccessTokenRequestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ResolveRefreshTokenRequestOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "requestId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SdkStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "missingClasses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ServiceEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ServiceStateInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "raw",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UpdateAccessTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getSdkStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SdkStatusResult"
+      },
+      "promise": true,
+      "comment": "Check whether the Android Pulse SDK classes are available at runtime."
+    },
+    {
+      "name": "initialize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisqoInitializeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize the native bridge and register the token-provider proxy required by Pulse."
+    },
+    {
+      "name": "start",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DisqoStartOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start Pulse tracking for the provided user."
+    },
+    {
+      "name": "stop",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Put Pulse into silent mode and clear user state."
+    },
+    {
+      "name": "updateAccessToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateAccessTokenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Replace the cached JWT used by the native provider bridge."
+    },
+    {
+      "name": "clearAccessToken",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Clear the cached JWT. The next native lookup will ask JavaScript for a new token."
+    },
+    {
+      "name": "getServiceStateInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ServiceStateInfo"
+      },
+      "promise": true,
+      "comment": "Return a normalized snapshot of the current Pulse service state."
+    },
+    {
+      "name": "isServiceEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ServiceEnabledResult"
+      },
+      "promise": true,
+      "comment": "Convenience boolean for the current Pulse service state."
+    },
+    {
+      "name": "openAccessibilitySettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open Android accessibility settings so the host app can drive the enablement flow."
+    },
+    {
+      "name": "refreshConfigs",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Force the native Pulse SDK to refresh its remote configuration.\n\nIntended for internal debugging."
+    },
+    {
+      "name": "send",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Force the native Pulse SDK to send its queued events immediately.\n\nIntended for internal debugging."
+    },
+    {
+      "name": "resolveAccessTokenRequest",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ResolveAccessTokenRequestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resolve a pending `accessTokenRequested` callback with a fresh JWT."
+    },
+    {
+      "name": "rejectAccessTokenRequest",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RejectAccessTokenRequestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reject a pending `accessTokenRequested` callback."
+    },
+    {
+      "name": "resolveRefreshTokenRequest",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ResolveRefreshTokenRequestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resolve a pending `refreshTokenRequested` callback.\n\nOptionally includes a fresh JWT to cache immediately."
+    },
+    {
+      "name": "rejectRefreshTokenRequest",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RejectRefreshTokenRequestOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reject a pending `refreshTokenRequested` callback."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove every active listener registered through the plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "accessTokenRequested",
+      "listener": {
+        "k": "ref",
+        "name": "AccessTokenRequestedEvent"
+      }
+    },
+    {
+      "name": "refreshTokenRequested",
+      "listener": {
+        "k": "ref",
+        "name": "RefreshTokenRequestedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

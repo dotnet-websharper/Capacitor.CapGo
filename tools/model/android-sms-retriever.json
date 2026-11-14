@@ -1,0 +1,196 @@
+{
+  "namespace": "AndroidSmsRetriever",
+  "family": "Auth",
+  "package": "@capgo/capacitor-android-sms-retriever",
+  "version": "8.1.4",
+  "license": "MPL-2.0",
+  "export": "AndroidSmsRetriever",
+  "types": [
+    {
+      "name": "GetHashStringResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "hash",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPhoneNumberResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SmsReceivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SmsRetrieverErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartWatchResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "StartWatchResultStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartWatchResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "SMS_RETRIEVER_STARTED",
+        "SMS_RETRIEVER_ALREADY_STARTED"
+      ]
+    },
+    {
+      "name": "StopWatchResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "startWatch",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "StartWatchResult"
+      },
+      "promise": true,
+      "comment": "Start listening for one verification SMS through Android's SMS Retriever API.\n\nAndroid stops listening automatically when a matching message arrives or after the\nfive-minute SMS Retriever timeout. No SMS permissions are required."
+    },
+    {
+      "name": "stopWatch",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "StopWatchResult"
+      },
+      "promise": true,
+      "comment": "Stop the active SMS Retriever watch, if any."
+    },
+    {
+      "name": "getHashString",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetHashStringResult"
+      },
+      "promise": true,
+      "comment": "Get the 11-character app hash for the installed app signature.\n\nGenerate this once for the signing key used to distribute the app and append it\nto verification SMS messages."
+    },
+    {
+      "name": "getPhoneNumber",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPhoneNumberResult"
+      },
+      "promise": true,
+      "comment": "Show Android's Phone Number Hint UI and return the user-selected SIM-based phone number."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "smsReceived",
+      "listener": {
+        "k": "ref",
+        "name": "SmsReceivedEvent"
+      }
+    },
+    {
+      "name": "smsRetrieverTimeout",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "smsRetrieverError",
+      "listener": {
+        "k": "ref",
+        "name": "SmsRetrieverErrorEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

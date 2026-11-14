@@ -1,0 +1,349 @@
+{
+  "namespace": "Mqtt",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-mqtt",
+  "version": "8.1.18",
+  "license": "MPL-2.0",
+  "export": "MqttBridge",
+  "types": [
+    {
+      "name": "ConnectOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "serverURI",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "clientId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "setCleanSession",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "connectionTimeout",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "keepAliveInterval",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "setAutomaticReconnect",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "setLastWill",
+          "type": {
+            "k": "ref",
+            "name": "ConnectOptionsSetLastWill"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ConnectOptionsSetLastWill",
+      "kind": "config",
+      "required": [
+        {
+          "name": "willTopic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "willPayload",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "willQoS",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "setRetained",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnConnectCompleteEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reconnected",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "serverURI",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnConnectionLostEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "connectionStatus",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reasonCode",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OnMessageArrivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "topic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PublishOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "topic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "qos",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "retained",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PublishResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "topic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "qos",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "retained",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "messageId",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SubscribeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "topic",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "qos",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "connect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true
+    },
+    {
+      "name": "disconnect",
+      "params": [],
+      "returns": {
+        "k": "obj"
+      },
+      "promise": true
+    },
+    {
+      "name": "subscribe",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SubscribeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SubscribeOptions"
+      },
+      "promise": true
+    },
+    {
+      "name": "publish",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PublishOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PublishResult"
+      },
+      "promise": true
+    }
+  ],
+  "events": [
+    {
+      "name": "onConnectionLost",
+      "listener": {
+        "k": "ref",
+        "name": "OnConnectionLostEvent"
+      }
+    },
+    {
+      "name": "onConnectComplete",
+      "listener": {
+        "k": "ref",
+        "name": "OnConnectCompleteEvent"
+      }
+    },
+    {
+      "name": "onMessageArrived",
+      "listener": {
+        "k": "ref",
+        "name": "OnMessageArrivedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

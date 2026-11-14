@@ -1,0 +1,130 @@
+{
+  "namespace": "NavigationBar",
+  "family": "Core",
+  "package": "@capgo/capacitor-navigation-bar",
+  "version": "8.2.23",
+  "license": "MPL-2.0",
+  "export": "NavigationBar",
+  "types": [
+    {
+      "name": "GetNavigationBarColorResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "darkButtons",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetNavigationBarColorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "darkButtons",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "dividerColor",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "hide",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide the navigation bar.\n\nOnly available on Android."
+    },
+    {
+      "name": "show",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show the navigation bar.\n\nOnly available on Android."
+    },
+    {
+      "name": "setNavigationBarColor",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetNavigationBarColorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the navigation bar color and button theme."
+    },
+    {
+      "name": "getNavigationBarColor",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetNavigationBarColorResult"
+      },
+      "promise": true,
+      "comment": "Get the current navigation bar color and button theme."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

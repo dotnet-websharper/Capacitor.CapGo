@@ -1,0 +1,159 @@
+{
+  "namespace": "AgeRange",
+  "family": "Auth",
+  "package": "@capgo/capacitor-age-range",
+  "version": "8.2.7",
+  "license": "MPL-2.0",
+  "export": "AgeRange",
+  "types": [
+    {
+      "name": "AgeRangeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "AgeRangeResultStatus"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "ageLower",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "ageUpper",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "declarationSource",
+          "type": {
+            "k": "ref",
+            "name": "AgeRangeResultDeclarationSource"
+          }
+        },
+        {
+          "name": "androidUserStatus",
+          "type": {
+            "k": "ref",
+            "name": "AgeRangeResultAndroidUserStatus"
+          }
+        },
+        {
+          "name": "mostRecentApprovalDate",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "installId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AgeRangeResultAndroidUserStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "VERIFIED",
+        "UNKNOWN",
+        "SUPERVISED",
+        "SUPERVISED_APPROVAL_PENDING",
+        "SUPERVISED_APPROVAL_DENIED",
+        "EMPTY"
+      ]
+    },
+    {
+      "name": "AgeRangeResultDeclarationSource",
+      "kind": "enumStrings",
+      "cases": [
+        "SELF_DECLARED",
+        "GUARDIAN_DECLARED",
+        "VERIFIED",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "name": "AgeRangeResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "SHARING",
+        "DECLINED_SHARING",
+        "NOT_AVAILABLE",
+        "ERROR"
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RequestAgeRangeOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "ageGates",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "requestAgeRange",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestAgeRangeOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AgeRangeResult"
+      },
+      "promise": true,
+      "comment": "Request the user's age range.\n\nOn Android: queries Google Play Age Signals API (no user prompt).\nOn iOS: presents the system DeclaredAgeRange dialog (requires iOS 26.2+)."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

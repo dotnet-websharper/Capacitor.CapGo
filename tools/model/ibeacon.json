@@ -1,0 +1,568 @@
+{
+  "namespace": "Ibeacon",
+  "family": "Device",
+  "package": "@capgo/capacitor-ibeacon",
+  "version": "8.1.51",
+  "license": "MPL-2.0",
+  "export": "CapacitorIbeacon",
+  "types": [
+    {
+      "name": "BackgroundScanPeriodOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "scanPeriod",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "betweenScanPeriod",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Beacon",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "major",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minor",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "rssi",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "proximity",
+          "type": {
+            "k": "ref",
+            "name": "BeaconProximity"
+          }
+        },
+        {
+          "name": "accuracy",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BeaconAdvertisingOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "major",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minor",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "measuredPower",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BeaconProximity",
+      "kind": "enumStrings",
+      "cases": [
+        "immediate",
+        "near",
+        "far",
+        "unknown"
+      ]
+    },
+    {
+      "name": "BeaconRegion",
+      "kind": "config",
+      "required": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "uuid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "major",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minor",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "notifyEntryStateOnDisplay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enableBackgroundMode",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DidEnterRegionEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "region",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsBluetoothEnabledResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsRangingAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MonitoringDidFailForRegionEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "region",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MonitoringEventData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "region",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "MonitoringEventDataState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MonitoringEventDataState",
+      "kind": "enumStrings",
+      "cases": [
+        "enter",
+        "exit"
+      ]
+    },
+    {
+      "name": "RangingEventData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "region",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          }
+        },
+        {
+          "name": "beacons",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Beacon"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RequestWhenInUseAuthorizationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "startMonitoringForRegion",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start monitoring for a beacon region. Triggers events when entering/exiting the region."
+    },
+    {
+      "name": "stopMonitoringForRegion",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop monitoring for a beacon region."
+    },
+    {
+      "name": "startRangingBeaconsInRegion",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start ranging beacons in a region. Provides continuous distance updates."
+    },
+    {
+      "name": "stopRangingBeaconsInRegion",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BeaconRegion"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop ranging beacons in a region."
+    },
+    {
+      "name": "startAdvertising",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BeaconAdvertisingOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start advertising the device as an iBeacon (iOS only)."
+    },
+    {
+      "name": "stopAdvertising",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop advertising the device as an iBeacon (iOS only)."
+    },
+    {
+      "name": "requestWhenInUseAuthorization",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "RequestWhenInUseAuthorizationResult"
+      },
+      "promise": true,
+      "comment": "Request \"When In Use\" location authorization (required for ranging/monitoring)."
+    },
+    {
+      "name": "requestAlwaysAuthorization",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "RequestWhenInUseAuthorizationResult"
+      },
+      "promise": true,
+      "comment": "Request \"Always\" location authorization (required for background monitoring)."
+    },
+    {
+      "name": "getAuthorizationStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "RequestWhenInUseAuthorizationResult"
+      },
+      "promise": true,
+      "comment": "Get current location authorization status."
+    },
+    {
+      "name": "isBluetoothEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsBluetoothEnabledResult"
+      },
+      "promise": true,
+      "comment": "Check if Bluetooth is enabled on the device."
+    },
+    {
+      "name": "isRangingAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsRangingAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if ranging is available on the device."
+    },
+    {
+      "name": "enableARMAFilter",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsBluetoothEnabledResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable ARMA filtering for distance calculations (Android only)."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "enableBackgroundMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsBluetoothEnabledResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable or disable background beacon scanning mode (Android only).\nThis enables a foreground service for reliable background beacon detection.\nMust be called after requesting \"Always\" location authorization."
+    },
+    {
+      "name": "setBackgroundScanPeriod",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BackgroundScanPeriodOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure background scan periods (Android only).\nControls how often and how long the device scans for beacons when in background."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "didRangeBeacons",
+      "listener": {
+        "k": "ref",
+        "name": "RangingEventData"
+      }
+    },
+    {
+      "name": "didEnterRegion",
+      "listener": {
+        "k": "ref",
+        "name": "DidEnterRegionEvent"
+      }
+    },
+    {
+      "name": "didExitRegion",
+      "listener": {
+        "k": "ref",
+        "name": "DidEnterRegionEvent"
+      }
+    },
+    {
+      "name": "didDetermineStateForRegion",
+      "listener": {
+        "k": "ref",
+        "name": "MonitoringEventData"
+      }
+    },
+    {
+      "name": "monitoringDidFailForRegion",
+      "listener": {
+        "k": "ref",
+        "name": "MonitoringDidFailForRegionEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

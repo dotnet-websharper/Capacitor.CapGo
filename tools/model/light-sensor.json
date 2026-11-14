@@ -1,0 +1,182 @@
+{
+  "namespace": "LightSensor",
+  "family": "Device",
+  "package": "@capgo/capacitor-light-sensor",
+  "version": "8.1.26",
+  "license": "MPL-2.0",
+  "export": "LightSensor",
+  "types": [
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LightSensorMeasurement",
+      "kind": "config",
+      "required": [
+        {
+          "name": "illuminance",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "highSamplingRate",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusHighSamplingRate"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusHighSamplingRate",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "StartOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "updateInterval",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if the light sensor is available on the current device.\nYou should always check sensor availability before attempting to use it."
+    },
+    {
+      "name": "start",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start listening to light sensor updates.\nThis will begin sensor measurements at the specified interval.\nUse `addListener` to receive the sensor data."
+    },
+    {
+      "name": "stop",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop listening to light sensor updates.\nThis will stop the sensor and conserve battery."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for light sensor events."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check the current permission status for high sampling rate sensors.\nOn Android 12+, the HIGH_SAMPLING_RATE_SENSORS permission is required\nfor sensor update intervals below 200ms."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission for high sampling rate sensors.\nOn Android 12+, this requests the HIGH_SAMPLING_RATE_SENSORS permission."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "VersionResult"
+      },
+      "promise": true,
+      "comment": "Get the current version of the plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "lightSensorChange",
+      "listener": {
+        "k": "ref",
+        "name": "LightSensorMeasurement"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

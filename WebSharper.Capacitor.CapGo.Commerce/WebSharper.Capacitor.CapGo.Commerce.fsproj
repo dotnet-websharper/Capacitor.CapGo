@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Product>WebSharper.Capacitor.CapGo.Commerce</Product>
+    <Title>https://github.com/dotnet-websharper/capacitor.capgo/</Title>
+    <Company>IntelliFactory</Company>
+    <Copyright>(c) 2023 IntelliFactory</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NpmDependencies>
+			<NpmPackage Name="@capgo/capacitor-admob" Version="&gt;= 8.2.12 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-in-app-review" Version="&gt;= 8.2.11 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-pay" Version="&gt;= 8.2.5 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-stripe" Version="&gt;= 8.0.1 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-stripe-identity" Version="&gt;= 8.0.11 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-stripe-pay" Version="&gt;= 8.0.13 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-stripe-terminal" Version="&gt;= 8.0.10 &lt; 9.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.fs" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapGoGeneratorCommon\CapGoGeneratorCommon.fsproj" />
+    <!-- The binding surface is generated from these models; without them MSBuild
+         would happily reuse a stale WebSharper metadata cache. -->
+    <CustomAdditionalCompileInputs Include="..\tools\model\*.json" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

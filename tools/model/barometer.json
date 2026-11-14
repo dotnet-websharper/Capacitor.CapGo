@@ -1,0 +1,177 @@
+{
+  "namespace": "Barometer",
+  "family": "Device",
+  "package": "@capgo/capacitor-barometer",
+  "version": "8.0.25",
+  "license": "MPL-2.0",
+  "export": "CapacitorBarometer",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Measurement",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pressure",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "relativeAltitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "barometer",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusBarometer"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusBarometer",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied",
+        "limited"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getMeasurement",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "Measurement"
+      },
+      "promise": true,
+      "comment": "Get the most recent barometer reading captured by the native layer."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if the current device includes a barometer sensor."
+    },
+    {
+      "name": "startMeasurementUpdates",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Begin streaming barometer updates to the JavaScript layer.\n\nCall {@link addListener} with the `measurement` event to receive the updates."
+    },
+    {
+      "name": "stopMeasurementUpdates",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop the continuous updates started via {@link startMeasurementUpdates}."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Return the current permission state for accessing barometer data."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission to access barometer data if required by the platform."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "measurement",
+      "listener": {
+        "k": "ref",
+        "name": "Measurement"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

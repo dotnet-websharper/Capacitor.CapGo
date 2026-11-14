@@ -1,0 +1,203 @@
+{
+  "namespace": "FacebookAnalytics",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-facebook-analytics",
+  "version": "8.1.22",
+  "license": "MPL-2.0",
+  "export": "FacebookAnalytics",
+  "types": [
+    {
+      "name": "AdvertiserTrackingStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LogEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "event",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "valueToSum",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currency",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "params",
+          "type": {
+            "k": "ref",
+            "name": "LogEventOptionsParamsMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LogEventOptionsParamsMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LogPurchaseOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "amount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currency",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "params",
+          "type": {
+            "k": "ref",
+            "name": "LogEventOptionsParamsMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "initAppEvents",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize the Facebook SDK and activate App Events.\n\nCall this when automatic app event logging is disabled and you want to\nstart sending events after your consent / ATT flow.\n\nOn iOS this initializes FBSDK on the main thread, then activates App\nEvents.\n\nOn Android, `FacebookInitProvider` normally runs basic SDK setup via\n`FacebookSdk.sdkInitialize()` at app start. `com.facebook.sdk.AutoInitEnabled`\ncontrols whether that path also calls `FacebookSdk.fullyInitialize()`\n(server communication). `com.facebook.sdk.AutoLogAppEventsEnabled`\ncontrols automatic `activateApp()` logging. When the provider was removed\n(for example by `@capgo/capacitor-social-login`) or basic init never\ncompleted, this method calls `sdkInitialize()` and waits for its\n`InitializeCallback`, then enables full initialization via\n`setAutoInitEnabled(true)` before calling `activateApp()`.\n`activateApp()` alone is not enough when the SDK was never\ninitialized or only basic initialization completed.\n\nDo not initialize Facebook from `AppDelegate` for consent-gated apps;\ncall this method after the user grants advertising measurement consent."
+    },
+    {
+      "name": "logEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LogEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Log a Facebook App Event."
+    },
+    {
+      "name": "logPurchase",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LogPurchaseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Log a Facebook purchase event."
+    },
+    {
+      "name": "enableAdvertiserTracking",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable advertiser tracking.\n\nOn iOS 16 and below this sets `Settings.shared.isAdvertiserTrackingEnabled`.\nOn iOS 17 and above FBSDK v17+ reads App Tracking Transparency directly.\nOn Android this enables advertiser ID collection."
+    },
+    {
+      "name": "disableAdvertiserTracking",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Disable advertiser tracking.\n\nOn iOS 16 and below this sets `Settings.shared.isAdvertiserTrackingEnabled`.\nOn iOS 17 and above FBSDK v17+ reads App Tracking Transparency directly.\nOn Android this disables advertiser ID collection."
+    },
+    {
+      "name": "getAdvertiserTrackingStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AdvertiserTrackingStatusResult"
+      },
+      "promise": true,
+      "comment": "Get the current advertiser tracking status.\n\nOn iOS 17 and above this reflects App Tracking Transparency authorization."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

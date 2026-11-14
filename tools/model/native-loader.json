@@ -1,0 +1,797 @@
+{
+  "namespace": "NativeLoader",
+  "family": "UI",
+  "package": "@capgo/capacitor-native-loader",
+  "version": "8.1.14",
+  "license": "MPL-2.0",
+  "export": "NativeLoader",
+  "types": [
+    {
+      "name": "NativeLoaderAsset",
+      "kind": "config",
+      "required": [
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderAssetType"
+          }
+        },
+        {
+          "name": "loop",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoPlay",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderAssetType",
+      "kind": "enumStrings",
+      "cases": [
+        "lottie",
+        "image"
+      ]
+    },
+    {
+      "name": "NativeLoaderConfigureOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "defaults",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderFrame",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeLoaderHideOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "animated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "restoreWebView",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderInsets",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "top",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "right",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "left",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderProgressOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderShowOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsStyle"
+          }
+        },
+        {
+          "name": "placement",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsPlacement"
+          }
+        },
+        {
+          "name": "frame",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderFrame"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "thickness",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "colors",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scrimColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cornerRadius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "blurRadius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoHide",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "interactionMode",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsInteractionMode"
+          }
+        },
+        {
+          "name": "reducedMotion",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsReducedMotion"
+          }
+        },
+        {
+          "name": "accessibilityLabel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "asset",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderAsset"
+          }
+        },
+        {
+          "name": "webView",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderWebViewLayout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderShowOptionsInteractionMode",
+      "kind": "enumStrings",
+      "cases": [
+        "passThrough",
+        "block",
+        "loaderOnly"
+      ]
+    },
+    {
+      "name": "NativeLoaderShowOptionsPlacement",
+      "kind": "enumStrings",
+      "cases": [
+        "center",
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "fullscreen",
+        "around",
+        "custom"
+      ]
+    },
+    {
+      "name": "NativeLoaderShowOptionsReducedMotion",
+      "kind": "enumStrings",
+      "cases": [
+        "system",
+        "pause",
+        "slow",
+        "ignore"
+      ]
+    },
+    {
+      "name": "NativeLoaderShowOptionsStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "siri",
+        "siri-v2",
+        "chrome",
+        "orbit",
+        "ring",
+        "pulse",
+        "dots",
+        "bars",
+        "wave",
+        "halo",
+        "lottie",
+        "image"
+      ]
+    },
+    {
+      "name": "NativeLoaderShowResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeLoaderStateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "showing",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "ids",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeLoaderUpdateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsStyle"
+          }
+        },
+        {
+          "name": "placement",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsPlacement"
+          }
+        },
+        {
+          "name": "frame",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderFrame"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "thickness",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "colors",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "scrimColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cornerRadius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "blurRadius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoHide",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "interactionMode",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsInteractionMode"
+          }
+        },
+        {
+          "name": "reducedMotion",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptionsReducedMotion"
+          }
+        },
+        {
+          "name": "accessibilityLabel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "asset",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderAsset"
+          }
+        },
+        {
+          "name": "webView",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderWebViewLayout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderWebViewLayout",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderWebViewLayoutMode"
+          }
+        },
+        {
+          "name": "insets",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderInsets"
+          }
+        },
+        {
+          "name": "frame",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderFrame"
+          }
+        },
+        {
+          "name": "restoreOnHide",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "animated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeLoaderWebViewLayoutMode",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "resize",
+        "inset"
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ResetWebViewLayoutOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "animated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderConfigureOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure defaults used by future `show` calls."
+    },
+    {
+      "name": "show",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderShowOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeLoaderShowResult"
+      },
+      "promise": true,
+      "comment": "Show a native loader."
+    },
+    {
+      "name": "update",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderUpdateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update an existing native loader."
+    },
+    {
+      "name": "setProgress",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderProgressOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update determinate progress for a visible loader."
+    },
+    {
+      "name": "hide",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderHideOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide one loader."
+    },
+    {
+      "name": "hideAll",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderHideOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide every visible loader."
+    },
+    {
+      "name": "setWebViewLayout",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeLoaderWebViewLayout"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Apply a native WebView layout change without showing a loader."
+    },
+    {
+      "name": "resetWebViewLayout",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ResetWebViewLayoutOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Restore the WebView layout captured before `setWebViewLayout` or `show`."
+    },
+    {
+      "name": "getState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "NativeLoaderStateResult"
+      },
+      "promise": true,
+      "comment": "Read current loader state."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

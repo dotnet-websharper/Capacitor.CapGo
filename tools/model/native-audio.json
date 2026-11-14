@@ -1,0 +1,1349 @@
+{
+  "namespace": "NativeAudio",
+  "family": "Core",
+  "package": "@capgo/capacitor-native-audio",
+  "version": "8.5.4",
+  "license": "MPL-2.0",
+  "export": "NativeAudio",
+  "types": [
+    {
+      "name": "AssetPauseOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fadeOut",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fadeOutDuration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AssetPlayOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "delay",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fadeIn",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fadeOut",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fadeInDuration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fadeOutDuration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fadeOutStartTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AssetRate",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AssetResumeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fadeIn",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fadeInDuration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Assets",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AssetSetTime",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AssetStopOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fadeOut",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fadeOutDuration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AssetVolume",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AudioRouteChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "route",
+          "type": {
+            "k": "ref",
+            "name": "GetAudioRouteResultRoute"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CompletedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ConfigureOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "focus",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "background",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "ignoreSilent",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "showNotification",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "progressInterval",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "backgroundPlayback",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CurrentTimeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "currentTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAudioRouteResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "route",
+          "type": {
+            "k": "ref",
+            "name": "GetAudioRouteResultRoute"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAudioRouteResultRoute",
+      "kind": "enumStrings",
+      "cases": [
+        "speaker",
+        "earpiece",
+        "external"
+      ]
+    },
+    {
+      "name": "GetCurrentTimeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "currentTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetDurationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPlaybackStateOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetRateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "rate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsPlayingResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isPlaying",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsPreloadedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "found",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NotificationMetadata",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "artist",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "album",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "artworkUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PlaybackStateEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "PlaybackStateEventState"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isPlaying",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "currentTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PlaybackStateEventState",
+      "kind": "enumStrings",
+      "cases": [
+        "playing",
+        "paused",
+        "stopped"
+      ]
+    },
+    {
+      "name": "PlayOnceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetPath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isUrl",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoPlay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "deleteAfterPlay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "notificationMetadata",
+          "type": {
+            "k": "ref",
+            "name": "NotificationMetadata"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "PreloadOptionsHeadersMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PlayOnceResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PreloadOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetPath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "audioChannelNum",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isUrl",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "notificationMetadata",
+          "type": {
+            "k": "ref",
+            "name": "NotificationMetadata"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "PreloadOptionsHeadersMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PreloadOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "ProgressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "position",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueueChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "QueueState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "index",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "assetIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetDebugModeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetQueueOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "items",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SetQueueOptionsItems"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "startIndex",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoPlay",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetQueueOptionsItems",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assetId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "assetPath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isUrl",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "volume",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "audioChannelNum",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "notificationMetadata",
+          "type": {
+            "k": "ref",
+            "name": "NotificationMetadata"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "PreloadOptionsHeadersMap"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConfigureOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure the audio player"
+    },
+    {
+      "name": "preload",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PreloadOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Load an audio file"
+    },
+    {
+      "name": "playOnce",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PlayOnceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PlayOnceResult"
+      },
+      "promise": true,
+      "comment": "Play an audio file once with automatic cleanup\n\nMethod designed for simple, single-shot audio playback,\nsuch as notification sounds, UI feedback, or other short audio clips\nthat don't require manual state management.\n\n**Key Features:**\n- **Fire-and-forget**: No need to manually preload, play, stop, or unload\n- **Auto-cleanup**: Asset is automatically unloaded after playback completes\n- **Optional file deletion**: Can delete local files after playback (useful for temp files)\n- **Returns assetId**: Can still control playback if needed (pause, stop, etc.)\n\n**Use Cases:**\n- Notification sounds\n- UI sound effects (button clicks, alerts)\n- Short audio clips that play once\n- Temporary audio files that should be cleaned up\n\n**Comparison with regular play():**\n- `play()`: Requires manual preload, play, and unload steps\n- `playOnce()`: Handles everything automatically with a single call"
+    },
+    {
+      "name": "isPreloaded",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PreloadOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsPreloadedResult"
+      },
+      "promise": true,
+      "comment": "Check if an audio file is preloaded"
+    },
+    {
+      "name": "play",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetPlayOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Play an audio file"
+    },
+    {
+      "name": "pause",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetPauseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Pause an audio file"
+    },
+    {
+      "name": "resume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetResumeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resume an audio file"
+    },
+    {
+      "name": "loop",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Assets"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop an audio file"
+    },
+    {
+      "name": "stop",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetStopOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop an audio file"
+    },
+    {
+      "name": "unload",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Assets"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Unload an audio file"
+    },
+    {
+      "name": "setVolume",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetVolume"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the volume of an audio file"
+    },
+    {
+      "name": "setRate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetRate"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the rate of an audio file"
+    },
+    {
+      "name": "setCurrentTime",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetSetTime"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the current time of an audio file"
+    },
+    {
+      "name": "getCurrentTime",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Assets"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetCurrentTimeResult"
+      },
+      "promise": true,
+      "comment": "Get the current time of an audio file"
+    },
+    {
+      "name": "getDuration",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Assets"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetDurationResult"
+      },
+      "promise": true,
+      "comment": "Get the duration of an audio file in seconds"
+    },
+    {
+      "name": "getPlaybackState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetPlaybackStateOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PlaybackStateEvent"
+      },
+      "promise": true,
+      "comment": "Snapshot of playback for UI rehydration after navigation or missed events."
+    },
+    {
+      "name": "getRate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Assets"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetRateResult"
+      },
+      "promise": true,
+      "comment": "Current global playback rate for the asset (same value set with `setRate`)."
+    },
+    {
+      "name": "setQueue",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetQueueOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "QueueState"
+      },
+      "promise": true,
+      "comment": "Prepare an ordered queue for podcasts, playlists, or guided sessions.\nExisting `preload` assets are reused when ids match."
+    },
+    {
+      "name": "clearQueue",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "getQueueState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "QueueState"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "queueNext",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "QueueState"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "queuePrevious",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "QueueState"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "queueSelect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Assets"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "QueueState"
+      },
+      "promise": true,
+      "comment": ""
+    },
+    {
+      "name": "setSpeaker",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Prefer the built-in speaker. No effect while headphones or Bluetooth are connected."
+    },
+    {
+      "name": "setEarpiece",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Route call-style audio to the earpiece on phones."
+    },
+    {
+      "name": "getAudioRoute",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAudioRouteResult"
+      },
+      "promise": true,
+      "comment": "Returns the current audio output route label.\nOn iOS and Android this reflects the device route (speaker, earpiece, or external).\nOn Web this returns the last route requested via `setSpeaker()` or `setEarpiece()`\nand does not change the real browser output device."
+    },
+    {
+      "name": "isPlaying",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Assets"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsPlayingResult"
+      },
+      "promise": true,
+      "comment": "Check if an audio file is playing"
+    },
+    {
+      "name": "clearCache",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Clear the audio cache for remote audio files"
+    },
+    {
+      "name": "setDebugMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetDebugModeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set debug mode logging"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    },
+    {
+      "name": "deinitPlugin",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deinitialize the plugin and restore original audio session settings\nThis method stops all playing audio and reverts any audio session changes made by the plugin\nUse this when you need to ensure compatibility with other audio plugins"
+    }
+  ],
+  "events": [
+    {
+      "name": "complete",
+      "listener": {
+        "k": "ref",
+        "name": "CompletedEvent"
+      }
+    },
+    {
+      "name": "currentTime",
+      "listener": {
+        "k": "ref",
+        "name": "CurrentTimeEvent"
+      }
+    },
+    {
+      "name": "playbackState",
+      "listener": {
+        "k": "ref",
+        "name": "PlaybackStateEvent"
+      }
+    },
+    {
+      "name": "progress",
+      "listener": {
+        "k": "ref",
+        "name": "ProgressEvent"
+      }
+    },
+    {
+      "name": "queueChange",
+      "listener": {
+        "k": "ref",
+        "name": "QueueChangeEvent"
+      }
+    },
+    {
+      "name": "audioRouteChange",
+      "listener": {
+        "k": "ref",
+        "name": "AudioRouteChangeEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

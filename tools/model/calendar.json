@@ -1,0 +1,2481 @@
+{
+  "namespace": "Calendar",
+  "family": "Device",
+  "package": "@capgo/capacitor-calendar",
+  "version": "8.0.17",
+  "license": "MPL-2.0",
+  "export": "CapacitorCalendar",
+  "types": [
+    {
+      "name": "AttendeeRole",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "required",
+        "optional",
+        "chair",
+        "nonParticipant",
+        "attendee",
+        "organizer",
+        "performer",
+        "speaker"
+      ]
+    },
+    {
+      "name": "AttendeeStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "accepted",
+        "declined",
+        "invited",
+        "unknown",
+        "pending",
+        "tentative",
+        "delegated",
+        "completed",
+        "inProcess"
+      ]
+    },
+    {
+      "name": "AttendeeType",
+      "kind": "enumStrings",
+      "cases": [
+        "unknown",
+        "person",
+        "room",
+        "resource",
+        "group",
+        "required",
+        "none",
+        "optional"
+      ]
+    },
+    {
+      "name": "Calendar",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "internalTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isImmutable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "allowsContentModifications",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "CalendarType"
+          }
+        },
+        {
+          "name": "isSubscribed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "CalendarSource"
+          }
+        },
+        {
+          "name": "visible",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "accountName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ownerAccount",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxReminders",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CalendarChooserDisplayStyle",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "ALL_CALENDARS",
+          "value": 0
+        },
+        {
+          "name": "WRITABLE_CALENDARS_ONLY",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "CalendarEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "calendarId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isAllDay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "availability",
+          "type": {
+            "k": "ref",
+            "name": "EventAvailability"
+          }
+        },
+        {
+          "name": "organizer",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isDetached",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "birthdayContactIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "EventStatus"
+          }
+        },
+        {
+          "name": "creationDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lastModifiedDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "attendees",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CalendarEventAttendees"
+            }
+          }
+        },
+        {
+          "name": "timezone",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CalendarEventAttendees",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "role",
+          "type": {
+            "k": "ref",
+            "name": "AttendeeRole"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "AttendeeStatus"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "AttendeeType"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CalendarPermissionScope",
+      "kind": "enumStrings",
+      "cases": [
+        "readCalendar",
+        "readReminders",
+        "writeCalendar",
+        "writeReminders"
+      ]
+    },
+    {
+      "name": "CalendarSource",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "CalendarSourceType"
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CalendarSourceType",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "LOCAL",
+          "value": 0
+        },
+        {
+          "name": "EXCHANGE",
+          "value": 1
+        },
+        {
+          "name": "CAL_DAV",
+          "value": 2
+        },
+        {
+          "name": "MOBILE_ME",
+          "value": 3
+        },
+        {
+          "name": "SUBSCRIBED",
+          "value": 4
+        },
+        {
+          "name": "BIRTHDAYS",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "CalendarType",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "LOCAL",
+          "value": 0
+        },
+        {
+          "name": "CAL_DAV",
+          "value": 1
+        },
+        {
+          "name": "EXCHANGE",
+          "value": 2
+        },
+        {
+          "name": "SUBSCRIPTION",
+          "value": 3
+        },
+        {
+          "name": "BIRTHDAY",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "CheckAllPermissionsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "CheckAllPermissionsResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckAllPermissionsResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readCalendar",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionResultResult"
+          }
+        },
+        {
+          "name": "readReminders",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionResultResult"
+          }
+        },
+        {
+          "name": "writeCalendar",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionResultResult"
+          }
+        },
+        {
+          "name": "writeReminders",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckPermissionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scope",
+          "type": {
+            "k": "ref",
+            "name": "CalendarPermissionScope"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckPermissionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckPermissionResultResult",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "CreateCalendarOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sourceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accountName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ownerAccount",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CreateEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "attendees",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "EventGuest"
+            }
+          }
+        },
+        {
+          "name": "availability",
+          "type": {
+            "k": "ref",
+            "name": "EventAvailability"
+          }
+        },
+        {
+          "name": "calendarId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "commit",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isAllDay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "organizer",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recurrence",
+          "type": {
+            "k": "ref",
+            "name": "EventRecurrenceRule"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CreateEventWithPromptOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "availability",
+          "type": {
+            "k": "ref",
+            "name": "EventAvailability"
+          }
+        },
+        {
+          "name": "calendarId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "invitees",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "isAllDay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recurrence",
+          "type": {
+            "k": "ref",
+            "name": "EventRecurrenceRule"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CreateEventWithPromptResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateReminderOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "listId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "priority",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isCompleted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "dueDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completionDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "notes",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recurrence",
+          "type": {
+            "k": "ref",
+            "name": "RecurrenceRule"
+          }
+        },
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeleteCalendarOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "span",
+          "type": {
+            "k": "ref",
+            "name": "EventSpan"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeleteEventsByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ids",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "span",
+          "type": {
+            "k": "ref",
+            "name": "EventSpan"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeleteEventsByIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deleted",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "failed",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteEventsByIdResult2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "DeleteEventsByIdResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteEventWithPromptOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "span",
+          "type": {
+            "k": "ref",
+            "name": "EventSpan"
+          }
+        },
+        {
+          "name": "confirmButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelButtonText",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeleteEventWithPromptResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deleted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteReminderOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteRemindersByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "ids",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteRemindersByIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deleted",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "failed",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteRemindersByIdResult2",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "DeleteRemindersByIdResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteReminderWithPromptOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "confirmButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelButtonText",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EventAvailability",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "NOT_SUPPORTED",
+          "value": -1
+        },
+        {
+          "name": "BUSY",
+          "value": 0
+        },
+        {
+          "name": "FREE",
+          "value": 1
+        },
+        {
+          "name": "TENTATIVE",
+          "value": 2
+        },
+        {
+          "name": "UNAVAILABLE",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "EventGuest",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EventRecurrenceRule",
+      "kind": "config",
+      "required": [
+        {
+          "name": "frequency",
+          "type": {
+            "k": "ref",
+            "name": "EventRecurrenceRuleFrequency"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "byMonth",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "byMonthDay",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "byWeekDay",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "daysOfTheYear",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "end",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "interval",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "weeksOfTheYear",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "EventRecurrenceRuleFrequency",
+      "kind": "enumStrings",
+      "cases": [
+        "daily",
+        "weekly",
+        "monthly",
+        "yearly"
+      ]
+    },
+    {
+      "name": "EventSpan",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "THIS_EVENT",
+          "value": 0
+        },
+        {
+          "name": "THIS_AND_FUTURE_EVENTS",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "EventStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "confirmed",
+        "tentative",
+        "canceled"
+      ]
+    },
+    {
+      "name": "FetchAllCalendarSourcesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CalendarSource"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetDefaultCalendarResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "Calendar"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetReminderByIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetReminderByIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "Reminder"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetRemindersFromListsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "listIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetRemindersFromListsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Reminder"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListEventsInRangeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "from",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "to",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListEventsInRangeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CalendarEvent"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ModifyCalendarOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ModifyEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "attendees",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "EventGuest"
+            }
+          }
+        },
+        {
+          "name": "availability",
+          "type": {
+            "k": "ref",
+            "name": "EventAvailability"
+          }
+        },
+        {
+          "name": "calendarId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isAllDay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recurrence",
+          "type": {
+            "k": "ref",
+            "name": "EventRecurrenceRule"
+          }
+        },
+        {
+          "name": "organizer",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "span",
+          "type": {
+            "k": "ref",
+            "name": "EventSpan"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ModifyEventWithPromptOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "availability",
+          "type": {
+            "k": "ref",
+            "name": "EventAvailability"
+          }
+        },
+        {
+          "name": "calendarId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "invitees",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "isAllDay",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recurrence",
+          "type": {
+            "k": "ref",
+            "name": "EventRecurrenceRule"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ModifyEventWithPromptResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "ref",
+            "name": "ModifyEventWithPromptResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ModifyEventWithPromptResultResult",
+      "kind": "enumStrings",
+      "cases": [
+        "canceled",
+        "saved",
+        "deleted"
+      ]
+    },
+    {
+      "name": "ModifyReminderOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "listId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "priority",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isCompleted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "dueDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completionDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "notes",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "recurrence",
+          "type": {
+            "k": "ref",
+            "name": "RecurrenceRule"
+          }
+        },
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenCalendarOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "date",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RecurrenceRule",
+      "kind": "config",
+      "required": [
+        {
+          "name": "frequency",
+          "type": {
+            "k": "ref",
+            "name": "EventRecurrenceRuleFrequency"
+          }
+        },
+        {
+          "name": "interval",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "end",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reminder",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "listId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isCompleted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "priority",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "notes",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "location",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "dueDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completionDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "recurrence",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "RecurrenceRule"
+            }
+          }
+        },
+        {
+          "name": "alerts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SelectCalendarsWithPromptOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "displayStyle",
+          "type": {
+            "k": "ref",
+            "name": "CalendarChooserDisplayStyle"
+          }
+        },
+        {
+          "name": "multiple",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SelectCalendarsWithPromptResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Calendar"
+            }
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "checkPermission",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CheckPermissionResult"
+      },
+      "promise": true,
+      "comment": "Retrieves the current permission state for a given scope."
+    },
+    {
+      "name": "checkAllPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckAllPermissionsResult"
+      },
+      "promise": true,
+      "comment": "Retrieves the current state of all permissions."
+    },
+    {
+      "name": "requestPermission",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CheckPermissionResult"
+      },
+      "promise": true,
+      "comment": "Requests permission for a given scope."
+    },
+    {
+      "name": "requestAllPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckAllPermissionsResult"
+      },
+      "promise": true,
+      "comment": "Requests permission for all calendar and reminder permissions."
+    },
+    {
+      "name": "requestWriteOnlyCalendarAccess",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckPermissionResult"
+      },
+      "promise": true,
+      "comment": "Requests write access to the calendar."
+    },
+    {
+      "name": "requestReadOnlyCalendarAccess",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckPermissionResult"
+      },
+      "promise": true,
+      "comment": "Requests read access to the calendar."
+    },
+    {
+      "name": "requestFullCalendarAccess",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckPermissionResult"
+      },
+      "promise": true,
+      "comment": "Requests read and write access to the calendar."
+    },
+    {
+      "name": "requestFullRemindersAccess",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckPermissionResult"
+      },
+      "promise": true,
+      "comment": "Requests read and write access to reminders."
+    },
+    {
+      "name": "createEventWithPrompt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateEventWithPromptOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateEventWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Opens the system calendar interface to create a new event.\nOn Android this always returns `null`; fetch events to find the newly created event ID."
+    },
+    {
+      "name": "modifyEventWithPrompt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ModifyEventWithPromptOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ModifyEventWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Opens a system calendar interface to modify an event.\nOn Android this always returns `null`."
+    },
+    {
+      "name": "createEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateEventWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Creates an event in the calendar."
+    },
+    {
+      "name": "modifyEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ModifyEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Modifies an event."
+    },
+    {
+      "name": "deleteEventsById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteEventsByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DeleteEventsByIdResult2"
+      },
+      "promise": true,
+      "comment": "Deletes multiple events."
+    },
+    {
+      "name": "deleteEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deletes an event."
+    },
+    {
+      "name": "deleteEventWithPrompt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteEventWithPromptOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DeleteEventWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Opens a dialog to delete an event."
+    },
+    {
+      "name": "listEventsInRange",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ListEventsInRangeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ListEventsInRangeResult"
+      },
+      "promise": true,
+      "comment": "Retrieves events within a date range."
+    },
+    {
+      "name": "commit",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Saves pending iOS calendar changes."
+    },
+    {
+      "name": "selectCalendarsWithPrompt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SelectCalendarsWithPromptOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SelectCalendarsWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Opens a system interface to choose one or multiple calendars."
+    },
+    {
+      "name": "fetchAllCalendarSources",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "FetchAllCalendarSourcesResult"
+      },
+      "promise": true,
+      "comment": "Retrieves a list of calendar sources."
+    },
+    {
+      "name": "listCalendars",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SelectCalendarsWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Retrieves all available calendars."
+    },
+    {
+      "name": "getDefaultCalendar",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetDefaultCalendarResult"
+      },
+      "promise": true,
+      "comment": "Retrieves the default calendar."
+    },
+    {
+      "name": "openCalendar",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenCalendarOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens the calendar app."
+    },
+    {
+      "name": "createCalendar",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateCalendarOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateEventWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Creates a calendar."
+    },
+    {
+      "name": "deleteCalendar",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteCalendarOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deletes a calendar by ID."
+    },
+    {
+      "name": "modifyCalendar",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ModifyCalendarOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Modifies a calendar."
+    },
+    {
+      "name": "fetchAllRemindersSources",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "FetchAllCalendarSourcesResult"
+      },
+      "promise": true,
+      "comment": "Retrieves a list of reminder sources."
+    },
+    {
+      "name": "openReminders",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens the reminders app."
+    },
+    {
+      "name": "getDefaultRemindersList",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetDefaultCalendarResult"
+      },
+      "promise": true,
+      "comment": "Retrieves the default reminders list."
+    },
+    {
+      "name": "getRemindersLists",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SelectCalendarsWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Retrieves all available reminders lists."
+    },
+    {
+      "name": "createReminder",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateReminderOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateEventWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Creates a reminder."
+    },
+    {
+      "name": "deleteRemindersById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteRemindersByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DeleteRemindersByIdResult2"
+      },
+      "promise": true,
+      "comment": "Deletes multiple reminders."
+    },
+    {
+      "name": "deleteReminder",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteReminderOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deletes a reminder."
+    },
+    {
+      "name": "modifyReminder",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ModifyReminderOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Modifies a reminder."
+    },
+    {
+      "name": "getReminderById",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetReminderByIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetReminderByIdResult"
+      },
+      "promise": true,
+      "comment": "Retrieves a reminder by ID."
+    },
+    {
+      "name": "getRemindersFromLists",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetRemindersFromListsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetRemindersFromListsResult"
+      },
+      "promise": true,
+      "comment": "Retrieves reminders from multiple lists."
+    },
+    {
+      "name": "deleteReminderWithPrompt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteReminderWithPromptOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DeleteEventWithPromptResult"
+      },
+      "promise": true,
+      "comment": "Opens a dialog to delete a reminder."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

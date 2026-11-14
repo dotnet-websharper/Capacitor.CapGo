@@ -1,0 +1,449 @@
+{
+  "namespace": "FilePicker",
+  "family": "Files",
+  "package": "@capgo/capacitor-file-picker",
+  "version": "8.2.9",
+  "license": "MPL-2.0",
+  "export": "CapgoFilePicker",
+  "types": [
+    {
+      "name": "ConvertHeicToJpegOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "quality",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ConvertHeicToJpegResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CopyFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "from",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "to",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "overwrite",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readExternalStorage",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusReadExternalStorage"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accessMediaLocation",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusReadExternalStorage"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionStatusReadExternalStorage",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "PickDirectoryResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PickedFile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "blob",
+          "type": {
+            "k": "ext",
+            "name": "Blob"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "modifiedAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PickFilesOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "types",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "readData",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PickFilesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "files",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PickedFile"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PickMediaOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "readData",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "skipTranscoding",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "ordered",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "pickFiles",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PickFilesOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PickFilesResult"
+      },
+      "promise": true,
+      "comment": "Pick one or more files from the device."
+    },
+    {
+      "name": "pickImages",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PickMediaOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PickFilesResult"
+      },
+      "promise": true,
+      "comment": "Pick one or more images from the gallery.\nAndroid/iOS only.\nOn Android, `limit` is enforced by the system photo picker when available\n(Android 13+, or Android 11-12 with the Google Play system photo picker extension).\nOlder Android versions may allow selecting more items than `limit`; results are\ntruncated to `limit` before they are returned."
+    },
+    {
+      "name": "pickVideos",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PickMediaOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PickFilesResult"
+      },
+      "promise": true,
+      "comment": "Pick one or more videos from the gallery.\nAndroid/iOS only.\nOn Android, `limit` is enforced by the system photo picker when available\n(Android 13+, or Android 11-12 with the Google Play system photo picker extension).\nOlder Android versions may allow selecting more items than `limit`; results are\ntruncated to `limit` before they are returned."
+    },
+    {
+      "name": "pickMedia",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PickMediaOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PickFilesResult"
+      },
+      "promise": true,
+      "comment": "Pick one or more images or videos from the gallery.\nAndroid/iOS only."
+    },
+    {
+      "name": "pickDirectory",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PickDirectoryResult"
+      },
+      "promise": true,
+      "comment": "Pick a directory from the device.\nAndroid/iOS only."
+    },
+    {
+      "name": "convertHeicToJpeg",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConvertHeicToJpegOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ConvertHeicToJpegResult"
+      },
+      "promise": true,
+      "comment": "Convert a HEIC image to JPEG format.\niOS only."
+    },
+    {
+      "name": "copyFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CopyFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Copy a file to a new location."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check broad storage or media permission state.\nPicker-only flows should not gate `pickFiles()`, `pickImages()`,\n`pickVideos()`, or `pickMedia()` on this permission on Android 13+.\nAndroid only."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request broad storage or media permissions.\nDo not request or declare `READ_MEDIA_IMAGES` or `READ_MEDIA_VIDEO`\nonly to use picker APIs. Google Play allows these permissions only\nwhen picker alternatives are not sufficient for core app functionality.\nUse `@capgo/capacitor-file-picker` picker methods instead for\nuser-selected file, image, or video access.\nAndroid only."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "pickerDismissed",
+      "listener": {
+        "k": "unit"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": [
+    "Blob"
+  ]
+}

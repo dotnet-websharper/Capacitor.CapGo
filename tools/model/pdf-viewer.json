@@ -1,0 +1,519 @@
+{
+  "namespace": "PdfViewer",
+  "family": "Media",
+  "package": "@capgo/capacitor-pdf-viewer",
+  "version": "8.3.2",
+  "license": "MPL-2.0",
+  "export": "PdfViewer",
+  "types": [
+    {
+      "name": "CloseEventMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "GoToPageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "page",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenPdfOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "sourceType",
+          "type": {
+            "k": "ref",
+            "name": "OpenPdfOptionsSourceType"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "OpenPdfOptionsHeadersMap"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "OpenPdfOptionsMode"
+          }
+        },
+        {
+          "name": "toBack",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "nativeUi",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "layout",
+          "type": {
+            "k": "ref",
+            "name": "PdfLayoutOptions"
+          }
+        },
+        {
+          "name": "elementId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "page",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "scrollMode",
+          "type": {
+            "k": "ref",
+            "name": "OpenPdfOptionsScrollMode"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenPdfOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "OpenPdfOptionsMode",
+      "kind": "enumStrings",
+      "cases": [
+        "fullscreen",
+        "inline",
+        "underWebView"
+      ]
+    },
+    {
+      "name": "OpenPdfOptionsScrollMode",
+      "kind": "enumStrings",
+      "cases": [
+        "continuous",
+        "single"
+      ]
+    },
+    {
+      "name": "OpenPdfOptionsSourceType",
+      "kind": "enumStrings",
+      "cases": [
+        "file",
+        "path",
+        "url",
+        "base64"
+      ]
+    },
+    {
+      "name": "OpenPdfResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pageCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "page",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfCurrentPageResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "page",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfLayoutOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PdfLinkTapEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfLoadEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pageCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "page",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfPageChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "page",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "pageCount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfPageCountResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pageCount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PdfZoomChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scale",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetZoomOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scale",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "open",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenPdfOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OpenPdfResult"
+      },
+      "promise": true,
+      "comment": "Open a PDF from a file, path, URL, or base64 source."
+    },
+    {
+      "name": "close",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Close the active viewer and remove any overlay."
+    },
+    {
+      "name": "goToPage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GoToPageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Jump to a 1-based page number in the open document."
+    },
+    {
+      "name": "nextPage",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Move to the next page when one exists.\n\nOn web the browser PDF viewer does not report total pages, so {@link PdfViewerPlugin.getPageCount}\nstays at `1` and this method cannot advance past page `1` unless you call {@link PdfViewerPlugin.goToPage}\nwith a higher page number yourself."
+    },
+    {
+      "name": "previousPage",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Move to the previous page when one exists.\n\nOn web, page navigation follows the same limitations as {@link PdfViewerPlugin.nextPage}."
+    },
+    {
+      "name": "setZoom",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetZoomOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the zoom scale multiplier (`1` is the default fit scale on native).\nOn web this resolves without changing the browser viewer zoom."
+    },
+    {
+      "name": "getPageCount",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PdfPageCountResult"
+      },
+      "promise": true,
+      "comment": "Read the total page count of the open document.\n\nOn web this always returns `1` because the embedded browser PDF viewer does not expose\na reliable page count to JavaScript."
+    },
+    {
+      "name": "getCurrentPage",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PdfCurrentPageResult"
+      },
+      "promise": true,
+      "comment": "Read the current 1-based page index.\n\nOn web this reflects the last page set by {@link PdfViewerPlugin.open} or\n{@link PdfViewerPlugin.goToPage} only; scrolling inside the browser viewer does not update it."
+    },
+    {
+      "name": "hide",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide the PDF viewer layer without unloading the document.\n\nAndroid and web accept this in any open mode (fullscreen, inline, or underWebView).\niOS accepts it only in `underWebView` or `inline` mode and rejects other modes."
+    },
+    {
+      "name": "show",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show the PDF viewer layer after {@link PdfViewerPlugin.hide}.\n\nAndroid and web accept this in any open mode. iOS accepts it only in `underWebView` or `inline` mode."
+    },
+    {
+      "name": "updateLayout",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PdfLayoutOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reposition or resize the native PDF when using `underWebView` / `toBack`.\n\nOn web this call is rejected because under-WebView presentation is not available."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native or web implementation version marker."
+    }
+  ],
+  "events": [
+    {
+      "name": "load",
+      "listener": {
+        "k": "ref",
+        "name": "PdfLoadEvent"
+      }
+    },
+    {
+      "name": "pageChange",
+      "listener": {
+        "k": "ref",
+        "name": "PdfPageChangeEvent"
+      }
+    },
+    {
+      "name": "zoomChange",
+      "listener": {
+        "k": "ref",
+        "name": "PdfZoomChangeEvent"
+      }
+    },
+    {
+      "name": "error",
+      "listener": {
+        "k": "ref",
+        "name": "PdfErrorEvent"
+      }
+    },
+    {
+      "name": "close",
+      "listener": {
+        "k": "ref",
+        "name": "CloseEventMap"
+      }
+    },
+    {
+      "name": "linkTap",
+      "listener": {
+        "k": "ref",
+        "name": "PdfLinkTapEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,295 @@
+{
+  "namespace": "IcloudKv",
+  "family": "Files",
+  "package": "@capgo/capacitor-icloud-kv",
+  "version": "8.1.5",
+  "license": "MPL-2.0",
+  "export": "ICloudKV",
+  "types": [
+    {
+      "name": "AvailabilityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "backend",
+          "type": {
+            "k": "ref",
+            "name": "AvailabilityResultBackend"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AvailabilityResultBackend",
+      "kind": "enumStrings",
+      "cases": [
+        "icloud",
+        "google-backup",
+        "local"
+      ]
+    },
+    {
+      "name": "ChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keys",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "ChangeEventReason"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ChangeEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "server",
+        "initialSync",
+        "quotaViolation",
+        "accountChange"
+      ]
+    },
+    {
+      "name": "GetAllResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "values",
+          "type": {
+            "k": "ref",
+            "name": "GetAllResultValuesMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAllResultValuesMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "GetOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RemoveOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SynchronizeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "synchronized",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "get",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetResult"
+      },
+      "promise": true,
+      "comment": "Read one value."
+    },
+    {
+      "name": "set",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Write one value. It is uploaded when the system decides, usually within seconds when online."
+    },
+    {
+      "name": "remove",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete one value."
+    },
+    {
+      "name": "getAll",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAllResult"
+      },
+      "promise": true,
+      "comment": "Read every stored key and value."
+    },
+    {
+      "name": "synchronize",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SynchronizeResult"
+      },
+      "promise": true,
+      "comment": "Flush pending writes and ask the system to sync. Call it when the app goes to background."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AvailabilityResult"
+      },
+      "promise": true,
+      "comment": "Check whether values actually leave the device and which backend is used."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove every listener added by this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "listener": {
+        "k": "ref",
+        "name": "ChangeEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

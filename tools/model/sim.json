@@ -1,0 +1,166 @@
+{
+  "namespace": "Sim",
+  "family": "Tooling",
+  "package": "@capgo/capacitor-sim",
+  "version": "8.0.55",
+  "license": "MPL-2.0",
+  "export": "Sim",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSimCardsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "simCards",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SimCard"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readSimCard",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusReadSimCard"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusReadSimCard",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "SimCard",
+      "kind": "config",
+      "required": [
+        {
+          "name": "carrierName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isoCountryCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mobileCountryCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mobileNetworkCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "number",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subscriptionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "simSlotIndex",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "allowsVOIP",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getSimCards",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSimCardsResult"
+      },
+      "promise": true,
+      "comment": "Get information from the device's SIM cards.\n\nRetrieves details about all SIM cards installed in the device.\nOn dual-SIM devices, returns information for both SIM cards.\nRequires READ_PHONE_STATE permission on Android."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check permission to access SIM card information.\n\nChecks if the app has permission to read SIM card data.\nOn Android, checks READ_PHONE_STATE permission.\nOn iOS, the status is always granted.\nOn Web, the status is always denied."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission to access SIM card information.\n\nPrompts the user to grant permission to read SIM card data.\nOn Android, requests READ_PHONE_STATE permission.\nOn iOS, the status is always granted without prompting.\nOn Web, the status remains denied."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

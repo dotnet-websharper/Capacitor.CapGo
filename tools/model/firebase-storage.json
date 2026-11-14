@@ -1,0 +1,718 @@
+{
+  "namespace": "FirebaseStorage",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-storage",
+  "version": "8.3.1",
+  "license": "MPL-2.0",
+  "export": "FirebaseStorage",
+  "types": [
+    {
+      "name": "DeleteFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DownloadFileCallbackEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bytesTransferred",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "blob",
+          "type": {
+            "k": "ext",
+            "name": "Blob"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetDownloadUrlOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetDownloadUrlResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "downloadUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetMetadataOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetMetadataResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bucket",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "generation",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadataGeneration",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "createdAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "md5Hash",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cacheControl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentDisposition",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentEncoding",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentLanguage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "customMetadata",
+          "type": {
+            "k": "ref",
+            "name": "GetMetadataResultCustomMetadataMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetMetadataResultCustomMetadataMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListFilesOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "maxResults",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "pageToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ListFilesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "items",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "StorageReference"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "nextPageToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SettableMetadata",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "cacheControl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentDisposition",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentEncoding",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentLanguage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "customMetadata",
+          "type": {
+            "k": "ref",
+            "name": "GetMetadataResultCustomMetadataMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StorageReference",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bucket",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateMetadataOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "ref",
+            "name": "SettableMetadata"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UploadFileCallbackEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "completed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "bytesTransferred",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalBytes",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UploadFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "blob",
+          "type": {
+            "k": "ext",
+            "name": "Blob"
+          }
+        },
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "ref",
+            "name": "UploadMetadata"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UploadMetadata",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "md5Hash",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cacheControl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentDisposition",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentEncoding",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentLanguage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "contentType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "customMetadata",
+          "type": {
+            "k": "ref",
+            "name": "GetMetadataResultCustomMetadataMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UseEmulatorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "host",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "deleteFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a file."
+    },
+    {
+      "name": "getDownloadUrl",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetDownloadUrlOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetDownloadUrlResult"
+      },
+      "promise": true,
+      "comment": "Get the download url for a file."
+    },
+    {
+      "name": "getMetadata",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetMetadataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetMetadataResult"
+      },
+      "promise": true,
+      "comment": "Get the metadata for a file."
+    },
+    {
+      "name": "listFiles",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ListFilesOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ListFilesResult"
+      },
+      "promise": true,
+      "comment": "List files in a directory."
+    },
+    {
+      "name": "updateMetadata",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateMetadataOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update the metadata for a file."
+    },
+    {
+      "name": "downloadFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DownloadFileOptions"
+          },
+          "optional": false
+        },
+        {
+          "name": "callback",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "DownloadFileCallbackEvent"
+              },
+              {
+                "k": "obj"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": true,
+      "comment": "Download a file.\n\nOn **Android** and **iOS**, the file is downloaded to the local file system\nusing the `uri` option.\n\nOn **Web**, the file is downloaded as a `Blob` and returned in the\ncallback event."
+    },
+    {
+      "name": "uploadFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UploadFileOptions"
+          },
+          "optional": false
+        },
+        {
+          "name": "callback",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "UploadFileCallbackEvent"
+              },
+              {
+                "k": "obj"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": true,
+      "comment": "Upload a file."
+    },
+    {
+      "name": "useEmulator",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UseEmulatorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Instrument your app to talk to the Cloud Storage emulator.\n\nOn Android, the cleartext traffic must be allowed. On the Capacitor configuration:\n```\n{\n  server: {\n    cleartext: true\n  }\n}\n```\n**The cleartext traffic is not intended for use in production.**"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the version of this plugin."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": [
+    "Blob"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "capgo-wig-tools",
+  "private": true,
+  "type": "module",
+  "description": "Distills the CapGo plugin surfaces from their TypeScript definitions into the WIG model used by the bindings.",
+  "scripts": {
+    "extract": "node extract.mjs",
+    "check": "node extract.mjs --check"
+  },
+  "devDependencies": {
+    "@capacitor/core": "^8.0.0",
+    "ts-morph": "^28.0.0",
+    "typescript": "^5.9.0"
+  }
+}

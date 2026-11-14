@@ -1,0 +1,78 @@
+{
+  "namespace": "VolumeButtons",
+  "family": "Device",
+  "package": "@capgo/capacitor-volume-buttons",
+  "version": "8.1.8",
+  "license": "MPL-2.0",
+  "export": "VolumeButtons",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "VolumeButtonPressed",
+      "kind": "config",
+      "required": [
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "VolumeButtonPressedDirection"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "VolumeButtonPressedDirection",
+      "kind": "enumStrings",
+      "cases": [
+        "up",
+        "down"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "volumeButtonPressed",
+      "listener": {
+        "k": "ref",
+        "name": "VolumeButtonPressed"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}
