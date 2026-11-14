@@ -1,1 +1,0 @@
-import{u as e}from"./index-AjeNRfKt.js";var t=class extends e{init(e){throw Error(`Method not implemented.`)}setUserId(e){throw Error(`Method not implemented.`)}getState(){throw Error(`Method not implemented.`)}async getPluginVersion(){return{version:`web`}}};export{t as CapacitorAppInsightsWeb};

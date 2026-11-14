@@ -1,0 +1,1 @@
+import{u as e}from"./index-Bd1QuzcO.js";var t=class extends e{async getKey(e){return console.log(`GET_KEY`,e),{value:``}}async getPluginVersion(){return{version:`web`}}};export{t as EnvWeb};

@@ -1,1 +1,0 @@
-import{u as e}from"./index-AjeNRfKt.js";var t=class extends e{async isMuted(){throw Error(`Method not implemented.`)}async getPluginVersion(){return{version:`web`}}};export{t as MuteWeb};
