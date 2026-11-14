@@ -1,0 +1,271 @@
+{
+  "namespace": "Printer",
+  "family": "UI",
+  "package": "@capgo/capacitor-printer",
+  "version": "8.1.11",
+  "license": "MPL-2.0",
+  "export": "Printer",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PrintBase64Options",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrintFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrintHtmlOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "html",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrintIframeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "selector",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrintOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrintPdfOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "printBase64",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrintBase64Options"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Presents the printing UI to print files encoded as base64 strings.\n\n**Platform Behavior:**\n- **iOS**: Uses UIPrintInteractionController with base64 decoded data\n- **Android**: Uses PrintManager with base64 decoded data\n- **Web**: Creates a blob from base64 data and opens print dialog\n\n**Performance Warning:**\nLarge files can lead to app crashes due to memory constraints when decoding base64.\nFor files larger than 5MB, it's recommended to use printFile() instead."
+    },
+    {
+      "name": "printFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrintFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Presents the printing UI to print device files.\n\n**Platform Behavior:**\n- **iOS**: Uses UIPrintInteractionController with file URL. Supports file:// paths or paths relative to app's documents directory.\n- **Android**: Uses PrintManager with file path. Supports both content:// URIs and file:// paths.\n- **Web**: Reads file and opens print dialog\n\n**Supported File Types:**\n- PDF documents (application/pdf)\n- Images: JPEG, PNG, GIF, HEIC, HEIF"
+    },
+    {
+      "name": "printHtml",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrintHtmlOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Presents the printing UI to print HTML documents.\n\n**Platform Behavior:**\n- **iOS**: Renders HTML in WKWebView, then prints using UIPrintInteractionController\n- **Android**: Renders HTML in WebView, then prints using PrintManager\n- **Web**: Creates iframe with HTML content and triggers print dialog\n\n**HTML Requirements:**\n- Should be a complete HTML document with proper structure\n- Can include inline CSS styles or style tags\n- External resources (images, stylesheets) should use absolute URLs\n- Print-specific CSS can be added using"
+    },
+    {
+      "name": "printPdf",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrintPdfOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Presents the printing UI to print PDF documents.\n\n**Platform Behavior:**\n- **iOS**: Uses UIPrintInteractionController with PDF file URL\n- **Android**: Uses PrintManager with PdfDocument\n- **Web**: Creates object URL and opens print dialog\n\n**File Path Requirements:**\n- **iOS**: Must be file:// path or relative to app's documents directory\n- **Android**: Supports content:// URIs (from downloads, media store) or file:// paths\n- **Web**: Must be accessible file path"
+    },
+    {
+      "name": "printIframe",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrintIframeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Presents the printing UI to print web view content.\n\nPrints the current content displayed in your app's web view.\n\n**Platform Behavior:**\n- **iOS**: Uses UIPrintInteractionController with WKWebView's view printable\n- **Android**: Uses WebView.createPrintDocumentAdapter() with PrintManager\n- **Web**: Triggers window.print() for current page\n\n**Print Styling:**\nSupports CSS print media queries for customization. The web view's current\nstyles will be applied, including any Presents the printing UI for content inside an iframe element.\n\nUseful when the full HTML document is too large to pass to printHtml().\n\n**Platform Behavior:**\n- **iOS**: Evaluates JavaScript in the WebView to print the iframe content\n- **Android**: Evaluates JavaScript in the WebView to print the iframe content\n- **Web**: Finds the iframe and triggers its print dialog"
+    },
+    {
+      "name": "printWebView",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrintOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version.\n\nReturns the hardcoded plugin version from native code (iOS/Android) or\npackage version (Web). This is useful for debugging and ensuring plugin\ncompatibility."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

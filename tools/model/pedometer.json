@@ -1,0 +1,264 @@
+{
+  "namespace": "Pedometer",
+  "family": "Device",
+  "package": "@capgo/capacitor-pedometer",
+  "version": "8.0.57",
+  "license": "MPL-2.0",
+  "export": "CapacitorPedometer",
+  "types": [
+    {
+      "name": "GetMeasurementOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "start",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "end",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "stepCounting",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "distance",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "pace",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "cadence",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "floorCounting",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Measurement",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "numberOfSteps",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "distance",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "floorsAscended",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "floorsDescended",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currentPace",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currentCadence",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "averageActivePace",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityRecognition",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusActivityRecognition"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusActivityRecognition",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "getMeasurement",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetMeasurementOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "Measurement"
+      },
+      "promise": true,
+      "comment": "Get pedometer measurements for a specified time range."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check which pedometer features are available on this device."
+    },
+    {
+      "name": "startMeasurementUpdates",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start receiving real-time pedometer measurement updates.\n\nOn **Android** and **iOS**, the `measurement` event is only fired after calling `startMeasurementUpdates()`."
+    },
+    {
+      "name": "stopMeasurementUpdates",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop receiving real-time pedometer measurement updates."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check permission to access pedometer data.\n\nOn **Android**, this checks the `ACTIVITY_RECOGNITION` permission.\nOn **iOS**, this checks the motion usage permission."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission to access pedometer data.\n\nOn **Android**, this requests the `ACTIVITY_RECOGNITION` permission.\nOn **iOS**, this requests motion usage permission."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "measurement",
+      "listener": {
+        "k": "ref",
+        "name": "Measurement"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

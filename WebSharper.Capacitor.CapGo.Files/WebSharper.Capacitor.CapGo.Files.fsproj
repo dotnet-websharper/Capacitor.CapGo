@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Product>WebSharper.Capacitor.CapGo.Files</Product>
+    <Title>https://github.com/dotnet-websharper/capacitor.capgo/</Title>
+    <Company>IntelliFactory</Company>
+    <Copyright>(c) 2023 IntelliFactory</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NpmDependencies>
+			<NpmPackage Name="@capgo/capacitor-asset-cache" Version="&gt;= 8.1.10 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-fast-sql" Version="&gt;= 8.3.4 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-file" Version="&gt;= 8.0.26 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-file-picker" Version="&gt;= 8.2.9 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-file-sharer" Version="&gt;= 8.1.18 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-icloud-kv" Version="&gt;= 8.1.5 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-persistent-uuid" Version="&gt;= 8.1.12 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-zip" Version="&gt;= 8.2.5 &lt; 9.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.fs" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapGoGeneratorCommon\CapGoGeneratorCommon.fsproj" />
+    <!-- The binding surface is generated from these models; without them MSBuild
+         would happily reuse a stale WebSharper metadata cache. -->
+    <CustomAdditionalCompileInputs Include="..\tools\model\*.json" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

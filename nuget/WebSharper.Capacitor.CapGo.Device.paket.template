@@ -1,0 +1,21 @@
+type file
+id WebSharper.Capacitor.CapGo.Device
+authors
+    IntelliFactory
+owners
+    IntelliFactory
+repositoryType git
+repositoryUrl https://github.com/dotnet-websharper/capacitor.capgo/
+licenseUrl https://github.com/dotnet-websharper/capacitor.capgo/blob/main/LICENSE.md
+iconUrl https://github.com/dotnet-websharper/core/raw/websharper50/tools/WebSharper.png
+projectUrl https://github.com/dotnet-websharper/capacitor.capgo
+description
+    WebSharper bindings for CapGo Capacitor plugins (Device)
+tags
+    Web JavaScript F# C#
+files
+    ../WebSharper.Capacitor.CapGo.Device/bin/Release/netstandard2.0/WebSharper.Capacitor.CapGo.Device.dll ==> lib/netstandard2.0
+    ../WebSharper.Capacitor.CapGo.Device/bin/Release/netstandard2.0/WebSharper.Capacitor.CapGo.Device.xml ==> lib/netstandard2.0
+    ../WebSharper.Capacitor.CapGo.Device/WebSharper.Capacitor.CapGo.Device.fsproj ==> src/
+dependencies
+        WebSharper ~> LOCKEDVERSION:[3]

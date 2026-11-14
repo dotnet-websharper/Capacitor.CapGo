@@ -1,0 +1,294 @@
+{
+  "namespace": "Brightness",
+  "family": "Device",
+  "package": "@capgo/capacitor-brightness",
+  "version": "8.0.26",
+  "license": "MPL-2.0",
+  "export": "CapgoBrightness",
+  "types": [
+    {
+      "name": "BrightnessMode",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "UNKNOWN",
+          "value": 0
+        },
+        {
+          "name": "AUTOMATIC",
+          "value": 1
+        },
+        {
+          "name": "MANUAL",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "GetBrightnessModeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "BrightnessMode"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetBrightnessResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "brightness",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsAvailableResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "available",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsUsingSystemBrightnessResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isUsing",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "brightness",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusBrightness"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusBrightness",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "SetBrightnessModeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "BrightnessMode"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetBrightnessOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "brightness",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "getBrightness",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetBrightnessResult"
+      },
+      "promise": true,
+      "comment": "Get the current brightness level of the device's main screen."
+    },
+    {
+      "name": "setBrightness",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetBrightnessOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the brightness level of the device's main screen.\n\nOn iOS, the brightness will persist until the device is locked.\nOn Android, the brightness only applies to the current activity."
+    },
+    {
+      "name": "getSystemBrightness",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetBrightnessResult"
+      },
+      "promise": true,
+      "comment": "Get the system-wide screen brightness."
+    },
+    {
+      "name": "setSystemBrightness",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetBrightnessOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the system-wide screen brightness.\nRequires WRITE_SETTINGS permission on Android.\nThis also changes the brightness mode to MANUAL."
+    },
+    {
+      "name": "getSystemBrightnessMode",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetBrightnessModeResult"
+      },
+      "promise": true,
+      "comment": "Get the current system brightness mode (automatic or manual).\nRequires WRITE_SETTINGS permission on Android."
+    },
+    {
+      "name": "setSystemBrightnessMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetBrightnessModeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the system brightness mode (automatic or manual).\nRequires WRITE_SETTINGS permission on Android."
+    },
+    {
+      "name": "isUsingSystemBrightness",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsUsingSystemBrightnessResult"
+      },
+      "promise": true,
+      "comment": "Check if the current activity is using the system-wide brightness value."
+    },
+    {
+      "name": "restoreSystemBrightness",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reset the brightness setting of the current activity to use the system-wide value."
+    },
+    {
+      "name": "isAvailable",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsAvailableResult"
+      },
+      "promise": true,
+      "comment": "Check if the Brightness API is available on the current device."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check user's permissions for accessing system brightness."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permissions for accessing system brightness.\nOn Android, this opens the system settings to grant WRITE_SETTINGS permission."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

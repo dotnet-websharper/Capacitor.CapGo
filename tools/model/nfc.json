@@ -1,0 +1,592 @@
+{
+  "namespace": "Nfc",
+  "family": "Auth",
+  "package": "@capgo/capacitor-nfc",
+  "version": "8.3.11",
+  "license": "MPL-2.0",
+  "export": "CapacitorNfc",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "GetStatusResultStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStatusResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "NFC_OK",
+        "NO_NFC",
+        "NFC_DISABLED",
+        "NDEF_PUSH_DISABLED"
+      ]
+    },
+    {
+      "name": "IsSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NdefRecord",
+      "kind": "config",
+      "required": [
+        {
+          "name": "tnf",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NfcEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "NfcEventType"
+          }
+        },
+        {
+          "name": "tag",
+          "type": {
+            "k": "ref",
+            "name": "NfcTag"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NfcEventType",
+      "kind": "enumStrings",
+      "cases": [
+        "ndef",
+        "tag",
+        "ndef-mime",
+        "ndef-formatable"
+      ]
+    },
+    {
+      "name": "NfcSessionEndEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "NfcSessionEndEventReason"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NfcSessionEndEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "userCancelled",
+        "sessionTimeout",
+        "invalidated"
+      ]
+    },
+    {
+      "name": "NfcStateChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "GetStatusResultStatus"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NfcTag",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "id",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        },
+        {
+          "name": "techTypes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isWritable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "canMakeReadOnly",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "ndefMessage",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NdefRecord"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShareTagOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "records",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NdefRecord"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartScanningOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "invalidateAfterFirstRead",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "alertMessage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iosSessionType",
+          "type": {
+            "k": "ref",
+            "name": "StartScanningOptionsIosSessionType"
+          }
+        },
+        {
+          "name": "iosPollingOptions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "StartScanningOptionsIosPollingOptions"
+            }
+          }
+        },
+        {
+          "name": "androidReaderModeFlags",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartScanningOptionsIosPollingOptions",
+      "kind": "enumStrings",
+      "cases": [
+        "iso14443",
+        "iso15693",
+        "iso18092",
+        "pace"
+      ]
+    },
+    {
+      "name": "StartScanningOptionsIosSessionType",
+      "kind": "enumStrings",
+      "cases": [
+        "ndef",
+        "tag"
+      ]
+    },
+    {
+      "name": "TransceiveOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "tech",
+          "type": {
+            "k": "ref",
+            "name": "TransceiveOptionsTech"
+          }
+        },
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TransceiveOptionsTech",
+      "kind": "enumStrings",
+      "cases": [
+        "nfcV",
+        "nfcA"
+      ]
+    },
+    {
+      "name": "TransceiveResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "response",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WriteTagOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "records",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "NdefRecord"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "allowFormat",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "startScanning",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartScanningOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Starts listening for NFC tags."
+    },
+    {
+      "name": "stopScanning",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops the ongoing NFC scanning session."
+    },
+    {
+      "name": "write",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WriteTagOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Writes the provided NDEF records to the last discovered tag."
+    },
+    {
+      "name": "erase",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Attempts to erase the last discovered tag by writing an empty NDEF message."
+    },
+    {
+      "name": "makeReadOnly",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Attempts to make the last discovered tag read-only."
+    },
+    {
+      "name": "transceive",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TransceiveOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "TransceiveResult"
+      },
+      "promise": true,
+      "comment": "Sends a raw command to the last discovered tag while it remains in the field.\n\nOn Android, uses `NfcV` or `NfcA` on the same tag as {@link CapacitorNfcPlugin.write}.\nOn iOS, requires an active tag reader session (`iosSessionType: 'tag'`) with\n`invalidateAfterFirstRead: false`, and uses ISO 15693 or MIFARE commands on the connected tag."
+    },
+    {
+      "name": "share",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShareTagOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Shares an NDEF message with another device via peer-to-peer (Android only)."
+    },
+    {
+      "name": "unshare",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops sharing previously provided NDEF message (Android only)."
+    },
+    {
+      "name": "getStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetStatusResult"
+      },
+      "promise": true,
+      "comment": "Returns the current NFC adapter status."
+    },
+    {
+      "name": "showSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens the system settings page where the user can enable NFC."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the version string baked into the native plugin."
+    },
+    {
+      "name": "isSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsSupportedResult"
+      },
+      "promise": true,
+      "comment": "Checks whether the device has NFC hardware support.\n\nReturns `true` if NFC hardware is present on the device, regardless of\nwhether NFC is currently enabled or disabled. Returns `false` if the\ndevice does not have NFC hardware.\n\nUse this method to determine if NFC features should be shown in your\napp's UI. To check if NFC is currently enabled, use `getStatus()`."
+    }
+  ],
+  "events": [
+    {
+      "name": "nfcEvent",
+      "listener": {
+        "k": "ref",
+        "name": "NfcEvent"
+      }
+    },
+    {
+      "name": "tagDiscovered",
+      "listener": {
+        "k": "ref",
+        "name": "NfcEvent"
+      }
+    },
+    {
+      "name": "ndefDiscovered",
+      "listener": {
+        "k": "ref",
+        "name": "NfcEvent"
+      }
+    },
+    {
+      "name": "ndefMimeDiscovered",
+      "listener": {
+        "k": "ref",
+        "name": "NfcEvent"
+      }
+    },
+    {
+      "name": "ndefFormatableDiscovered",
+      "listener": {
+        "k": "ref",
+        "name": "NfcEvent"
+      }
+    },
+    {
+      "name": "nfcStateChange",
+      "listener": {
+        "k": "ref",
+        "name": "NfcStateChangeEvent"
+      }
+    },
+    {
+      "name": "nfcSessionEnd",
+      "listener": {
+        "k": "ref",
+        "name": "NfcSessionEndEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

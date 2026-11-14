@@ -22,3 +22,8 @@ websharper.log
 /*/wwwroot/dist
 /*/.vs
 
+
+# generator tooling
+tools/.cache/
+
+/*/dist

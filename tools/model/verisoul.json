@@ -1,0 +1,148 @@
+{
+  "namespace": "Verisoul",
+  "family": "Auth",
+  "package": "@capgo/capacitor-verisoul",
+  "version": "8.0.19",
+  "license": "MPL-2.0",
+  "export": "Verisoul",
+  "types": [
+    {
+      "name": "ConfigureOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "environment",
+          "type": {
+            "k": "ref",
+            "name": "ConfigureOptionsEnvironment"
+          }
+        },
+        {
+          "name": "projectId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ConfigureOptionsEnvironment",
+      "kind": "enumStrings",
+      "cases": [
+        "dev",
+        "sandbox",
+        "staging",
+        "prod",
+        "production"
+      ]
+    },
+    {
+      "name": "RecordTouchEventOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "action",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "float"
+              },
+              {
+                "k": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SessionIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConfigureOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize Verisoul. Call this once, early in app startup."
+    },
+    {
+      "name": "getSessionId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SessionIdResult"
+      },
+      "promise": true,
+      "comment": "Return the current Verisoul session identifier.\n\nThe value may take a few seconds to become available after `configure()`."
+    },
+    {
+      "name": "reinitialize",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reset Verisoul signal collection and create a fresh session.\n\nUse this when account context changes, for example after logout/login."
+    },
+    {
+      "name": "recordTouchEvent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RecordTouchEventOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Forward a touch event to Verisoul.\n\nAndroid uses this for bot-detection touch signals. iOS resolves without\nwork because the iOS SDK does not expose a matching public API."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

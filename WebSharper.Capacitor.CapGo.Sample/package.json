@@ -1,0 +1,36 @@
+{
+  "name": "websharper.capacitor.capgo.sample",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sample and test case for the WebSharper Capacitor CapGo bindings.",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "@capgo/capacitor-flash": "^8.0.54",
+    "@capgo/capacitor-mute": "^8.1.21",
+    "@capgo/capacitor-home-indicator": "^8.1.8",
+    "@capgo/capacitor-navigation-bar": "^8.2.23",
+    "@capgo/capacitor-passkey": "^8.5.10",
+    "@capgo/capacitor-permissions": "^8.2.10",
+    "@capgo/capacitor-brightness": "^8.0.26",
+    "@capgo/capacitor-keep-awake": "^8.1.22",
+    "@capgo/capacitor-audio-session": "^8.1.11",
+    "@capgo/camera-preview": "^8.15.4",
+    "@capgo/capacitor-file": "^8.0.26",
+    "@capgo/capacitor-android-kiosk": "^8.3.5",
+    "@capgo/capacitor-launch-navigator": "^8.1.9",
+    "@capgo/capacitor-in-app-review": "^8.2.11",
+    "@capgo/capacitor-firebase-analytics": "^8.0.2",
+    "@capgo/capacitor-appinsights": "^8.0.65",
+    "@capgo/capacitor-intercom": "^8.2.5",
+    "@capgo/capacitor-rich-notifications": "^8.2.9",
+    "@capgo/capacitor-speech-synthesis": "^8.0.29",
+    "@capgo/capacitor-auto": "^8.1.16",
+    "@capgo/capacitor-env": "^8.1.55",
+    "@capacitor/core": "^8.6.0"
+  }
+}

@@ -1,0 +1,2496 @@
+{
+  "namespace": "CameraPreview",
+  "family": "Media",
+  "package": "@capgo/camera-preview",
+  "version": "8.15.4",
+  "license": "MPL-2.0",
+  "export": "CameraPreview",
+  "types": [
+    {
+      "name": "BarcodeScanErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BarcodeScannedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "barcodes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BarcodeScanResult"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "BarcodeScannerOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "formats",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "BarcodeScannerOptionsFormats"
+            }
+          }
+        },
+        {
+          "name": "detectionInterval",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BarcodeScannerOptionsFormats",
+      "kind": "enumStrings",
+      "cases": [
+        "aztec",
+        "codabar",
+        "code_39",
+        "code_93",
+        "code_128",
+        "data_matrix",
+        "ean_8",
+        "ean_13",
+        "itf",
+        "pdf417",
+        "qr_code",
+        "upc_a",
+        "upc_e"
+      ]
+    },
+    {
+      "name": "BarcodeScanResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "BarcodeScanResultFormat"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "displayValue",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "rawBytes",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BarcodeScanResultFormat",
+      "kind": "enumStrings",
+      "cases": [
+        "aztec",
+        "codabar",
+        "code_39",
+        "code_93",
+        "code_128",
+        "data_matrix",
+        "ean_8",
+        "ean_13",
+        "itf",
+        "pdf417",
+        "qr_code",
+        "upc_a",
+        "upc_e",
+        "unknown"
+      ]
+    },
+    {
+      "name": "CameraCaptureResolution",
+      "kind": "config",
+      "required": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CameraDevice",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "position",
+          "type": {
+            "k": "ref",
+            "name": "CameraDevicePosition"
+          }
+        },
+        {
+          "name": "lenses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CameraLens"
+            }
+          }
+        },
+        {
+          "name": "minZoom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maxZoom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "isLogical",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CameraDevicePosition",
+      "kind": "enumStrings",
+      "cases": [
+        "rear",
+        "front"
+      ]
+    },
+    {
+      "name": "CameraInterruptedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "CameraInterruptedEventReason"
+          }
+        },
+        {
+          "name": "audioDropped",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CameraInterruptedEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "runtimeError",
+        "interrupted"
+      ]
+    },
+    {
+      "name": "CameraLens",
+      "kind": "config",
+      "required": [
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "deviceType",
+          "type": {
+            "k": "ref",
+            "name": "DeviceType"
+          }
+        },
+        {
+          "name": "focalLength",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "baseZoomRatio",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minZoom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maxZoom",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CameraOpacityOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "opacity",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CameraPermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "camera",
+          "type": {
+            "k": "ref",
+            "name": "CameraPermissionStatusCamera"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "microphone",
+          "type": {
+            "k": "ref",
+            "name": "CameraPermissionStatusCamera"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CameraPermissionStatusCamera",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "CameraPreviewOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "parent",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "className",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "aspectRatio",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsAspectRatio"
+          }
+        },
+        {
+          "name": "aspectMode",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsAspectMode"
+          }
+        },
+        {
+          "name": "gridMode",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsGridMode"
+          }
+        },
+        {
+          "name": "includeSafeAreaInsets",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "toBack",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "paddingBottom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "rotateWhenOrientationChanged",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "position",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "storeToFile",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableExifHeaderStripping",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableAudio",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "lockAndroidOrientation",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enableOpacity",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "disableFocusIndicator",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enablePhysicalDeviceSelection",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "initialZoomLevel",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "positioning",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsPositioning"
+          }
+        },
+        {
+          "name": "enableVideoMode",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "captureResolution",
+          "type": {
+            "k": "ref",
+            "name": "CameraCaptureResolution"
+          }
+        },
+        {
+          "name": "force",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "videoQuality",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsVideoQuality"
+          }
+        },
+        {
+          "name": "maxDuration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "maxFileSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "videoCodec",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsVideoCodec"
+          }
+        },
+        {
+          "name": "frameRate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "videoBitrate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "videoStabilizationMode",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsVideoStabilizationMode"
+          }
+        },
+        {
+          "name": "allowHapticsAndSystemSoundsDuringRecording",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "mirrorFrontCamera",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "barcodeScanner",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "bool"
+              },
+              {
+                "k": "ref",
+                "name": "BarcodeScannerOptions"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "CameraPreviewOptionsAspectMode",
+      "kind": "enumStrings",
+      "cases": [
+        "cover",
+        "contain"
+      ]
+    },
+    {
+      "name": "CameraPreviewOptionsAspectRatio",
+      "kind": "enumStrings",
+      "cases": [
+        "4:3",
+        "16:9",
+        "fill"
+      ]
+    },
+    {
+      "name": "CameraPreviewOptionsGridMode",
+      "kind": "enumStrings",
+      "cases": [
+        "none",
+        "3x3",
+        "4x4"
+      ]
+    },
+    {
+      "name": "CameraPreviewOptionsPositioning",
+      "kind": "enumStrings",
+      "cases": [
+        "center",
+        "top",
+        "bottom"
+      ]
+    },
+    {
+      "name": "CameraPreviewOptionsVideoCodec",
+      "kind": "enumStrings",
+      "cases": [
+        "avc1",
+        "hvc1",
+        "jpeg",
+        "apcn",
+        "ap4h"
+      ]
+    },
+    {
+      "name": "CameraPreviewOptionsVideoQuality",
+      "kind": "enumStrings",
+      "cases": [
+        "4:3",
+        "low",
+        "medium",
+        "high",
+        "2160p",
+        "1080p",
+        "720p",
+        "480p"
+      ]
+    },
+    {
+      "name": "CameraPreviewOptionsVideoStabilizationMode",
+      "kind": "enumStrings",
+      "cases": [
+        "off",
+        "standard",
+        "cinematic",
+        "cinematicExtended",
+        "previewOptimized",
+        "cinematicExtendedEnhanced",
+        "auto",
+        "lowLatency"
+      ]
+    },
+    {
+      "name": "CameraPreviewPictureOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "quality",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewPictureOptionsFormat"
+          }
+        },
+        {
+          "name": "saveToGallery",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "withExifLocation",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "embedTimestamp",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "embedLocation",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "photoQualityPrioritization",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewPictureOptionsPhotoQualityPrioritization"
+          }
+        },
+        {
+          "name": "mirrorFrontCamera",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "orientation",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewPictureOptionsOrientation"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CameraPreviewPictureOptionsFormat",
+      "kind": "enumStrings",
+      "cases": [
+        "jpeg",
+        "png"
+      ]
+    },
+    {
+      "name": "CameraPreviewPictureOptionsOrientation",
+      "kind": "enumStrings",
+      "cases": [
+        "preview",
+        "device"
+      ]
+    },
+    {
+      "name": "CameraPreviewPictureOptionsPhotoQualityPrioritization",
+      "kind": "enumStrings",
+      "cases": [
+        "speed",
+        "balanced",
+        "quality"
+      ]
+    },
+    {
+      "name": "CameraSampleOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "quality",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "mirrorFrontCamera",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CaptureResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "exif",
+          "type": {
+            "k": "ref",
+            "name": "CaptureResultExifMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CaptureResultExifMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "CaptureSampleResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckPermissionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "disableAudio",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeleteFileOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeleteFileResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeviceType",
+      "kind": "enumStrings",
+      "cases": [
+        "ultraWide",
+        "wideAngle",
+        "telephoto",
+        "trueDepth",
+        "dual",
+        "dualWide",
+        "triple"
+      ]
+    },
+    {
+      "name": "GetAspectRatioResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "aspectRatio",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsAspectRatio"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAvailableDevicesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "devices",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CameraDevice"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetExposureCompensationRangeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "min",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "max",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "step",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetExposureCompensationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetExposureModeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "GetExposureModesResultModes"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetExposureModesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "modes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "GetExposureModesResultModes"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetExposureModesResultModes",
+      "kind": "enumStrings",
+      "cases": [
+        "AUTO",
+        "LOCK",
+        "CONTINUOUS",
+        "CUSTOM"
+      ]
+    },
+    {
+      "name": "GetFlashModeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "flashMode",
+          "type": {
+            "k": "ref",
+            "name": "GetSupportedFlashModesResultResult"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetHorizontalFovResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPreviewSizeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSupportedFlashModesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "result",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "GetSupportedFlashModesResultResult"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSupportedFlashModesResultResult",
+      "kind": "enumStrings",
+      "cases": [
+        "off",
+        "auto",
+        "on",
+        "torch"
+      ]
+    },
+    {
+      "name": "GetSupportedPictureSizesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supportedPictureSizes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SupportedPictureSizes"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSupportedVideoCodecsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "codecs",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CameraPreviewOptionsVideoCodec"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSupportedVideoFrameRatesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "frameRates",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSupportedVideoQualitiesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "qualities",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CameraPreviewOptionsVideoQuality"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetSupportedVideoStabilizationModesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "modes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CameraPreviewOptionsVideoStabilizationMode"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetVideoFrameRateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "frameRate",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetVideoStabilizationModeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsVideoStabilizationMode"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetZoomButtonValuesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "values",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetZoomResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "min",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "max",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "current",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lens",
+          "type": {
+            "k": "ref",
+            "name": "LensInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsRunningResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isRunning",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsVideoStabilizationSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LensInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "focalLength",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "deviceType",
+          "type": {
+            "k": "ref",
+            "name": "DeviceType"
+          }
+        },
+        {
+          "name": "baseZoomRatio",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "digitalZoom",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OrientationChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "orientation",
+          "type": {
+            "k": "ref",
+            "name": "OrientationChangeEventOrientation"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OrientationChangeEventOrientation",
+      "kind": "enumStrings",
+      "cases": [
+        "portrait",
+        "landscape-left",
+        "landscape-right",
+        "portrait-upside-down",
+        "unknown"
+      ]
+    },
+    {
+      "name": "PermissionRequestOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "disableAudio",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "showSettingsAlert",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "openSettingsButtonTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelButtonTitle",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PictureSize",
+      "kind": "config",
+      "required": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RecordingFinishedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "videoFilePath",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "RecordingFinishedEventReason"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RecordingFinishedEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "manual",
+        "maxDuration",
+        "maxFileSize"
+      ]
+    },
+    {
+      "name": "SafeAreaInsets",
+      "kind": "config",
+      "required": [
+        {
+          "name": "orientation",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "top",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetAspectRatioOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "aspectRatio",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsAspectRatio"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetDeviceIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "deviceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetFlashModeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "flashMode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetFocusOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetGridModeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "gridMode",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsGridMode"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPreviewSizeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetVideoCodecOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "codec",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsVideoCodec"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetVideoQualityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "quality",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptionsVideoQuality"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetZoomOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "level",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "ramp",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoFocus",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "x",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "y",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StopOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "force",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SupportedPictureSizes",
+      "kind": "config",
+      "required": [
+        {
+          "name": "facing",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "supportedPictureSizes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "PictureSize"
+            }
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "start",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartResult"
+      },
+      "promise": true,
+      "comment": "Starts the camera preview."
+    },
+    {
+      "name": "stop",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StopOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops the camera preview."
+    },
+    {
+      "name": "capture",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewPictureOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CaptureResult"
+      },
+      "promise": true,
+      "comment": "Captures a picture from the camera.\n\nIf `storeToFile` was set to `true` when starting the preview, the returned\n`value` will be an absolute file path on the device instead of a base64 string. Use getBase64FromFilePath to get the base64 string from the file path."
+    },
+    {
+      "name": "captureSample",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CameraSampleOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CaptureSampleResult"
+      },
+      "promise": true,
+      "comment": "Captures a single frame from the camera preview stream."
+    },
+    {
+      "name": "startBarcodeScanner",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "BarcodeScannerOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Starts barcode scanning on the active camera preview.\n\nThe scanner reuses the current camera session and emits `barcodeScanned` events.\nCall `stopBarcodeScanner()` when scanning is no longer needed.\n\nAndroid uses the lightweight Google Play Services ML Kit model. If the model is not installed yet,\nfirst scans may return no result until Google Play Services finishes downloading it."
+    },
+    {
+      "name": "stopBarcodeScanner",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops barcode scanning while keeping the camera preview running."
+    },
+    {
+      "name": "getSupportedFlashModes",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSupportedFlashModesResult"
+      },
+      "promise": true,
+      "comment": "Gets the flash modes supported by the active camera."
+    },
+    {
+      "name": "setAspectRatio",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetAspectRatioOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartResult"
+      },
+      "promise": true,
+      "comment": "Set the aspect ratio of the camera preview."
+    },
+    {
+      "name": "getAspectRatio",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAspectRatioResult"
+      },
+      "promise": true,
+      "comment": "Gets the current aspect ratio of the camera preview."
+    },
+    {
+      "name": "setGridMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetGridModeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the grid mode of the camera preview overlay."
+    },
+    {
+      "name": "getGridMode",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetGridModeOptions"
+      },
+      "promise": true,
+      "comment": "Gets the current grid mode of the camera preview overlay."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CheckPermissionsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CameraPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Checks the current camera (and optionally microphone) permission status without prompting the system dialog."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PermissionRequestOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CameraPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Requests camera (and optional microphone) permissions. If permissions are already granted or denied,\nthe current status is returned without prompting. When `showSettingsAlert` is true and permissions are denied,\na platform specific alert guiding the user to the app settings will be presented."
+    },
+    {
+      "name": "getHorizontalFov",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetHorizontalFovResult"
+      },
+      "promise": true,
+      "comment": "Gets the horizontal field of view (FoV) for the active camera.\nNote: This can be an estimate on some devices."
+    },
+    {
+      "name": "getSupportedPictureSizes",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSupportedPictureSizesResult"
+      },
+      "promise": true,
+      "comment": "Gets the supported picture sizes for all cameras."
+    },
+    {
+      "name": "setFlashMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetFlashModeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the flash mode for the active camera."
+    },
+    {
+      "name": "flip",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Toggles between the front and rear cameras."
+    },
+    {
+      "name": "setOpacity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CameraOpacityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the opacity of the camera preview."
+    },
+    {
+      "name": "stopRecordVideo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "RecordingFinishedEvent"
+      },
+      "promise": true,
+      "comment": "Stops an ongoing video recording."
+    },
+    {
+      "name": "startRecordVideo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CameraPreviewOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Starts recording a video.\n\nSupports `frameRate`, `videoCodec`, `videoBitrate`, `videoStabilizationMode`, `maxDuration`, `maxFileSize`, `disableAudio`, `allowHapticsAndSystemSoundsDuringRecording`, and `mirrorFrontCamera` on each call."
+    },
+    {
+      "name": "setVideoQuality",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetVideoQualityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the video recording quality for the active camera session."
+    },
+    {
+      "name": "getVideoQuality",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetVideoQualityOptions"
+      },
+      "promise": true,
+      "comment": "Gets the current video recording quality."
+    },
+    {
+      "name": "getSupportedVideoQualities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSupportedVideoQualitiesResult"
+      },
+      "promise": true,
+      "comment": "Returns the video qualities supported by the active camera."
+    },
+    {
+      "name": "setVideoCodec",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetVideoCodecOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the video codec used when recording."
+    },
+    {
+      "name": "getVideoCodec",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetVideoCodecOptions"
+      },
+      "promise": true,
+      "comment": "Gets the current video codec used for recording."
+    },
+    {
+      "name": "getSupportedVideoCodecs",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSupportedVideoCodecsResult"
+      },
+      "promise": true,
+      "comment": "Returns the video codecs supported by the active camera."
+    },
+    {
+      "name": "isVideoStabilizationSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsVideoStabilizationSupportedResult"
+      },
+      "promise": true,
+      "comment": "Checks whether video stabilization is supported by the active camera."
+    },
+    {
+      "name": "getSupportedVideoStabilizationModes",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSupportedVideoStabilizationModesResult"
+      },
+      "promise": true,
+      "comment": "Returns the video stabilization modes supported by the active camera."
+    },
+    {
+      "name": "getVideoStabilizationMode",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetVideoStabilizationModeResult"
+      },
+      "promise": true,
+      "comment": "Gets the current video stabilization mode."
+    },
+    {
+      "name": "setVideoStabilizationMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetVideoStabilizationModeResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the video stabilization mode for recording.\nCannot be changed while a recording is in progress.\nYou can also pass `videoStabilizationMode` in `startRecordVideo()` options."
+    },
+    {
+      "name": "isRunning",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsRunningResult"
+      },
+      "promise": true,
+      "comment": "Checks if the camera preview is currently running."
+    },
+    {
+      "name": "getAvailableDevices",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAvailableDevicesResult"
+      },
+      "promise": true,
+      "comment": "Gets all available camera devices."
+    },
+    {
+      "name": "getZoom",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetZoomResult"
+      },
+      "promise": true,
+      "comment": "Gets the current zoom state, including min/max and current lens info."
+    },
+    {
+      "name": "getZoomButtonValues",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetZoomButtonValuesResult"
+      },
+      "promise": true,
+      "comment": "Returns zoom button values for quick switching.\n- iOS/Android: includes 0.5 if ultra-wide available; 1 and 2 if wide available; 3 if telephoto available\n- Web: unsupported"
+    },
+    {
+      "name": "setZoom",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetZoomOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the zoom level of the camera."
+    },
+    {
+      "name": "getFlashMode",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetFlashModeResult"
+      },
+      "promise": true,
+      "comment": "Gets the current flash mode."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes all registered listeners."
+    },
+    {
+      "name": "setDeviceId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetDeviceIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Switches the active camera to the one with the specified `deviceId`."
+    },
+    {
+      "name": "getDeviceId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SetDeviceIdOptions"
+      },
+      "promise": true,
+      "comment": "Gets the ID of the camera device that is currently bound.\nOn Android, if a physical-lens request falls back to a logical camera, this returns the bound logical camera ID."
+    },
+    {
+      "name": "getPreviewSize",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPreviewSizeResult"
+      },
+      "promise": true,
+      "comment": "Gets the current visible camera preview bounds in web-view coordinates.\n\nWith `aspectMode: 'contain'`, this is the letterboxed camera image rect inside the\npreview container (not the full container when bars are shown). With `aspectMode: 'cover'`,\nthis matches the preview container bounds on both platforms."
+    },
+    {
+      "name": "setPreviewSize",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPreviewSizeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartResult"
+      },
+      "promise": true,
+      "comment": "Sets the preview size and position."
+    },
+    {
+      "name": "setFocus",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetFocusOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the camera focus to a specific point in the preview.\n\nNote: The plugin does not attach any native tap-to-focus gesture handlers. Handle taps in\nyour HTML/JS (e.g., on the overlaying UI), then pass normalized coordinates here."
+    },
+    {
+      "name": "deleteFile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteFileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DeleteFileResult"
+      },
+      "promise": true,
+      "comment": "Deletes a file at the given absolute path on the device.\nUse this to quickly clean up temporary images created with `storeToFile`.\nOn web, this is not supported and will throw."
+    },
+    {
+      "name": "getSafeAreaInsets",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SafeAreaInsets"
+      },
+      "promise": true,
+      "comment": "Gets the safe area insets for devices.\nReturns the orientation-aware notch/camera cutout inset and the current orientation.\nIn portrait mode: returns top inset (notch at top).\nIn landscape mode: returns left inset (notch moved to side).\nThis specifically targets the cutout area (notch, punch hole, etc.) that all modern phones have.\n\nAndroid: Values returned in dp (logical pixels).\niOS: Values returned in physical pixels, excluding status bar (only pure notch/cutout size)."
+    },
+    {
+      "name": "getOrientation",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "OrientationChangeEvent"
+      },
+      "promise": true,
+      "comment": "Gets the current device orientation in a cross-platform format."
+    },
+    {
+      "name": "getExposureModes",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetExposureModesResult"
+      },
+      "promise": true,
+      "comment": "Returns the exposure modes supported by the active camera.\nModes can include: 'locked', 'auto', 'continuous', 'custom'."
+    },
+    {
+      "name": "getExposureMode",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetExposureModeResult"
+      },
+      "promise": true,
+      "comment": "Returns the current exposure mode."
+    },
+    {
+      "name": "setExposureMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetExposureModeResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the exposure mode."
+    },
+    {
+      "name": "getExposureCompensationRange",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetExposureCompensationRangeResult"
+      },
+      "promise": true,
+      "comment": "Returns the exposure compensation (EV bias) supported range."
+    },
+    {
+      "name": "getExposureCompensation",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetExposureCompensationResult"
+      },
+      "promise": true,
+      "comment": "Returns the current exposure compensation (EV bias)."
+    },
+    {
+      "name": "setExposureCompensation",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetExposureCompensationResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the exposure compensation (EV bias). Value will be clamped to range."
+    },
+    {
+      "name": "getWhiteBalanceModes",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetExposureModesResult"
+      },
+      "promise": true,
+      "comment": "Returns the white-balance modes supported by the active camera.\nModes can include: 'AUTO', 'LOCK', 'CONTINUOUS'. `CUSTOM` is not listed\nuntil manual gains support is implemented."
+    },
+    {
+      "name": "getWhiteBalanceMode",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetExposureModeResult"
+      },
+      "promise": true,
+      "comment": "Returns the current white-balance mode."
+    },
+    {
+      "name": "setWhiteBalanceMode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetExposureModeResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the white-balance mode. `CONTINUOUS` keeps auto white balance running\n(recommended; avoids a warm/yellow cast), `LOCK` freezes the current gains,\n`AUTO` performs a one-time adjustment. `CUSTOM` is reserved and rejected\nuntil manual gains support is implemented."
+    },
+    {
+      "name": "getSupportedVideoFrameRates",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetSupportedVideoFrameRatesResult"
+      },
+      "promise": true,
+      "comment": "Lists the video frame rates supported by the active camera for the current format.\nSupported values depend on the selected camera, lens, and video quality."
+    },
+    {
+      "name": "getVideoFrameRate",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetVideoFrameRateResult"
+      },
+      "promise": true,
+      "comment": "Returns the configured video frame rate for the active camera.\nOn Android the actual recording frame rate can still vary in low light or under thermal pressure."
+    },
+    {
+      "name": "setVideoFrameRate",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetVideoFrameRateResult"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the target video frame rate for the active camera session.\nPrefer passing `frameRate` to `startRecordVideo()` when starting a recording.\nRejects unsupported values with a clear error."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [
+    {
+      "name": "screenResize",
+      "listener": {
+        "k": "ref",
+        "name": "StartResult"
+      }
+    },
+    {
+      "name": "orientationChange",
+      "listener": {
+        "k": "ref",
+        "name": "OrientationChangeEvent"
+      }
+    },
+    {
+      "name": "barcodeScanned",
+      "listener": {
+        "k": "ref",
+        "name": "BarcodeScannedEvent"
+      }
+    },
+    {
+      "name": "barcodeScanError",
+      "listener": {
+        "k": "ref",
+        "name": "BarcodeScanErrorEvent"
+      }
+    },
+    {
+      "name": "recordingFinished",
+      "listener": {
+        "k": "ref",
+        "name": "RecordingFinishedEvent"
+      }
+    },
+    {
+      "name": "cameraInterrupted",
+      "listener": {
+        "k": "ref",
+        "name": "CameraInterruptedEvent"
+      }
+    },
+    {
+      "name": "cameraInterruptionEnded",
+      "listener": {
+        "k": "unit"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

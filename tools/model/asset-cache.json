@@ -1,0 +1,721 @@
+{
+  "namespace": "AssetCache",
+  "family": "Files",
+  "package": "@capgo/capacitor-asset-cache",
+  "version": "8.1.10",
+  "license": "MPL-2.0",
+  "export": "AssetCache",
+  "types": [
+    {
+      "name": "AssetCacheBinding",
+      "kind": "config",
+      "required": [
+        {
+          "name": "promise",
+          "type": {
+            "k": "promise",
+            "of": {
+              "k": "ref",
+              "name": "ResolvedAssetSource"
+            }
+          }
+        },
+        {
+          "name": "cancel",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AssetCacheBindOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "stateAttribute",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "loadingClass",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "readyClass",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "errorClass",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
+          }
+        },
+        {
+          "name": "cdnUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "revalidate",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheRevalidateOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AssetCacheConfigOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "cdnUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "revalidate",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheRevalidateOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AssetCacheKeyOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AssetCacheListResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assets",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CachedAsset"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AssetCacheRevalidateOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "strategy",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheRevalidateOptionsStrategy"
+          }
+        },
+        {
+          "name": "maxAgeSeconds",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AssetCacheRevalidateOptionsStrategy",
+      "kind": "enumStrings",
+      "cases": [
+        "never",
+        "ttl",
+        "always",
+        "etag",
+        "last-modified"
+      ]
+    },
+    {
+      "name": "AssetCacheSizeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AssetCacheSourceOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
+          }
+        },
+        {
+          "name": "cdnUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "revalidate",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheRevalidateOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CachedAsset",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "size",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "checkedAt",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fromCache",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "ResolvedAssetSourceStatus"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "etag",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "lastModified",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClearCacheResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "removed",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAssetOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
+          }
+        },
+        {
+          "name": "revalidate",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheRevalidateOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RemoveAssetResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "removed",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ResolveAssetSourceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "ResolveAssetSourceOptionsHeadersMap"
+          }
+        },
+        {
+          "name": "cdnUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "revalidate",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheRevalidateOptions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ResolveAssetSourceOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "ResolvedAssetSource",
+      "kind": "config",
+      "required": [
+        {
+          "name": "src",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "remoteUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "local",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fromCache",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "ResolvedAssetSourceStatus"
+          }
+        },
+        {
+          "name": "asset",
+          "type": {
+            "k": "ref",
+            "name": "CachedAsset"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ResolvedAssetSourceStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "hit",
+        "downloaded",
+        "notModified"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheConfigOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": false,
+      "comment": "Set defaults for future `src(...)`, `resolve(...)`, and `bind(...)` calls."
+    },
+    {
+      "name": "resolve",
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "ref",
+                "name": "ResolveAssetSourceOptions"
+              }
+            ]
+          },
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheSourceOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ResolvedAssetSource"
+      },
+      "promise": true,
+      "comment": "Resolve a CDN path or remote URL into a local display-ready source URL."
+    },
+    {
+      "name": "src",
+      "params": [
+        {
+          "name": "path",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "ref",
+                "name": "ResolveAssetSourceOptions"
+              }
+            ]
+          },
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheSourceOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": true,
+      "comment": "Resolve a CDN path or remote URL into a local string ready for `img.src` or `video.src`."
+    },
+    {
+      "name": "bind",
+      "params": [
+        {
+          "name": "element",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ext",
+                "name": "HTMLImageElement"
+              },
+              {
+                "k": "ext",
+                "name": "HTMLVideoElement"
+              }
+            ]
+          },
+          "optional": false
+        },
+        {
+          "name": "path",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "ref",
+                "name": "ResolveAssetSourceOptions"
+              }
+            ]
+          },
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheBindOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AssetCacheBinding"
+      },
+      "promise": false,
+      "comment": "Bind an image or video element to a local asset and update it when ready."
+    },
+    {
+      "name": "get",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetAssetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CachedAsset"
+      },
+      "promise": true,
+      "comment": "Resolve an asset URL into a local persistent file."
+    },
+    {
+      "name": "remove",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AssetCacheKeyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "RemoveAssetResult"
+      },
+      "promise": true,
+      "comment": "Remove one cached asset by key or URL."
+    },
+    {
+      "name": "clear",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ClearCacheResult"
+      },
+      "promise": true,
+      "comment": "Remove every cached asset managed by this plugin."
+    },
+    {
+      "name": "list",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AssetCacheListResult"
+      },
+      "promise": true,
+      "comment": "List cached assets that still exist on disk."
+    },
+    {
+      "name": "getCacheSize",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AssetCacheSizeResult"
+      },
+      "promise": true,
+      "comment": "Return total cached asset bytes."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": [
+    "HTMLImageElement",
+    "HTMLVideoElement"
+  ]
+}

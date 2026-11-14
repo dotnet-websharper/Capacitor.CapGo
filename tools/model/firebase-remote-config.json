@@ -1,0 +1,547 @@
+{
+  "namespace": "FirebaseRemoteConfig",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-remote-config",
+  "version": "8.3.1",
+  "license": "MPL-2.0",
+  "export": "FirebaseRemoteConfig",
+  "types": [
+    {
+      "name": "AddConfigUpdateListenerOptionsCallbackEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "updatedKeys",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FetchConfigOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "minimumFetchIntervalInSeconds",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetAllResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "values",
+          "type": {
+            "k": "ref",
+            "name": "GetAllResultValuesMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAllResultValue",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "GetValueSource"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetAllResultValuesMap",
+      "kind": "map",
+      "of": {
+        "k": "ref",
+        "name": "GetAllResultValue"
+      }
+    },
+    {
+      "name": "GetBooleanResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "GetValueSource"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetInfoResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "lastFetchTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lastFetchStatus",
+          "type": {
+            "k": "ref",
+            "name": "LastFetchStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetNumberResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "GetValueSource"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStringResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "GetValueSource"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetValueSource",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "Static",
+          "value": 0
+        },
+        {
+          "name": "Default",
+          "value": 1
+        },
+        {
+          "name": "Remote",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "LastFetchStatus",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "NoFetchYet",
+          "value": 0
+        },
+        {
+          "name": "Success",
+          "value": 1
+        },
+        {
+          "name": "Failure",
+          "value": 2
+        },
+        {
+          "name": "Throttled",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "RemoveConfigUpdateListenerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetDefaultsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "defaults",
+          "type": {
+            "k": "ref",
+            "name": "SetDefaultsOptionsDefaultsMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetDefaultsOptionsDefaultsMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SetMinimumFetchIntervalOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "minimumFetchIntervalInSeconds",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSettingsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "fetchTimeoutInSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minimumFetchIntervalInSeconds",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "activate",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Make the last fetched configuration available to the getters."
+    },
+    {
+      "name": "fetchAndActivate",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Perform fetch and activate operations."
+    },
+    {
+      "name": "fetchConfig",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "FetchConfigOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Fetch and cache configuration from the Remote Config service."
+    },
+    {
+      "name": "getBoolean",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetBooleanResult"
+      },
+      "promise": true,
+      "comment": "Get the value for the given key as a boolean."
+    },
+    {
+      "name": "getNumber",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetNumberResult"
+      },
+      "promise": true,
+      "comment": "Get the value for the given key as a number."
+    },
+    {
+      "name": "getString",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetStringResult"
+      },
+      "promise": true,
+      "comment": "Get the value for the given key as a string."
+    },
+    {
+      "name": "getAll",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAllResult"
+      },
+      "promise": true,
+      "comment": "Get all the values from the Remote Config service."
+    },
+    {
+      "name": "getInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetInfoResult"
+      },
+      "promise": true,
+      "comment": "Get information about the last fetch operation."
+    },
+    {
+      "name": "setMinimumFetchInterval",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetMinimumFetchIntervalOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the minimum fetch interval.\n\nOnly available for Web."
+    },
+    {
+      "name": "setDefaults",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetDefaultsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets config defaults for parameter keys and values in the default namespace config."
+    },
+    {
+      "name": "setSettings",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSettingsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set the remote config settings.\n\nOn Android, the settings values are persisted in SharedPreferences."
+    },
+    {
+      "name": "addConfigUpdateListener",
+      "params": [
+        {
+          "name": "callback",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "AddConfigUpdateListenerOptionsCallbackEvent"
+              },
+              {
+                "k": "obj"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "string"
+      },
+      "promise": true,
+      "comment": "Add a listener for the config update event.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "removeConfigUpdateListener",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveConfigUpdateListenerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove a listener for the config update event.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the version of this plugin."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

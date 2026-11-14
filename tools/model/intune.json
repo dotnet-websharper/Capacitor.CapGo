@@ -1,0 +1,556 @@
+{
+  "namespace": "Intune",
+  "family": "Auth",
+  "package": "@capgo/capacitor-intune",
+  "version": "8.1.11",
+  "license": "MPL-2.0",
+  "export": "IntuneMAM",
+  "types": [
+    {
+      "name": "AcquireTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "forcePrompt",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "loginHint",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AcquireTokenSilentOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "forceRefresh",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntuneMAMAcquireToken",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "accountIdentifier",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "idToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tenantId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authority",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntuneMAMAppConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fullData",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "IntuneMAMAppConfigFullDataMap"
+            }
+          }
+        },
+        {
+          "name": "values",
+          "type": {
+            "k": "ref",
+            "name": "IntuneMAMAppConfigFullDataMap"
+          }
+        },
+        {
+          "name": "conflicts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IntuneMAMAppConfigFullDataMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "IntuneMAMChangeEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntuneMAMGroupName",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "groupName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntuneMAMPolicy",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isPinRequired",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isManagedBrowserRequired",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isScreenCaptureAllowed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isContactSyncAllowed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isAppSharingAllowed",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isFileEncryptionRequired",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "notificationPolicy",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntuneMAMUser",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accountIdentifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tenantId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authority",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntuneMAMVersionInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IntuneMAMVersionInfoPlatform"
+          }
+        },
+        {
+          "name": "intuneSdkVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "msalVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IntuneMAMVersionInfoPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android"
+      ]
+    },
+    {
+      "name": "RegisterAndEnrollAccountOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accountId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "acquireToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcquireTokenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IntuneMAMAcquireToken"
+      },
+      "promise": true,
+      "comment": "Present the Microsoft sign-in flow and return an access token plus the account metadata."
+    },
+    {
+      "name": "acquireTokenSilent",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcquireTokenSilentOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IntuneMAMAcquireToken"
+      },
+      "promise": true,
+      "comment": "Acquire a token from the MSAL cache for a previously signed-in user."
+    },
+    {
+      "name": "registerAndEnrollAccount",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RegisterAndEnrollAccountOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Register a previously authenticated account with Intune and start enrollment."
+    },
+    {
+      "name": "loginAndEnrollAccount",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Ask Intune to authenticate and enroll a user without first requesting an app token."
+    },
+    {
+      "name": "enrolledAccount",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IntuneMAMUser"
+      },
+      "promise": true,
+      "comment": "Return the currently enrolled Intune account, if one is available."
+    },
+    {
+      "name": "deRegisterAndUnenrollAccount",
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "IntuneMAMUser"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deregister the account from Intune and trigger selective wipe when applicable."
+    },
+    {
+      "name": "logoutOfAccount",
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "IntuneMAMUser"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sign the user out of MSAL without unenrolling the Intune account."
+    },
+    {
+      "name": "appConfig",
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "IntuneMAMUser"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IntuneMAMAppConfig"
+      },
+      "promise": true,
+      "comment": "Fetch the remote Intune app configuration for a managed account."
+    },
+    {
+      "name": "getPolicy",
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "IntuneMAMUser"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IntuneMAMPolicy"
+      },
+      "promise": true,
+      "comment": "Fetch the currently effective Intune app protection policy for a managed account."
+    },
+    {
+      "name": "groupName",
+      "params": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "IntuneMAMUser"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IntuneMAMGroupName"
+      },
+      "promise": true,
+      "comment": "Convenience helper that resolves the `GroupName` app configuration value when present."
+    },
+    {
+      "name": "sdkVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IntuneMAMVersionInfo"
+      },
+      "promise": true,
+      "comment": "Return the native Intune and MSAL SDK versions bundled by this plugin."
+    },
+    {
+      "name": "displayDiagnosticConsole",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show the native Intune diagnostics UI."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners for this plugin instance."
+    }
+  ],
+  "events": [
+    {
+      "name": "appConfigChange",
+      "listener": {
+        "k": "ref",
+        "name": "IntuneMAMChangeEvent"
+      }
+    },
+    {
+      "name": "policyChange",
+      "listener": {
+        "k": "ref",
+        "name": "IntuneMAMChangeEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

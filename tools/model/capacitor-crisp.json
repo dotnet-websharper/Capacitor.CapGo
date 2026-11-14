@@ -1,0 +1,700 @@
+{
+  "namespace": "CapacitorCrisp",
+  "family": "Core",
+  "package": "@capgo/capacitor-crisp",
+  "version": "8.2.17",
+  "license": "MPL-2.0",
+  "export": "CapacitorCrisp",
+  "types": [
+    {
+      "name": "ConfigureOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "websiteID",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "locale",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tokenID",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CrispMessageEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "isMe",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fromPushNotification",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CrispSessionLoadedEvent",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "sessionId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "HandlePushNotificationData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "IsCrispPushNotificationDataDataMap"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "openChatbox",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IsCrispPushNotificationData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "IsCrispPushNotificationDataDataMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsCrispPushNotificationDataDataMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "IsCrispPushNotificationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isCrisp",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenChatboxFromNotificationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "opened",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PushEventData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "ref",
+            "name": "PushEventDataColor"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PushEventDataColor",
+      "kind": "enumStrings",
+      "cases": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple",
+        "pink",
+        "brown",
+        "grey",
+        "black"
+      ]
+    },
+    {
+      "name": "RegisterPushTokenData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SendMessageData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetCompanyData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "employment",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "geolocation",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SetIntData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSegmentData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "segment",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetShouldPromptForNotificationPermissionData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetStringData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetTokenIDData",
+      "kind": "config",
+      "required": [
+        {
+          "name": "tokenID",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetUserData",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "nickname",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phone",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "signature",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "avatar",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "ConfigureOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure the Crisp SDK with your website ID.\nMust be called before using any other methods."
+    },
+    {
+      "name": "openMessenger",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open the Crisp messenger chat window.\nShows the chat interface to the user."
+    },
+    {
+      "name": "setTokenID",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetTokenIDData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set a unique token ID for the current user session.\nUsed to identify and restore previous conversations."
+    },
+    {
+      "name": "setUser",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetUserData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set user information for the current session.\nUpdates the user profile visible to support agents."
+    },
+    {
+      "name": "pushEvent",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "PushEventData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Push a custom event to Crisp.\nUseful for tracking user actions and behavior."
+    },
+    {
+      "name": "setCompany",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetCompanyData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set company information for the current session.\nAssociates the user with a company in Crisp."
+    },
+    {
+      "name": "setInt",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetIntData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set a custom integer data field.\nStores numerical data associated with the user session."
+    },
+    {
+      "name": "setString",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetStringData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set a custom string data field.\nStores text data associated with the user session."
+    },
+    {
+      "name": "sendMessage",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SendMessageData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Send a message from the user to the chat.\nProgrammatically send a message as if the user typed it."
+    },
+    {
+      "name": "setSegment",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetSegmentData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set a user segment for targeting and organization.\nUsed to categorize users in the Crisp dashboard."
+    },
+    {
+      "name": "reset",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reset the Crisp session.\nClears all user data and starts a fresh session.\nUseful when user logs out."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered listeners for this plugin."
+    },
+    {
+      "name": "registerPushToken",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "RegisterPushTokenData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Register the device push token (APNs on iOS, FCM on Android) with Crisp.\nOptional fallback when you cannot use native token forwarding.\nOn iOS, the plugin forwards APNs tokens from `@capacitor/push-notifications`\nautomatically via native hooks."
+    },
+    {
+      "name": "enableNotifications",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable Crisp push notifications on Android.\nCalled automatically during `configure()` on Android.\nThis JS method is an optional manual override. No-op on iOS and web."
+    },
+    {
+      "name": "isCrispPushNotification",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "IsCrispPushNotificationData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsCrispPushNotificationResult"
+      },
+      "promise": true,
+      "comment": "Check whether a push notification payload was sent by Crisp.\nUseful when sharing push handling with `@capacitor/push-notifications`."
+    },
+    {
+      "name": "handlePushNotification",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "HandlePushNotificationData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Handle a Crisp push notification payload.\nOn Android, opens the chatbox by default when the user taps a notification.\nOn iOS, processes the payload through the Crisp SDK.\nEmits `messageReceived` with `fromPushNotification: true` for Crisp payloads,\nwhich lets apps update unread badges when the chatbox is closed."
+    },
+    {
+      "name": "setShouldPromptForNotificationPermission",
+      "params": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "SetShouldPromptForNotificationPermissionData"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Control whether Crisp auto-prompts for notification permission on iOS.\nNo-op on Android and web."
+    },
+    {
+      "name": "openChatboxFromNotification",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "OpenChatboxFromNotificationResult"
+      },
+      "promise": true,
+      "comment": "Open the Crisp chatbox from a notification tap intent on Android.\nCall from your main activity when handling notification open actions.\nNo-op on iOS and web."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the plugin version number."
+    }
+  ],
+  "events": [
+    {
+      "name": "messageReceived",
+      "listener": {
+        "k": "ref",
+        "name": "CrispMessageEvent"
+      }
+    },
+    {
+      "name": "messageSent",
+      "listener": {
+        "k": "ref",
+        "name": "CrispMessageEvent"
+      }
+    },
+    {
+      "name": "sessionLoaded",
+      "listener": {
+        "k": "ref",
+        "name": "CrispSessionLoadedEvent"
+      }
+    },
+    {
+      "name": "chatOpened",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "chatClosed",
+      "listener": {
+        "k": "unit"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

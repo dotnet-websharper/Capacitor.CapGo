@@ -1,0 +1,133 @@
+{
+  "namespace": "ScreenRecorder",
+  "family": "Core",
+  "package": "@capgo/capacitor-screen-recorder",
+  "version": "8.4.10",
+  "license": "MPL-2.0",
+  "export": "ScreenRecorder",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ScreenRecorderStoppedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartRecordingOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "recordAudio",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "StartRecordingOptionsFormat"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartRecordingOptionsFormat",
+      "kind": "enumStrings",
+      "cases": [
+        "mp4",
+        "mov",
+        "video/mp4",
+        "video/quicktime"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "start",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartRecordingOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start recording the device screen.\n\nInitiates screen recording with optional audio capture. The user will be\nprompted to grant screen recording permissions if not already granted.\nOn iOS, the system recording UI will be displayed. On Android, the recording\nstarts immediately after permission is granted."
+    },
+    {
+      "name": "stop",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop the current screen recording.\n\nStops the active screen recording and saves the video to the device's\ncamera roll or gallery. On iOS, the system will show a preview of the\nrecording. On Android, the video is saved directly to the gallery."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners registered with {@link addListener}."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "onStopped",
+      "listener": {
+        "k": "ref",
+        "name": "ScreenRecorderStoppedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

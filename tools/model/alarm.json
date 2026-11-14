@@ -1,0 +1,360 @@
+{
+  "namespace": "Alarm",
+  "family": "Device",
+  "package": "@capgo/capacitor-alarm",
+  "version": "8.1.16",
+  "license": "MPL-2.0",
+  "export": "CapgoAlarm",
+  "types": [
+    {
+      "name": "AlarmInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "hour",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minute",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CancelAlarmOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetAlarmsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "alarms",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "AlarmInfo"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "NativeActionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NativeAlarmCreateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "hour",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minute",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "skipUi",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "vibrate",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OSInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "supportsNativeAlarms",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "supportsScheduledNotifications",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "canScheduleExactAlarms",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "granted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "details",
+          "type": {
+            "k": "ref",
+            "name": "PermissionResultDetailsMap"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PermissionResultDetailsMap",
+      "kind": "map",
+      "of": {
+        "k": "bool"
+      }
+    },
+    {
+      "name": "RequestPermissionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "exactAlarm",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "createAlarm",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "NativeAlarmCreateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeActionResult"
+      },
+      "promise": true,
+      "comment": "Create a native OS alarm using the platform clock app.\nOn Android this uses the Alarm Clock intent; on iOS this uses AlarmKit if available (iOS 16+)."
+    },
+    {
+      "name": "openAlarms",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "NativeActionResult"
+      },
+      "promise": true,
+      "comment": "Open the platform's native alarm list UI, if available."
+    },
+    {
+      "name": "getOSInfo",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "OSInfo"
+      },
+      "promise": true,
+      "comment": "Get information about the OS and capabilities."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestPermissionsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionResult"
+      },
+      "promise": true,
+      "comment": "Request relevant permissions for alarm usage on the platform.\nOn Android, may route to settings for exact alarms."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionResult"
+      },
+      "promise": true,
+      "comment": "Check the current permission state for native alarm access without triggering UI.\nOn iOS this reports AlarmKit readiness; on Android it reports capability details."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "getAlarms",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAlarmsResult"
+      },
+      "promise": true,
+      "comment": "Get a list of alarms scheduled by this app.\nOn iOS 26+, returns alarms from AlarmKit. On Android, this is not supported\nas the system does not provide an API to query alarms."
+    },
+    {
+      "name": "cancelAlarm",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CancelAlarmOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "NativeActionResult"
+      },
+      "promise": true,
+      "comment": "Cancel a scheduled alarm by its ID.\nOn iOS 26+, removes the alarm from AlarmKit. On Android/web, returns not supported."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

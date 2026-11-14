@@ -1,0 +1,48 @@
+{
+  "namespace": "InAppReview",
+  "family": "Commerce",
+  "package": "@capgo/capacitor-in-app-review",
+  "version": "8.2.11",
+  "license": "MIT",
+  "export": "CapgoInAppReview",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "requestReview",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Request an in-app review from the user.\n\nThis method triggers the native in-app review dialog provided by the platform.\nOn iOS, it uses SKStoreReviewController. On Android, it uses the Play In-App Review API.\n\n**Important Notes:**\n- The review dialog may not be displayed every time this method is called.\n  Both Apple and Google have guidelines that limit how often the prompt can appear.\n- There is no guarantee that the user will see the review prompt.\n- The method resolves successfully even if the dialog was not shown.\n- Do not call this in response to a user action like a button tap.\n  Instead, call it at natural points in your app's user flow."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

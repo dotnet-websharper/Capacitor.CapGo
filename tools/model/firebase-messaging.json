@@ -1,0 +1,609 @@
+{
+  "namespace": "FirebaseMessaging",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-firebase-messaging",
+  "version": "7.4.2",
+  "license": "MPL-2.0",
+  "export": "FirebaseMessaging",
+  "types": [
+    {
+      "name": "Channel",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "importance",
+          "type": {
+            "k": "ref",
+            "name": "Importance"
+          }
+        },
+        {
+          "name": "lightColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "lights",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "sound",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "vibration",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "visibility",
+          "type": {
+            "k": "ref",
+            "name": "Visibility"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DeleteChannelOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetDeliveredNotificationsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notifications",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Notification"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetTokenOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "vapidKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "serviceWorkerRegistration",
+          "type": {
+            "k": "ext",
+            "name": "ServiceWorkerRegistration"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetTokenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Importance",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "Min",
+          "value": 1
+        },
+        {
+          "name": "Low",
+          "value": 2
+        },
+        {
+          "name": "Default",
+          "value": 3
+        },
+        {
+          "name": "High",
+          "value": 4
+        },
+        {
+          "name": "Max",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "IsSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSupported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ListChannelsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "channels",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Channel"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Notification",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "clickAction",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "obj"
+          }
+        },
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "image",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "link",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tag",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NotificationActionPerformedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "actionId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "Notification"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "inputValue",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "NotificationReceivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "Notification"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "receive",
+          "type": {
+            "k": "ref",
+            "name": "PermissionStatusReceive"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PermissionStatusReceive",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "RemoveDeliveredNotificationsOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "notifications",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Notification"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SubscribeToTopicOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "topic",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TokenReceivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UnsubscribeFromTopicOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "topic",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Visibility",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "Secret",
+          "value": -1
+        },
+        {
+          "name": "Private",
+          "value": 0
+        },
+        {
+          "name": "Public",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Check permission to receive push notifications.\n\nOn **Android**, this method only needs to be called on Android 13+."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request permission to receive push notifications.\n\nOn **Android**, this method only needs to be called on Android 13+."
+    },
+    {
+      "name": "isSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsSupportedResult"
+      },
+      "promise": true,
+      "comment": "Checks if all required APIs exist.\n\nAlways returns `true` on Android and iOS."
+    },
+    {
+      "name": "getToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetTokenOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetTokenResult"
+      },
+      "promise": true,
+      "comment": "Register the app to receive push notifications.\nReturns a FCM token that can be used to send push messages to that Messaging instance.\n\nThis method also re-enables FCM auto-init."
+    },
+    {
+      "name": "deleteToken",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete the FCM token and unregister the app to stop receiving push notifications.\nCan be called, for example, when a user signs out."
+    },
+    {
+      "name": "getDeliveredNotifications",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetDeliveredNotificationsResult"
+      },
+      "promise": true,
+      "comment": "Get a list of notifications that are visible on the notifications screen.\n\nNote: This will return all delivered notifications, including local notifications, and not just FCM notifications.\n\nOn Android, the data field of the FCM notification will NOT be included."
+    },
+    {
+      "name": "removeDeliveredNotifications",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveDeliveredNotificationsOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove specific notifications from the notifications screen."
+    },
+    {
+      "name": "removeAllDeliveredNotifications",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all notifications from the notifications screen.\n\nNote: This will remove all delivered notifications, including local notifications, and not just FCM notifications."
+    },
+    {
+      "name": "subscribeToTopic",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SubscribeToTopicOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Subscribes to topic in the background.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "unsubscribeFromTopic",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UnsubscribeFromTopicOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Unsubscribes from topic in the background.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "createChannel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "Channel"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Create a notification channel.\n\nOnly available for Android (SDK 26+)."
+    },
+    {
+      "name": "deleteChannel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DeleteChannelOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a notification channel.\n\nOnly available for Android (SDK 26+)."
+    },
+    {
+      "name": "listChannels",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ListChannelsResult"
+      },
+      "promise": true,
+      "comment": "List the available notification channels.\n\nOnly available for Android (SDK 26+)."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "tokenReceived",
+      "listener": {
+        "k": "ref",
+        "name": "TokenReceivedEvent"
+      }
+    },
+    {
+      "name": "notificationReceived",
+      "listener": {
+        "k": "ref",
+        "name": "NotificationReceivedEvent"
+      }
+    },
+    {
+      "name": "notificationActionPerformed",
+      "listener": {
+        "k": "ref",
+        "name": "NotificationActionPerformedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": [
+    "ServiceWorkerRegistration"
+  ]
+}

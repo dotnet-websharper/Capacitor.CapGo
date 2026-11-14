@@ -1,0 +1,92 @@
+{
+  "namespace": "Realtimekit",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-realtimekit",
+  "version": "8.0.48",
+  "license": "MPL-2.0",
+  "export": "CapacitorRealtimekit",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartMeetingOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "authToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "enableAudio",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "enableVideo",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "initialize",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initializes the RealtimeKit plugin before using other methods."
+    },
+    {
+      "name": "startMeeting",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartMeetingOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Start a meeting using the built-in UI.\nOnly available on Android and iOS."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

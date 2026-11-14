@@ -1,0 +1,149 @@
+{
+  "namespace": "Appinsights",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-appinsights",
+  "version": "8.0.65",
+  "license": "MPL-2.0",
+  "export": "CapacitorAppInsights",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "InitOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "partnerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "partnerKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "consent",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PanelSDKState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "initCompleted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "jobScheduled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "permissionAcquired",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetUserIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "init",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "InitOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize the AppInsights SDK"
+    },
+    {
+      "name": "setUserId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetUserIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set or update the user ID after initialization"
+    },
+    {
+      "name": "getState",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PanelSDKState"
+      },
+      "promise": true,
+      "comment": "Get the current state of the SDK"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

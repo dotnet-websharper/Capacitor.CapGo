@@ -1,0 +1,678 @@
+{
+  "namespace": "CapacitorDataStorageSqlite",
+  "family": "Core",
+  "package": "@capgo/capacitor-data-storage-sqlite",
+  "version": "8.0.64",
+  "license": "MPL-2.0",
+  "export": "CapgoCapacitorDataStorageSqlite",
+  "types": [
+    {
+      "name": "capDataStorageChanges",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "changes",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capDataStorageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capDataStorageResult",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "result",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capFilterStorageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "filter",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "capKeysResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keys",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "capKeysValuesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keysvalues",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "capOpenStorageOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "table",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "encrypted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoVacuum",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "float"
+              },
+              {
+                "k": "string"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "capStorageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "capStoreImportOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "jsonstring",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capStoreJson",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "export",
+          "type": {
+            "k": "ref",
+            "name": "JsonStore"
+          }
+        }
+      ]
+    },
+    {
+      "name": "capTablesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "tables",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "capTableStorageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "table",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "capValueResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "capValuesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "values",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "JsonStore",
+      "kind": "config",
+      "required": [
+        {
+          "name": "database",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "encrypted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "tables",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "JsonTable"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "JsonTable",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "values",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "capDataStorageOptions"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "openStore",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capOpenStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Open a store"
+    },
+    {
+      "name": "closeStore",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Close the Store"
+    },
+    {
+      "name": "isStoreOpen",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capDataStorageResult"
+      },
+      "promise": true,
+      "comment": "Check if the Store is opened"
+    },
+    {
+      "name": "isStoreExists",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capDataStorageResult"
+      },
+      "promise": true,
+      "comment": "Check if the Store exists"
+    },
+    {
+      "name": "deleteStore",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capOpenStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a store"
+    },
+    {
+      "name": "setTable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capTableStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Set or Add a table to an existing store"
+    },
+    {
+      "name": "set",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capDataStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Store a data with given key and value"
+    },
+    {
+      "name": "get",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capDataStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capValueResult"
+      },
+      "promise": true,
+      "comment": "Retrieve a data value for a given data key"
+    },
+    {
+      "name": "remove",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capDataStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove a data with given key"
+    },
+    {
+      "name": "clear",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Clear the Data Store (delete all keys)"
+    },
+    {
+      "name": "iskey",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capDataStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capDataStorageResult"
+      },
+      "promise": true,
+      "comment": "Check if a data key exists"
+    },
+    {
+      "name": "keys",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capKeysResult"
+      },
+      "promise": true,
+      "comment": "Get the data key list"
+    },
+    {
+      "name": "values",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capValuesResult"
+      },
+      "promise": true,
+      "comment": "Get the data value list"
+    },
+    {
+      "name": "filtervalues",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capFilterStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capValuesResult"
+      },
+      "promise": true,
+      "comment": "Get the data value list for filter keys"
+    },
+    {
+      "name": "keysvalues",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capKeysValuesResult"
+      },
+      "promise": true,
+      "comment": "Get the data key/value pair list"
+    },
+    {
+      "name": "isTable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capTableStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capDataStorageResult"
+      },
+      "promise": true,
+      "comment": "Check if a table exists"
+    },
+    {
+      "name": "tables",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capTablesResult"
+      },
+      "promise": true,
+      "comment": "Get the table list for the current store"
+    },
+    {
+      "name": "deleteTable",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capTableStorageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Delete a table"
+    },
+    {
+      "name": "importFromJson",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capStoreImportOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capDataStorageChanges"
+      },
+      "promise": true,
+      "comment": "Import a database From a JSON"
+    },
+    {
+      "name": "isJsonValid",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "capStoreImportOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "capDataStorageResult"
+      },
+      "promise": true,
+      "comment": "Check the validity of a JSON Object"
+    },
+    {
+      "name": "exportToJson",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "capStoreJson"
+      },
+      "promise": true,
+      "comment": "Export the given database to a JSON Object"
+    },
+    {
+      "name": "vacuum",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Rebuild the current SQLite store to reclaim unused disk space."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

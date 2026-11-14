@@ -1,0 +1,420 @@
+{
+  "namespace": "Llm",
+  "family": "AI",
+  "package": "@capgo/capacitor-llm",
+  "version": "8.2.3",
+  "license": "MPL-2.0",
+  "export": "CapgoLLM",
+  "types": [
+    {
+      "name": "AiFinishedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "chatId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateChatResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "instructions",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadModelOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "companionUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "filename",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadModelResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "companionPath",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DownloadProgressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "totalBytes",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "downloadedBytes",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GenerationErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "chatId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetReadinessResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readiness",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ModelOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "path",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "modelType",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxTokens",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "topk",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "randomSeed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "backend",
+          "type": {
+            "k": "ref",
+            "name": "ModelOptionsBackend"
+          }
+        },
+        {
+          "name": "androidGeminiBackend",
+          "type": {
+            "k": "ref",
+            "name": "ModelOptionsAndroidGeminiBackend"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ModelOptionsAndroidGeminiBackend",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "agent"
+      ]
+    },
+    {
+      "name": "ModelOptionsBackend",
+      "kind": "enumStrings",
+      "cases": [
+        "gpu",
+        "cpu"
+      ]
+    },
+    {
+      "name": "ReadinessChangeEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "readiness",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SendMessageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "chatId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TextFromAiEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "text",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "chatId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isChunk",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "createChat",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CreateChatResult"
+      },
+      "promise": true,
+      "comment": "Creates a new chat session"
+    },
+    {
+      "name": "sendMessage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendMessageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends a message to the AI in a specific chat session"
+    },
+    {
+      "name": "getReadiness",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetReadinessResult"
+      },
+      "promise": true,
+      "comment": "Gets the readiness status of the LLM"
+    },
+    {
+      "name": "setModel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ModelOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the model configuration\n- iOS: Use \"Apple Intelligence\" as path for the system model. Custom LiteRT-LM `.litertlm` models are supported on iOS only when this plugin is integrated through Swift Package Manager, and are selected only when `modelType: 'litertlm'` is passed or the path ends in `.litertlm`.\n- Android: Use \"Gemini Nano\" for the AICore system model on supported devices where it is already available. Set `androidGeminiBackend: 'agent'` to use the ML Kit GenAI Agent API (`com.google.mlkit:genai-agent`) for managed multi-turn Gemini Nano sessions (opt-in native dependency). Prefer LiteRT-LM `.litertlm` bundles for custom models; legacy MediaPipe `.task` models are still supported\n- Web: Provide a web-ready model asset for `@mediapipe/tasks-genai` such as Gemma 4 `*-web.task`"
+    },
+    {
+      "name": "downloadModel",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "DownloadModelOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "DownloadModelResult"
+      },
+      "promise": true,
+      "comment": "Downloads a model from a URL and saves it to the appropriate location\n- iOS: Downloads to the app's documents directory\n- Android: Downloads to the app's files directory"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [
+    {
+      "name": "textFromAi",
+      "listener": {
+        "k": "ref",
+        "name": "TextFromAiEvent"
+      }
+    },
+    {
+      "name": "aiFinished",
+      "listener": {
+        "k": "ref",
+        "name": "AiFinishedEvent"
+      }
+    },
+    {
+      "name": "generationError",
+      "listener": {
+        "k": "ref",
+        "name": "GenerationErrorEvent"
+      }
+    },
+    {
+      "name": "downloadProgress",
+      "listener": {
+        "k": "ref",
+        "name": "DownloadProgressEvent"
+      }
+    },
+    {
+      "name": "readinessChange",
+      "listener": {
+        "k": "ref",
+        "name": "ReadinessChangeEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

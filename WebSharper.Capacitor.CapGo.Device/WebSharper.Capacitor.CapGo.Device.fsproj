@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Product>WebSharper.Capacitor.CapGo.Device</Product>
+    <Title>https://github.com/dotnet-websharper/capacitor.capgo/</Title>
+    <Company>IntelliFactory</Company>
+    <Copyright>(c) 2023 IntelliFactory</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NpmDependencies>
+			<NpmPackage Name="@capgo/background-geolocation" Version="&gt;= 8.6.4 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-accelerometer" Version="&gt;= 8.0.58 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-alarm" Version="&gt;= 8.1.16 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-android-usagestatsmanager" Version="&gt;= 8.2.18 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-app-intents" Version="&gt;= 8.1.3 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-background-task" Version="&gt;= 8.1.14 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-barometer" Version="&gt;= 8.0.25 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-bluetooth-low-energy" Version="&gt;= 8.2.9 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-brightness" Version="&gt;= 8.0.26 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-calendar" Version="&gt;= 8.0.17 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-compass" Version="&gt;= 8.1.26 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-contacts" Version="&gt;= 8.1.12 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-device-info" Version="&gt;= 8.0.18 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-health" Version="&gt;= 8.13.0 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-ibeacon" Version="&gt;= 8.1.51 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-intent-launcher" Version="&gt;= 8.3.44 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-keep-awake" Version="&gt;= 8.1.22 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-light-sensor" Version="&gt;= 8.1.26 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-network-diagnostics" Version="&gt;= 8.0.17 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-pedometer" Version="&gt;= 8.0.57 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-proximity" Version="&gt;= 8.1.18 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-screen-orientation" Version="&gt;= 8.4.5 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-uwb" Version="&gt;= 8.0.11 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-volume-buttons" Version="&gt;= 8.1.8 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-watch" Version="&gt;= 8.2.1 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-wifi" Version="&gt;= 8.5.12 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-zebra-datawedge" Version="&gt;= 8.2.9 &lt; 9.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.fs" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapGoGeneratorCommon\CapGoGeneratorCommon.fsproj" />
+    <!-- The binding surface is generated from these models; without them MSBuild
+         would happily reuse a stale WebSharper metadata cache. -->
+    <CustomAdditionalCompileInputs Include="..\tools\model\*.json" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

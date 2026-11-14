@@ -1,0 +1,113 @@
+{
+  "namespace": "ShareTarget",
+  "family": "UI",
+  "package": "@capgo/capacitor-share-target",
+  "version": "8.0.68",
+  "license": "MPL-2.0",
+  "export": "CapacitorShareTarget",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SharedFile",
+      "kind": "config",
+      "required": [
+        {
+          "name": "uri",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "mimeType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ShareReceivedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "texts",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "files",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SharedFile"
+            }
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version.\n\nReturns the current version of the native plugin implementation."
+    }
+  ],
+  "events": [
+    {
+      "name": "shareReceived",
+      "listener": {
+        "k": "ref",
+        "name": "ShareReceivedEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

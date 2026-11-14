@@ -1,0 +1,201 @@
+{
+  "namespace": "NativeMarket",
+  "family": "Core",
+  "package": "@capgo/capacitor-native-market",
+  "version": "8.0.60",
+  "license": "MPL-2.0",
+  "export": "NativeMarket",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenCollectionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenDevPageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "devId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenEditorChoicePageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "editorChoice",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenStoreListingOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "appId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "country",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SearchOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "terms",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "openStoreListing",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenStoreListingOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Launch app listing page in Play Store (Android) or App Store (iOS)."
+    },
+    {
+      "name": "openDevPage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenDevPageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deep-link directly to a developer's page in the Play Store.\nAndroid only."
+    },
+    {
+      "name": "openCollection",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenCollectionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Link users to a collection or top charts in the Play Store.\nAndroid only."
+    },
+    {
+      "name": "openEditorChoicePage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenEditorChoicePageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Link users to Editor's choice page in the Play Store.\nAndroid only."
+    },
+    {
+      "name": "search",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SearchOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Search the Play Store with custom search terms.\nAndroid only."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,264 @@
+{
+  "namespace": "NativeGeocoder",
+  "family": "Core",
+  "package": "@capgo/capacitor-nativegeocoder",
+  "version": "8.0.64",
+  "license": "MPL-2.0",
+  "export": "NativeGeocoder",
+  "types": [
+    {
+      "name": "Address",
+      "kind": "config",
+      "required": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "countryCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "countryName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "postalCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "administrativeArea",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subAdministrativeArea",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "locality",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subLocality",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "thoroughfare",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "subThoroughfare",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "areasOfInterest",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ForwardOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "addressString",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "useLocale",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "defaultLocale",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxResults",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "apiKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReverseGeocodeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "addresses",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "Address"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ReverseOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "useLocale",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "defaultLocale",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maxResults",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "apiKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "resultType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "reverseGeocode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ReverseOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReverseGeocodeResult"
+      },
+      "promise": true,
+      "comment": "Convert latitude and longitude to an address"
+    },
+    {
+      "name": "forwardGeocode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ForwardOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ReverseGeocodeResult"
+      },
+      "promise": true,
+      "comment": "Convert an address to latitude and longitude"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

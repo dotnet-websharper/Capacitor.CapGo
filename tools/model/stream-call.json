@@ -1,0 +1,905 @@
+{
+  "namespace": "StreamCall",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-stream-call",
+  "version": "8.0.84",
+  "license": "MPL-2.0",
+  "export": "StreamCall",
+  "types": [
+    {
+      "name": "CallEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "CallEventState"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "caller",
+          "type": {
+            "k": "ref",
+            "name": "CallMember"
+          }
+        },
+        {
+          "name": "members",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CallMember"
+            }
+          }
+        },
+        {
+          "name": "custom",
+          "type": {
+            "k": "ref",
+            "name": "CallOptionsCustomMap"
+          }
+        },
+        {
+          "name": "count",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CallEventState",
+      "kind": "enumStrings",
+      "cases": [
+        "idle",
+        "ringing",
+        "joining",
+        "reconnecting",
+        "joined",
+        "leaving",
+        "left",
+        "created",
+        "session_started",
+        "rejected",
+        "participant_counts",
+        "missed",
+        "accepted",
+        "ended",
+        "camera_enabled",
+        "camera_disabled",
+        "speaker_enabled",
+        "speaker_disabled",
+        "microphone_enabled",
+        "microphone_disabled",
+        "outgoing_call_ended",
+        "unknown"
+      ]
+    },
+    {
+      "name": "CallMember",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "imageURL",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "role",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "CallOptionsType"
+          }
+        },
+        {
+          "name": "ring",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "team",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "video",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "custom",
+          "type": {
+            "k": "ref",
+            "name": "CallOptionsCustomMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CallOptionsCustomMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          },
+          {
+            "k": "ref",
+            "name": "CallOptionsCustomValueMap"
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "bool"
+            }
+          },
+          {
+            "k": "array",
+            "of": {
+              "k": "float"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "CallOptionsCustomValueMap",
+      "kind": "map",
+      "of": {
+        "k": "union",
+        "of": [
+          {
+            "k": "string"
+          },
+          {
+            "k": "float"
+          },
+          {
+            "k": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CallOptionsType",
+      "kind": "enumStrings",
+      "cases": [
+        "default",
+        "audio",
+        "audio_room",
+        "livestream",
+        "development"
+      ]
+    },
+    {
+      "name": "CameraEnabledResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CurrentUserResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isLoggedIn",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "imageURL",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DynamicApiKeyResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "apiKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hasDynamicKey",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetCallInfoOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IncomingCallPayload",
+      "kind": "config",
+      "required": [
+        {
+          "name": "cid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "getPluginVersion",
+          "type": {
+            "k": "func",
+            "args": [],
+            "ret": {
+              "k": "promise",
+              "of": {
+                "k": "ref",
+                "name": "IncomingCallPayloadGetPluginVersionResult"
+              }
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "caller",
+          "type": {
+            "k": "ref",
+            "name": "CallMember"
+          }
+        },
+        {
+          "name": "custom",
+          "type": {
+            "k": "ref",
+            "name": "CallOptionsCustomMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IncomingCallPayloadGetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "JoinCallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "callType",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoginOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "userId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "apiKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "imageURL",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "magicDivId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "pushNotificationsConfig",
+          "type": {
+            "k": "ref",
+            "name": "PushNotificationsConfig"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PushNotificationsConfig",
+      "kind": "config",
+      "required": [
+        {
+          "name": "pushProviderName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "voipProviderName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetDynamicStreamVideoApikeyOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "apiKey",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetMicrophoneEnabledOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSpeakerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SuccessResponse",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "callId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SwitchCameraOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "camera",
+          "type": {
+            "k": "ref",
+            "name": "SwitchCameraOptionsCamera"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SwitchCameraOptionsCamera",
+      "kind": "enumStrings",
+      "cases": [
+        "front",
+        "back"
+      ]
+    },
+    {
+      "name": "ToggleViewsResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "newLayout",
+          "type": {
+            "k": "ref",
+            "name": "ToggleViewsResultNewLayout"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ToggleViewsResultNewLayout",
+      "kind": "enumStrings",
+      "cases": [
+        "grid",
+        "spotlight",
+        "dynamic",
+        "fullScreen",
+        "fullscreen"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "login",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LoginOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Login to Stream Video service"
+    },
+    {
+      "name": "logout",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Logout from Stream Video service"
+    },
+    {
+      "name": "call",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Initiate a call to another user"
+    },
+    {
+      "name": "endCall",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "End the current call"
+    },
+    {
+      "name": "joinCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "JoinCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Join an existing call"
+    },
+    {
+      "name": "setMicrophoneEnabled",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetMicrophoneEnabledOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Enable or disable microphone"
+    },
+    {
+      "name": "setCameraEnabled",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetMicrophoneEnabledOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Enable or disable camera"
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all event listeners"
+    },
+    {
+      "name": "enableBluetooth",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Enable bluetooth audio"
+    },
+    {
+      "name": "acceptCall",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Accept an incoming call"
+    },
+    {
+      "name": "rejectCall",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Reject an incoming call"
+    },
+    {
+      "name": "isCameraEnabled",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CameraEnabledResponse"
+      },
+      "promise": true,
+      "comment": "Check if camera is enabled"
+    },
+    {
+      "name": "getCallStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CallEvent"
+      },
+      "promise": true,
+      "comment": "Get the current call status"
+    },
+    {
+      "name": "getRingingCall",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CallEvent"
+      },
+      "promise": true,
+      "comment": "Get the current ringing call"
+    },
+    {
+      "name": "toggleViews",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ToggleViewsResult"
+      },
+      "promise": true,
+      "comment": "Cycle through the available video layouts"
+    },
+    {
+      "name": "setSpeaker",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSpeakerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Set speakerphone on"
+    },
+    {
+      "name": "switchCamera",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SwitchCameraOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Switch camera"
+    },
+    {
+      "name": "getCallInfo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetCallInfoOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CallEvent"
+      },
+      "promise": true,
+      "comment": "Get detailed information about an active call including caller details"
+    },
+    {
+      "name": "setDynamicStreamVideoApikey",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetDynamicStreamVideoApikeyOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SuccessResponse"
+      },
+      "promise": true,
+      "comment": "Set a dynamic Stream Video API key that overrides the static one"
+    },
+    {
+      "name": "getDynamicStreamVideoApikey",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DynamicApiKeyResponse"
+      },
+      "promise": true,
+      "comment": "Get the currently set dynamic Stream Video API key"
+    },
+    {
+      "name": "getCurrentUser",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CurrentUserResponse"
+      },
+      "promise": true,
+      "comment": "Get the current user's information"
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IncomingCallPayloadGetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [
+    {
+      "name": "callEvent",
+      "listener": {
+        "k": "ref",
+        "name": "CallEvent"
+      }
+    },
+    {
+      "name": "incomingCall",
+      "listener": {
+        "k": "ref",
+        "name": "IncomingCallPayload"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

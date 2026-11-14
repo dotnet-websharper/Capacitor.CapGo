@@ -1,0 +1,1844 @@
+{
+  "namespace": "LiveActivities",
+  "family": "UI",
+  "package": "@capgo/capacitor-live-activities",
+  "version": "1.3.3",
+  "license": "MPL-2.0",
+  "export": "CapgoLiveActivities",
+  "types": [
+    {
+      "name": "ActivityAlertConfiguration",
+      "kind": "config",
+      "required": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "sound",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ActivityInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "ActivityInfoState"
+          }
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "pushToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ActivityInfoState",
+      "kind": "enumStrings",
+      "cases": [
+        "active",
+        "ended",
+        "dismissed",
+        "stale"
+      ]
+    },
+    {
+      "name": "AreActivitiesSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseLayoutProperties",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "padding",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "float"
+              },
+              {
+                "k": "ref",
+                "name": "BaseLayoutPropertiesPadding"
+              }
+            ]
+          }
+        },
+        {
+          "name": "backgroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cornerRadius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "width",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "float"
+              },
+              {
+                "k": "string"
+              }
+            ]
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "opacity",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BaseLayoutPropertiesPadding",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "top",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "leading",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "trailing",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DynamicIslandExpandedLayout",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "leading",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        },
+        {
+          "name": "trailing",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        },
+        {
+          "name": "center",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        },
+        {
+          "name": "bottom",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DynamicIslandLayout",
+      "kind": "config",
+      "required": [
+        {
+          "name": "expanded",
+          "type": {
+            "k": "ref",
+            "name": "DynamicIslandExpandedLayout"
+          }
+        },
+        {
+          "name": "compactLeading",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        },
+        {
+          "name": "compactTrailing",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        },
+        {
+          "name": "minimal",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "EndActivityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
+          }
+        },
+        {
+          "name": "dismissalPolicy",
+          "type": {
+            "k": "ref",
+            "name": "EndActivityOptionsDismissalPolicy"
+          }
+        },
+        {
+          "name": "dismissAfter",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EndActivityOptionsDismissalPolicy",
+      "kind": "enumStrings",
+      "cases": [
+        "default",
+        "immediate",
+        "after"
+      ]
+    },
+    {
+      "name": "GetAllActivitiesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activities",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "ActivityInfo"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetTimerStateOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sequenceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LayoutElementContainer",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "children",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "obj"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "direction",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementContainerDirection"
+          }
+        },
+        {
+          "name": "alignment",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementContainerAlignment"
+          }
+        },
+        {
+          "name": "spacing",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "BaseLayoutProperties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutElementContainerAlignment",
+      "kind": "enumStrings",
+      "cases": [
+        "leading",
+        "center",
+        "trailing",
+        "top",
+        "bottom"
+      ]
+    },
+    {
+      "name": "LayoutElementContainerDirection",
+      "kind": "enumStrings",
+      "cases": [
+        "horizontal",
+        "vertical",
+        "zstack"
+      ]
+    },
+    {
+      "name": "LayoutElementGauge",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementGaugeStyle"
+          }
+        },
+        {
+          "name": "label",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currentValueLabel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "minimumValueLabel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "maximumValueLabel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "BaseLayoutProperties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutElementGaugeStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "automatic",
+        "accessoryCircular",
+        "accessoryCircularCapacity",
+        "linearCapacity"
+      ]
+    },
+    {
+      "name": "LayoutElementImage",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementImageSource"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "width",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "height",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "contentMode",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementImageContentMode"
+          }
+        },
+        {
+          "name": "tintColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "BaseLayoutProperties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutElementImageContentMode",
+      "kind": "enumStrings",
+      "cases": [
+        "fit",
+        "fill"
+      ]
+    },
+    {
+      "name": "LayoutElementImageSource",
+      "kind": "enumStrings",
+      "cases": [
+        "url",
+        "sfSymbol",
+        "asset",
+        "base64",
+        "saved"
+      ]
+    },
+    {
+      "name": "LayoutElementProgress",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "total",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        },
+        {
+          "name": "tint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "BaseLayoutProperties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutElementSpacer",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "minLength",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutElementText",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "content",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "fontSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fontWeight",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementTextFontWeight"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "alignment",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementTextAlignment"
+          }
+        },
+        {
+          "name": "lineLimit",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "fontDesign",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementTextFontDesign"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "BaseLayoutProperties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutElementTextAlignment",
+      "kind": "enumStrings",
+      "cases": [
+        "leading",
+        "center",
+        "trailing"
+      ]
+    },
+    {
+      "name": "LayoutElementTextFontDesign",
+      "kind": "enumStrings",
+      "cases": [
+        "default",
+        "monospaced",
+        "rounded",
+        "serif"
+      ]
+    },
+    {
+      "name": "LayoutElementTextFontWeight",
+      "kind": "enumStrings",
+      "cases": [
+        "ultraLight",
+        "thin",
+        "light",
+        "regular",
+        "medium",
+        "semibold",
+        "bold",
+        "heavy",
+        "black"
+      ]
+    },
+    {
+      "name": "LayoutElementTimer",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "targetDate",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "string"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "style",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementTimerStyle"
+          }
+        },
+        {
+          "name": "pausesOnReach",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fontSize",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fontWeight",
+          "type": {
+            "k": "ref",
+            "name": "LayoutElementTextFontWeight"
+          }
+        },
+        {
+          "name": "properties",
+          "type": {
+            "k": "ref",
+            "name": "BaseLayoutProperties"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LayoutElementTimerStyle",
+      "kind": "enumStrings",
+      "cases": [
+        "timer",
+        "relative",
+        "offset"
+      ]
+    },
+    {
+      "name": "ListImagesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "images",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LiveActivitiesBehavior",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "widgetUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "backgroundTint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "systemActionForegroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "keyLineTint",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PauseTimerSequenceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sequenceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RemoveImageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RemoveImageResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SaveImageOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "imageData",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "compressionQuality",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SaveImageResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "imageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartActivityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "layout",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "LayoutElementContainer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementText"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementImage"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementProgress"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementTimer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementSpacer"
+              },
+              {
+                "k": "ref",
+                "name": "LayoutElementGauge"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dynamicIslandLayout",
+          "type": {
+            "k": "ref",
+            "name": "DynamicIslandLayout"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "behavior",
+          "type": {
+            "k": "ref",
+            "name": "LiveActivitiesBehavior"
+          }
+        },
+        {
+          "name": "staleDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "relevanceScore",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartActivityOptionsDataMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "StartActivityResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TimerSequenceEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "type",
+          "type": {
+            "k": "ref",
+            "name": "TimerSequenceEventType"
+          }
+        },
+        {
+          "name": "sequenceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "TimerSequenceState"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TimerSequenceEventType",
+      "kind": "enumStrings",
+      "cases": [
+        "stepChange",
+        "complete",
+        "tick",
+        "paused",
+        "resumed",
+        "stopped",
+        "loopComplete"
+      ]
+    },
+    {
+      "name": "TimerSequenceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "steps",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "TimerStep"
+            }
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "loop",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "loopCount",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "soundEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "vibrateEnabled",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "countdownBeeps",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "tapUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "keepScreenOn",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TimerSequenceResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sequenceId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TimerSequenceState",
+      "kind": "config",
+      "required": [
+        {
+          "name": "sequenceId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "isRunning",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isPaused",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isComplete",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "currentStepIndex",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalSteps",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currentStep",
+          "type": {
+            "k": "ref",
+            "name": "TimerStep"
+          }
+        },
+        {
+          "name": "remainingSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalRemainingSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "elapsedSeconds",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currentLoop",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "totalLoops",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "TimerStep",
+      "kind": "config",
+      "required": [
+        {
+          "name": "duration",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "subtitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "color",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "icon",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sound",
+          "type": {
+            "k": "ref",
+            "name": "TimerStepSound"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TimerStepSound",
+      "kind": "enumStrings",
+      "cases": [
+        "beep",
+        "bell",
+        "whistle",
+        "countdown",
+        "none"
+      ]
+    },
+    {
+      "name": "UpdateActivityOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "activityId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "data",
+          "type": {
+            "k": "ref",
+            "name": "StartActivityOptionsDataMap"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "alertConfiguration",
+          "type": {
+            "k": "ref",
+            "name": "ActivityAlertConfiguration"
+          }
+        },
+        {
+          "name": "staleDate",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "relevanceScore",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "areActivitiesSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AreActivitiesSupportedResult"
+      },
+      "promise": true,
+      "comment": "Check if Live Activities are supported on this device.\nRequires iOS 16.1+ and device support."
+    },
+    {
+      "name": "startActivity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartActivityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "StartActivityResult"
+      },
+      "promise": true,
+      "comment": "Start a new Live Activity with the specified layout and data."
+    },
+    {
+      "name": "updateActivity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateActivityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Update an existing Live Activity with new data."
+    },
+    {
+      "name": "endActivity",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "EndActivityOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "End a Live Activity."
+    },
+    {
+      "name": "getAllActivities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetAllActivitiesResult"
+      },
+      "promise": true,
+      "comment": "Get all currently active Live Activities."
+    },
+    {
+      "name": "saveImage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SaveImageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SaveImageResult"
+      },
+      "promise": true,
+      "comment": "Save an image to the shared App Group container for use in Live Activities.\nImages must be saved to the shared container to be accessible from the widget extension."
+    },
+    {
+      "name": "removeImage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveImageOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "RemoveImageResult"
+      },
+      "promise": true,
+      "comment": "Remove a saved image from the shared container."
+    },
+    {
+      "name": "listImages",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "ListImagesResult"
+      },
+      "promise": true,
+      "comment": "List all saved images in the shared container."
+    },
+    {
+      "name": "cleanupImages",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all saved images from the shared container."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    },
+    {
+      "name": "startTimerSequence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "TimerSequenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "TimerSequenceResult"
+      },
+      "promise": true,
+      "comment": "Start a timer sequence for workouts/sports.\nOn iOS: Shows in Live Activity and Dynamic Island\nOn Android: Shows as a foreground notification with timer"
+    },
+    {
+      "name": "pauseTimerSequence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseTimerSequenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Pause the timer sequence."
+    },
+    {
+      "name": "resumeTimerSequence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseTimerSequenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Resume a paused timer sequence."
+    },
+    {
+      "name": "stopTimerSequence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseTimerSequenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stop and dismiss the timer sequence."
+    },
+    {
+      "name": "skipTimerStep",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseTimerSequenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Skip to the next step in the sequence."
+    },
+    {
+      "name": "previousTimerStep",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PauseTimerSequenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Go back to the previous step in the sequence."
+    },
+    {
+      "name": "getTimerState",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetTimerStateOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "TimerSequenceState"
+      },
+      "promise": true,
+      "comment": "Get the current state of a timer sequence."
+    }
+  ],
+  "events": [
+    {
+      "name": "timerSequenceEvent",
+      "listener": {
+        "k": "ref",
+        "name": "TimerSequenceEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

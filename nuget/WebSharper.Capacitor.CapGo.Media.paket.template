@@ -1,0 +1,21 @@
+type file
+id WebSharper.Capacitor.CapGo.Media
+authors
+    IntelliFactory
+owners
+    IntelliFactory
+repositoryType git
+repositoryUrl https://github.com/dotnet-websharper/capacitor.capgo/
+licenseUrl https://github.com/dotnet-websharper/capacitor.capgo/blob/main/LICENSE.md
+iconUrl https://github.com/dotnet-websharper/core/raw/websharper50/tools/WebSharper.png
+projectUrl https://github.com/dotnet-websharper/capacitor.capgo
+description
+    WebSharper bindings for CapGo Capacitor plugins (Media)
+tags
+    Web JavaScript F# C#
+files
+    ../WebSharper.Capacitor.CapGo.Media/bin/Release/netstandard2.0/WebSharper.Capacitor.CapGo.Media.dll ==> lib/netstandard2.0
+    ../WebSharper.Capacitor.CapGo.Media/bin/Release/netstandard2.0/WebSharper.Capacitor.CapGo.Media.xml ==> lib/netstandard2.0
+    ../WebSharper.Capacitor.CapGo.Media/WebSharper.Capacitor.CapGo.Media.fsproj ==> src/
+dependencies
+        WebSharper ~> LOCKEDVERSION:[3]

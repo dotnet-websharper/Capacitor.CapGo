@@ -1,0 +1,749 @@
+{
+  "namespace": "AppAttest",
+  "family": "Auth",
+  "package": "@capgo/capacitor-app-attest",
+  "version": "8.2.21",
+  "license": "MPL-2.0",
+  "export": "AppAttest",
+  "types": [
+    {
+      "name": "AppAttestCapabilities",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultPlatform"
+          }
+        },
+        {
+          "name": "appAttest",
+          "type": {
+            "k": "ref",
+            "name": "SupportStatus"
+          }
+        },
+        {
+          "name": "playIntegrity",
+          "type": {
+            "k": "ref",
+            "name": "SupportStatus"
+          }
+        },
+        {
+          "name": "deviceCheck",
+          "type": {
+            "k": "ref",
+            "name": "SupportStatus"
+          }
+        },
+        {
+          "name": "widevine",
+          "type": {
+            "k": "ref",
+            "name": "WidevineCapabilities"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AttestKeyResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "attestation",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "challenge",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultPlatform"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultFormat"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateAssertionOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "cloudProjectNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CreateAssertionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultPlatform"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultFormat"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateAttestationOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "challenge",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "cloudProjectNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CreateAttestationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "challenge",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultPlatform"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultFormat"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "DeviceCheckTokenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GenerateAssertionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "assertion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultPlatform"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultFormat"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetStoredKeyIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "hasStoredKey",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSupported",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultPlatform"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultFormat"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSupportedResultFormat",
+      "kind": "enumStrings",
+      "cases": [
+        "apple-app-attest",
+        "google-play-integrity-standard",
+        "web-fallback"
+      ]
+    },
+    {
+      "name": "IsSupportedResultPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "ios",
+        "android",
+        "web"
+      ]
+    },
+    {
+      "name": "OperationResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PrepareOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "cloudProjectNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PrepareResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultPlatform"
+          }
+        },
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "IsSupportedResultFormat"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StoreKeyIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "keyId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "cloudProjectNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SupportStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WidevineCapabilities",
+      "kind": "config",
+      "required": [
+        {
+          "name": "supported",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "fingerprintAvailable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "securityLevelScanSupported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "WidevineFingerprintOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "includeRawId",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hashSalt",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WidevineFingerprintResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "fingerprint",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "widevineIdSha256",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "widevineIdBase64",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "securityLevel",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "vendor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "description",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "isSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsSupportedResult"
+      },
+      "promise": true,
+      "comment": "Checks whether native attestation is available on this device."
+    },
+    {
+      "name": "getCapabilities",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "AppAttestCapabilities"
+      },
+      "promise": true,
+      "comment": "Returns attestation and optional fraud-signal capabilities available on the current platform.\n\nWidevine is Android-only and optional. Apps that do not call Widevine methods do not need any\nWidevine-specific setup."
+    },
+    {
+      "name": "prepare",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrepareOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PrepareResult"
+      },
+      "promise": true,
+      "comment": "Prepares attestation state and returns the key handle used for later calls.\n\niOS: generates a real App Attest key identifier.\nAndroid: prepares a Play Integrity Standard token provider handle."
+    },
+    {
+      "name": "createAttestation",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateAttestationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateAttestationResult"
+      },
+      "promise": true,
+      "comment": "Creates a registration attestation token bound to a backend-issued challenge.\n\niOS: returns App Attest `attestationObject`.\nAndroid: returns Play Integrity Standard token."
+    },
+    {
+      "name": "createAssertion",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateAssertionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "CreateAssertionResult"
+      },
+      "promise": true,
+      "comment": "Creates a request assertion token bound to a request payload.\n\niOS: returns App Attest assertion.\nAndroid: returns Play Integrity Standard token."
+    },
+    {
+      "name": "getWidevineFingerprint",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "WidevineFingerprintOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WidevineFingerprintResult"
+      },
+      "promise": true,
+      "comment": "Returns an optional Android Widevine-derived fingerprint.\n\nThis method is Android-only and is not part of the normal attestation flow. Call it only when\nyour app needs a DRM-backed fraud signal and your privacy policy covers that use.\n\nThe default `fingerprint` is SHA-256 over the Widevine device unique ID and a salt.\nIf `hashSalt` is not provided, Android uses the app package name as the salt.\n\nThe raw Widevine ID is sensitive and is only returned as base64 when `includeRawId` is true."
+    },
+    {
+      "name": "getDeviceCheckToken",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "DeviceCheckTokenResult"
+      },
+      "promise": true,
+      "comment": "Creates an iOS DeviceCheck token for server-side fraud-state lookups."
+    },
+    {
+      "name": "storeKeyId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StoreKeyIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OperationResult"
+      },
+      "promise": true,
+      "comment": "Stores/prepares a key identifier for reuse.\n\niOS: persists in UserDefaults.\nAndroid: prepares a native Play Integrity provider for this key id in memory (process lifetime)."
+    },
+    {
+      "name": "getStoredKeyId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetStoredKeyIdResult"
+      },
+      "promise": true,
+      "comment": "Returns the currently stored/prepared key identifier.\n\nAndroid value is only available while the process is alive."
+    },
+    {
+      "name": "clearStoredKeyId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "OperationResult"
+      },
+      "promise": true,
+      "comment": "Clears stored/prepared key identifiers."
+    },
+    {
+      "name": "generateKey",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "PrepareOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "PrepareResult"
+      },
+      "promise": true,
+      "comment": "Legacy alias for `prepare()`."
+    },
+    {
+      "name": "attestKey",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateAttestationOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AttestKeyResult"
+      },
+      "promise": true,
+      "comment": "Legacy alias for `createAttestation()`."
+    },
+    {
+      "name": "generateAssertion",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateAssertionOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GenerateAssertionResult"
+      },
+      "promise": true,
+      "comment": "Legacy alias for `createAssertion()`."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

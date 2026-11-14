@@ -1,0 +1,303 @@
+{
+  "namespace": "Recaptcha",
+  "family": "Auth",
+  "package": "@capgo/capacitor-recaptcha",
+  "version": "8.1.20",
+  "license": "MPL-2.0",
+  "export": "Recaptcha",
+  "types": [
+    {
+      "name": "ExecuteOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "action",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "siteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "androidSiteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iosSiteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "webSiteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyAndroid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyIos",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyIOS",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyWeb",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ExecuteResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "action",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "siteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "LoadResultPlatform"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoadOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "siteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "androidSiteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "iosSiteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "webSiteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyAndroid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyIos",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyIOS",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "sitekeyWeb",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "language",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LoadResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "loaded",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "siteKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "enterprise",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "LoadResultPlatform"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoadResultPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "web",
+        "ios",
+        "android"
+      ]
+    },
+    {
+      "name": "PluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "load",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LoadOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoadResult"
+      },
+      "promise": true,
+      "comment": "Load and cache the reCAPTCHA client for the current platform.\n\n`execute()` loads the client automatically when needed, so calling this method is optional."
+    },
+    {
+      "name": "execute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ExecuteOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ExecuteResult"
+      },
+      "promise": true,
+      "comment": "Execute reCAPTCHA for an action and return a token for backend assessment."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "PluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Returns the platform implementation version marker."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

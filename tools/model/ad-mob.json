@@ -1,0 +1,648 @@
+{
+  "namespace": "AdMob",
+  "family": "Commerce",
+  "package": "@capgo/capacitor-admob",
+  "version": "8.2.12",
+  "license": "MPL-2.0",
+  "export": "AdMob",
+  "types": [
+    {
+      "name": "AdIsLoadedOpts",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AdmobConsentDebugGeography",
+      "kind": "enum",
+      "cases": [
+        {
+          "name": "DISABLED",
+          "value": 0
+        },
+        {
+          "name": "EEA",
+          "value": 1
+        },
+        {
+          "name": "NOT_EEA",
+          "value": 2
+        },
+        {
+          "name": "US",
+          "value": 3
+        },
+        {
+          "name": "OTHER",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "AdmobConsentStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "NOT_REQUIRED",
+        "OBTAINED",
+        "REQUIRED",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "name": "ConfigRequestRequestConfig",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "maxAdContentRating",
+          "type": {
+            "k": "ref",
+            "name": "MaxAdContentRating"
+          }
+        },
+        {
+          "name": "sameAppKey",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "tagForChildDirectedTreatment",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "tagForUnderAgeOfConsent",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "testDeviceIds",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ConfigureConfig",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "appMuted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "appVolume",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FeedAdCreateOpts",
+      "kind": "config",
+      "required": [
+        {
+          "name": "format",
+          "type": {
+            "k": "ref",
+            "name": "FeedAdCreateOptsFormat"
+          }
+        },
+        {
+          "name": "adUnitId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "positionKey",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoRefreshMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "nativeStyle",
+          "type": {
+            "k": "ref",
+            "name": "FeedAdCreateOptsNativeStyle"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FeedAdCreateOptsFormat",
+      "kind": "enumStrings",
+      "cases": [
+        "native",
+        "banner"
+      ]
+    },
+    {
+      "name": "FeedAdCreateOptsNativeStyle",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "backgroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headlineTextColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "bodyTextColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ctaBackgroundColor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "ctaTextColor",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FeedAdSetAutoRefreshOpts",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "autoRefreshMs",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MaxAdContentRating",
+      "kind": "enumStrings",
+      "cases": [
+        "G",
+        "MA",
+        "PG",
+        "T",
+        ""
+      ]
+    },
+    {
+      "name": "PrivacyOptionsRequirementStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "NOT_REQUIRED",
+        "REQUIRED",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "name": "RequestConsentInfoOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "debugGeography",
+          "type": {
+            "k": "ref",
+            "name": "AdmobConsentDebugGeography"
+          }
+        },
+        {
+          "name": "testDeviceIdentifiers",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "tagForUnderAgeOfConsent",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RequestConsentInfoResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "AdmobConsentStatus"
+          }
+        },
+        {
+          "name": "canRequestAds",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "privacyOptionsRequirementStatus",
+          "type": {
+            "k": "ref",
+            "name": "PrivacyOptionsRequirementStatus"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "isConsentFormAvailable",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TrackingAuthorizationStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "bool"
+              },
+              {
+                "k": "float"
+              }
+            ]
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "start",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Initialize and start the AdMob SDK."
+    },
+    {
+      "name": "configure",
+      "params": [
+        {
+          "name": "config",
+          "type": {
+            "k": "ref",
+            "name": "ConfigureConfig"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure AdMob settings."
+    },
+    {
+      "name": "configRequest",
+      "params": [
+        {
+          "name": "requestConfig",
+          "type": {
+            "k": "ref",
+            "name": "ConfigRequestRequestConfig"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configure ad request settings."
+    },
+    {
+      "name": "requestConsentInfo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestConsentInfoOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "RequestConsentInfoResult"
+      },
+      "promise": true,
+      "comment": "Request user consent information from Google's User Messaging Platform (UMP).\n\nCall this after `start()` and before loading ads for users in the EEA/UK."
+    },
+    {
+      "name": "showConsentForm",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "RequestConsentInfoResult"
+      },
+      "promise": true,
+      "comment": "Shows the Google user consent form rendered from your GDPR message configuration."
+    },
+    {
+      "name": "showPrivacyOptionsForm",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Shows the Google privacy options form rendered from your GDPR message configuration.\n\nUse this when your privacy message requires an in-app entry point for users to manage choices."
+    },
+    {
+      "name": "adIsLoaded",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "AdIsLoadedOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "bool"
+      },
+      "promise": true,
+      "comment": "Check if an ad is loaded and ready to be shown."
+    },
+    {
+      "name": "adLoad",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "AdIsLoadedOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Load an ad."
+    },
+    {
+      "name": "adShow",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "AdIsLoadedOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Show a loaded ad."
+    },
+    {
+      "name": "adHide",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "AdIsLoadedOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Hide a currently displayed ad."
+    },
+    {
+      "name": "feedAdCreate",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "FeedAdCreateOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "AdIsLoadedOpts"
+      },
+      "promise": true,
+      "comment": "Create an in-feed ad slot (native overlay or inline banner overlay)."
+    },
+    {
+      "name": "feedAdDestroy",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "AdIsLoadedOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Destroy a feed ad instance and remove its native overlay."
+    },
+    {
+      "name": "feedAdLoad",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "AdIsLoadedOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Load or reload the feed ad. Listen for `feed.load` / `feed.loadfail` events."
+    },
+    {
+      "name": "feedAdIsLoaded",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "AdIsLoadedOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "bool"
+      },
+      "promise": true,
+      "comment": "Whether the feed ad has finished loading."
+    },
+    {
+      "name": "feedAdUpdateBounds",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "obj"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Position the native overlay over an HTML placeholder. Call on scroll, resize, and orientation changes."
+    },
+    {
+      "name": "feedAdSetAutoRefresh",
+      "params": [
+        {
+          "name": "opts",
+          "type": {
+            "k": "ref",
+            "name": "FeedAdSetAutoRefreshOpts"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Enable or disable auto-refresh (minimum 30 seconds)."
+    },
+    {
+      "name": "trackingAuthorizationStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "TrackingAuthorizationStatusResult"
+      },
+      "promise": true,
+      "comment": "Get the current tracking authorization status (iOS only)."
+    },
+    {
+      "name": "requestTrackingAuthorization",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "TrackingAuthorizationStatusResult"
+      },
+      "promise": true,
+      "comment": "Request tracking authorization from the user (iOS only)."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [
+    {
+      "method": "adCreate",
+      "reason": "generic method cannot be flattened"
+    },
+    {
+      "method": "addListener",
+      "reason": "addListener signature not recognised"
+    }
+  ],
+  "coreRefs": [],
+  "externalTypes": []
+}

@@ -1,0 +1,103 @@
+{
+  "namespace": "KeepAwake",
+  "family": "Device",
+  "package": "@capgo/capacitor-keep-awake",
+  "version": "8.1.22",
+  "license": "MPL-2.0",
+  "export": "KeepAwake",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsKeptAwakeResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isKeptAwake",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSupportedResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSupported",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "keepAwake",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Prevent the device from dimming the screen."
+    },
+    {
+      "name": "allowSleep",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Allow the device to dim the screen (disable keep awake)."
+    },
+    {
+      "name": "isSupported",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsSupportedResult"
+      },
+      "promise": true,
+      "comment": "Check if the keep awake feature is supported on the current platform."
+    },
+    {
+      "name": "isKeptAwake",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsKeptAwakeResult"
+      },
+      "promise": true,
+      "comment": "Check if the device is currently being kept awake."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version."
+    }
+  ],
+  "events": [],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

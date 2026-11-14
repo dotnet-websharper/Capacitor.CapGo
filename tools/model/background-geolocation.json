@@ -1,0 +1,982 @@
+{
+  "namespace": "BackgroundGeolocation",
+  "family": "Device",
+  "package": "@capgo/background-geolocation",
+  "version": "8.6.4",
+  "license": "MPL-2.0",
+  "export": "BackgroundGeolocation",
+  "types": [
+    {
+      "name": "AddGeofenceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "radius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "notifyOnEntry",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "notifyOnExit",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "GeofenceSetupOptionsPayloadMap"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BackgroundGeolocationPermissionStatus",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "location",
+          "type": {
+            "k": "ref",
+            "name": "BackgroundGeolocationPermissionStatusLocation"
+          }
+        },
+        {
+          "name": "backgroundLocation",
+          "type": {
+            "k": "ref",
+            "name": "BackgroundGeolocationPermissionStatusBackgroundLocation"
+          }
+        },
+        {
+          "name": "notification",
+          "type": {
+            "k": "ref",
+            "name": "BackgroundGeolocationPermissionStatusLocation"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BackgroundGeolocationPermissionStatusBackgroundLocation",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied",
+        "when_in_use",
+        "always"
+      ]
+    },
+    {
+      "name": "BackgroundGeolocationPermissionStatusLocation",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied"
+      ]
+    },
+    {
+      "name": "CallbackError",
+      "kind": "config",
+      "required": [
+        {
+          "name": "name",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "code",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "stack",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cause",
+          "type": {
+            "k": "obj"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClearLocationLogOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "upToId",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GeofenceErrorEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "code",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "domain",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GeofenceSetupOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "StartOptionsHeadersMap"
+          }
+        },
+        {
+          "name": "notifyOnEntry",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "notifyOnExit",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "GeofenceSetupOptionsPayloadMap"
+          }
+        },
+        {
+          "name": "requestPermissions",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "backgroundLocation",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GeofenceSetupOptionsPayloadMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "GeofenceTransitionEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "transition",
+          "type": {
+            "k": "ref",
+            "name": "GeofenceTransitionEventTransition"
+          }
+        },
+        {
+          "name": "enter",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "radius",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "payload",
+          "type": {
+            "k": "ref",
+            "name": "GeofenceSetupOptionsPayloadMap"
+          }
+        },
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GeofenceTransitionEventTransition",
+      "kind": "enumStrings",
+      "cases": [
+        "enter",
+        "exit"
+      ]
+    },
+    {
+      "name": "GetLocationLogOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "afterId",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "limit",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Location",
+      "kind": "config",
+      "required": [
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "accuracy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "altitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "altitudeAccuracy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "simulated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "bearing",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LocationLogEntry",
+      "kind": "config",
+      "required": [
+        {
+          "name": "id",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "latitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "longitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "accuracy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "altitude",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "altitudeAccuracy",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "simulated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "bearing",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "speed",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "time",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "LocationLogEntryStatus"
+          }
+        },
+        {
+          "name": "httpStatus",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LocationLogEntryStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "pending",
+        "sent",
+        "failed"
+      ]
+    },
+    {
+      "name": "LocationLogResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "entries",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "LocationLogEntry"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MonitoredGeofencesResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "regions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RemoveGeofenceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "identifier",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "RequestBackgroundGeolocationPermissionsOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "permissions",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "RequestBackgroundGeolocationPermissionsOptionsPermissions"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "RequestBackgroundGeolocationPermissionsOptionsPermissions",
+      "kind": "enumStrings",
+      "cases": [
+        "location",
+        "backgroundLocation",
+        "notification"
+      ]
+    },
+    {
+      "name": "SetPlannedRouteOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "soundFile",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "route",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "array",
+              "of": {
+                "k": "float"
+              }
+            }
+          }
+        },
+        {
+          "name": "distance",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "backgroundMessage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "backgroundTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "requestPermissions",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "stale",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "distanceFilter",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "StartOptionsHeadersMap"
+          }
+        },
+        {
+          "name": "minIntervalMs",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "networkFallback",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "locationLog",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "locationLogMaxEntries",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "locationLogSqlite",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "StartOptionsHeadersMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "UpdateHeadersOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "headers",
+          "type": {
+            "k": "ref",
+            "name": "StartOptionsHeadersMap"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "start",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartOptions"
+          },
+          "optional": false
+        },
+        {
+          "name": "callback",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "Location"
+              },
+              {
+                "k": "ref",
+                "name": "CallbackError"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "To start listening for changes in the device's location, call this method.\nA Promise is returned to indicate that it finished the call. The callback will be called every time a new location\nis available, or if there was an error when calling this method. Don't rely on promise rejection for this."
+    },
+    {
+      "name": "stop",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops location updates."
+    },
+    {
+      "name": "updateHeaders",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateHeadersOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Replaces HTTP headers used by native POSTs without restarting tracking.\n\nUse this when an access token expires while `url` delivery is active.\nHeaders apply to the running location watcher and to geofence setup when\nthose features have a configured `url`."
+    },
+    {
+      "name": "clearGeofenceQueue",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Drops geofence transitions queued for a native POST and not yet sent.\n\nQueued transitions go out with the `headers` in place when they are sent,\nso call this when the user signs out, or before another account's\ncredentials are given to {@link BackgroundGeolocationPlugin.updateHeaders}\nor {@link BackgroundGeolocationPlugin.setupGeofencing}. The queue is also\nemptied when `setupGeofencing` is given a different `url`. On web there is\nno queue and this resolves at once."
+    },
+    {
+      "name": "openSettings",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Opens the device's location settings page.\nUseful for directing users to enable location services or adjust permissions."
+    },
+    {
+      "name": "setPlannedRoute",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPlannedRouteOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Plays a sound file when the user deviates from the planned route.\nThis should be used to play a sound (in the background too, only for native)."
+    },
+    {
+      "name": "setupGeofencing",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GeofenceSetupOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Configures native geofence transition handling.\n\nCall this before adding geofences when you need default entry/exit settings\nor native background POSTs. Android background POSTs require\n`backgroundLocation: true`."
+    },
+    {
+      "name": "addGeofence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AddGeofenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Starts monitoring a circular native geofence."
+    },
+    {
+      "name": "removeGeofence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RemoveGeofenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops monitoring one geofence."
+    },
+    {
+      "name": "removeAllGeofences",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Stops monitoring every geofence registered by this plugin."
+    },
+    {
+      "name": "getMonitoredGeofences",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "MonitoredGeofencesResult"
+      },
+      "promise": true,
+      "comment": "Lists the geofence identifiers currently monitored by this plugin."
+    },
+    {
+      "name": "getLocationLog",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetLocationLogOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LocationLogResult"
+      },
+      "promise": true,
+      "comment": "Reads the locations kept by {@link StartOptions.locationLog}, whether or\nnot tracking is running. Nothing is kept on the web, so the result is\nempty there."
+    },
+    {
+      "name": "clearLocationLog",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ClearLocationLogOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Removes entries from the location log, for example once they have been\nread or uploaded."
+    },
+    {
+      "name": "checkPermissions",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "BackgroundGeolocationPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Read current location authorization without prompting or side effects.\n\nOn iOS this maps `CLAuthorizationStatus` so you can distinguish Always from\nWhile Using App. On Android this reports foreground location,\n`ACCESS_BACKGROUND_LOCATION`, and notification permission where relevant."
+    },
+    {
+      "name": "requestPermissions",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RequestBackgroundGeolocationPermissionsOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "BackgroundGeolocationPermissionStatus"
+      },
+      "promise": true,
+      "comment": "Request location-related permissions from the user.\n\nPrefer {@link BackgroundGeolocationPlugin.checkPermissions} for read-only\nstatus in settings screens. Call this only when the user has opted in."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [
+    {
+      "name": "geofenceTransition",
+      "listener": {
+        "k": "ref",
+        "name": "GeofenceTransitionEvent"
+      }
+    },
+    {
+      "name": "geofenceError",
+      "listener": {
+        "k": "ref",
+        "name": "GeofenceErrorEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

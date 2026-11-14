@@ -1,0 +1,624 @@
+{
+  "namespace": "WebviewVersionChecker",
+  "family": "UI",
+  "package": "@capgo/capacitor-webview-version-checker",
+  "version": "8.2.21",
+  "license": "MPL-2.0",
+  "export": "WebviewVersionChecker",
+  "types": [
+    {
+      "name": "CheckWebViewOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "showPromptOnOutdated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoCheckOnLoad",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoCheckOnResume",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoPromptOnOutdated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoPromptDismissible",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "latestVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "minimumMajorVersion",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minimumDeviceSharePercent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "versionShareByMajor",
+          "type": {
+            "k": "ref",
+            "name": "CheckWebViewOptionsVersionShareByMajorMap"
+          }
+        },
+        {
+          "name": "versionShareApiUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "latestVersionApiUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updateUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptMessage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptUpdateButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptCancelButtonText",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CheckWebViewOptionsVersionShareByMajorMap",
+      "kind": "map",
+      "of": {
+        "k": "float"
+      }
+    },
+    {
+      "name": "LastStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "WebViewVersionStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MonitoringStateResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "monitoring",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "checkOnResume",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoPromptOnOutdated",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "OpenUpdatePageOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "updateUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OpenUpdatePageResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "opened",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ShowUpdatePromptOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "title",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updateButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "cancelButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updateUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ShowUpdatePromptResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "shown",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "openedUpdatePage",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "StartMonitoringOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "checkOnStart",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "checkOnResume",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "showPromptOnOutdated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "autoCheckOnLoad",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoCheckOnResume",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoPromptOnOutdated",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "autoPromptDismissible",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "latestVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "minimumMajorVersion",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minimumDeviceSharePercent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "versionShareByMajor",
+          "type": {
+            "k": "ref",
+            "name": "CheckWebViewOptionsVersionShareByMajorMap"
+          }
+        },
+        {
+          "name": "versionShareApiUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "latestVersionApiUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updateUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptTitle",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptMessage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptUpdateButtonText",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "promptCancelButtonText",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebViewVersionStatus",
+      "kind": "config",
+      "required": [
+        {
+          "name": "platform",
+          "type": {
+            "k": "ref",
+            "name": "WebViewVersionStatusPlatform"
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "k": "ref",
+            "name": "WebViewVersionStatusState"
+          }
+        },
+        {
+          "name": "isLatest",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "checkedAt",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currentVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "currentMajorVersion",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "latestVersion",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "latestMajorVersion",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "currentVersionSharePercent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "minimumDeviceSharePercent",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "versionShareSource",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "deviceShareError",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "providerPackage",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "updateUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "WebViewVersionStatusPlatform",
+      "kind": "enumStrings",
+      "cases": [
+        "android",
+        "ios",
+        "web"
+      ]
+    },
+    {
+      "name": "WebViewVersionStatusState",
+      "kind": "enumStrings",
+      "cases": [
+        "latest",
+        "outdated",
+        "unknown"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "check",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CheckWebViewOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "WebViewVersionStatus"
+      },
+      "promise": true,
+      "comment": "Runs a version check and returns the latest known status."
+    },
+    {
+      "name": "startMonitoring",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "StartMonitoringOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "MonitoringStateResult"
+      },
+      "promise": true,
+      "comment": "Enables background monitoring (typically on app resume)."
+    },
+    {
+      "name": "stopMonitoring",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "MonitoringStateResult"
+      },
+      "promise": true,
+      "comment": "Disables monitoring."
+    },
+    {
+      "name": "getLastStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "LastStatusResult"
+      },
+      "promise": true,
+      "comment": "Returns the last resolved status, or `null` if no check was run yet."
+    },
+    {
+      "name": "showUpdatePrompt",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ShowUpdatePromptOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "ShowUpdatePromptResult"
+      },
+      "promise": true,
+      "comment": "Shows a native prompt asking the user to update the WebView."
+    },
+    {
+      "name": "openUpdatePage",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "OpenUpdatePageOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "OpenUpdatePageResult"
+      },
+      "promise": true,
+      "comment": "Opens the configured update page directly."
+    }
+  ],
+  "events": [
+    {
+      "name": "statusChanged",
+      "listener": {
+        "k": "ref",
+        "name": "WebViewVersionStatus"
+      }
+    },
+    {
+      "name": "webViewLatest",
+      "listener": {
+        "k": "ref",
+        "name": "WebViewVersionStatus"
+      }
+    },
+    {
+      "name": "webViewOutdated",
+      "listener": {
+        "k": "ref",
+        "name": "WebViewVersionStatus"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

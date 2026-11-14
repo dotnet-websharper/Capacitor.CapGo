@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Product>WebSharper.Capacitor.CapGo.Messaging</Product>
+    <Title>https://github.com/dotnet-websharper/capacitor.capgo/</Title>
+    <Company>IntelliFactory</Company>
+    <Copyright>(c) 2023 IntelliFactory</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NpmDependencies>
+			<NpmPackage Name="@capgo/capacitor-firebase-messaging" Version="&gt;= 7.4.2 &lt; 8.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-incoming-call-kit" Version="&gt;= 8.2.16 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-intercom" Version="&gt;= 8.2.5 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-mqtt" Version="&gt;= 8.1.18 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-notifications" Version="&gt;= 8.1.1 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-realtimekit" Version="&gt;= 8.0.48 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-rich-notifications" Version="&gt;= 8.2.9 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-stream-call" Version="&gt;= 8.0.84 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-twilio-voice" Version="&gt;= 8.2.33 &lt; 9.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.fs" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapGoGeneratorCommon\CapGoGeneratorCommon.fsproj" />
+    <!-- The binding surface is generated from these models; without them MSBuild
+         would happily reuse a stale WebSharper metadata cache. -->
+    <CustomAdditionalCompileInputs Include="..\tools\model\*.json" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

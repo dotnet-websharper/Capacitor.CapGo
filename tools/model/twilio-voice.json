@@ -1,0 +1,757 @@
+{
+  "namespace": "TwilioVoice",
+  "family": "Messaging",
+  "package": "@capgo/capacitor-twilio-voice",
+  "version": "8.2.33",
+  "license": "MPL-2.0",
+  "export": "CapacitorTwilioVoice",
+  "types": [
+    {
+      "name": "AcceptCallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CallDisconnectedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CallInvite",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "from",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "to",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "customParams",
+          "type": {
+            "k": "ref",
+            "name": "CallInviteCustomParamsMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CallInviteCancelledEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "CallInviteCancelledEventReason"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CallInviteCancelledEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "user_declined",
+        "remote_cancelled"
+      ]
+    },
+    {
+      "name": "CallInviteCustomParamsMap",
+      "kind": "map",
+      "of": {
+        "k": "string"
+      }
+    },
+    {
+      "name": "CallQualityWarningsChangedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currentWarnings",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "previousWarnings",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckMicrophonePermissionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "granted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "EndCallOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetCallStatusResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "hasActiveCall",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isOnHold",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isMuted",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "pendingInvites",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "CallInvite"
+            }
+          }
+        },
+        {
+          "name": "activeCallsCount",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "callState",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsLoggedInResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isLoggedIn",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "hasValidToken",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "identity",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LoginOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LoginResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "MakeCallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "to",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "callerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MakeCallResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "success",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MuteCallOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "muted",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OutgoingCallFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "to",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "reason",
+          "type": {
+            "k": "ref",
+            "name": "OutgoingCallFailedEventReason"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OutgoingCallFailedEventReason",
+      "kind": "enumStrings",
+      "cases": [
+        "missing_access_token",
+        "connection_failed",
+        "no_call_details",
+        "microphone_permission_denied",
+        "invalid_contact",
+        "callkit_request_failed",
+        "unsupported_intent"
+      ]
+    },
+    {
+      "name": "OutgoingCallInitiatedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "callSid",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "to",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "ref",
+            "name": "OutgoingCallInitiatedEventSource"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OutgoingCallInitiatedEventSource",
+      "kind": "enumStrings",
+      "cases": [
+        "app",
+        "system"
+      ]
+    },
+    {
+      "name": "RegistrationFailureEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "error",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetSpeakerOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "enabled",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    }
+  ],
+  "methods": [
+    {
+      "name": "login",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LoginOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoginResult"
+      },
+      "promise": true,
+      "comment": "Authenticate the user with Twilio Voice using an access token.\n\nThe access token should be generated on your backend server using your Twilio credentials.\nThis token is required to make and receive calls through Twilio Voice."
+    },
+    {
+      "name": "logout",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "LoginResult"
+      },
+      "promise": true,
+      "comment": "Log out the current user and unregister from Twilio Voice.\n\nThis will disconnect any active calls and stop the device from receiving\nnew incoming call notifications."
+    },
+    {
+      "name": "isLoggedIn",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "IsLoggedInResult"
+      },
+      "promise": true,
+      "comment": "Check if the user is currently logged in and has a valid access token."
+    },
+    {
+      "name": "makeCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MakeCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "MakeCallResult"
+      },
+      "promise": true,
+      "comment": "Initiate an outgoing call to a phone number or client.\n\nThe user must be logged in before making a call. The call will be routed\nthrough your Twilio backend configuration."
+    },
+    {
+      "name": "acceptCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcceptCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoginResult"
+      },
+      "promise": true,
+      "comment": "Accept an incoming call.\n\nThis should be called in response to a 'callInviteReceived' event."
+    },
+    {
+      "name": "rejectCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "AcceptCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoginResult"
+      },
+      "promise": true,
+      "comment": "Reject an incoming call.\n\nThis should be called in response to a 'callInviteReceived' event.\nThe caller will hear a busy signal or be directed to voicemail."
+    },
+    {
+      "name": "endCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "EndCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoginResult"
+      },
+      "promise": true,
+      "comment": "End an active call.\n\nIf callSid is not provided, this will end the currently active call."
+    },
+    {
+      "name": "muteCall",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "MuteCallOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoginResult"
+      },
+      "promise": true,
+      "comment": "Mute or unmute the microphone during an active call.\n\nWhen muted, the other party will not hear audio from your microphone."
+    },
+    {
+      "name": "setSpeaker",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetSpeakerOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "LoginResult"
+      },
+      "promise": true,
+      "comment": "Enable or disable speakerphone mode.\n\nWhen enabled, audio will be routed through the device's speaker instead of the earpiece."
+    },
+    {
+      "name": "getCallStatus",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetCallStatusResult"
+      },
+      "promise": true,
+      "comment": "Get the current status of the active call.\n\nThis provides real-time information about the call state, mute status,\nhold status, and call identifiers."
+    },
+    {
+      "name": "checkMicrophonePermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckMicrophonePermissionResult"
+      },
+      "promise": true,
+      "comment": "Check if microphone permission has been granted.\n\nThis does not request permission, only checks the current permission status."
+    },
+    {
+      "name": "requestMicrophonePermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckMicrophonePermissionResult"
+      },
+      "promise": true,
+      "comment": "Request microphone permission from the user.\n\nOn iOS and Android, this will show the system permission dialog if permission\nhas not been granted yet. If permission was previously denied, the user may need\nto grant it in system settings."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all registered event listeners.\n\nThis is useful for cleanup when your component unmounts or when you want to\nreset all event handling."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native Capacitor plugin version"
+    }
+  ],
+  "events": [
+    {
+      "name": "callInviteReceived",
+      "listener": {
+        "k": "ref",
+        "name": "CallInvite"
+      }
+    },
+    {
+      "name": "callConnected",
+      "listener": {
+        "k": "ref",
+        "name": "AcceptCallOptions"
+      }
+    },
+    {
+      "name": "callInviteCancelled",
+      "listener": {
+        "k": "ref",
+        "name": "CallInviteCancelledEvent"
+      }
+    },
+    {
+      "name": "outgoingCallInitiated",
+      "listener": {
+        "k": "ref",
+        "name": "OutgoingCallInitiatedEvent"
+      }
+    },
+    {
+      "name": "outgoingCallFailed",
+      "listener": {
+        "k": "ref",
+        "name": "OutgoingCallFailedEvent"
+      }
+    },
+    {
+      "name": "callDisconnected",
+      "listener": {
+        "k": "ref",
+        "name": "CallDisconnectedEvent"
+      }
+    },
+    {
+      "name": "callRinging",
+      "listener": {
+        "k": "ref",
+        "name": "AcceptCallOptions"
+      }
+    },
+    {
+      "name": "callReconnecting",
+      "listener": {
+        "k": "ref",
+        "name": "CallDisconnectedEvent"
+      }
+    },
+    {
+      "name": "callReconnected",
+      "listener": {
+        "k": "ref",
+        "name": "AcceptCallOptions"
+      }
+    },
+    {
+      "name": "callQualityWarningsChanged",
+      "listener": {
+        "k": "ref",
+        "name": "CallQualityWarningsChangedEvent"
+      }
+    },
+    {
+      "name": "registrationSuccess",
+      "listener": {
+        "k": "unit"
+      }
+    },
+    {
+      "name": "registrationFailure",
+      "listener": {
+        "k": "ref",
+        "name": "RegistrationFailureEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

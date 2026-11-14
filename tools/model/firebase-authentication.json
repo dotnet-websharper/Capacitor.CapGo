@@ -1,0 +1,2362 @@
+{
+  "namespace": "FirebaseAuthentication",
+  "family": "Analytics",
+  "package": "@capgo/capacitor-firebase-authentication",
+  "version": "8.0.2",
+  "license": "MPL-2.0",
+  "export": "FirebaseAuthentication",
+  "types": [
+    {
+      "name": "ActionCodeSettings",
+      "kind": "config",
+      "required": [
+        {
+          "name": "url",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "android",
+          "type": {
+            "k": "ref",
+            "name": "ActionCodeSettingsAndroid"
+          }
+        },
+        {
+          "name": "handleCodeInApp",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "iOS",
+          "type": {
+            "k": "ref",
+            "name": "ActionCodeSettingsIOS"
+          }
+        },
+        {
+          "name": "linkDomain",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ActionCodeSettingsAndroid",
+      "kind": "config",
+      "required": [
+        {
+          "name": "packageName",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "installApp",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "minimumVersion",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ActionCodeSettingsIOS",
+      "kind": "config",
+      "required": [
+        {
+          "name": "bundleId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AdditionalUserInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isNewUser",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "profile",
+          "type": {
+            "k": "ref",
+            "name": "AdditionalUserInfoProfileMap"
+          }
+        },
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "username",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AdditionalUserInfoProfileMap",
+      "kind": "map",
+      "of": {
+        "k": "obj"
+      }
+    },
+    {
+      "name": "ApplyActionCodeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "oobCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "AuthCredential",
+      "kind": "config",
+      "required": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "accessToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "authorizationCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "idToken",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "nonce",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "secret",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "serverAuthCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AuthStateChange",
+      "kind": "config",
+      "required": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckAppTrackingTransparencyPermissionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "status",
+          "type": {
+            "k": "ref",
+            "name": "CheckAppTrackingTransparencyPermissionResultStatus"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CheckAppTrackingTransparencyPermissionResultStatus",
+      "kind": "enumStrings",
+      "cases": [
+        "prompt",
+        "prompt-with-rationale",
+        "granted",
+        "denied",
+        "restricted"
+      ]
+    },
+    {
+      "name": "ConfirmPasswordResetOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "oobCode",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "newPassword",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ConfirmVerificationCodeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "verificationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "verificationCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "CreateUserWithEmailAndPasswordOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FetchSignInMethodsForEmailOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "FetchSignInMethodsForEmailResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "signInMethods",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetCurrentUserResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetIdTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "forceRefresh",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetIdTokenResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetIdTokenResultOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "forceRefresh",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetIdTokenResultResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "authTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "expirationTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "issuedAtTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "signInProvider",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "signInSecondFactor",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "claims",
+          "type": {
+            "k": "ref",
+            "name": "AdditionalUserInfoProfileMap"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "GetTenantIdResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "tenantId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSignInWithEmailLinkOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "emailLink",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "IsSignInWithEmailLinkResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "isSignInWithEmailLink",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LinkWithEmailAndPasswordOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "LinkWithEmailLinkOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "emailLink",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "Persistence",
+      "kind": "enumStrings",
+      "cases": [
+        "INDEXED_DB_LOCAL",
+        "IN_MEMORY",
+        "BROWSER_LOCAL",
+        "BROWSER_SESSION"
+      ]
+    },
+    {
+      "name": "PhoneCodeSentEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "verificationId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "PhoneVerificationCompletedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        },
+        {
+          "name": "credential",
+          "type": {
+            "k": "ref",
+            "name": "AuthCredential"
+          }
+        },
+        {
+          "name": "additionalUserInfo",
+          "type": {
+            "k": "ref",
+            "name": "AdditionalUserInfo"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "verificationCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PhoneVerificationFailedEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "message",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "ProviderId",
+      "kind": "enumStrings",
+      "cases": [
+        "apple.com",
+        "facebook.com",
+        "gc.apple.com",
+        "github.com",
+        "google.com",
+        "microsoft.com",
+        "playgames.google.com",
+        "twitter.com",
+        "yahoo.com",
+        "password",
+        "phone"
+      ]
+    },
+    {
+      "name": "RevokeAccessTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SendEmailVerificationOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "actionCodeSettings",
+          "type": {
+            "k": "ref",
+            "name": "ActionCodeSettings"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SendPasswordResetEmailOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "actionCodeSettings",
+          "type": {
+            "k": "ref",
+            "name": "ActionCodeSettings"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SendSignInLinkToEmailOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "actionCodeSettings",
+          "type": {
+            "k": "ref",
+            "name": "ActionCodeSettings"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetLanguageCodeOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "languageCode",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetPersistenceOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "persistence",
+          "type": {
+            "k": "ref",
+            "name": "Persistence"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SetTenantIdOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "tenantId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SignInCustomParameter",
+      "kind": "config",
+      "required": [
+        {
+          "name": "key",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "value",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SignInOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        },
+        {
+          "name": "credential",
+          "type": {
+            "k": "ref",
+            "name": "AuthCredential"
+          }
+        },
+        {
+          "name": "additionalUserInfo",
+          "type": {
+            "k": "ref",
+            "name": "AdditionalUserInfo"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "SignInWithCustomTokenOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "token",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithEmailAndPasswordOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithEmailLinkOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "emailLink",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithFacebookOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "useLimitedLogin",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "customParameters",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SignInCustomParameter"
+            }
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptionsMode"
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithGoogleOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "useCredentialManager",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "customParameters",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SignInCustomParameter"
+            }
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptionsMode"
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithOAuthOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "customParameters",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SignInCustomParameter"
+            }
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptionsMode"
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithOAuthOptionsMode",
+      "kind": "enumStrings",
+      "cases": [
+        "popup",
+        "redirect"
+      ]
+    },
+    {
+      "name": "SignInWithOpenIdConnectOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "customParameters",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "SignInCustomParameter"
+            }
+          }
+        },
+        {
+          "name": "mode",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptionsMode"
+          }
+        },
+        {
+          "name": "scopes",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "string"
+            }
+          }
+        },
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SignInWithPhoneNumberOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "recaptchaVerifier",
+          "type": {
+            "k": "obj"
+          }
+        },
+        {
+          "name": "resendCode",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "timeout",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "skipNativeAuth",
+          "type": {
+            "k": "bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UnlinkOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "providerId",
+          "type": {
+            "k": "ref",
+            "name": "ProviderId"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UnlinkResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "user",
+          "type": {
+            "k": "ref",
+            "name": "User"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateEmailOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "newEmail",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdatePasswordOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "newPassword",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UpdateProfileOptions",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "photoUrl",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "UseEmulatorOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "host",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "port",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "scheme",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "kind": "config",
+      "required": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "emailVerified",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "isAnonymous",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": {
+            "k": "ref",
+            "name": "UserMetadata"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "photoUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "providerData",
+          "type": {
+            "k": "array",
+            "of": {
+              "k": "ref",
+              "name": "UserInfo"
+            }
+          }
+        },
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "tenantId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "uid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UserInfo",
+      "kind": "config",
+      "required": [
+        {
+          "name": "displayName",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "email",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "phoneNumber",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "photoUrl",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "providerId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "uid",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UserMetadata",
+      "kind": "config",
+      "required": [],
+      "optional": [
+        {
+          "name": "creationTime",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lastSignInTime",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VerifyBeforeUpdateEmailOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "newEmail",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "actionCodeSettings",
+          "type": {
+            "k": "ref",
+            "name": "ActionCodeSettings"
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "applyActionCode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ApplyActionCodeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Applies a verification code sent to the user by email."
+    },
+    {
+      "name": "confirmPasswordReset",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConfirmPasswordResetOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Completes the password reset process."
+    },
+    {
+      "name": "confirmVerificationCode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ConfirmVerificationCodeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Finishes the phone number verification process."
+    },
+    {
+      "name": "createUserWithEmailAndPassword",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "CreateUserWithEmailAndPasswordOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Creates a new user account with email and password.\nIf the new account was created, the user is signed in automatically."
+    },
+    {
+      "name": "deleteUser",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Deletes and signs out the user."
+    },
+    {
+      "name": "fetchSignInMethodsForEmail",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "FetchSignInMethodsForEmailOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "FetchSignInMethodsForEmailResult"
+      },
+      "promise": true,
+      "comment": "Fetches the sign-in methods for an email address."
+    },
+    {
+      "name": "getCurrentUser",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetCurrentUserResult"
+      },
+      "promise": true,
+      "comment": "Fetches the currently signed-in user."
+    },
+    {
+      "name": "getPendingAuthResult",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Returns the `SignInResult` if your app launched a web sign-in flow and the OS cleans up the app while in the background.\n\nOnly available for Android."
+    },
+    {
+      "name": "getIdToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetIdTokenOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetIdTokenResult"
+      },
+      "promise": true,
+      "comment": "Fetches the Firebase Auth ID Token for the currently signed-in user."
+    },
+    {
+      "name": "getIdTokenResult",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "GetIdTokenResultOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "GetIdTokenResultResult"
+      },
+      "promise": true,
+      "comment": "Returns a deserialized JSON Web Token (JWT) used to identify the user to a Firebase service."
+    },
+    {
+      "name": "getRedirectResult",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Returns the `SignInResult` from the redirect-based sign-in flow.\n\nIf sign-in was unsuccessful, fails with an error.\nIf no redirect operation was called, returns a `SignInResult` with a null user.\n\nOnly available for Web."
+    },
+    {
+      "name": "getTenantId",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetTenantIdResult"
+      },
+      "promise": true,
+      "comment": "Get the tenant id."
+    },
+    {
+      "name": "isSignInWithEmailLink",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "IsSignInWithEmailLinkOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "IsSignInWithEmailLinkResult"
+      },
+      "promise": true,
+      "comment": "Checks if an incoming link is a sign-in with email link suitable for `signInWithEmailLink`."
+    },
+    {
+      "name": "linkWithApple",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Apple authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithEmailAndPassword",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LinkWithEmailAndPasswordOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Email authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithEmailLink",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "LinkWithEmailLinkOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Email authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithFacebook",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Facebook authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithGameCenter",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Game Center authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here.\n\nOnly available for iOS."
+    },
+    {
+      "name": "linkWithGithub",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with GitHub authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithGoogle",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Google authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithMicrosoft",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Microsoft authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithOpenIdConnect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOpenIdConnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with an OpenID Connect provider."
+    },
+    {
+      "name": "linkWithPhoneNumber",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithPhoneNumberOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Links the user account with Phone Number authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here.\n\nUse the `phoneVerificationCompleted` listener to be notified when the verification is completed.\nUse the `phoneVerificationFailed` listener to be notified when the verification is failed.\nUse the `phoneCodeSent` listener to get the verification id."
+    },
+    {
+      "name": "linkWithPlayGames",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Play Games authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here.\n\nOnly available for Android."
+    },
+    {
+      "name": "linkWithTwitter",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Twitter authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "linkWithYahoo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Links the user account with Yahoo authentication provider.\n\nThe user must be logged in on the native layer.\nThe `skipNativeAuth` configuration option has no effect here."
+    },
+    {
+      "name": "reload",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Reloads user account data, if signed in."
+    },
+    {
+      "name": "revokeAccessToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "RevokeAccessTokenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Revokes the given access token. Currently only supports Apple OAuth access tokens."
+    },
+    {
+      "name": "sendEmailVerification",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendEmailVerificationOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends a verification email to the currently signed in user."
+    },
+    {
+      "name": "sendPasswordResetEmail",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendPasswordResetEmailOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends a password reset email."
+    },
+    {
+      "name": "sendSignInLinkToEmail",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SendSignInLinkToEmailOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sends a sign-in email link to the user with the specified email.\n\nTo complete sign in with the email link, call `signInWithEmailLink` with the email address and the email link supplied in the email sent to the user."
+    },
+    {
+      "name": "setLanguageCode",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetLanguageCodeOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the user-facing language code for auth operations."
+    },
+    {
+      "name": "setPersistence",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetPersistenceOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the type of persistence for the currently saved auth session.\n\nOnly available for Web."
+    },
+    {
+      "name": "setTenantId",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SetTenantIdOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the tenant id."
+    },
+    {
+      "name": "signInAnonymously",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Signs in as an anonymous user."
+    },
+    {
+      "name": "signInWithApple",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Apple sign-in flow."
+    },
+    {
+      "name": "signInWithCustomToken",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithCustomTokenOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Custom Token sign-in flow.\n\nThis method cannot be used in combination with `skipNativeAuth` on Android and iOS.\nIn this case you have to use the `signInWithCustomToken` interface of the Firebase JS SDK directly."
+    },
+    {
+      "name": "signInWithEmailAndPassword",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithEmailAndPasswordOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the sign-in flow using an email and password."
+    },
+    {
+      "name": "signInWithEmailLink",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithEmailLinkOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Signs in using an email and sign-in email link."
+    },
+    {
+      "name": "signInWithFacebook",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithFacebookOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Facebook sign-in flow."
+    },
+    {
+      "name": "signInWithGameCenter",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "union",
+            "of": [
+              {
+                "k": "ref",
+                "name": "SignInWithOAuthOptions"
+              },
+              {
+                "k": "ref",
+                "name": "SignInOptions"
+              }
+            ]
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Game Center sign-in flow.\n\nOnly available for iOS."
+    },
+    {
+      "name": "signInWithGithub",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the GitHub sign-in flow."
+    },
+    {
+      "name": "signInWithGoogle",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithGoogleOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Google sign-in flow."
+    },
+    {
+      "name": "signInWithMicrosoft",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Microsoft sign-in flow."
+    },
+    {
+      "name": "signInWithOpenIdConnect",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOpenIdConnectOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the OpenID Connect sign-in flow."
+    },
+    {
+      "name": "signInWithPhoneNumber",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithPhoneNumberOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Starts the sign-in flow using a phone number.\n\nUse the `phoneVerificationCompleted` listener to be notified when the verification is completed.\nUse the `phoneVerificationFailed` listener to be notified when the verification is failed.\nUse the `phoneCodeSent` listener to get the verification id.\n\nOnly available for Android and iOS."
+    },
+    {
+      "name": "signInWithPlayGames",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Play Games sign-in flow.\n\nOnly available for Android."
+    },
+    {
+      "name": "signInWithTwitter",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Twitter sign-in flow."
+    },
+    {
+      "name": "signInWithYahoo",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "SignInWithOAuthOptions"
+          },
+          "optional": true
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "SignInResult"
+      },
+      "promise": true,
+      "comment": "Starts the Yahoo sign-in flow."
+    },
+    {
+      "name": "signOut",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Starts the sign-out flow."
+    },
+    {
+      "name": "unlink",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UnlinkOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "ref",
+        "name": "UnlinkResult"
+      },
+      "promise": true,
+      "comment": "Unlinks a provider from a user account."
+    },
+    {
+      "name": "updateEmail",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateEmailOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Updates the email address of the currently signed in user."
+    },
+    {
+      "name": "updatePassword",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdatePasswordOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Updates the password of the currently signed in user."
+    },
+    {
+      "name": "updateProfile",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UpdateProfileOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Updates a user's profile data."
+    },
+    {
+      "name": "useAppLanguage",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Sets the user-facing language code to be the default app language."
+    },
+    {
+      "name": "useEmulator",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UseEmulatorOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Instrument your app to talk to the Authentication emulator."
+    },
+    {
+      "name": "verifyBeforeUpdateEmail",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "VerifyBeforeUpdateEmailOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Verifies the new email address before updating the email address of the currently signed in user."
+    },
+    {
+      "name": "checkAppTrackingTransparencyPermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckAppTrackingTransparencyPermissionResult"
+      },
+      "promise": true,
+      "comment": "Checks the current status of app tracking transparency.\n\nOnly available on iOS."
+    },
+    {
+      "name": "requestAppTrackingTransparencyPermission",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "CheckAppTrackingTransparencyPermissionResult"
+      },
+      "promise": true,
+      "comment": "Opens the system dialog to authorize app tracking transparency.\n\n**Attention:** The user may have disabled the tracking request in the device settings, see [Apple's documentation](https://support.apple.com/guide/iphone/iph4f4cbd242/ios).\n\nOnly available on iOS."
+    },
+    {
+      "name": "removeAllListeners",
+      "params": [],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Remove all listeners for this plugin."
+    }
+  ],
+  "events": [
+    {
+      "name": "authStateChange",
+      "listener": {
+        "k": "ref",
+        "name": "AuthStateChange"
+      }
+    },
+    {
+      "name": "idTokenChange",
+      "listener": {
+        "k": "ref",
+        "name": "GetIdTokenResult"
+      }
+    },
+    {
+      "name": "phoneVerificationCompleted",
+      "listener": {
+        "k": "ref",
+        "name": "PhoneVerificationCompletedEvent"
+      }
+    },
+    {
+      "name": "phoneVerificationFailed",
+      "listener": {
+        "k": "ref",
+        "name": "PhoneVerificationFailedEvent"
+      }
+    },
+    {
+      "name": "phoneCodeSent",
+      "listener": {
+        "k": "ref",
+        "name": "PhoneCodeSentEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}

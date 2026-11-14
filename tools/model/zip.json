@@ -1,0 +1,266 @@
+{
+  "namespace": "Zip",
+  "family": "Files",
+  "package": "@capgo/capacitor-zip",
+  "version": "8.2.5",
+  "license": "MPL-2.0",
+  "export": "CapacitorZip",
+  "types": [
+    {
+      "name": "GetPluginVersionResult",
+      "kind": "config",
+      "required": [
+        {
+          "name": "version",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": []
+    },
+    {
+      "name": "UnzipOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "destination",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "onProgress",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "ZipProgressEvent"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        },
+        {
+          "name": "operationId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZipOptions",
+      "kind": "config",
+      "required": [
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "destination",
+          "type": {
+            "k": "string"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "password",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "includeParentFolder",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "onProgress",
+          "type": {
+            "k": "func",
+            "args": [
+              {
+                "k": "ref",
+                "name": "ZipProgressEvent"
+              }
+            ],
+            "ret": {
+              "k": "unit"
+            }
+          }
+        },
+        {
+          "name": "operationId",
+          "type": {
+            "k": "string"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZipProgressEvent",
+      "kind": "config",
+      "required": [
+        {
+          "name": "operation",
+          "type": {
+            "k": "ref",
+            "name": "ZipProgressEventOperation"
+          }
+        },
+        {
+          "name": "loaded",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "total",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "lengthComputable",
+          "type": {
+            "k": "bool"
+          }
+        },
+        {
+          "name": "progress",
+          "type": {
+            "k": "float"
+          }
+        }
+      ],
+      "optional": [
+        {
+          "name": "operationId",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "source",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "destination",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "currentFile",
+          "type": {
+            "k": "string"
+          }
+        },
+        {
+          "name": "filesCompleted",
+          "type": {
+            "k": "float"
+          }
+        },
+        {
+          "name": "filesTotal",
+          "type": {
+            "k": "float"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZipProgressEventOperation",
+      "kind": "enumStrings",
+      "cases": [
+        "zip",
+        "unzip"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "name": "zip",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "ZipOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Compress a file or directory to create a ZIP archive.\n\nCreates a compressed archive from a source file or directory. The archive\nwill include the entire directory structure if the source is a folder.\n\nPlatform-specific notes:\n- iOS: Password protection is not supported. If a password is provided, it will be ignored and a warning will be logged.\n- Android: Supports AES-256 encryption when a password is provided.\n- Web: Not supported. Throws an error if called."
+    },
+    {
+      "name": "unzip",
+      "params": [
+        {
+          "name": "options",
+          "type": {
+            "k": "ref",
+            "name": "UnzipOptions"
+          },
+          "optional": false
+        }
+      ],
+      "returns": {
+        "k": "unit"
+      },
+      "promise": true,
+      "comment": "Extract a ZIP archive to a specified destination directory.\n\nExtracts all files and folders from a ZIP archive while preserving the\ndirectory structure. Creates the destination directory if it doesn't exist.\n\nPlatform-specific notes:\n- iOS: Supports standard ZIP archives. Password-protected archives are not supported; a provided password is ignored.\n- Android: Supports AES-encrypted archives with password. Includes zip slip vulnerability protection.\n- Web: Downloads each file individually to the browser's download folder. Cannot create a directory structure."
+    },
+    {
+      "name": "getPluginVersion",
+      "params": [],
+      "returns": {
+        "k": "ref",
+        "name": "GetPluginVersionResult"
+      },
+      "promise": true,
+      "comment": "Get the native plugin version.\n\nReturns the version of the native plugin code, which follows the Capacitor\nmajor version (e.g., 7.0.0 for Capacitor 7.x)."
+    }
+  ],
+  "events": [
+    {
+      "name": "progress",
+      "listener": {
+        "k": "ref",
+        "name": "ZipProgressEvent"
+      }
+    }
+  ],
+  "unsupported": [],
+  "coreRefs": [],
+  "externalTypes": []
+}
