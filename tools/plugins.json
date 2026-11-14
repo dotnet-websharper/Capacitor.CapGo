@@ -16,7 +16,8 @@
     {
       "namespace": "SocialLogin",
       "family": "Core",
-      "package": "@capgo/capacitor-social-login"
+      "package": "@capgo/capacitor-social-login",
+      "overrides": "social-login"
     },
     {
       "namespace": "Uploader",
