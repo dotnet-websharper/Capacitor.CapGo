@@ -11,29 +11,35 @@
 
 	<PropertyGroup>
 		<NpmDependencies>
-			<NpmPackage Name="@capgo/capacitor-social-login" Version="gt= 0.0.5 lt 0.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-uploader" Version="gt= 0.0.5 lt 0.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-navigation-bar" Version="gt= 6.1.0 lt 6.2.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-data-storage-sqlite" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-screen-recorder" Version="gt= 8.1.0 lt 8.2.5" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/native-purchases" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-flash" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-updater" Version="gt= 6.7.0 lt 6.9.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/home-indicator" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/nativegeocoder" Version="gt= 6.1.0 lt 6.2.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-crisp" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-mute" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/native-audio" Version="gt= 6.4.0 lt 6.5.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-downloader" Version="gt= 0.0.0 lt 0.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/capacitor-shake" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/ivs-player" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />
-			<NpmPackage Name="@capgo/native-market" Version="gt= 6.0.0 lt 6.1.0" ResolutionStrategy="Max" />			
+			<NpmPackage Name="@capgo/capacitor-crisp" Version="&gt;= 8.2.17 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-data-storage-sqlite" Version="&gt;= 8.0.64 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-downloader" Version="&gt;= 8.6.0 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-flash" Version="&gt;= 8.0.54 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-mute" Version="&gt;= 8.1.21 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-shake" Version="&gt;= 8.0.58 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-updater" Version="&gt;= 8.54.2 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-home-indicator" Version="&gt;= 8.1.8 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-ivs-player" Version="&gt;= 8.0.47 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-native-audio" Version="&gt;= 8.5.4 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-nativegeocoder" Version="&gt;= 8.0.64 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-native-market" Version="&gt;= 8.0.60 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/native-purchases" Version="&gt;= 8.9.16 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-navigation-bar" Version="&gt;= 8.2.23 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-screen-recorder" Version="&gt;= 8.4.10 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-social-login" Version="&gt;= 8.7.11 &lt; 9.0.0" ResolutionStrategy="Max" />
+			<NpmPackage Name="@capgo/capacitor-uploader" Version="&gt;= 8.3.31 &lt; 9.0.0" ResolutionStrategy="Max" />
 		</NpmDependencies>
 	</PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Main.fs" />
     <None Include="wsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapGoGeneratorCommon\CapGoGeneratorCommon.fsproj" />
+    <!-- The binding surface is generated from these models; without them MSBuild
+         would happily reuse a stale WebSharper metadata cache. -->
+    <CustomAdditionalCompileInputs Include="..\tools\model\*.json" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

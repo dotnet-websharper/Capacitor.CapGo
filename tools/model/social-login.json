@@ -754,8 +754,14 @@
           "type": {
             "k": "union",
             "of": [
-              "GoogleLoginResponseOnline",
-              "GoogleLoginResponseOffline"
+              {
+                "k": "ref",
+                "name": "GoogleLoginResponseOnline"
+              },
+              {
+                "k": "ref",
+                "name": "GoogleLoginResponseOffline"
+              }
             ]
           }
         }

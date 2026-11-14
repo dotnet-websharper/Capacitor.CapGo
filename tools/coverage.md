@@ -5,17 +5,17 @@ Methods and events are counted separately; `unsupported` needs a hand-written ov
 
 | Namespace | npm package | Version | Methods + events | Unsupported | Status |
 |---|---|---:|---:|---:|---|
-| SocialLogin | `@capgo/capacitor-social-login` | 8.7.11 | 16 | 1 ⚠ | same |
+| SocialLogin | `@capgo/capacitor-social-login` | 8.7.11 | 16 | 1 ⚠ | updated |
 | Uploader | `@capgo/capacitor-uploader` | 8.3.31 | 6 | — | same |
 | NavigationBar | `@capgo/capacitor-navigation-bar` | 8.2.23 | 5 | — | same |
-| CapacitorDataStorageSqlite | `@capgo/capacitor-data-storage-sqlite` | 8.0.64 | 23 | — | updated |
+| CapacitorDataStorageSqlite | `@capgo/capacitor-data-storage-sqlite` | 8.0.64 | 23 | — | same |
 | ScreenRecorder | `@capgo/capacitor-screen-recorder` | 8.4.10 | 5 | — | same |
 | NativePurchases | `@capgo/native-purchases` | 8.9.16 | 20 | — | same |
 | CapacitorFlash | `@capgo/capacitor-flash` | 8.0.54 | 6 | — | same |
 | CapacitorUpdater | `@capgo/capacitor-updater` | 8.54.2 | 66 | — | same |
 | HomeIndicator | `@capgo/capacitor-home-indicator` | 8.1.8 | 4 | — | same |
 | NativeGeocoder | `@capgo/capacitor-nativegeocoder` | 8.0.64 | 3 | — | same |
-| CapacitorCrisp | `@capgo/capacitor-crisp` | 8.2.17 | 24 | — | updated |
+| CapacitorCrisp | `@capgo/capacitor-crisp` | 8.2.17 | 24 | — | same |
 | CapacitorMute | `@capgo/capacitor-mute` | 8.1.21 | 2 | — | same |
 | NativeAudio | `@capgo/capacitor-native-audio` | 8.5.4 | 37 | — | same |
 | CapacitorDownloader | `@capgo/capacitor-downloader` | 8.6.0 | 11 | — | same |

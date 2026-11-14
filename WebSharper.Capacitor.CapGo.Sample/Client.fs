@@ -20,14 +20,11 @@ module Client =
             "Paul"
         ]
 
-    let loginOptions = LoginOptions(
-        provider = Provider.Google,
-        options = GoogleLoginOptions(
-            Nonce = ""
-        )
-    )
-
-    let loginResult = CapacitorCapGo.SocialLogin.Login(loginOptions)
+    // Exercise a few of the generated members so the sample proves the surface
+    // compiles and the imports are emitted. The full demo UI lands with the
+    // sample rewrite.
+    let probe () =
+        CapacitorCapGo.CapacitorFlash.IsAvailable()
 
     [<SPAEntryPoint>]
     let Main () =

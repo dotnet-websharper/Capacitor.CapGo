@@ -199,7 +199,7 @@ class Extractor {
         return { k: "ref", name: this.registerAnonymous(this.hintName(hint), { kind: "enum", cases }) };
       }
       const refs = parts.map(t => this.refNameOf(t));
-      if (refs.every(Boolean)) return { k: "union", of: refs };
+      if (refs.every(Boolean)) return { k: "union", of: refs.map(n => ({ k: "ref", name: n })) };
       const converted = parts.map(t => this.conv(t, hint));
       if (converted.every(t => t)) {
         const seen = new Set();
